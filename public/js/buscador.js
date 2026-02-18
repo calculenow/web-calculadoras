@@ -4,10 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
         { nombre: "IVA", url: "/calculadora-iva" },
         { nombre: "IMC", url: "/calculadora-imc" },
         { nombre: "Calorías (TMB)", url: "/calculadora-calorias" },
+        { nombre: "Hidratación", url: "/calculadora-hidratacion" },
         { nombre: "Divisas", url: "/calculadora-divisas" },
         { nombre: "Porcentajes", url: "/calculadora-porcentajes" },
         { nombre: "Préstamos", url: "/calculadora-prestamos" },
-        { nombre: "Intereses", url: "/calculadora-intereses'compuestos" },
+        { nombre: "Intereses", url: "/calculadora-intereses-compuestos" },
         { nombre: "DNI", url: "/validador-dni" }
     ];
 

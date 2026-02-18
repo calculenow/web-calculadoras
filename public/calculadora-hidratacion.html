@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Calculadora de Hidratación Diaria",
+        "operatingSystem": "All",
+        "applicationCategory": "HealthApplication",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EUR"
+        },
+        "description": "Calcula cuánta agua debes beber al día según tu peso corporal y nivel de actividad física con nuestra calculadora gratuita."
+      }
+    </script>
+
+    <title>Calculadora de Hidratación Diaria | Calculenow</title>
+    <meta
+      name="description"
+      content="¿Cuánta agua hay que beber al día? Calcula tu hidratación ideal según tu peso y ejercicio. ¡Mantente sano y rinde más!"
+    />
+    <link
+      rel="canonical"
+      href="https://calculenow.com/calculadora-hidratacion"
+    />
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <div class="card">
+        <h1>Calculadora de Hidratación Diaria</h1>
+
+        <div class="form-group">
+          <label for="peso">Tu peso corporal (kg)</label>
+          <input id="peso" class="field" type="number" value="70" min="20" step="1" />
+        </div>
+
+        <div class="form-group">
+          <label for="actividad">Nivel de actividad física diaria</label>
+          <select id="actividad" class="field">
+            <option value="0">Sedentario (Sin ejercicio)</option>
+            <option value="30">Ejercicio ligero (30 min/día)</option>
+            <option value="60">Ejercicio moderado (1 hora/día)</option>
+            <option value="120">Ejercicio intenso (2 horas/día)</option>
+          </select>
+        </div>
+
+        <button class="btn btn-interes" id="btn-calcular-agua">Calcular Hidratación</button>
+
+        <div class="result-container">
+  <div class="result result-hidratacion"></div>
+  
+  <p class="disclaimer-text">
+    <strong>Aviso:</strong> Este cálculo es una estimación basada en condiciones estándar. Consulta siempre con un profesional de la salud.
+  </p>
+</div>
+
+      </div>
+
+      <section class="legal-content">
+        <h2>¿Por qué es importante calcular tu ingesta de agua?</h2>
+        <p>
+          El agua representa aproximadamente el 60% del peso corporal humano y es vital para casi todas las funciones biológicas.
+        </p>
+
+        <h3>La fórmula de hidratación recomendada</h3>
+        <p>
+          Una de las fórmulas más aceptadas por expertos en nutrición para calcular la necesidad hídrica basal es:
+        </p>
+        <div class="formule">Consumo (ml) = Peso (kg) × 35</div>
+        
+        
+
+        <p>
+          <small>*A esta base se le deben sumar aproximadamente <strong>600-800 ml</strong> por cada hora de ejercicio intenso realizado debido a la pérdida por sudoración.</small>
+        </p>
+
+        <h3>Señales de deshidratación que debes vigilar</h3>
+        <ul>
+          <li><strong>Color de la orina:</strong> Si es oscura, necesitas beber más agua de inmediato.</li>
+          <li><strong>Fatiga y mareos:</strong> La falta de agua reduce el volumen sanguíneo y la oxigenación celular.</li>
+          <li><strong>Piel seca:</strong> La elasticidad de la piel es uno de los primeros indicadores de hidratación tisular.</li>
+        </ul>
+      </section>
+
+      <section class="faq-section">
+        <h2>Preguntas frecuentes sobre hidratación</h2>
+
+        <details>
+          <summary>¿Cuenta el café o el té para la hidratación?</summary>
+          <div class="faq-content">
+            <p>
+              Sí, las infusiones contribuyen al total diario. Aunque la cafeína es diurética, el aporte de líquido compensa ese efecto en consumidores habituales.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Se puede beber demasiada agua?</summary>
+          <div class="faq-content">
+            <p>
+              Sí, se conoce como hiponatremia. Beber cantidades extremas en poco tiempo puede diluir peligrosamente los electrolitos en sangre.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Cuánta agua tienen los alimentos?</summary>
+          <div class="faq-content">
+            <p>
+              Cerca del 20% de nuestra hidratación proviene de alimentos sólidos, especialmente frutas y verduras con alto contenido acuoso.
+            </p>
+          </div>
+        </details>
+      </section>
+    </main>
+
+    <script src="js/layout.js"></script>
+    <script src="js/core.js"></script>
+    <script src="js/hidratacion.js"></script>
+  </body>
+</html>
