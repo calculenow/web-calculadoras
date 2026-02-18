@@ -1,12 +1,12 @@
 {
-  "last_update": "2026-02-18",
-  "indices": {
-    "sp500": 0.1613,
-    "nasdaq": 12.0,
-    "ibex35": 4.2
-  },
-  "macro": {
-    "inflacion_eur": 2.5,
-    "euribor": 3.2
-  }
+    "last_update": "Febrero 2026",
+    "fuente": "Medias históricas de mercado",
+    "indices": {
+        "sp500": 10.0,
+        "nasdaq": 12.0
+    },
+    "macro": {
+        "ahorro": 3.5,
+        "inflacion": 2.5
+    }
 }
