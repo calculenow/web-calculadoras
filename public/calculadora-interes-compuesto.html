@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme');
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Calculadora de Interés Compuesto",
+    "operatingSystem": "All",
+    "applicationCategory": "FinanceApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    },
+    "description": "Calcula el crecimiento de tus ahorros e inversiones a largo plazo con nuestra calculadora de interés compuesto con aportaciones."
+  }
+  </script>
+
+  <title>Calculadora de Interés Compuesto | Calculenow</title>
+  <meta name="description" content="Calcula cuánto dinero tendrás en el futuro. Proyecta tus ahorros con interés compuesto y aportaciones mensuales. ¡Gratis y fácil de usar!">
+  <link rel="canonical" href="https://calculenow.com/calculadora-interes-compuesto">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+    <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+      height="0" width="0" style="display:none;visibility:hidden">
+    </iframe>
+  </noscript>
+  <header></header>
+  <main>
+    <div class="card">
+    <h1>Calculadora de Interés Compuesto</h1>
+
+    <div class="form-group">
+        <label for="capital">Capital inicial (€)</label>
+        <input id="capital" class="field" type="number" value="1000">
+    </div>
+
+    <div class="form-group">
+        <label for="aportacion">Aportación mensual (€)</label>
+        <input id="aportacion" class="field" type="number" value="100">
+    </div>
+
+    <div class="form-group">
+        <label for="interes">Interés Anual Estimado (%)</label>
+        <input id="interes" class="field" type="number" value="7" step="0.1" placeholder="Ej: 8">
+        
+        <div class="perfiles-interes" style="margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap;">
+            <button type="button" class="btn-mini" onclick="cargarPerfil('ahorro')" id="btn-ahorro">🏦 Cuenta Ahorro</button>
+            <button type="button" class="btn-mini" onclick="cargarPerfil('moderado')" id="btn-moderado">📈 S&P 500</button>
+            <button type="button" class="btn-mini" onclick="cargarPerfil('tecnologico')" id="btn-tech">🚀 NASDAQ</button>
+        </div>
+        <small id="fecha-actualizacion" style="display:block; margin-top:8px; font-size:0.75rem; opacity:0.8; color: var(--text-color);"></small>
+    </div>
+
+    <div class="form-group">
+        <label for="anyos">Años de inversión</label>
+        <input id="anyos" class="field" type="number" value="10">
+    </div>
+
+    <button class="btn btn-interes" id="btn-calcular">Calcular Crecimiento</button>
+
+    <div class="result-container" style="margin-top: 20px;">
+        <div class="result result-interes"></div>
+        <p class="disclaimer-text" style="margin-top: 20px; font-size: 0.85rem; line-height: 1.4;">
+            <strong>Aviso legal:</strong> Las proyecciones generadas por esta herramienta son cálculos matemáticos teóricos con fines exclusivamente informativos. <strong>Calculenow</strong> no garantiza rendimientos futuros ni se responsabiliza de decisiones financieras basadas en estos datos.
+        </p>
+    </div>
+</div>
+
+    <section class="legal-content">
+      <h2>¿Qué es el interés compuesto?</h2>
+      <p>Es el efecto donde los intereses generados se suman al capital inicial, generando a su vez nuevos intereses en el siguiente periodo. Es lo que Albert Einstein llamó "la octava maravilla del mundo".</p>
+
+      <h3>Conceptos clave</h3>
+      <ul>
+        <li><strong>Capital inicial:</strong> El dinero con el que empiezas la inversión.</li>
+        <li><strong>Aportaciones periódicas:</strong> El ahorro extra que añades cada mes.</li>
+        <li><strong>Tiempo:</strong> El factor más importante; cuanto más tiempo, mayor es el efecto "bola de nieve".</li>
+      </ul>
+
+      <div class="formule">
+        A = P(1 + r/n)^{nt}
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <h3>Dudas sobre inversión</h3>
+      <details>
+        <summary>¿Cuándo es mejor empezar a invertir?</summary>
+        <div class="faq-content">
+          <p>El mejor momento es hoy. Gracias al interés compuesto, empezar un año antes puede suponer una diferencia de miles de euros a largo plazo.</p>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <script src="js/layout.js"></script>
+  <script src="js/buscador.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/interes.js"></script>
+</body>
+</html>
