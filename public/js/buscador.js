@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { nombre: "Divisas", url: "/calculadora-divisas" },
         { nombre: "Porcentajes", url: "/calculadora-porcentajes" },
         { nombre: "Préstamos", url: "/calculadora-prestamos" },
+        { nombre: "Intereses", url: "/calculadora-intereses'compuestos" },
         { nombre: "DNI", url: "/validador-dni" }
     ];
 

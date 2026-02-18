@@ -500,6 +500,38 @@ button.btn:hover {
   flex-wrap: wrap; /* Para que en móvil bajen si no caben */
 }
 
+#visual-chart {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.svg-render {
+  width: 100%;
+  height: 40px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.chart-legend-simple {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+  font-size: 0.75rem;
+  color: #666;
+}
+
+.chart-legend-simple span:nth-child(1) small {
+  color: #3b82f6;
+}
+
+.chart-legend-simple span:nth-child(2) small {
+  color: #10b981;
+}
+
+.chart-legend-simple span:nth-child(3) small {
+  color: #f59e0b;
+}
+
 .imc-bar {
   width: 100%;
   height: 12px;

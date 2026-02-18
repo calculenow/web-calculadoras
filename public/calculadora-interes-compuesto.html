@@ -54,48 +54,48 @@
     </noscript>
     <header></header>
     <main>
-    <div class="card">
-  <h1>Calculadora de Interés Compuesto</h1>
+      <div class="card">
+        <h1>Calculadora de Interés Compuesto</h1>
 
-  <div class="form-group">
-    <label for="capital">Capital inicial (€)</label>
-    <input id="capital" class="field" type="number" value="1000" min="0" />
-  </div>
+        <div class="form-group">
+          <label for="capital">Capital inicial (€)</label>
+          <input id="capital" class="field" type="number" value="1000" min="0" />
+        </div>
 
-  <div class="form-group">
-    <label for="aportacion">Aportación mensual (€)</label>
-    <input id="aportacion" class="field" type="number" value="100" min="0" />
-  </div>
+        <div class="form-group">
+          <label for="aportacion">Aportación mensual (€)</label>
+          <input id="aportacion" class="field" type="number" value="100" min="0" />
+        </div>
 
-  <div class="form-group">
-    <label for="interes">Interés Anual Estimado (%)</label>
-    <input id="interes" class="field" type="number" value="7" step="0.1" min="0" />
+        <div class="form-group">
+          <label for="interes">Interés Anual Estimado (%)</label>
+          <input id="interes" class="field" type="number" value="7" step="0.1" min="0" />
 
-    <div class="perfiles-interes" id="container-perfiles">
-      <button type="button" class="btn-mini" data-perfil="ahorro" id="btn-ahorro">🏦 Cuenta Ahorro</button>
-      <button type="button" class="btn-mini" data-perfil="moderado" id="btn-moderado">📈 S&P 500</button>
-      <button type="button" class="btn-mini" data-perfil="tecnologico" id="btn-tech">🚀 NASDAQ</button>
-    </div>
-    <small id="fecha-actualizacion"></small>
-  </div>
+          <div class="perfiles-interes" id="container-perfiles">
+            <button type="button" class="btn-mini" data-perfil="ahorro" id="btn-ahorro">🏦 Cuenta Ahorro</button>
+            <button type="button" class="btn-mini" data-perfil="moderado" id="btn-moderado">📈 S&P 500</button>
+            <button type="button" class="btn-mini" data-perfil="tecnologico" id="btn-tech">🚀 NASDAQ</button>
+          </div>
+          <small id="fecha-actualizacion"></small>
+        </div>
 
-  <div class="form-group">
-    <label for="anyos">Años de inversión</label>
-    <input id="anyos" class="field" type="number" value="10" min="1" />
-  </div>
+        <div class="form-group">
+          <label for="anyos">Años de inversión</label>
+          <input id="anyos" class="field" type="number" value="10" min="1" />
+        </div>
 
-  <button class="btn btn-interes" id="btn-calcular">Calcular Crecimiento</button>
+        <button class="btn btn-interes" id="btn-calcular">Calcular Crecimiento</button>
 
-  <div class="result-container">
-    <div class="chart-container" id="visual-chart"></div>
-    
-    <div class="result result-interes"></div>
-    
-    <p class="disclaimer-text">
-      <strong>Aviso legal:</strong> Las proyecciones generadas por esta herramienta son cálculos matemáticos teóricos con fines exclusivamente informativos.
-    </p>
-  </div>
-</div>
+        <div class="result-container">
+          <div id="visual-chart" class="chart-wrapper"></div>
+          
+          <div class="result result-interes"></div>
+          
+          <p class="disclaimer-text">
+            <strong>Aviso legal:</strong> Esta herramienta no constituye asesoramiento financiero ni una oferta de inversión. Los cálculos son simulaciones basadas en datos históricos que no garantizan resultados futuros.
+          </p>
+        </div>
+      </div>
 
       <section class="legal-content">
         <h2>¿Qué es el interés compuesto y cómo funciona?</h2>
@@ -127,15 +127,16 @@
           </li>
         </ul>
 
-        <div class="formule">A = P (1 + r/n)<sup>nt</sup></div>
-        <p>
-          <small
-            >*Fórmula estándar: <strong>A</strong> (capital final),
-            <strong>P</strong> (inicial), <strong>r</strong> (interés anual),
-            <strong>n</strong> (frecuencia de capitalización) y
-            <strong>t</strong> (años).</small
-          >
-        </p>
+        <div class="formule">
+  A = P(1 + i)<sup>n</sup> + PMT × [(1 + i)<sup>n</sup> - 1] / i
+</div>
+<p>
+  <small>
+    *Donde <strong>A</strong> es el total, <strong>P</strong> el inicial, 
+    <strong>PMT</strong> la aportación mensual, <strong>i</strong> el interés mensual 
+    y <strong>n</strong> el número de meses.
+  </small>
+</p>
 
         <h3>La Regla del 72</h3>
         <p>
