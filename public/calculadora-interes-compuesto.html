@@ -1,119 +1,213 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  
-  <script>
-    (function() {
-      const theme = localStorage.getItem('theme');
-      if (theme === 'dark') {
-        document.documentElement.classList.add('dark');
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Calculadora de Interés Compuesto",
+        "operatingSystem": "All",
+        "applicationCategory": "FinanceApplication",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EUR"
+        },
+        "description": "Calcula el crecimiento de tus ahorros e inversiones a largo plazo con nuestra calculadora de interés compuesto con aportaciones."
       }
-    })();
-  </script>
+    </script>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Calculadora de Interés Compuesto",
-    "operatingSystem": "All",
-    "applicationCategory": "FinanceApplication",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "EUR"
-    },
-    "description": "Calcula el crecimiento de tus ahorros e inversiones a largo plazo con nuestra calculadora de interés compuesto con aportaciones."
-  }
-  </script>
+    <title>Calculadora de Interés Compuesto | Calculenow</title>
+    <meta
+      name="description"
+      content="Calcula cuánto dinero tendrás en el futuro. Proyecta tus ahorros con interés compuesto y aportaciones mensuales. ¡Gratis y fácil de usar!"
+    />
+    <link
+      rel="canonical"
+      href="https://calculenow.com/calculadora-interes-compuesto"
+    />
 
-  <title>Calculadora de Interés Compuesto | Calculenow</title>
-  <meta name="description" content="Calcula cuánto dinero tendrás en el futuro. Proyecta tus ahorros con interés compuesto y aportaciones mensuales. ¡Gratis y fácil de usar!">
-  <link rel="canonical" href="https://calculenow.com/calculadora-interes-compuesto">
-
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href="css/styles.css" />
-</head>
-<body>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
     <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
-      height="0" width="0" style="display:none;visibility:hidden">
-    </iframe>
-  </noscript>
-  <header></header>
-  <main>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      >
+      </iframe>
+    </noscript>
+    <header></header>
+    <main>
     <div class="card">
-    <h1>Calculadora de Interés Compuesto</h1>
+  <h1>Calculadora de Interés Compuesto</h1>
 
-    <div class="form-group">
-        <label for="capital">Capital inicial (€)</label>
-        <input id="capital" class="field" type="number" value="1000">
+  <div class="form-group">
+    <label for="capital">Capital inicial (€)</label>
+    <input id="capital" class="field" type="number" value="1000" min="0" />
+  </div>
+
+  <div class="form-group">
+    <label for="aportacion">Aportación mensual (€)</label>
+    <input id="aportacion" class="field" type="number" value="100" min="0" />
+  </div>
+
+  <div class="form-group">
+    <label for="interes">Interés Anual Estimado (%)</label>
+    <input id="interes" class="field" type="number" value="7" step="0.1" min="0" />
+
+    <div class="perfiles-interes" id="container-perfiles">
+      <button type="button" class="btn-mini" data-perfil="ahorro" id="btn-ahorro">🏦 Cuenta Ahorro</button>
+      <button type="button" class="btn-mini" data-perfil="moderado" id="btn-moderado">📈 S&P 500</button>
+      <button type="button" class="btn-mini" data-perfil="tecnologico" id="btn-tech">🚀 NASDAQ</button>
     </div>
+    <small id="fecha-actualizacion"></small>
+  </div>
 
-    <div class="form-group">
-        <label for="aportacion">Aportación mensual (€)</label>
-        <input id="aportacion" class="field" type="number" value="100">
-    </div>
+  <div class="form-group">
+    <label for="anyos">Años de inversión</label>
+    <input id="anyos" class="field" type="number" value="10" min="1" />
+  </div>
 
-    <div class="form-group">
-        <label for="interes">Interés Anual Estimado (%)</label>
-        <input id="interes" class="field" type="number" value="7" step="0.1" placeholder="Ej: 8">
-        
-        <div class="perfiles-interes" style="margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap;">
-            <button type="button" class="btn-mini" onclick="cargarPerfil('ahorro')" id="btn-ahorro">🏦 Cuenta Ahorro</button>
-            <button type="button" class="btn-mini" onclick="cargarPerfil('moderado')" id="btn-moderado">📈 S&P 500</button>
-            <button type="button" class="btn-mini" onclick="cargarPerfil('tecnologico')" id="btn-tech">🚀 NASDAQ</button>
-        </div>
-        <small id="fecha-actualizacion" style="display:block; margin-top:8px; font-size:0.75rem; opacity:0.8; color: var(--text-color);"></small>
-    </div>
+  <button class="btn btn-interes" id="btn-calcular">Calcular Crecimiento</button>
 
-    <div class="form-group">
-        <label for="anyos">Años de inversión</label>
-        <input id="anyos" class="field" type="number" value="10">
-    </div>
-
-    <button class="btn btn-interes" id="btn-calcular">Calcular Crecimiento</button>
-
-    <div class="result-container" style="margin-top: 20px;">
-        <div class="result result-interes"></div>
-        <p class="disclaimer-text" style="margin-top: 20px; font-size: 0.85rem; line-height: 1.4;">
-            <strong>Aviso legal:</strong> Las proyecciones generadas por esta herramienta son cálculos matemáticos teóricos con fines exclusivamente informativos. <strong>Calculenow</strong> no garantiza rendimientos futuros ni se responsabiliza de decisiones financieras basadas en estos datos.
-        </p>
-    </div>
+  <div class="result-container">
+    <div class="chart-container" id="visual-chart"></div>
+    
+    <div class="result result-interes"></div>
+    
+    <p class="disclaimer-text">
+      <strong>Aviso legal:</strong> Las proyecciones generadas por esta herramienta son cálculos matemáticos teóricos con fines exclusivamente informativos.
+    </p>
+  </div>
 </div>
 
-    <section class="legal-content">
-      <h2>¿Qué es el interés compuesto?</h2>
-      <p>Es el efecto donde los intereses generados se suman al capital inicial, generando a su vez nuevos intereses en el siguiente periodo. Es lo que Albert Einstein llamó "la octava maravilla del mundo".</p>
+      <section class="legal-content">
+        <h2>¿Qué es el interés compuesto y cómo funciona?</h2>
+        <p>
+          El interés compuesto es el proceso por el cual los intereses de una
+          inversión se reinvierten para generar nuevos intereses en los periodos
+          siguientes. A diferencia del interés simple, donde los beneficios se
+          retiran, aquí el capital crece de forma exponencial, creando un efecto
+          multiplicador a largo plazo.
+        </p>
 
-      <h3>Conceptos clave</h3>
-      <ul>
-        <li><strong>Capital inicial:</strong> El dinero con el que empiezas la inversión.</li>
-        <li><strong>Aportaciones periódicas:</strong> El ahorro extra que añades cada mes.</li>
-        <li><strong>Tiempo:</strong> El factor más importante; cuanto más tiempo, mayor es el efecto "bola de nieve".</li>
-      </ul>
+        <h3>Los 3 pilares de la inversión a largo plazo</h3>
+        <ul>
+          <li>
+            <strong>Capital de Origen (P):</strong> Es la cantidad inicial.
+            Aunque un capital mayor acelera el proceso, la constancia en las
+            aportaciones suele ser más determinante.
+          </li>
+          <li>
+            <strong>Tasa de Retorno (r):</strong> Es el porcentaje de beneficio
+            anual. Pequeñas variaciones en esta tasa pueden suponer diferencias
+            significativas en el capital final acumulado tras varias décadas.
+          </li>
+          <li>
+            <strong>Factor Tiempo (t):</strong> Es la variable con mayor
+            impacto. El interés compuesto necesita años para mostrar su
+            verdadero potencial, ya que el crecimiento más fuerte ocurre en las
+            etapas finales del ciclo.
+          </li>
+        </ul>
 
-      <div class="formule">
-        A = P(1 + r/n)^{nt}
-      </div>
-    </section>
+        <div class="formule">A = P (1 + r/n)<sup>nt</sup></div>
+        <p>
+          <small
+            >*Fórmula estándar: <strong>A</strong> (capital final),
+            <strong>P</strong> (inicial), <strong>r</strong> (interés anual),
+            <strong>n</strong> (frecuencia de capitalización) y
+            <strong>t</strong> (años).</small
+          >
+        </p>
 
-    <section class="faq-section">
-      <h3>Dudas sobre inversión</h3>
-      <details>
-        <summary>¿Cuándo es mejor empezar a invertir?</summary>
-        <div class="faq-content">
-          <p>El mejor momento es hoy. Gracias al interés compuesto, empezar un año antes puede suponer una diferencia de miles de euros a largo plazo.</p>
-        </div>
-      </details>
-    </section>
-  </main>
+        <h3>La Regla del 72</h3>
+        <p>
+          Una forma sencilla de entender el impacto del interés es la "Regla del
+          72". Si divides 72 entre tu tasa de rentabilidad anual, obtendrás el
+          número aproximado de años que tardará tu inversión en duplicarse sin
+          realizar aportaciones extra.
+        </p>
+      </section>
 
-  <script src="js/layout.js"></script>
-  <script src="js/buscador.js"></script>
-  <script src="js/core.js"></script>
-  <script src="js/interes.js"></script>
-</body>
+      <section class="faq-section">
+        <h3>Estrategia y conceptos financieros</h3>
+
+        <details>
+          <summary>
+            ¿Qué diferencia hay entre rentabilidad Nominal y Real?
+          </summary>
+          <div class="faq-content">
+            <p>
+              La rentabilidad <strong>nominal</strong> es el porcentaje de
+              beneficio bruto de la inversión. La rentabilidad
+              <strong>real</strong> es el resultado de restar la inflación a esa
+              cifra. Invertir ayuda a que el capital mantenga su poder
+              adquisitivo frente al aumento del coste de la vida.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Es mejor invertir de golpe o mes a mes?</summary>
+          <div class="faq-content">
+            <p>
+              Realizar aportaciones periódicas (estrategia conocida como
+              <em>Dollar Cost Averaging</em>) permite promediar el precio de
+              compra. Esto reduce el impacto de la volatilidad del mercado y
+              ayuda a generar un hábito de ahorro disciplinado.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Por qué usamos valores como el 10% y el 12%?</summary>
+          <div class="faq-content">
+            <p>
+              Estas cifras representan las
+              <strong>medias históricas anualizadas</strong> de índices como el
+              S&P 500 y el NASDAQ durante las últimas décadas. Aunque
+              rentabilidades pasadas no aseguran beneficios futuros, son los
+              indicadores más utilizados para realizar proyecciones financieras
+              realistas.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Cómo afecta el tiempo al resultado final?</summary>
+          <div class="faq-content">
+            <p>
+              Debido a la naturaleza del crecimiento exponencial, cuanto antes
+              se inicia el proceso de inversión, menor es el esfuerzo necesario
+              para alcanzar un objetivo financiero determinado. El tiempo
+              permite que los intereses acumulados se conviertan en el principal
+              motor de crecimiento.
+            </p>
+          </div>
+        </details>
+      </section>
+    </main>
+
+    <script src="js/layout.js"></script>
+    <script src="js/buscador.js"></script>
+    <script src="js/core.js"></script>
+    <script src="js/interes.js"></script>
+  </body>
 </html>

@@ -75,3 +75,11 @@
     color: white;
     transform: translateY(-1px);
 }
+/* Contenedor para botones en línea */
+.perfiles-interes {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap; /* Para que en móvil bajen si no caben */
+}
+

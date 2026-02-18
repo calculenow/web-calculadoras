@@ -1,55 +1,55 @@
-// Variable global para almacenar los datos del mercado (con fallback por si falla la red)
+/**
+ * CALCULADORA DE INTERÉS COMPUESTO
+ * Lógica pura de cálculo e interactividad
+ */
+
 let datosMercado = {
-    indices: { sp500: 8.0, nasdaq: 12.0 },
-    macro: { euribor: 3.0 },
-    last_update: "Cargando..."
+    indices: { sp500: 10.0, nasdaq: 12.0 },
+    macro: { ahorro: 3.5 },
+    last_update: "Febrero 2026"
 };
 
 document.addEventListener('DOMContentLoaded', async () => {
-    // 1. Intentar cargar el JSON que genera el robot
     try {
         const response = await fetch('/data/mercado.json');
         if (response.ok) {
             datosMercado = await response.json();
-            actualizarTextosBotones();
         }
     } catch (e) {
-        console.warn("No se pudo cargar el JSON de mercado, usando valores locales.");
+        console.warn("Usando valores locales de respaldo.");
     }
-
-    // 2. Listener del botón calcular
-    const btnCalcular = document.getElementById('btn-calcular');
-    if (btnCalcular) {
-        btnCalcular.addEventListener('click', calcularInteres);
-    }
+    
+    actualizarTextosBotones();
+    initListeners();
+    calcularInteres();
 });
 
-// Función para actualizar los nombres de los botones y la fecha
-function actualizarTextosBotones() {
-    const fechaEl = document.getElementById('fecha-actualizacion');
-    if (fechaEl) fechaEl.innerText = `Datos actualizados: ${datosMercado.last_update}`;
+function initListeners() {
+    // Escuchar cambios en los inputs para calcular en tiempo real
+    const inputs = document.querySelectorAll('.field');
+    inputs.forEach(input => {
+        input.addEventListener('input', calcularInteres);
+    });
 
-    // Actualizamos el texto de los botones con el dato real del JSON
-    const btnAhorro = document.getElementById('btn-ahorro');
-    const btnMod = document.getElementById('btn-moderado');
-    const btnTech = document.getElementById('btn-tech');
+    // Eventos para los botones de perfiles (S&P 500, etc.)
+    const containerPerfiles = document.getElementById('container-perfiles');
+    if (containerPerfiles) {
+        containerPerfiles.addEventListener('click', (e) => {
+            const btn = e.target.closest('button');
+            if (!btn) return;
+            
+            const perfil = btn.dataset.perfil;
+            const inputInteres = document.getElementById('interes');
+            
+            if (perfil === 'ahorro') inputInteres.value = datosMercado.macro.ahorro;
+            if (perfil === 'moderado') inputInteres.value = datosMercado.indices.sp500;
+            if (perfil === 'tecnologico') inputInteres.value = datosMercado.indices.nasdaq;
+            
+            calcularInteres();
+        });
+    }
 
-    if (btnAhorro) btnAhorro.innerText = `🏦 Ahorro (${datosMercado.macro.euribor}%)`;
-    if (btnMod) btnMod.innerText = `📈 S&P 500 (${datosMercado.indices.sp500}%)`;
-    if (btnTech) btnTech.innerText = `🚀 NASDAQ (${datosMercado.indices.nasdaq}%)`;
-}
-
-// Función que llaman los botones del HTML (onclick="cargarPerfil('...')")
-function cargarPerfil(perfil) {
-    const inputInteres = document.getElementById('interes');
-    if (!inputInteres) return;
-
-    if (perfil === 'ahorro') inputInteres.value = datosMercado.macro.euribor;
-    if (perfil === 'moderado') inputInteres.value = datosMercado.indices.sp500;
-    if (perfil === 'tecnologico') inputInteres.value = datosMercado.indices.nasdaq;
-
-    // Opcional: Calcular automáticamente al pulsar el perfil
-    calcularInteres();
+    document.getElementById('btn-calcular')?.addEventListener('click', calcularInteres);
 }
 
 function calcularInteres() {
@@ -59,44 +59,50 @@ function calcularInteres() {
     const anyos = parseFloat(document.getElementById('anyos').value) || 0;
 
     const tasaMensual = (tasaAnual / 100) / 12;
-    const numeroMeses = anyos * 12;
+    const mesesTotales = anyos * 12;
 
-    const capitalFinal = capital * Math.pow(1 + tasaMensual, numeroMeses);
-    
-    let aportacionesFinales = 0;
-    if (tasaMensual > 0) {
-        aportacionesFinales = aportacion * ((Math.pow(1 + tasaMensual, numeroMeses) - 1) / tasaMensual);
-    } else {
-        aportacionesFinales = aportacion * numeroMeses;
-    }
+    // Fórmula de interés compuesto con aportaciones mensuales
+    const capitalFinal = capital * Math.pow(1 + tasaMensual, mesesTotales);
+    const aportacionesFinales = tasaMensual > 0 
+        ? aportacion * ((Math.pow(1 + tasaMensual, mesesTotales) - 1) / tasaMensual)
+        : aportacion * mesesTotales;
 
-    const total = capitalFinal + aportacionesFinales;
-    const totalAhorrado = capital + (aportacion * numeroMeses);
-    const beneficios = total - totalAhorrado;
+    const totalFinal = capitalFinal + aportacionesFinales;
+    const totalInvertido = capital + (aportacion * mesesTotales);
+    const beneficios = totalFinal - totalInvertido;
 
-    const resultadoDiv = document.querySelector('.result-interes');
-    if (!resultadoDiv) return;
+    renderizarResultados(totalFinal, totalInvertido, beneficios, capital, aportacion * mesesTotales);
+}
 
-    resultadoDiv.innerHTML = `
+function renderizarResultados(total, invertido, beneficios, inicial, aportaciones) {
+    const resDiv = document.querySelector('.result-interes');
+    if (!resDiv) return;
+
+    resDiv.innerHTML = `
         <div class="resumen-calculo">
             <ul>
-                <li>
-                    <span>Inversión inicial:</span>
-                    <span>${capital.toLocaleString('es-ES', {style: 'currency', currency: 'EUR'})}</span>
-                </li>
-                <li>
-                    <span>Total aportaciones:</span>
-                    <span>${(aportacion * numeroMeses).toLocaleString('es-ES', {style: 'currency', currency: 'EUR'})}</span>
-                </li>
-                <li>
-                    <span>Intereses generados:</span>
-                    <span class="u-text-success">${beneficios.toLocaleString('es-ES', {style: 'currency', currency: 'EUR'})}</span>
-                </li>
+                <li><span>Inversión inicial:</span> <strong>${formatEuro(inicial)}</strong></li>
+                <li><span>Total aportado:</span> <strong>${formatEuro(aportaciones)}</strong></li>
+                <li><span>Intereses generados:</span> <strong class="u-text-success">${formatEuro(beneficios)}</strong></li>
                 <li class="total-destacado">
-                    <span>Total acumulado:</span>
-                    <span>${total.toLocaleString('es-ES', {style: 'currency', currency: 'EUR'})}</span>
+                    <span>Total acumulado:</span> 
+                    <span>${formatEuro(total)}</span>
                 </li>
             </ul>
         </div>
     `;
+}
+
+function formatEuro(val) {
+    return val.toLocaleString('es-ES', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+}
+
+function actualizarTextosBotones() {
+    const bAhorro = document.getElementById('btn-ahorro');
+    const bMod = document.getElementById('btn-moderado');
+    const bTech = document.getElementById('btn-tech');
+
+    if (bAhorro) bAhorro.innerText = `🏦 Cuenta Ahorro (${datosMercado.macro.ahorro}%)`;
+    if (bMod) bMod.innerText = `📈 S&P 500 (${datosMercado.indices.sp500}%)`;
+    if (bTech) bTech.innerText = `🚀 NASDAQ (${datosMercado.indices.nasdaq}%)`;
 }

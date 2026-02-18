@@ -1,6 +1,12 @@
 {
-  "last_update": "2026-02-18",
-  "sp500_yield": 8.0,
-  "inflation_avg": 2.5,
-  "status": "initial_setup"
+    "last_update": "Febrero 2026",
+    "fuente": "Medias históricas de mercado",
+    "indices": {
+        "sp500": 10.0,
+        "nasdaq": 12.0
+    },
+    "macro": {
+        "ahorro": 3.5,
+        "inflacion": 2.5
+    }
 }
