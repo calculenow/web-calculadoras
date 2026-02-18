@@ -1,0 +1,40 @@
+// 1. Settings
+@import '1-settings/colors';
+
+// 2. Tools
+@import '2-tools/mixins';
+@import '2-tools/animations';
+
+// 3. Generic
+@import '3-generic/reset';
+
+// 4. Elements
+@import '4-elements/base';
+
+// 5. Objects
+@import '5-objects/grid';
+
+// 6. Components
+@import '6-components/hero';
+@import '6-components/cards';
+@import '6-components/table';
+@import '6-components/dropdown';
+@import '6-components/forms';
+@import '6-components/legal-content';
+@import '6-components/disclaimer';
+@import '6-components/calculator-ui';
+@import '6-components/imc-bar';
+@import '6-components/faq';
+@import '6-components/adblock-msg';
+@import '6-components/theme-toggle';
+@import '6-components/iva';
+@import '6-components/search';
+@import '6-components/divisas';
+@import '6-components/related-tools';
+@import '6-components/error';
+@import '6-components/cookies';
+@import '6-components/footer';
+
+// 7. Trumps
+@import '7-trumps/responsive';
+@import '7-trumps/utilities';

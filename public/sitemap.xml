@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://calculenow.com/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://calculenow.com/calculadora-iva</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://calculenow.com/calculadora-imc</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://calculenow.com/calculadora-descuentos</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://calculenow.com/calculadora-porcentajes</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://calculenow.com/calculadora-propinas</loc>
+    <priority>0.9</priority>
+  </url>
+
+<url>
+    <loc>https://calculenow.com/calculadora-prestamos</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://calculenow.com/validador-dni</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://calculenow.com/calculadora-calorias</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://calculenow.com/calculadora-divisas</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://calculenow.com/contacto</loc>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://calculenow.com/aviso-legal</loc>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://calculenow.com/privacidad</loc>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://calculenow.com/cookies</loc>
+    <priority>0.2</priority>
+  </url>
+
+</urlset>

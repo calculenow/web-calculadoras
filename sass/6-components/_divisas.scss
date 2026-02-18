@@ -1,0 +1,50 @@
+/* ==========================================================================
+   COMPONENT: Divisas Controls
+   ========================================================================== */
+
+.divisas-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+
+    // En pantallas medianas/grandes, los ponemos en línea
+    @media (min-width: 600px) {
+        flex-direction: row;
+        align-items: flex-end; // Para que los selects y el botón alineen sus bases
+        gap: 1.5rem;
+    }
+
+    .form-group {
+        flex: 1;
+        width: 100%;
+        margin-bottom: 0; // Quitamos el margen para que el botón swap alinee bien
+    }
+}
+
+.btn-swap {
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.2s ease;
+    margin-bottom: 1rem; // Alinea con el margen inferior de tus .field
+
+    &:hover {
+        border-color: var(--primary);
+        transform: rotate(180deg);
+        background: var(--border);
+    }
+
+    &:active {
+        transform: scale(0.9) rotate(180deg);
+    }
+}

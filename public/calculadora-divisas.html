@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme');
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Calculadora de Divisas y Cambio de Moneda",
+    "operatingSystem": "All",
+    "applicationCategory": "FinanceApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    },
+    "description": "Convierte entre más de 30 monedas del mundo con tipos de cambio actualizados diariamente."
+  }
+  </script>
+
+  <title>Calculadora de Divisas - Cambio de Moneda | Calculenow</title>
+  <meta name="description" content="Calculadora de divisas gratuita y actualizada. Convierte euros, dólares y más de 30 monedas con tipos de cambio oficiales en tiempo real. ¡Rápida y sin registros!">
+  <link rel="canonical" href="https://calculenow.com/calculadora-divisas">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+   <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+      height="0" width="0" style="display:none;visibility:hidden">
+    </iframe>
+  </noscript>
+  <header></header>
+  <main>
+  <div class="card">
+    <h1>Calculadora de Divisas</h1>
+
+    <div class="form-group">
+      <label for="cantidad">Cantidad a convertir</label>
+      <input id="cantidad" class="field cantidad" type="number" value="100">
+    </div>
+
+    <div class="divisas-controls">
+      <div class="form-group">
+        <label for="desde">De</label>
+        <select id="desde" class="field desde"></select>
+      </div>
+
+      <button type="button" id="btn-swap" class="btn-swap">🔄</button>
+
+      <div class="form-group">
+        <label for="hacia">A</label>
+        <select id="hacia" class="field hacia"></select>
+      </div>
+    </div>
+
+    <button class="btn btn-divisas">Convertir Divisa</button>
+
+    <div class="result result-divisas"></div>
+    <p class="disclaimer-text">
+  * Los tipos de cambio se ofrecen con fines informativos. No garantizamos la precisión total para transacciones comerciales.
+</p>
+    <div id="resumen-contenedor"></div>
+
+    <p id="fecha-actualizacion" class="u-update-text"></p>
+    <div class="related-tools">
+  <p><strong>¿Necesitas otro tipo de cálculo financiero?</strong></p>
+  <ul>
+    <li>
+      <a href="/calculadora-descuentos">
+        ➔ <strong>Calculadora de Descuentos:</strong> Aplica rebajas a tus precios convertidos.
+      </a>
+    </li>
+    <li>
+      <a href="/calculadora-iva">
+        ➔ <strong>Calculadora de IVA:</strong> Añade o extrae el impuesto de tus compras internacionales.
+      </a>
+    </li>
+    <li>
+      <a href="/calculadora-porcentajes">
+        ➔ <strong>Calculadora de Porcentajes:</strong> Para variaciones de precios y márgenes.
+      </a>
+    </li>
+  </ul>
+</div>
+  </div> 
+  <section class="legal-content">
+    <h2>¿Cómo funciona el cambio de divisas?</h2>
+    <p>El mercado de divisas determina el valor de una moneda frente a otra. Nuestra calculadora utiliza datos oficiales actualizados diariamente para ofrecerte el tipo medio de mercado.</p>
+
+    <h3>Factores que influyen en el cambio</h3>
+    <ul>
+      <li><strong>Inflación:</strong> Países con menor inflación suelen ver una apreciación en el valor de su moneda.</li>
+      <li><strong>Tipos de interés:</strong> Los bancos centrales los ajustan para controlar la economía.</li>
+      <li><strong>Estabilidad política:</strong> Los inversores buscan monedas de países con economías sólidas.</li>
+    </ul>
+
+    <div class="formule">
+      (Cantidad / Tasa Origen) * Tasa Destino
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <h3>Preguntas frecuentes sobre el cambio de moneda</h3>
+
+    <details>
+      <summary>¿Cuál es la diferencia entre tipo de cambio oficial y bancario?</summary>
+      <div class="faq-content">
+        <p>El tipo de cambio oficial es el que utilizan las instituciones financieras. El bancario incluye márgenes de beneficio de la entidad.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>¿Qué moneda es mejor llevar para viajar?</summary>
+      <div class="faq-content">
+        <p>El Dólar (USD) y el Euro (EUR) son las más aceptadas globalmente.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>¿Por qué cambian los precios cada día?</summary>
+      <div class="faq-content">
+        <p>Debido al mercado Forex, influenciado por tipos de interés y estabilidad económica.</p>
+      </div>
+    </details>
+  </section>
+</main>
+
+  
+  <script src="js/ads.js" async defer></script>
+  <script src="js/layout.js"></script>
+    <script src="js/buscador.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/divisas.js"></script>
+</body>
+</html>

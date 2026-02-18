@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme');
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Calculadora de Calorías y TMB",
+    "operatingSystem": "All",
+    "applicationCategory": "HealthApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    },
+    "description": "Calcula tu Tasa Metabólica Basal (TMB) y las calorías diarias necesarias según tu nivel de actividad física con la fórmula de Mifflin-St Jeor."
+  }
+  </script>
+
+  <title>Calculadora de Calorías y TMB - Gasto Energético | Calculenow</title>
+  <link rel="canonical" href="https://calculenow.com/calculadora-calorias">
+  <meta name="description" content="Descubre cuántas calorías necesita tu cuerpo al día. Calcula tu metabolismo basal y el gasto total según tu actividad física para controlar tu peso de forma científica."> 
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)">
+</head>
+<body>
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+      height="0" width="0" style="display:none;visibility:hidden">
+    </iframe>
+  </noscript>
+  <header></header>
+  <main>
+ <div class="card tmb-card">
+  <h1>Calculadora de Calorías (TMB)</h1>
+  
+  <label for="genero">Género</label>
+  <select id="genero" class="field genero">
+    <option value="hombre">Hombre</option>
+    <option value="mujer">Mujer</option>
+  </select>
+
+  <div class="input-group-row" style="display: flex; gap: 10px;">
+    <div style="flex: 1;">
+      <label for="peso">Peso (kg)</label>
+      <input id="peso" class="field peso" type="number" placeholder="Ej: 75">
+    </div>
+    <div style="flex: 1;">
+      <label for="altura">Altura (cm)</label>
+      <input id="altura" class="field altura" type="number" placeholder="Ej: 175">
+    </div>
+  </div>
+
+  <label for="edad">Edad (años)</label>
+  <input id="edad" class="field edad" type="number" placeholder="Ej: 30">
+
+  <label for="actividad">Nivel de actividad física</label>
+  <select id="actividad" class="field actividad">
+    <option value="1.2">Sedentario (Oficina, poco ejercicio)</option>
+    <option value="1.375">Ligero (Ejercicio 1-3 días)</option>
+    <option value="1.55">Moderado (Ejercicio 3-5 días)</option>
+    <option value="1.725">Fuerte (Atletas o trabajo físico)</option>
+  </select>
+
+  <button class="btn btn-tmb">Calcular Calorías</button>
+
+  <div class="result result-tmb"></div>
+
+  <div class="related-tools">
+  <p><strong>Herramienta de salud relacionada:</strong></p>
+  <ul>
+    <li>
+      <a href="/calculadora-imc">
+        ➔ <strong>Calculadora de IMC:</strong> Evalúa si tu peso actual está dentro de los rangos recomendados según tu estatura.
+      </a>
+    </li>
+  </ul>
+</div>
+
+</div>
+
+ <section class="legal-content">
+  <h2>¿Qué es la Tasa Metabólica Basal (TMB)?</h2>
+  <p>La TMB es la cantidad mínima de energía que tu cuerpo necesita para sobrevivir realizando las funciones básicas, como respirar, parpadear, filtrar la sangre o mantener la temperatura corporal en reposo total.</p>
+
+  <div class="info-grid">
+    <div class="card info-box">
+      <h3>🍎 Gasto Energético Total</h3>
+      <p>Es la suma de tu TMB más la energía que quemas moviéndote. Este dato es el que realmente marca cuántas calorías debes consumir para mantener tu peso.</p>
+    </div>
+    <div class="card info-box">
+      <h3>⚖️ Déficit y Superávit</h3>
+      <p>Si consumes menos de tu gasto total, perderás peso (déficit). Si consumes más, ganarás peso (superávit). La clave es la constancia.</p>
+    </div>
+  </div>
+
+  <h3>La fórmula de Mifflin-St Jeor</h3>
+  <p>En nuestra calculadora utilizamos la ecuación revisada de Mifflin-St Jeor, considerada actualmente la más precisa para la población general.</p>
+  
+  <div class="formule">
+    <strong>Hombres:</strong> (10 × peso kg) + (6.25 × altura cm) - (5 × edad) + 5
+  </div>
+  <div class="formule">
+    <strong>Mujeres:</strong> (10 × peso kg) + (6.25 × altura cm) - (5 × edad) - 161
+  </div>
+</section>
+
+<h3>Niveles de Actividad y Multiplicadores</h3>
+<p>Para obtener tu gasto calórico real, multiplicamos tu metabolismo basal por un factor de actividad (PAL). Sé lo más sincero posible:</p>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Nivel</th>
+        <th>Descripción</th>
+        <th>Factor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Sedentario</strong></td>
+        <td>Trabajo de oficina, sentado, sin ejercicio.</td>
+        <td>x1.2</td>
+      </tr>
+      <tr>
+        <td><strong>Ligero</strong></td>
+        <td>Ejercicio suave 1-3 días por semana.</td>
+        <td>x1.375</td>
+      </tr>
+      <tr>
+        <td><strong>Moderado</strong></td>
+        <td>Ejercicio intenso 3-5 días por semana.</td>
+        <td>x1.55</td>
+      </tr>
+      <tr>
+        <td><strong>Fuerte</strong></td>
+        <td>Deportistas o trabajos muy físicos a diario.</td>
+        <td>x1.725</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="faq-section">
+  <h3>Preguntas frecuentes sobre el metabolismo</h3>
+
+  <details>
+    <summary>¿Qué factores influyen en el metabolismo?</summary>
+    <div class="faq-content">
+      <p>La masa muscular es el factor principal: el músculo quema más calorías que la grasa incluso estando parados. También influyen la genética, la edad (el metabolismo se ralentiza con los años) y el sistema hormonal.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>¿Por qué hay diferencia entre la fórmula de hombre y mujer?</summary>
+    <div class="faq-content">
+      <p>La diferencia (de +5 en hombres a -161 en mujeres) responde a la <strong>composición corporal media</strong>. Biológicamente, los hombres suelen tener mayor masa muscular, mientras que las mujeres poseen un mayor porcentaje de grasa esencial necesaria para el sistema hormonal. El ajuste de la fórmula compensa esa diferencia de tejido activo que la báscula no ve.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>¿Es exacto este cálculo?</summary>
+    <div class="faq-content">
+      <p>Es una estimación muy aproximada, pero la única forma de saberlo con total precisión es mediante una calorimetría indirecta en un entorno clínico. Úsalo como una base para empezar a ajustar tu dieta.</p>
+      <p><strong>Nota:</strong> Si eres un atleta con mucha masa muscular, esta calculadora podría infravalorar tus necesidades. Por el contrario, si tu porcentaje de grasa es muy elevado, el resultado podría estar sobreestimado.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>¿Cómo elijo mi nivel de actividad?</summary>
+    <div class="faq-content">
+      <p>Sé honesto: la mayoría de la gente sobreestima su actividad. Si trabajas sentado y vas al gimnasio 3 veces por semana, tu nivel suele ser "Ligero". Reserva "Moderado" o "Fuerte" si tu trabajo implica esfuerzo físico real o entrenas a alta intensidad a diario.</p>
+    </div>
+  </details>
+</div>
+</main>
+  
+  
+  <script src="js/ads.js" async defer></script>
+  <script src="js/layout.js"></script>
+    <script src="js/buscador.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/calorias.js"></script>
+</body>
+</html>

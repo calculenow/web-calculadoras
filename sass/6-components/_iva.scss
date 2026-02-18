@@ -1,0 +1,81 @@
+.resumen-calculo {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    animation: fadeIn 0.3s ease-in-out;
+
+    &.add { border-left: 5px solid #22c55e; } // Verde si sumas
+    &.remove { border-left: 5px solid var(--accent); } // Tu color de acento si quitas
+
+    .resumen-header {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        opacity: 0.7;
+        margin-bottom: 1rem;
+    }
+
+    .resumen-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+        font-size: 1.05rem;
+        
+        .iva-color {
+            color: var(--accent);
+            font-weight: bold;
+        }
+    }
+
+    .resumen-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; // Alinea el botón con el texto
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 2px dashed var(--border);
+
+    .total-info {
+        display: flex;
+        flex-direction: column;
+        strong {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+    }
+}
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.btn-copy {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: transform 0.2s, background 0.2s;
+
+    &:hover {
+        filter: brightness(1.1);
+        transform: scale(1.05);
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+
+    &.copied {
+        background: #22c55e; // Cambia a verde al copiar
+    }
+}

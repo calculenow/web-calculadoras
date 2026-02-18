@@ -1,0 +1,38 @@
+Aquí tienes el código completo y listo para usar. Este archivo es como un "seguro de vida" para tu SEO: si mañana te vas de Netlify a un hosting normal, tus URLs no se romperán y la web seguirá volando.
+
+Crea un archivo llamado .htaccess en la carpeta raíz (junto al index.html) y pega exactamente esto:
+
+Apache
+
+# ----------------------------------------------------------------------
+# 1. CONFIGURACIÓN DE URLs LIMPIAS (Quitar el .html)
+# ----------------------------------------------------------------------
+RewriteEngine On
+
+# Si alguien intenta entrar con .html, lo mandamos a la versión limpia (SEO)
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /.*\.html\ HTTP/
+RewriteRule ^(.*)\.html$ /$1 [R=301,L]
+
+# Si el usuario pide una URL sin extensión, el servidor busca el archivo .html internamente
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# ----------------------------------------------------------------------
+# 2. OPTIMIZACIÓN DE VELOCIDAD (Compresión Gzip)
+# ----------------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/x-javascript application/json
+</IfModule>
+
+# ----------------------------------------------------------------------
+# 3. CACHÉ DEL NAVEGADOR (Menos carga para el servidor)
+# ----------------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 year"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+</IfModule>

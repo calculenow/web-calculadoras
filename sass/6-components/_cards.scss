@@ -1,0 +1,104 @@
+// 6-components/_cards.scss
+
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  height: 100%;
+  border: 1px solid var(--border);
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+
+  h2, h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  p {
+    color: var(--text);
+    opacity: 0.9;
+    line-height: 1.5;
+  }
+
+  // Versión Desactivada (Muted) - Próximamente
+  // Se aplica directamente al div.card dentro del HTML
+  &.muted {
+    opacity: 0.6;
+    cursor: not-allowed;
+    filter: grayscale(0.8);
+    pointer-events: none;
+
+    &::after {
+      @include ribbon(var(--border)); 
+      content: "Próximamente";
+      font-size: 0.75rem;
+      font-weight: bold;
+    }
+  }
+}
+
+// Lógica para el contenedor del enlace (Controla el orden y hover)
+.card-link {
+  text-decoration: none;
+  display: flex; 
+  flex-direction: column;
+  
+  // NIVEL 2: Orden por defecto para calculadoras normales
+  order: 2; 
+
+  &:hover .card {
+    border-color: var(--primary);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+  }
+
+  // NIVEL 1: NOVEDADES (Suben arriba)
+  &[data-estado="nuevo"] {
+    order: 1; 
+
+    .card {
+      border-color: var(--success);
+
+      &::after {
+        @include ribbon(var(--success));
+        content: "¡NUEVO!";
+        font-size: 0.75rem;
+        font-weight: bold;
+      }
+    }
+    
+    &:hover .card {
+      border-color: var(--success);
+      box-shadow: 0 10px 20px rgba(34, 197, 94, 0.2);
+    }
+  }
+
+  // NIVEL 3: Si el enlace contiene una card muted, lo mandamos al final
+  // Nota: Esto asume que en tu HTML las cards muted están dentro de un .card-link
+  // Si tus muted NO tienen enlace, aplica el order directamente al div.card
+  &:has(.muted) {
+    order: 3;
+  }
+}
+
+// Si tus cards muted en el HTML NO tienen el wrapper .card-link:
+.card.muted:not(.card-link .card) {
+  order: 3;
+}
+
+.cards-container {
+  opacity: 0;
+  transform: translateY(10px); /* Opcional: un pequeño efecto de subida */
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  
+  &.is-ready {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

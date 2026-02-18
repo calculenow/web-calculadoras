@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme');
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Calculadora de Propinas",
+  "operatingSystem": "All",
+  "applicationCategory": "UtilitiesApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "description": "Calcula la propina justa y divide la cuenta entre varios amigos de forma rápida y sencilla."
+}
+</script>
+
+  <title>Calculadora de Propinas - Divide la Cuenta y el % | Calculenow</title>
+  <link rel="canonical" href="https://calculenow.com/calculadora-propinas">
+  <meta name="description" content="Divide la cuenta del restaurante de forma justa. Calcula la propina ideal y cuánto debe pagar cada persona sin errores ni matemáticas complicadas.">
+
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+      height="0" width="0" style="display:none;visibility:hidden">
+    </iframe>
+  </noscript>
+  <header></header>
+ <main>
+  <div class="card tip-card">
+    <h1>Calculadora de Propinas</h1>
+    
+    <div class="calculator-ui">
+      <label for="cuenta-total">Total de la cuenta (€)</label>
+      <input id="cuenta-total" class="field cuenta-total" type="number" step="0.01" placeholder="Ej: 85.50">
+
+      <label for="propina-pct">Propina (%)</label>
+      <input id="propina-pct" class="field propina-pct" type="number" step="1" value="10" placeholder="Ej: 10 (o 0 si no hay)">
+
+      <label for="personas">Número de personas</label>
+      <input id="personas" class="field personas" type="number" step="1" value="1">
+
+      <button class="btn btn-tip">Calcular División</button>
+
+      <div class="result result-tip"></div>
+    </div>
+
+    <div class="related-tools">
+      <p><strong>También te puede interesar:</strong></p>
+      <ul>
+        <li>
+          <a href="/calculadora-porcentajes">
+            ➔ <strong>Calculadora de Porcentajes:</strong> Para otros cálculos proporcionales.
+          </a>
+        </li>
+        <li>
+          <a href="/calculadora-iva">
+            ➔ <strong>Calculadora de IVA:</strong> Desglosa el impuesto del ticket fácilmente.
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div> 
+
+  <section class="legal-content">
+    <h2>¿Cómo repartir una cuenta con propina?</h2>
+    <p>Dividir los gastos en una cena de grupo puede ser un lío. Nuestra herramienta calcula el porcentaje de gratificación deseado, lo suma al total y lo divide equitativamente entre los comensales.</p>
+    
+    <h3>¿Cuánto es la propina estándar?</h3>
+    <p>Aunque depende del país, en España la propina es voluntaria y suele rondar el <strong>5-10%</strong> en buenos servicios. En países como EE.UU., lo habitual es entre el 15% y el 20%.</p>
+
+    <h3>Fórmula para el cálculo por persona</h3>
+    <p>Para obtener el importe individual, sumamos el coste del servicio a la cuenta y dividimos por el número de amigos:</p>
+    <div class="formule">
+      <strong>Total por Persona = (Cuenta + (Cuenta × % Propina / 100)) / Nº de Personas</strong>
+    </div>
+  </section>
+
+  <div class="faq-section">
+    <h3>Preguntas sobre el pago en restaurantes</h3>
+
+    <details>
+      <summary>¿Se debe dejar propina si el servicio ya está incluido?</summary>
+      <div class="faq-content">
+        <p>En algunos países el "servicio" ya viene en la factura. En ese caso, la propina adicional es totalmente opcional y se reserva para casos donde la atención ha sido excepcional.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>¿Cómo redondear el pago de forma sencilla?</summary>
+      <div class="faq-content">
+        <p>Si la calculadora indica que cada uno debe pagar 21,35€, es habitual redondear a 22€ para evitar el manejo de céntimos sueltos y dejar ese excedente como gratificación extra.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>¿Qué pasa si alguien no quiere dejar propina?</summary>
+      <div class="faq-content">
+        <p>Al ser un acto voluntario en la mayoría de países europeos, la calculadora permite poner "0" en el campo de porcentaje para simplemente dividir el importe neto de la cuenta entre los presentes.</p>
+      </div>
+    </details>
+  </div>
+</main>
+  
+  <div class="cookie-banner" id="cookie-banner">
+    <div id="cookie-main-view">
+      <p>
+        Utilizamos cookies para mejorar tu experiencia.
+        <a href="cookies.html">Ver política de cookies</a>
+      </p>
+      <div class="cookie-buttons">
+        <button class="accept-cookies" id="btn-accept-all">
+          Aceptar todas
+        </button>
+        <button class="reject-cookies" id="btn-reject-all">
+          Rechazar todas
+        </button>
+        <button class="settings-cookies" id="btn-open-settings">
+          Configurar
+        </button>
+      </div>
+    </div>
+
+    <div id="cookie-settings-view" style="display: none">
+      <p><strong>Personaliza tus preferencias:</strong></p>
+      <div class="cookie-option">
+        <input type="checkbox" id="check-necessary" checked disabled />
+        <label>Necesarias (Obligatorias)</label>
+      </div>
+      <div class="cookie-option">
+        <input type="checkbox" id="check-analytics" />
+        <label>Analíticas (Google Analytics)</label>
+      </div>
+      <div class="cookie-option">
+        <input type="checkbox" id="check-marketing" />
+        <label>Marketing (Píxeles publicitarios)</label>
+      </div>
+      <div class="cookie-buttons" style="margin-top: 15px">
+        <button class="accept-cookies" id="btn-save-settings">
+          Guardar selección
+        </button>
+        <button class="settings-cookies" id="btn-back">Volver</button>
+      </div>
+    </div>
+  </div>
+  <script src="js/ads.js" async defer></script>
+
+  <script src="js/layout.js"></script>
+    <script src="js/buscador.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/propinas.js"></script>
+</body>
+</html>

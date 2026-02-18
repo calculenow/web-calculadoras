@@ -1,0 +1,43 @@
+// 6-components/_theme-toggle.scss
+
+.toggle-dark-inline {
+  /* Posicionamiento */
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 9999; // Asegura que esté por encima del menú y las cards
+
+  /* Estilo de botón */
+  cursor: pointer;
+  padding: 8px 12px;
+  margin: 0;
+  
+  /* Apariencia (usando variables si las tienes) */
+  background: var(--card, #333); 
+  color: var(--text, #fff);
+  border-radius: 20px;
+  border: 1px solid var(--border, #555);
+  font-family: inherit; // Mejor que sans-serif para consistencia
+  font-size: 14px;
+  user-select: none;
+  
+  /* Suavizado */
+  transition: all 0.3s ease;
+
+  /* Estados */
+  &:hover {
+    transform: scale(1.05);
+    background: var(--accent, #444);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  /* Ajuste para modo oscuro específico si fuera necesario */
+  .dark & {
+    background: #f3f4f6;
+    color: #111827;
+    border-color: #d1d5db;
+  }
+}

@@ -1,0 +1,69 @@
+body {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  overflow-x: hidden; 
+  width: 100%;
+  position: relative;
+}
+header {
+  width: 100%;
+  /* Reserva el espacio para evitar el salto (CLS) */
+  min-height: 62px; 
+  background: var(--bg-nav);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  contain: layout; 
+  position: relative; // O 'sticky' si lo tienes fijo
+  z-index: 1000;      // Un valor alto para el contenedor padre
+}
+
+
+footer {
+  width: 100%;
+  min-height: 100px; 
+  background: var(--footer-bg);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  // Enlaces dentro de textos informativos
+  // Usamos el selector de padre para agrupar (p, li y .legal-content)
+  &:is(p a, li a, .legal-content a) {
+    color: var(--primary);
+    text-decoration: underline;
+    text-decoration-color: rgba(59, 130, 246, 0.3);
+    text-underline-offset: 3px;
+    font-weight: bold;
+
+    &:hover {
+      text-decoration-color: var(--primary);
+      color: var(--primary-dark);
+    }
+  }
+
+  // Excepción para limpiar Nav, Dropdown y Cards
+  // El & representa al selector 'a'
+  &.main-nav a, 
+  &.dropdown-content a, 
+  &.card-link {
+    text-decoration: none !important;
+  }
+}
+
+main {
+  flex: 1;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}

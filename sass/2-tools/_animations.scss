@@ -1,0 +1,16 @@
+/* ================= ANIMACIONES GLOBALES ================= */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Aquí podrías añadir más en el futuro, por ejemplo:
+// @keyframes slideIn { ... }
+// @keyframes pulse { ... }

@@ -1,0 +1,90 @@
+/* ==========================================================================
+   COMPONENT: Search Bar (Premium Look)
+   ========================================================================== */
+
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .search-input {
+        width: 180px; // Más compacto en reposo
+        padding: 0.6rem 1rem 0.6rem 2.2rem; // Espacio para un icono si quisieras
+        font-size: 0.85rem;
+        font-weight: 500;
+        border: 1px solid var(--border);
+        border-radius: 100px; // Estilo píldora, mucho más moderno
+        background: var(--input-bg);
+        color: var(--text);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        outline: none;
+
+        &::placeholder {
+            color: var(--text-light);
+            opacity: 0.7;
+        }
+
+        &:focus {
+            width: 240px; // Se expande al pinchar
+            border-color: var(--primary);
+            background: var(--card-bg);
+            box-shadow: 0 0 0 4px rgba(var(--primary-rgb), 0.1); // Glow sutil
+        }
+    }
+
+    .search-dropdown {
+        display: none;
+        position: absolute;
+        top: calc(100% + 12px); // Separado del nav
+        right: 0; // Alineado a la derecha para que no se salga
+        width: 280px;
+        background: var(--card-bg);
+        backdrop-filter: blur(10px); // Efecto cristal si el fondo lo permite
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 0.5rem;
+        z-index: 1000;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 
+                    0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        
+        &.is-visible {
+            display: block;
+            animation: slideUp 0.2s ease-out;
+        }
+
+        li {
+            margin-bottom: 2px;
+
+            &:last-child { margin-bottom: 0; }
+        }
+
+        li a {
+            display: flex;
+            align-items: center;
+            padding: 0.7rem 1rem;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+
+            &:hover {
+                background: var(--primary);
+                color: #fff;
+                transform: translateX(4px); // Pequeño empuje lateral
+            }
+        }
+    }
+}
+
+// Pequeña animación para el dropdown
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

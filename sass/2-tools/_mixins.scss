@@ -1,0 +1,23 @@
+@mixin ribbon($bg-color) {
+  content: ""; // Se define en el componente
+  position: absolute;
+  top: 15px;
+  right: -35px;
+  width: 150px;
+  background: $bg-color;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 900;
+  text-align: center;
+  padding: 4px 0;
+  padding-left: 15px;
+  transform: rotate(45deg);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 10;
+}
+
+@mixin mq($width) {
+  @media (min-width: $width) {
+    @content;
+  }
+}

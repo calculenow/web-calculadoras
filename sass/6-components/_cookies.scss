@@ -1,0 +1,49 @@
+.cookie-banner {
+  display: none; // Se controla por JS
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 2px solid var(--border);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  z-index: 9999;
+  flex-direction: column;
+  animation: fadeIn 0.5s ease; // ¡Aprovechamos que ya lo tenemos!
+
+  .cookie-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 1rem;
+
+    button {
+      flex: 1;
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: opacity 0.2s;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+
+    .accept-cookies {
+      background: var(--primary) !important;
+      color: white !important;
+    }
+
+    .reject-cookies {
+      background: var(--input-bg);
+      color: var(--text);
+      border: 1px solid var(--border) !important;
+    }
+  }
+}

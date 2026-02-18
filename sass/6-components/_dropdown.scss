@@ -1,0 +1,100 @@
+
+/* Botón central para móviles (Oculto en Desktop) */
+.menu-toggle {
+  display: none; 
+  background: var(--bg-nav);
+  border: none;
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 1.2rem;
+  width: 100%;
+  text-align: center; 
+  cursor: pointer;
+  border-bottom: 2px solid var(--accent);
+  text-transform: uppercase;
+  font-family: inherit;
+  letter-spacing: 1px;
+}
+
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  background: var(--bg-nav);
+  padding: 0.75rem;
+  font-weight: bold;
+  border-bottom: 2px solid var(--accent);
+
+  a {
+    text-decoration: none;
+    color: var(--text);
+    transition: color 0.2s;
+
+    &:hover {
+      color: var(--primary);
+    }
+  }
+}
+
+/* Componente Dropdown Original Restaurado */
+.dropdown {
+  position: relative;
+  display: inline-block;
+
+  .dropbtn {
+    background: none;
+    border: none;
+    color: var(--text);
+    padding: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  &-content {
+    position: absolute;
+    z-index: 9999 !important;
+    background-color: var(--card);
+    min-width: 220px;
+    box-shadow: 0px 8px 25px rgba(0,0,0,0.2);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    z-index: 1001;
+    top: 100%;
+    left: 50%;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+    transition: all 0.2s ease;
+    overflow: hidden;
+
+    &.show {
+      visibility: visible;
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    a {
+      color: var(--text) !important;
+      padding: 14px 18px;
+      display: block;
+      font-size: 0.95rem;
+      border-bottom: 1px solid var(--border);
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-color: var(--input-bg);
+        color: var(--primary) !important;
+        padding-left: 22px;
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}

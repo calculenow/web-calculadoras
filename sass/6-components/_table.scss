@@ -1,0 +1,35 @@
+// 6-components/_tables.scss
+
+.table-container {
+    width: 100%;
+    overflow-x: auto; // Permite scroll horizontal en móviles muy pequeños
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card);
+    color: var(--text);
+    text-align: left;
+    font-size: 0.95rem;
+
+    th, td {
+        padding: 12px 15px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    th {
+        background-color: var(--input-bg);
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 0.5px;
+    }
+
+    tr:last-child td {
+        border-bottom: none;
+    }
+}

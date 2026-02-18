@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <title>Calculenow - Calculadoras Online Gratis, Rápidas y Precisas</title>
+    <link rel="canonical" href="https://calculenow.com/" />
+    <meta
+      name="description"
+      content="Calculadoras online gratuitas, rápidas y precisas. Calcula el IVA, IMC, descuentos y más con Calculenow. La herramienta definitiva para facilitarte el día a día."
+    />
+
+    <meta
+      name="theme-color"
+      content="#ffffff"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#111827"
+      media="(prefers-color-scheme: dark)"
+    />
+
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      >
+      </iframe>
+    </noscript>
+    <header></header>
+    <main>
+      <section class="hero">
+        <h1>Calculadoras Online Gratuitas</h1>
+        <p>Herramientas precisas y sencillas para facilitarte el día a día.</p>
+      </section>
+
+      <div class="grid cards-container">
+        <a href="/calculadora-porcentajes" class="card-link">
+          <div class="card">
+            <h2>% Porcentajes</h2>
+            <p>
+              Calcula proporciones, incrementos y variaciones de forma rápida.
+            </p>
+          </div>
+        </a>
+
+        <a href="/calculadora-imc" class="card-link">
+          <div class="card">
+            <h2>⚖️ IMC</h2>
+            <p>
+              Calcula tu Índice de Masa Corporal y descubre tu rango de peso
+              ideal.
+            </p>
+          </div>
+        </a>
+
+        <a href="/calculadora-iva" class="card-link">
+          <div class="card">
+            <h2>💶 IVA</h2>
+            <p>
+              Añade o desglosa el IVA (21%, 10%, 4%) de cualquier importe al
+              instante.
+            </p>
+          </div>
+        </a>
+
+        <a href="/calculadora-descuentos" class="card-link">
+          <div class="card">
+            <h2>🏷️ Descuentos</h2>
+            <p>
+              Averigua el precio final y cuánto dinero ahorras en tus compras.
+            </p>
+          </div>
+        </a>
+
+        <a href="/calculadora-propinas" class="card-link">
+          <div class="card">
+            <h2>☕ Propinas</h2>
+            <p>
+              Divide la cuenta y calcula la propina rápidamente entre amigos.
+            </p>
+          </div>
+        </a>
+        <a
+          href="/calculadora-prestamos"
+          class="card-link"
+          data-fecha="2026-02-14"
+        >
+          <div class="card">
+            <h2>🏦 Préstamos e Hipotecas</h2>
+            <p>
+              Calcula tu cuota mensual, intereses totales y el plazo ideal para
+              tu préstamo personal o hipoteca.
+            </p>
+          </div>
+        </a>
+
+        <a href="/validador-dni" class="card-link" data-fecha="2026-02-15">
+          <div class="card">
+            <h2>🪪 Validador DNI/NIE</h2>
+            <p>
+              Verifica documentos oficiales o calcula la letra de cualquier DNI
+              o NIE al instante.
+            </p>
+          </div>
+        </a>
+
+        <a
+          href="/calculadora-calorias"
+          class="card-link"
+          data-fecha="2026-02-17"
+        >
+          <div class="card">
+            <h2>🔥 Calorías (TMB)</h2>
+            <p>
+              Descubre cuántas calorías quema tu cuerpo al día. Próximamente.
+            </p>
+          </div>
+        </a>
+
+        <a
+          href="/calculadora-divisas"
+          class="card-link"
+          data-fecha="2026-02-17"
+        >
+          <div class="card">
+            <h2>💱 Cambio de Divisas</h2>
+            <p>
+              Convierte entre más de 30 monedas del mundo con tipos de cambio
+              actualizados al instante.
+            </p>
+          </div>
+        </a>
+
+        <div class="card muted">
+          <h2>📏 Conversor</h2>
+          <p>
+            Pasa de kilómetros a millas, libras a kilos y más. Próximamente.
+          </p>
+        </div>
+
+        <div class="card muted">
+          <h2>📈 Interés Compuesto</h2>
+          <p>
+            Calcula cuánto crecerán tus ahorros e inversiones a lo largo del
+            tiempo. Próximamente.
+          </p>
+        </div>
+
+        <div class="card muted">
+          <h2>💧 Hidratación Diaria</h2>
+          <p>
+            Descubre cuánta agua necesita tu cuerpo según tu peso y actividad.
+            Próximamente.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    
+
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>
+          Utilizamos cookies para mejorar tu experiencia.
+          <a href="cookies.html">Ver política de cookies</a>
+        </p>
+        <div class="cookie-buttons">
+          <button class="accept-cookies" id="btn-accept-all">
+            Aceptar todas
+          </button>
+          <button class="reject-cookies" id="btn-reject-all">
+            Rechazar todas
+          </button>
+          <button class="settings-cookies" id="btn-open-settings">
+            Configurar
+          </button>
+        </div>
+      </div>
+
+      <div id="cookie-settings-view" style="display: none">
+        <p><strong>Personaliza tus preferencias:</strong></p>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-necessary" checked disabled />
+          <label>Necesarias (Obligatorias)</label>
+        </div>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-analytics" />
+          <label>Analíticas (Google Analytics)</label>
+        </div>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-marketing" />
+          <label>Marketing (Píxeles publicitarios)</label>
+        </div>
+        <div class="cookie-buttons" style="margin-top: 15px">
+          <button class="accept-cookies" id="btn-save-settings">
+            Guardar selección
+          </button>
+          <button class="settings-cookies" id="btn-back">Volver</button>
+        </div>
+      </div>
+    </div>
+    <script src="js/ads.js" async defer></script>
+
+    <script src="js/layout.js"></script>
+    <script src="js/buscador.js"></script>
+    <script src="js/core.js"></script>
+  </body>
+</html>

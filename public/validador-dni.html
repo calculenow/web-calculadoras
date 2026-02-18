@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="es">
+  <head>
+  <meta charset="UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <script>
+    (function () {
+      const theme = localStorage.getItem("theme");
+      if (theme === "dark") {
+        document.documentElement.classList.add("dark");
+      }
+    })();
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Validador de DNI y NIE con Letra",
+  "operatingSystem": "All",
+  "applicationCategory": "UtilitiesApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "description": "Herramienta para verificar la validez de un DNI o NIE español y calcular automáticamente la letra correspondiente."
+}
+</script>
+
+  <title>Validador de DNI y NIE - Calcula la letra y verifica | Calculenow</title>
+  
+  <link rel="canonical" href="https://calculenow.com/validador-dni" />
+  
+  <meta
+    name="description"
+    content="Verifica si un DNI o NIE es válido al instante. Calcula la letra de tu documento y comprueba errores de formato con nuestra herramienta gratuita y privada."
+  />
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <meta
+    name="theme-color"
+    content="#ffffff"
+    media="(prefers-color-scheme: light)"
+  />
+  <meta
+    name="theme-color"
+    content="#111827"
+    media="(prefers-color-scheme: dark)"
+  />
+</head>
+  <body>
+    <header></header>
+   <main>
+  <div class="card dni-card">
+    <h1>Validador de DNI / NIE</h1>
+    
+    <label for="documento">Introduce el número de documento</label>
+    <input 
+      id="documento" 
+      class="field documento" 
+      type="text" 
+      placeholder="Ej: 12345678Z o X1234567L"
+      maxlength="9"
+    >
+
+    <button class="btn btn-dni">Validar Documento</button>
+
+    <div class="result result-dni"></div>
+  </div>
+
+  <section class="legal-content">
+    <h2>¿Cómo saber si un DNI es válido?</h2>
+    <p>El sistema de validación español utiliza un algoritmo basado en el <strong>Módulo 23</strong>. A cada número de 8 cifras le corresponde una letra específica mediante una operación matemática de división.</p>
+    
+    <div class="info-grid">
+      <div class="card info-box">
+        <h3>📄 DNI (Españoles)</h3>
+        <p>Consta de 8 números y una letra de control. Si tienes menos de 8 números, el sistema añade ceros a la izquierda automáticamente.</p>
+      </div>
+      <div class="card info-box">
+        <h3>🌍 NIE (Extranjeros)</h3>
+        <p>Empieza por X, Y o Z. Para el cálculo, la X se sustituye por 0, la Y por 1 y la Z por 2, siguiendo luego el mismo proceso que el DNI.</p>
+      </div>
+    </div>
+
+    <h3>🔒 Privacidad y Seguridad</h3>
+    <p>En <strong>Calculenow</strong> nos tomamos en serio tu privacidad. El número introducido <strong>no se envía a ningún servidor</strong> ni queda registrado en ninguna base de datos. El cálculo se realiza íntegramente en tu dispositivo.</p>
+  </section>
+  <div class="faq-section">
+    <h3>Preguntas frecuentes sobre DNI y NIE</h3>
+
+    <details>
+      <summary>¿Cómo se calcula la letra del DNI?</summary>
+      <div class="faq-content">
+        <p>Se toma el número completo (8 cifras) y se divide entre 23. El resto de esa división (un número entre 0 y 22) se corresponde con una letra según una tabla oficial (donde 0 es T, 1 es R, 2 es W, etc.).</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>¿Es seguro introducir mi número aquí?</summary>
+      <div class="faq-content">
+        <p>Totalmente. El código de validación se ejecuta en <strong>JavaScript local</strong>. Esto significa que tu navegador hace la comprobación sin enviar el dato a través de internet. Nosotros no vemos, ni guardamos, ni procesamos tu número de documento.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>¿Por qué mi NIE no valida?</summary>
+      <div class="faq-content">
+        <p>Asegúrate de que la letra inicial (X, Y, Z) esté en mayúsculas y que el documento tenga exactamente 9 caracteres. Recuerda que el NIE debe seguir el formato: una letra, siete números y una letra de control final.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>¿Sirve este validador para el CIF de empresas?</summary>
+      <div class="faq-content">
+        <p>No, esta herramienta es específica para <strong>personas físicas (DNI y NIE)</strong>. El algoritmo para el CIF (Código de Identificación Fiscal) de empresas es distinto y sigue una lógica diferente.</p>
+      </div>
+    </details>
+  </div>
+</main>
+    
+    
+  <div class="cookie-banner" id="cookie-banner">
+    <div id="cookie-main-view">
+      <p>
+        Utilizamos cookies para mejorar tu experiencia.
+        <a href="cookies.html">Ver política de cookies</a>
+      </p>
+      <div class="cookie-buttons">
+        <button class="accept-cookies" id="btn-accept-all">
+          Aceptar todas
+        </button>
+        <button class="reject-cookies" id="btn-reject-all">
+          Rechazar todas
+        </button>
+        <button class="settings-cookies" id="btn-open-settings">
+          Configurar
+        </button>
+      </div>
+    </div>
+
+    <div id="cookie-settings-view" style="display: none">
+      <p><strong>Personaliza tus preferencias:</strong></p>
+      <div class="cookie-option">
+        <input type="checkbox" id="check-necessary" checked disabled />
+        <label>Necesarias (Obligatorias)</label>
+      </div>
+      <div class="cookie-option">
+        <input type="checkbox" id="check-analytics" />
+        <label>Analíticas (Google Analytics)</label>
+      </div>
+      <div class="cookie-option">
+        <input type="checkbox" id="check-marketing" />
+        <label>Marketing (Píxeles publicitarios)</label>
+      </div>
+      <div class="cookie-buttons" style="margin-top: 15px">
+        <button class="accept-cookies" id="btn-save-settings">
+          Guardar selección
+        </button>
+        <button class="settings-cookies" id="btn-back">Volver</button>
+      </div>
+    </div>
+  </div>
+  <script src="js/ads.js" async defer></script>
+
+    <script src="js/layout.js"></script>
+    <script src="js/buscador.js"></script>
+    <script src="js/core.js"></script>
+    <script src="js/dni.js"></script>
+  </body>
+</html>

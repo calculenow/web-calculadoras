@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme');
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Calculadora de Descuentos y Rebajas",
+  "operatingSystem": "All",
+  "applicationCategory": "UtilitiesApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "description": "Calcula el precio final tras aplicar un descuento. Ideal para rebajas y comparar ahorros en tus compras."
+}
+</script>
+
+  <title>Calculadora de Descuentos - Rebajas y Precio Final | Calculenow</title>
+  <link rel="canonical" href="https://calculenow.com/calculadora-descuentos">
+  <meta name="description" content="¿Cuánto te ahorras realmente en estas rebajas? Calcula el precio final y el ahorro exacto tras aplicar cualquier porcentaje de descuento en segundos."> 
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" href="css/styles.css" />
+
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)">
+</head>
+<body>
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+      height="0" width="0" style="display:none;visibility:hidden">
+    </iframe>
+  </noscript>
+  <header></header>
+  <main>
+  <div class="card discount-card">
+    <h1>Calculadora de Descuentos</h1>
+    
+    <div class="calculator-ui">
+      <label for="precio-original">Precio original (€)</label>
+      <input id="precio-original" class="field precio-original" type="number" step="0.01" placeholder="Ej: 59.99">
+
+      <label for="descuento-pct">Descuento (%)</label>
+      <input id="descuento-pct" class="field descuento-pct" type="number" step="1" placeholder="Ej: 25">
+
+      <button class="btn btn-discount">Calcular Precio Final</button>
+
+      <div class="result result-discount"></div>
+    </div>
+
+    <div class="related-tools">
+      <p><strong>¿Necesitas otro tipo de cálculo?</strong></p>
+      <ul>
+        <li>
+          <a href="/calculadora-porcentajes">
+            ➔ <strong>Calculadora de Porcentajes:</strong> Para cálculos genéricos y proporciones.
+          </a>
+        </li>
+        <li>
+          <a href="/calculadora-iva">
+            ➔ <strong>Calculadora de IVA:</strong> Añade o extrae el impuesto de tus facturas.
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div> 
+
+  <section class="legal-content">
+    <h2>¿Cómo calcular un descuento rápidamente?</h2>
+    <p>Saber cuánto vas a pagar realmente en época de rebajas te ayuda a comprar de forma más inteligente. Un descuento es una reducción porcentual sobre el precio de venta al público (PVP) original.</p>
+
+    <h3>Fórmula para obtener el precio final</h3>
+    <p>Nuestra calculadora utiliza el método de resta directa para mostrarte tanto el dinero que ahorras como el importe final que deberás abonar:</p>
+    
+    
+    
+    <div class="formule">
+      <strong>Precio Final = Precio Original - (Precio Original × Porcentaje / 100)</strong>
+    </div>
+
+    <p>Por ejemplo, si una chaqueta cuesta 60€ y tiene un 20% de descuento: calculas el 20% de 60 (que son 12€) y se lo restas al precio inicial (60 - 12 = 48€).</p>
+
+    <h3>El truco del "factor multiplicador"</h3>
+    <p>Si quieres hacerlo mentalmente como un experto, puedes multiplicar el precio original por la diferencia hasta 100. Si algo tiene un 30% de descuento, significa que vas a pagar el 70% de su valor. Solo tienes que multiplicar el precio por <strong>0,70</strong>.</p>
+  </section>
+
+  <div class="faq-section">
+    <h3>Preguntas sobre Rebajas y Ahorro</h3>
+
+    <details>
+      <summary>¿Qué es un descuento acumulado?</summary>
+      <div class="faq-content">
+        <p>Ocurre cuando se aplica una rebaja sobre un producto que ya estaba rebajado. Es importante saber que no se suman los porcentajes; el segundo descuento se aplica sobre el nuevo precio ya reducido.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>¿Cómo saber si un descuento es real?</summary>
+      <div class="faq-content">
+        <p>Compara siempre el precio original tachado con el precio final. Legalmente, los comercios deben mostrar el precio más bajo que ha tenido el producto en los últimos 30 días antes de la promoción.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>¿Es mejor un descuento fijo o un porcentaje?</summary>
+      <div class="faq-content">
+        <p>Depende del importe. En productos caros, un porcentaje suele ahorrarte más dinero. En productos baratos, un cupón de descuento fijo (ej: 5€ menos) puede ser más beneficioso que un 10%.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>¿Cómo calcular cuánto porcentaje me han descontado?</summary>
+      <div class="faq-content">
+        <p>Si sabes el precio inicial y el final, divide el ahorro entre el precio original y multiplica por 100. Así obtendrás el porcentaje exacto de la rebaja aplicada.</p>
+      </div>
+    </details>
+  </div>
+</main>
+  
+  
+  <script src="js/ads.js" async defer></script>
+  <script src="js/layout.js"></script>
+    <script src="js/buscador.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/descuentos.js"></script>
+</body>
+</html>
