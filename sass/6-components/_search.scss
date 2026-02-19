@@ -134,3 +134,23 @@
         transform: translateY(0);
     }
 }
+
+/* Al final de tu componente de Search */
+@media (max-width: 992px) {
+    .search-box {
+        width: 100%; 
+        .search-input {
+            width: 100% !important; // Que ocupe todo el ancho en el menú móvil
+            font-size: 16px; // Evita el zoom de iOS
+            &:focus {
+                width: 100% !important; // Que no intente crecer más del 100%
+            }
+        }
+        
+        .search-dropdown {
+            width: 100%; // Que el desplegable de resultados ocupe todo el ancho
+            left: 0;
+            right: 0;
+        }
+    }
+}

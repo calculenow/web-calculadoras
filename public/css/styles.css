@@ -264,98 +264,220 @@ table tr:last-child td {
   border-bottom: none;
 }
 
-/* Botón central para móviles (Oculto en Desktop) */
-.menu-toggle {
-  display: none;
-  background: var(--bg-nav);
-  border: none;
-  color: var(--text);
-  font-size: 1rem;
-  font-weight: bold;
-  padding: 1.2rem;
-  width: 100%;
-  text-align: center;
-  cursor: pointer;
-  border-bottom: 2px solid var(--accent);
-  text-transform: uppercase;
-  font-family: inherit;
-  letter-spacing: 1px;
-}
-
+/* ==========================================================================
+   NAVEGACIÓN PRINCIPAL - ESTRUCTURA DE MENÚ Y DESPLEGABLES
+   ========================================================================== */
 .main-nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
   background: var(--bg-nav);
-  padding: 0.75rem;
-  font-weight: bold;
-  border-bottom: 2px solid var(--accent);
-}
-.main-nav a {
-  text-decoration: none;
-  color: var(--text);
-  transition: color 0.2s;
-}
-.main-nav a:hover {
-  color: var(--primary);
-}
-
-/* Componente Dropdown Original Restaurado */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-.dropdown .dropbtn {
-  background: none;
-  border: none;
-  color: var(--text);
-  padding: 0.5rem;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  font-family: inherit;
-}
-.dropdown-content {
-  position: absolute;
-  z-index: 9999 !important;
-  background-color: var(--card);
-  min-width: 220px;
-  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  z-index: 1001;
-  top: 100%;
-  left: 50%;
-  visibility: hidden;
-  opacity: 0;
-  transform: translateX(-50%) translateY(10px);
-  transition: all 0.2s ease;
-  overflow: hidden;
-}
-.dropdown-content.show {
-  visibility: visible;
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-.dropdown-content a {
-  color: var(--text) !important;
-  padding: 14px 18px;
-  display: block;
-  font-size: 0.95rem;
   border-bottom: 1px solid var(--border);
-  transition: all 0.2s ease;
-}
-.dropdown-content a:hover {
-  background-color: var(--input-bg);
-  color: var(--primary) !important;
-  padding-left: 22px;
-}
-.dropdown-content a:last-child {
-  border-bottom: none;
+  width: 100%;
+  position: relative;
+  z-index: 1000;
+  transition: background 0.3s ease;
 }
 
+.nav-links ul,
+.dropdown-content ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* ==========================================================================
+   DESKTOP (min-width: 993px)
+   ========================================================================== */
+@media (min-width: 993px) {
+  .menu-toggle, .menu-close-btn {
+    display: none !important;
+  }
+  .main-nav {
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 50px;
+  }
+  .main-nav .nav-center-group {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+  .main-nav .search-box {
+    width: 280px;
+  }
+  .main-nav .search-box .search-input {
+    width: 100%;
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    padding: 10px 25px;
+    color: var(--text);
+    outline: none;
+  }
+  .main-nav .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+  .main-nav .nav-links a, .main-nav .nav-links .dropbtn {
+    color: var(--text);
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  .main-nav .nav-links a:hover, .main-nav .nav-links .dropbtn:hover {
+    color: var(--primary);
+  }
+  /* DROPDOWN ESCRITORIO (Flotante) */
+  .dropdown {
+    position: relative;
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 650px;
+    background: var(--bg-nav);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  }
+  .dropdown-content.show {
+    display: grid;
+  }
+  .dropdown-content .dropdown-column h3 {
+    color: var(--text);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+  }
+  .dropdown-content .dropdown-column li a {
+    color: var(--primary);
+    padding: 5px 0;
+    display: block;
+    font-weight: 400;
+    text-decoration: none;
+  }
+  .dropdown-content .dropdown-column li a:hover {
+    text-decoration: underline;
+  }
+}
+/* ==========================================================================
+   MOBILE (max-width: 992px) - REPARACIÓN TOTAL
+   ========================================================================== */
+@media (max-width: 992px) {
+  .menu-toggle {
+    display: block;
+    margin: 15px auto;
+    padding: 10px 20px;
+    background: var(--bg-nav);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+  .main-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--bg-nav) !important;
+    flex-direction: column;
+    z-index: 10000;
+    overflow-y: auto;
+    padding: 20px 0;
+  }
+  .main-nav.active {
+    display: flex;
+  }
+  .main-nav .menu-close-btn {
+    display: block;
+    width: 90%;
+    margin: 10px auto 20px;
+    padding: 12px;
+    background: var(--input-bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+  }
+  .main-nav .nav-center-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .main-nav .nav-center-group .nav-links {
+    display: flex;
+    flex-direction: column;
+    order: 1;
+  }
+  .main-nav .nav-center-group .nav-links a, .main-nav .nav-center-group .nav-links .dropbtn {
+    width: 100%;
+    padding: 18px;
+    text-align: center;
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+    font-weight: 700;
+    background: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-size: 1rem;
+  }
+  .main-nav .nav-center-group .search-box {
+    order: 2;
+    width: 90%;
+    margin: 20px auto;
+  }
+  /* RESTAURACIÓN DE LÓGICA DE SUBSECCIONES */
+  .dropdown-content {
+    display: none;
+    position: static !important;
+    width: 100%;
+  }
+  .dropdown-content.show {
+    display: block !important;
+  }
+  .dropdown-content .dropdown-column h3 {
+    background: var(--input-bg);
+    color: var(--text);
+    padding: 15px;
+    margin: 0;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    text-align: center;
+  }
+  .dropdown-content .dropdown-column ul {
+    display: none;
+    list-style: none;
+    padding: 0;
+  }
+  .dropdown-content .dropdown-column ul li a {
+    background: var(--bg-nav);
+    color: var(--primary);
+    padding: 15px;
+    border-bottom: 1px solid var(--border);
+  }
+  .dropdown-content .dropdown-column.column-active ul {
+    display: block !important;
+  }
+  .dropdown-content .dropdown-column.column-active h3 {
+    background: var(--border);
+  }
+}
 .field {
   padding: 0.7rem 0.9rem;
   border-radius: 8px;
@@ -671,43 +793,53 @@ button.btn:hover {
   }
 }
 .toggle-dark-inline {
-  /* Posicionamiento */
-  position: fixed;
-  top: 15px;
-  right: 15px;
+  /* Posicionamiento: Cambiado de fixed a relativo para que siga el flujo */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  /* Margen para separarlo de Contacto */
+  margin: 30px auto;
   z-index: 9999;
   /* Estilo de botón */
   cursor: pointer;
-  padding: 8px 12px;
-  margin: 0;
-  /* Apariencia (usando variables si las tienes) */
-  background: var(--card, #333);
-  color: var(--text, #fff);
-  border-radius: 20px;
-  border: 1px solid var(--border, #555);
+  padding: 10px 20px;
+  /* Apariencia: Forzamos colores contrastados para evitar que sea ilegible */
+  background: #1a202c !important;
+  color: #ffffff !important;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   font-family: inherit;
   font-size: 14px;
+  font-weight: 700;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+  width: -moz-fit-content;
+  width: fit-content;
   /* Suavizado */
   transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   /* Estados */
 }
 .toggle-dark-inline:hover {
   transform: scale(1.05);
-  background: var(--accent, #444);
+  background: #2d3748 !important;
 }
 .toggle-dark-inline:active {
   transform: scale(0.95);
 }
 .toggle-dark-inline {
-  /* Ajuste para modo oscuro específico si fuera necesario */
+  /* Si en Desktop necesitas que vuelva a una esquina, usa esto: */
 }
-.dark .toggle-dark-inline {
-  background: #f3f4f6;
-  color: #111827;
-  border-color: #d1d5db;
+@media (min-width: 993px) {
+  .toggle-dark-inline {
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    margin: 0;
+  }
 }
 
 .resumen-calculo {
@@ -914,6 +1046,24 @@ button.btn:hover {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+/* Al final de tu componente de Search */
+@media (max-width: 992px) {
+  .search-box {
+    width: 100%;
+  }
+  .search-box .search-input {
+    width: 100% !important;
+    font-size: 16px;
+  }
+  .search-box .search-input:focus {
+    width: 100% !important;
+  }
+  .search-box .search-dropdown {
+    width: 100%;
+    left: 0;
+    right: 0;
   }
 }
 /* ==========================================================================

@@ -1,43 +1,51 @@
 // 6-components/_theme-toggle.scss
 
 .toggle-dark-inline {
-  /* Posicionamiento */
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 9999; // Asegura que esté por encima del menú y las cards
+  /* Posicionamiento: Cambiado de fixed a relativo para que siga el flujo */
+  position: relative; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  
+  /* Margen para separarlo de Contacto */
+  margin: 30px auto; 
+  z-index: 9999;
 
   /* Estilo de botón */
   cursor: pointer;
-  padding: 8px 12px;
-  margin: 0;
+  padding: 10px 20px; // Un poco más de padding para que parezca una píldora
   
-  /* Apariencia (usando variables si las tienes) */
-  background: var(--card, #333); 
-  color: var(--text, #fff);
-  border-radius: 20px;
-  border: 1px solid var(--border, #555);
-  font-family: inherit; // Mejor que sans-serif para consistencia
+  /* Apariencia: Forzamos colores contrastados para evitar que sea ilegible */
+  background: #1a202c !important; 
+  color: #ffffff !important;
+  border-radius: 50px; // Píldora perfecta
+  border: 1px solid rgba(255,255,255,0.1);
+  font-family: inherit;
   font-size: 14px;
+  font-weight: 700;
   user-select: none;
+  width: fit-content; // Para que no ocupe todo el ancho
   
   /* Suavizado */
   transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 
   /* Estados */
   &:hover {
     transform: scale(1.05);
-    background: var(--accent, #444);
+    background: #2d3748 !important;
   }
 
   &:active {
     transform: scale(0.95);
   }
 
-  /* Ajuste para modo oscuro específico si fuera necesario */
-  .dark & {
-    background: #f3f4f6;
-    color: #111827;
-    border-color: #d1d5db;
+  /* Si en Desktop necesitas que vuelva a una esquina, usa esto: */
+  @media (min-width: 993px) {
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    margin: 0;
   }
 }

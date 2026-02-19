@@ -1,122 +1,149 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. DEFINICIÓN DE HTML
-//     const navHTML = `
-//         <button class="menu-toggle">Menu</button>
+    // 1. DEFINICIÓN DE HTML (Nav & Mega Menú con doble botón para móvil)
+    // const navHTML = `
+    //     <button class="menu-toggle">Menu</button>
         
-//         <nav class="main-nav">
-//         <div class="search-box">
-//             <input type="text" 
-//                    id="calc-search" 
-//                    placeholder="Buscar..." 
-//                    autocomplete="off" 
-//                    class="search-input">
-//             <ul id="search-results" class="search-dropdown"></ul>
-//         </div>
-//             <a href="/">Inicio</a>
-//             <div class="dropdown">
-//                 <button class="dropbtn" aria-haspopup="true">Herramientas ▼</button>
-//                 <div class="dropdown-content">
-//                     <a href="/calculadora-porcentajes">📊 Porcentajes</a>
-//                     <a href="/calculadora-descuentos">🏷️ Descuentos</a>
-//                     <a href="/calculadora-propinas">☕ Propinas</a>
-//                     <a href="/calculadora-iva">💶 IVA</a>
-//                     <a href="/calculadora-divisas">💱 Cambio de Divisas</a>
-//                     <a href="/calculadora-prestamos">🏦 Préstamos e Hipotecas</a>
-//                     <a href="/calculadora-imc">⚖️ IMC</a>
-//                     <a href="/calculadora-calorias">🔥 Calorías (TMB)</a>
-//                     <a href="/validador-dni">🪪 Validador DNI/NIE</a>
-//                 </div>
-//             </div>
-//             <a href="/contacto">Contacto</a>
-//             <button class="toggle-dark-inline" id="theme-toggle" aria-label="Cambiar modo de color">
-//   🌙 Modo Oscuro
-// </button>
-//         </nav>
-//     `;
+    //     <nav class="main-nav">
+    //         <button class="menu-close-btn">✕ Cerrar</button>
+            
+    //         <div class="nav-center-group">
+    //             <div class="nav-links">
+    //                 <a href="/">Inicio</a>
+    //                 <div class="dropdown">
+    //                     <button class="dropbtn">Herramientas ▼</button>
+    //                     <div class="dropdown-content">
+    //                         <div class="dropdown-column">
+    //                             <h3>Finanzas</h3>
+    //                             <ul>
+    //                     <li><a href="/calculadora-iva">💶 IVA</a></li>
+    //                     <li><a href="/calculadora-descuentos">🏷️ Descuentos</a></li>
+    //                     <li><a href="/calculadora-propinas">☕ Propinas</a></li>
+    //                     <li><a href="/calculadora-prestamos">🏦 Préstamos</a></li>
+    //                     <li><a href="/calculadora-divisas">💱 Divisas</a></li>
+    //                     <li><a href="/calculadora-interes-compuesto">📈 Interés</a></li>
+    //                 </ul>
+    //                         </div>
+    //                         <div class="dropdown-column">
+    //                             <h3>Salud y Mates</h3>
+    //                             <ul>
+    //                     <li><a href="/calculadora-imc">⚖️ IMC</a></li>
+    //                     <li><a href="/calculadora-calorias">🔥 Calorías (TMB)</a></li>
+    //                     <li><a href="/calculadora-hidratacion">💧 Hidratación</a></li>
+    //                     <li><a href="/calculadora-porcentajes">📊 Porcentajes</a></li>
+    //                 </ul>
+    //                         </div>
+    //                         <div class="dropdown-column">
+    //                             <h3>Administración</h3>
+    //                             <ul><li><a href="/validador-dni">🪪 DNI</a></li></ul>
+    //                         </div>
+    //                         <div class="dropdown-column">
+    //                             <h3>Utilidades</h3>
+    //                             <ul><li><a href="/calculadora-conversion">📐 Conversor</a></li></ul>
+    //                         </div>
+    //                     </div>
+    //                 </div>
+    //                 <a href="/contacto">Contacto</a>
+    //             </div>
 
-    // const footerHTML = `
-    //     <div class="footer-links">
-    //         <a href="/aviso-legal">Aviso legal</a> ·
-    //         <a href="/privacidad">Privacidad</a> ·
-    //         <a href="/cookies">Cookies</a> ·
-    //         <a href="#" id="open-cookie-settings-footer">Configuración de Cookies</a> ·
-    //         <a href="/contacto">Contacto</a>
-    //     </div>
-    //     <p>&copy; 2026 Calculenow. Todos los derechos reservados.</p>
+    //             <div class="search-box">
+    //                 <input type="text" id="calc-search" placeholder="Buscar..." autocomplete="off" class="search-input">
+    //                 <ul id="search-results" class="search-dropdown"></ul>
+    //             </div>
+    //         </div>
+
+    //         <button class="toggle-dark-inline" id="theme-toggle">☀️</button>
+    //     </nav>
     // `;
 
-    // 2. INYECCIÓN Y ASIGNACIÓN DE EVENTOS INMEDIATOS
+    // 2. INYECCIÓN Y LÓGICA DE NAVEGACIÓN
     const header = document.querySelector('header');
     if (header) {
        // header.innerHTML = navHTML;
 
-        // --- LÓGICA MENÚ MÓVIL ---
-        const menuToggle = header.querySelector('.menu-toggle');
+        // --- LÓGICA MENÚ HAMBURGUESA (Doble Botón) ---
+        const menuToggle = header.querySelector('.menu-toggle');      // Botón "Menu" (Abrir)
+        const menuClose = header.querySelector('.menu-close-btn');    // Botón "✕ Cerrar" (Cerrar)
         const mainNav = header.querySelector('.main-nav');
 
         if (menuToggle && mainNav) {
             menuToggle.addEventListener('click', (e) => {
                 e.preventDefault();
-                mainNav.classList.toggle('active');
-                menuToggle.textContent = mainNav.classList.contains('active') ? '✕ Cerrar' : 'Menu';
+                mainNav.classList.add('active');
+                menuToggle.style.display = 'none'; // Ocultamos el botón de abrir
             });
         }
 
-        // --- LÓGICA DROPDOWN (Herramientas) ---
+        if (menuClose && mainNav) {
+            menuClose.addEventListener('click', (e) => {
+                e.preventDefault();
+                mainNav.classList.remove('active');
+                menuToggle.style.display = 'block'; // Mostramos el botón de abrir de nuevo
+            });
+        }
+
+        // --- LÓGICA MEGA DROPDOWN & ACORDEÓN ---
         const dropbtn = header.querySelector('.dropbtn');
         const dropdownContent = header.querySelector('.dropdown-content');
+        const columnTitles = header.querySelectorAll('.dropdown-column h3');
 
         if (dropbtn && dropdownContent) {
+            // Abrir dropdown principal
             dropbtn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 dropdownContent.classList.toggle('show');
             });
 
+            // Cerrar al hacer clic fuera
             document.addEventListener('click', (e) => {
                 if (!dropdownContent.contains(e.target) && !dropbtn.contains(e.target)) {
                     dropdownContent.classList.remove('show');
                 }
             });
+
+            // Acordeón interno para móvil
+            columnTitles.forEach(title => {
+                title.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 992) {
+                        e.stopPropagation();
+                        const parent = title.parentElement;
+                        const wasActive = parent.classList.contains('column-active');
+
+                        // Cerrar otros
+                        header.querySelectorAll('.dropdown-column').forEach(col => {
+                            col.classList.remove('column-active');
+                        });
+
+                        // Abrir actual
+                        if (!wasActive) {
+                            parent.classList.add('column-active');
+                        }
+                    }
+                });
+            });
         }
 
         // --- LÓGICA MODO OSCURO ---
-        // Busca el botón en todo el documento por ID o por Clase
-const darkBtn = document.querySelector('#dark-toggle') || document.querySelector('.toggle-dark-inline');
+        const darkBtn = document.querySelector('#dark-toggle') || document.querySelector('.toggle-dark-inline');
+        const applyTheme = (isDark) => {
+            document.documentElement.classList.toggle('dark', isDark);
+            document.body.classList.toggle('dark', isDark);
+            if (darkBtn) darkBtn.textContent = isDark ? '☀️ Modo Claro' : '🌙 Modo Oscuro';
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        };
 
-const applyTheme = (isDark) => {
-    // Es mejor aplicarlo al documentElement (HTML) para que el CSS sea más consistente
-    document.documentElement.classList.toggle('dark', isDark);
-    document.body.classList.toggle('dark', isDark);
-    
-    if (darkBtn) {
-        // Actualizamos el icono o texto
-        darkBtn.textContent = isDark ? '☀️' : '🌙';
-    }
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-};
-
-// Carga inicial
-if (localStorage.getItem('theme') === 'dark') {
-    applyTheme(true);
-}
-
-// Evento de clic
-if (darkBtn) {
-    darkBtn.addEventListener('click', () => {
-        const isDark = !document.documentElement.classList.contains('dark');
-        applyTheme(isDark);
-    });
-}
+        if (localStorage.getItem('theme') === 'dark') applyTheme(true);
+        if (darkBtn) {
+            darkBtn.addEventListener('click', () => {
+                const isDark = !document.documentElement.classList.contains('dark');
+                applyTheme(isDark);
+            });
+        }
     }
 
-    // const footer = document.querySelector('footer');
-    // if (footer) footer.innerHTML = footerHTML;
-
-    // 3. LÓGICA DE COOKIES (Sin cambios)
+    // 3. LÓGICA DE COOKIES
     const banner = document.getElementById('cookie-banner');
     const mainView = document.getElementById('cookie-main-view');
     const settingsView = document.getElementById('cookie-settings-view');
-
     const cerrarBanner = () => { if(banner) banner.style.display = 'none'; };
 
     const footerCookieBtn = document.getElementById('open-cookie-settings-footer');
@@ -161,29 +188,16 @@ if (darkBtn) {
     if (localStorage.getItem('cookies-accepted') || localStorage.getItem('cookies-pref')) {
         cerrarBanner();
     }
-});
 
-document.addEventListener("DOMContentLoaded", () => {
+    // 4. LÓGICA DE CARDS (Reordenar nuevas)
     const container = document.querySelector('.cards-container');
-    const cardNueva = document.querySelector('.card.nuevo'); // O la de Préstamos
-
-    if (container && cardNueva) {
-        // 1. Movemos la card al principio del contenedor
-        container.prepend(cardNueva);
-
-        // 2. Forzamos un pequeño "reflow" para que el navegador asimile el cambio
-        // y luego activamos la visibilidad
-        requestAnimationFrame(() => {
-            container.classList.add('is-ready');
-        });
-    } else if (container) {
-        // Si no hay ninguna card nueva que mover, lo mostramos igual
-        container.classList.add('is-ready');
+    const cardNueva = document.querySelector('.card.nuevo');
+    if (container) {
+        if (cardNueva) container.prepend(cardNueva);
+        requestAnimationFrame(() => container.classList.add('is-ready'));
     }
-});
 
-document.addEventListener("DOMContentLoaded", () => {
-    // 1. Función para crear el banner
+    // 5. LÓGICA ADBLOCK (Aviso después de 30s)
     const inyectarBannerAdblock = () => {
         const bannerHTML = `
             <div id="adblock-banner" class="adblock-msg">
@@ -194,30 +208,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
             </div>`;
         document.body.insertAdjacentHTML('beforeend', bannerHTML);
-
-        // Al hacer clic en cerrar, guardamos la preferencia
         document.getElementById('close-adblock').addEventListener('click', (e) => {
             e.target.closest('.adblock-msg').remove();
             sessionStorage.setItem('adblock_msg_dismissed', 'true');
         });
     };
 
-    const tiempoDeEspera = 30000; // 30 segundos
-    
     setTimeout(() => {
-        // 2. Comprobamos 3 cosas: 
-        // - Si canRunAds no existe (bloqueo)
-        // - Si el usuario NO lo ha cerrado ya en esta sesión
         const yaCerrado = sessionStorage.getItem('adblock_msg_dismissed');
-
         if (window.canRunAds === undefined && !yaCerrado) {
             inyectarBannerAdblock();
-            
-            const banner = document.getElementById('adblock-banner');
-            if (banner) {
-                banner.style.display = 'block';
-                console.log("Psst... un cafelito para el autor no vendría mal ☕");
-            }
+            const adBanner = document.getElementById('adblock-banner');
+            if (adBanner) adBanner.style.display = 'block';
         }
-    }, tiempoDeEspera);
+    }, 30000);
 });
