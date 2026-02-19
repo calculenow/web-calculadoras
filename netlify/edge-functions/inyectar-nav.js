@@ -29,6 +29,7 @@ export default async (request, context) => {
                     <a href="/calculadora-calorias">🔥 Calorías (TMB)</a>
                     <a href="/calculadora-hidratacion">💧 Hidratación Diaria</a>
                     <a href="/validador-dni">🪪 Validador DNI/NIE</a>
+                    <a href="/calculadora-conversion">📐 Conversor de Unidades</a>
                 </div>
             </div>
             <a href="/contacto">Contacto</a>

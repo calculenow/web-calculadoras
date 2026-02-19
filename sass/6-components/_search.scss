@@ -1,5 +1,5 @@
 /* ==========================================================================
-   COMPONENT: Search Bar (Premium Look)
+   COMPONENT: Search Bar (Premium & Functional)
    ========================================================================== */
 
 .search-box {
@@ -8,12 +8,12 @@
     align-items: center;
 
     .search-input {
-        width: 180px; // Más compacto en reposo
-        padding: 0.6rem 1rem 0.6rem 2.2rem; // Espacio para un icono si quisieras
+        width: 180px; 
+        padding: 0.6rem 1rem 0.6rem 2.2rem; 
         font-size: 0.85rem;
         font-weight: 500;
         border: 1px solid var(--border);
-        border-radius: 100px; // Estilo píldora, mucho más moderno
+        border-radius: 100px; 
         background: var(--input-bg);
         color: var(--text);
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -25,59 +25,105 @@
         }
 
         &:focus {
-            width: 240px; // Se expande al pinchar
+            width: 240px; 
             border-color: var(--primary);
             background: var(--card-bg);
-            box-shadow: 0 0 0 4px rgba(var(--primary-rgb), 0.1); // Glow sutil
+            box-shadow: 0 0 0 4px rgba(var(--primary-rgb), 0.1); 
         }
     }
 
     .search-dropdown {
         display: none;
         position: absolute;
-        top: calc(100% + 12px); // Separado del nav
-        right: 0; // Alineado a la derecha para que no se salga
-        width: 280px;
+        top: calc(100% + 12px); 
+        right: 0; 
+        width: 300px; // Un pelín más ancho para los tags
         background: var(--card-bg);
-        backdrop-filter: blur(10px); // Efecto cristal si el fondo lo permite
+        backdrop-filter: blur(10px); 
         border: 1px solid var(--border);
-        border-radius: 12px;
-        padding: 0.5rem;
+        border-radius: 16px; // Bordes más suaves
+        padding: 0.6rem;
         z-index: 1000;
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 
-                    0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 
+                    0 10px 10px -6px rgba(0, 0, 0, 0.05);
         
         &.is-visible {
             display: block;
             animation: slideUp 0.2s ease-out;
         }
 
-        li {
-            margin-bottom: 2px;
-
-            &:last-child { margin-bottom: 0; }
+        // Título de "Búsquedas recientes"
+        .search-title {
+            padding: 0.8rem 1rem 0.4rem;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-light);
+            font-weight: 700;
+            opacity: 0.6;
         }
 
-        li a {
-            display: flex;
-            align-items: center;
-            padding: 0.7rem 1rem;
-            color: var(--text);
-            text-decoration: none;
-            font-size: 0.9rem;
-            border-radius: 8px;
-            transition: all 0.2s ease;
+        li {
+            margin-bottom: 2px;
+            list-style: none;
 
-            &:hover {
+            &:last-child { margin-bottom: 0; }
+
+            // Estado de selección por teclado
+            &.is-selected a {
                 background: var(--primary);
                 color: #fff;
-                transform: translateX(4px); // Pequeño empuje lateral
+                transform: translateX(6px);
+
+                small { color: rgba(255, 255, 255, 0.8); }
+            }
+        }
+
+        .search-item {
+            display: flex;
+            flex-direction: column; // Apilado vertical
+            align-items: flex-start;
+            padding: 0.8rem 1rem; // Más aire interno
+            color: var(--text);
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+
+            .search-item-name {
+                font-weight: 600;
+                font-size: 0.95rem;
+                line-height: 1.2; // Evita que se pegue a lo de abajo
+                display: block; // Fuerza línea propia
+            }
+
+            .search-item-tags {
+                font-size: 0.75rem;
+                color: var(--text-light);
+                margin-top: 4px; // EL SECRETO: El respiro entre nombre y tags
+                display: block; 
+                opacity: 0.8;
+                font-weight: 400;
+                // Para que no se vea feo si hay muchos tags:
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis; 
+                width: 100%; 
+            }
+
+            &:hover, &.is-selected { // Unificamos estilos de selección
+                background: var(--primary);
+                color: #fff !important;
+                transform: translateX(6px);
+
+                .search-item-tags { 
+                    color: rgba(255, 255, 255, 0.9); 
+                    opacity: 1;
+                }
             }
         }
     }
 }
 
-// Pequeña animación para el dropdown
 @keyframes slideUp {
     from {
         opacity: 0;

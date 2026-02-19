@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme');
+            if (theme === 'dark') {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Calculadora de Conversión de Unidades",
+        "operatingSystem": "All",
+        "applicationCategory": "UtilitiesApplication",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+        },
+        "description": "Convierte unidades de longitud, peso, temperatura y más de forma instantánea y precisa."
+    }
+    </script>
+
+    <title>Calculadora de Conversión de Unidades | Calculenow</title>
+    <meta name="description" content="Conversor de unidades gratuito. Pasa de metros a pies, kilogramos a libras, Celsius a Fahrenheit y mucho más en un solo clic.">
+    <link rel="canonical" href="https://calculenow.com/calculadora-conversion">
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+    <header></header>
+    <main>
+        <div class="card">
+            <h1>Calculadora de Conversión</h1>
+
+            <div class="form-group">
+                <label for="categoria">Categoría</label>
+                <select id="categoria" class="field">
+                    <option value="longitud">Longitud (Metros, Pulgadas, Pies...)</option>
+                    <option value="peso">Peso (Kilos, Libras, Onzas...)</option>
+                    <option value="temperatura">Temperatura (Celsius, Fahrenheit...)</option>
+                    <option value="volumen">Volumen (Litros, Galones...)</option>
+                    <option value="datos">Datos (GB, MB, TB, Bytes...)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="cantidad">Cantidad</label>
+                <input id="cantidad" class="field" type="number" value="1" step="any">
+            </div>
+
+            <div class="divisas-controls">
+                <div class="form-group">
+                    <label for="desde">De</label>
+                    <select id="desde" class="field"></select>
+                </div>
+
+                <button type="button" id="btn-swap" class="btn-swap">🔄</button>
+
+                <div class="form-group">
+                    <label for="hacia">A</label>
+                    <select id="hacia" class="field"></select>
+                </div>
+            </div>
+
+            <button class="btn btn-conversion" id="btn-convertir">Convertir Unidades</button>
+
+            <div class="result result-conversion"></div>
+            
+            <div class="related-tools">
+                <p><strong>Otras herramientas útiles:</strong></p>
+                <ul>
+                    <li><a href="/calculadora-imc">➔ <strong>IMC:</strong> Usa tus cm y kg convertidos aquí.</a></li>
+                    <li><a href="/calculadora-divisas">➔ <strong>Divisas:</strong> Convierte valores monetarios.</a></li>
+                </ul>
+            </div>
+        </div> 
+
+        <section class="legal-content">
+    <h2>Tablas de equivalencias comunes</h2>
+    <p>Para facilitarte los cálculos rápidos, aquí tienes las conversiones más consultadas entre el sistema métrico internacional y el sistema imperial.</p>
+
+    <h3>📏 Longitud y Distancia</h3>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Unidad (Sistema Métrico)</th>
+                    <th>Equivalencia (Sistema Imperial)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1 Centímetro (cm)</td>
+                    <td>0.3937 Pulgadas (in)</td>
+                </tr>
+                <tr>
+                    <td>1 Metro (m)</td>
+                    <td>3.2808 Pies (ft)</td>
+                </tr>
+                <tr>
+                    <td>1 Metro (m)</td>
+                    <td>1.0936 Yardas (yd)</td>
+                </tr>
+                <tr>
+                    <td>1 Kilómetro (km)</td>
+                    <td>0.6213 Millas (mi)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <h3>⚖️ Peso y Masa</h3>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Unidad (Sistema Métrico)</th>
+                    <th>Equivalencia (Sistema Imperial)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1 Gramo (g)</td>
+                    <td>0.0352 Onzas (oz)</td>
+                </tr>
+                <tr>
+                    <td>1 Kilogramo (kg)</td>
+                    <td>2.2046 Libras (lb)</td>
+                </tr>
+                <tr>
+                    <td>1 Tonelada (t)</td>
+                    <td>1.1023 Toneladas cortas (US)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>🌡️ Puntos de referencia de Temperatura</h3>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Estado del agua</th>
+                    <th>Celsius (°C)</th>
+                    <th>Fahrenheit (°F)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Congelación</td>
+                    <td>0 °C</td>
+                    <td>32 °F</td>
+                </tr>
+                <tr>
+                    <td>Temperatura ambiente (media)</td>
+                    <td>20 °C</td>
+                    <td>68 °F</td>
+                </tr>
+                <tr>
+                    <td>Ebullición</td>
+                    <td>100 °C</td>
+                    <td>212 °F</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>💾 Almacenamiento Digital (Binario vs Decimal)</h3>
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Unidad Mayor</th>
+                <th>Equivalencia en Unidad Menor</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1 Terabyte (TB)</td>
+                <td>1.000 Gigabytes (GB)</td>
+            </tr>
+            <tr>
+                <td>1 Gigabyte (GB)</td>
+                <td>1.000 Megabytes (MB)</td>
+            </tr>
+            <tr>
+                <td>1 Megabyte (MB)</td>
+                <td>1.000 Kilobytes (KB)</td>
+            </tr>
+            <tr>
+                <td>1 Byte (B)</td>
+                <td>8 Bits (b)</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+    
+</section>
+
+        <section class="legal-content">
+            <h2>¿Cómo convertir unidades correctamente?</h2>
+            <p>La conversión de unidades consiste en multiplicar o dividir por un factor de conversión para obtener un valor equivalente en una escala distinta.</p>
+            
+            
+
+            <div class="formule">
+                Valor Final = Valor Inicial × Factor de Conversión
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <h3>Preguntas sobre conversión</h3>
+            <details>
+                <summary>¿Qué es el sistema métrico decimal?</summary>
+                <div class="faq-content">
+                    <p>Es el sistema de unidades basado en el metro, donde las unidades aumentan o disminuyen en potencias de diez.</p>
+                </div>
+            </details>
+            <details>
+                <summary>¿Por qué EE.UU. no usa el sistema métrico?</summary>
+                <div class="faq-content">
+                    <p>Por tradición histórica y el alto coste industrial de cambiar toda su infraestructura al sistema internacional.</p>
+                </div>
+            </details>
+        </section>
+    </main>
+
+    <script src="js/layout.js"></script>
+    <script src="js/buscador.js"></script>
+    <script src="js/core.js"></script>
+    <script src="js/conversion.js"></script>
+</body>
+</html>
