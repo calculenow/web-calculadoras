@@ -27,6 +27,7 @@ export default async (request, context) => {
                     <a href="/calculadora-interes-compuesto">📈 Interés Compuesto</a>
                     <a href="/calculadora-imc">⚖️ IMC</a>
                     <a href="/calculadora-calorias">🔥 Calorías (TMB)</a>
+                    <a href="/calculadora-hidratacion">💧 Hidratación Diaria</a>
                     <a href="/validador-dni">🪪 Validador DNI/NIE</a>
                 </div>
             </div>
