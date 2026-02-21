@@ -15,34 +15,34 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div class="dropdown-column">
                         <h3>Finanzas</h3>
                         <ul>
-                            <li><a href="es/calculadora-iva">💶 IVA</a></li>
-                            <li><a href="es/calculadora-descuentos">🏷️ Descuentos</a></li>
-                            <li><a href="es/calculadora-propinas">☕ Propinas</a></li>
-                            <li><a href="es/calculadora-prestamos">🏦 Préstamos</a></li>
-                            <li><a href="es/calculadora-divisas">💱 Divisas</a></li>
-                            <li><a href="es/calculadora-interes-compuesto">📈 Interés</a></li>
+                            <li><a href="/es/calculadora-iva">💶 IVA</a></li>
+                            <li><a href="/es/calculadora-descuentos">🏷️ Descuentos</a></li>
+                            <li><a href="/es/calculadora-propinas">☕ Propinas</a></li>
+                            <li><a href="/es/calculadora-prestamos">🏦 Préstamos</a></li>
+                            <li><a href="/es/calculadora-divisas">💱 Divisas</a></li>
+                            <li><a href="/es/calculadora-interes-compuesto">📈 Interés</a></li>
                         </ul>
                     </div>
                     <div class="dropdown-column">
                         <h3>Salud y Mates</h3>
                         <ul>
-                            <li><a href="es/calculadora-imc">⚖️ IMC</a></li>
-                            <li><a href="es/calculadora-calorias">🔥 Calorías (TMB)</a></li>
-                            <li><a href="es/calculadora-hidratacion">💧 Hidratación</a></li>
-                            <li><a href="es/calculadora-porcentajes">📊 Porcentajes</a></li>
+                            <li><a href="/es/calculadora-imc">⚖️ IMC</a></li>
+                            <li><a href="/es/calculadora-calorias">🔥 Calorías (TMB)</a></li>
+                            <li><a href="/es/calculadora-hidratacion">💧 Hidratación</a></li>
+                            <li><a href="/es/calculadora-porcentajes">📊 Porcentajes</a></li>
                         </ul>
                     </div>
                     <div class="dropdown-column">
                         <h3>Administración</h3>
-                        <ul><li><a href="es/validador-dni">🪪 DNI</a></li></ul>
+                        <ul><li><a href="/es/validador-dni">🪪 DNI</a></li></ul>
                     </div>
                     <div class="dropdown-column">
                         <h3>Utilidades</h3>
-                        <ul><li><a href="calculadora-conversion">📐 Conversor</a></li></ul>
+                        <ul><li><a href="/es/calculadora-conversion">📐 Conversor</a></li></ul>
                     </div>
                 </div>
             </div>
-            <a href="es/contacto">Contacto</a>
+            <a href="/es/contacto">Contacto</a>
         </div>
 
         <div class="search-box">

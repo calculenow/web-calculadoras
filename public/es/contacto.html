@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
       (function() {
         const theme = localStorage.getItem('theme');
@@ -13,50 +12,58 @@
           document.documentElement.classList.add('dark');
         }
       })();
-      </script>
+    </script>
 
-<title>Contacto – Calculenow</title>
-<meta name="description" content="¿Tienes alguna duda o sugerencia? Contacta con el equipo de Calculenow. Estaremos encantados de ayudarte con nuestras herramientas.">
-<link rel="canonical" href="https://calculenow.com/es/contacto">
+    <title>Contacto – Calculenow</title>
+    <meta name="description" content="¿Tienes alguna duda o sugerencia? Contacta con el equipo de Calculenow. Estaremos encantados de ayudarte con nuestras herramientas.">
+    <link rel="canonical" href="https://calculenow.com/es/contacto">
 
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)">
 
-<link rel="icon" type="image/x-icon" href="../favicon.ico">
-<link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-  <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
-      height="0" width="0" style="display:none;visibility:hidden">
-    </iframe>
-  </noscript>
-<header></header>
-  <main>
-    <div class="card contact-card">
-      <h1>Contacto</h1>
-      <p>Si tienes dudas, sugerencias o comentarios, rellena el siguiente formulario y te responderemos lo antes posible.</p>
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+          height="0" width="0" style="display:none;visibility:hidden">
+        </iframe>
+    </noscript>
     
-      <form id="contact-form">
-        <label for="nombre">Nombre:</label>
-        <input class="field" type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
-    
-        <label for="email">Correo electrónico:</label>
-        <input class="field"type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
-    
-        <label for="mensaje">Mensaje:</label>
-        <textarea class="field" id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí..." rows="5" required></textarea>
-        <div id="form-status" class="form-status"></div>
-        <button type="submit" class="btn">Enviar</button>
-      </form>
-    
-      <p>O también puedes escribirnos directamente a: <a href="mailto:contact@calculenow.com">contact@calculenow.com</a></p>
-    </div>
-  </main>
+    <header></header>
 
-  <footer></footer>
+    <main>
+        <div class="card contact-card">
+            <h1>Contacto</h1>
+            <p>Si tienes dudas, sugerencias o comentarios, rellena el siguiente formulario y te responderemos lo antes posible.</p>
+        
+            <form id="contact-form">
+                <label for="nombre">Nombre:</label>
+                <input class="field" type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+            
+                <label for="email">Correo electrónico:</label>
+                <input class="field" type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
+            
+                <label for="mensaje">Mensaje:</label>
+                <textarea class="field" id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí..." rows="5" required></textarea>
+                
+                <div class="privacy-notice" style="display: flex; align-items: flex-start; gap: 10px; margin: 15px 0; font-size: 0.9rem;">
+                    <input type="checkbox" id="privacy-check" name="privacy-check" required style="margin-top: 4px;">
+                    <label for="privacy-check">He leído y acepto la <a href="/es/privacidad" style="text-decoration: underline; color: var(--primary);">política de privacidad</a>.</label>
+                </div>
 
-    <div class="cookie-banner" id="cookie-banner">
+                <div id="form-status" class="form-status"></div>
+                <button type="submit" class="btn">Enviar</button>
+            </form>
+        
+            <p>O también puedes escribirnos directamente a: <a href="mailto:contact@calculenow.com">contact@calculenow.com</a></p>
+        </div>
+    </main>
+
+    <footer></footer>
+
+   <div class="cookie-banner" id="cookie-banner">
     <div id="cookie-main-view">
       <p>
         Utilizamos cookies para mejorar tu experiencia.
@@ -97,11 +104,11 @@
       </div>
     </div>
   </div>
-  <script src="../js/ads.js" async defer></script>
 
-  <script src="../js/layout.js"></script>
+    <script src="../js/ads.js" async defer></script>
+    <script src="../js/layout.js"></script>
     <script src="../js/buscador.js"></script>
-  <script src="../js/core.js"></script>
-  <script src="../js/contacto.js"></script>
+    <script src="../js/core.js"></script>
+    <script src="../js/contacto.js"></script>
 </body>
 </html>
