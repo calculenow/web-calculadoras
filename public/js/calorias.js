@@ -2,7 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const btn = document.querySelector('.btn-tmb');
     const resultDiv = document.querySelector('.result-tmb');
 
-    if (btn) {
+    if (btn && resultDiv) {
+        const labels = resultDiv.dataset;
+
         btn.addEventListener('click', () => {
             const genero = document.querySelector('.genero').value;
             const peso = parseFloat(document.querySelector('.peso').value);
@@ -10,57 +12,73 @@ document.addEventListener("DOMContentLoaded", () => {
             const edad = parseInt(document.querySelector('.edad').value);
             const factorActividad = parseFloat(document.querySelector('.actividad').value);
 
-            // 1. Validaciones básicas
-            if (!peso || !altura || !edad || peso <= 0 || altura <= 0 || edad <= 0) {
-                resultDiv.innerHTML = '<p style="color: #ef4444; font-weight: bold;">Por favor, introduce valores válidos y positivos.</p>';
+            // --- NUEVAS VALIDACIONES DE RANGO LÓGICO ---
+            const esValido = (
+                peso >= 20 && peso <= 400 &&
+                altura >= 50 && altura <= 260 &&
+                edad >= 15 && edad <= 110
+            );
+
+            if (!esValido) {
+                resultDiv.innerHTML = `<p style="color: #ef4444; font-weight: bold; padding: 10px; border: 1px solid #ef4444; border-radius: 8px;">${labels.msError}</p>`;
                 return;
             }
 
-            // 2. Cálculo de Tasa Metabólica Basal (Mifflin-St Jeor)
-            let tmb;
-            if (genero === 'hombre') {
-                tmb = (10 * peso) + (6.25 * altura) - (5 * edad) + 5;
-            } else {
-                tmb = (10 * peso) + (6.25 * altura) - (5 * edad) - 161;
-            }
+            // 2. Cálculo (Mifflin-St Jeor)
+            let tmb = (genero === 'hombre') 
+                ? (10 * peso) + (6.25 * altura) - (5 * edad) + 5
+                : (10 * peso) + (6.25 * altura) - (5 * edad) - 161;
 
-            // 3. Cálculo de Gasto Total (Mantenimiento)
             const mantenimiento = tmb * factorActividad;
+            const perder = mantenimiento * 0.85;
+            const ganar = mantenimiento * 1.10;
 
-            // 4. Renderizado de resultados
+            // 3. Renderizado (Usando los fallbacks para evitar undefined)
             resultDiv.innerHTML = `
                 <div class="resumen-calculo">
                     <p style="font-weight: bold; border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 12px;">
-                        Tu Resumen Energético
+                        ${labels.header || 'RESUMEN'}
                     </p>
                     <ul style="list-style: none; padding: 0; margin: 0;">
                         <li style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                            <span>Metabolismo Basal:</span>
-                            <strong>${Math.round(tmb)} kcal</strong>
+                            <span>${labels.labelBmr || 'BMR'}:</span>
+                            <strong>${Math.round(tmb)} ${labels.unit || 'kcal'}</strong>
                         </li>
                         <li class="total-destacado" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed var(--border); padding-top: 12px; margin-top: 5px;">
-                            <span>Mantenimiento Diario:</span>
-                            <span style="font-size: 1.5rem; color: #f59e0b; font-weight: 800;">${Math.round(mantenimiento)} kcal</span>
+                            <span>${labels.labelTdee || 'TDEE'}:</span>
+                            <span style="font-size: 1.5rem; color: #f59e0b; font-weight: 800;">${Math.round(mantenimiento)} ${labels.unit || 'kcal'}</span>
                         </li>
                     </ul>
                     
                     <div style="margin-top: 20px; padding: 12px; background: rgba(0,0,0,0.03); border-radius: 8px; font-size: 0.9rem;">
-                        <p style="margin-bottom: 8px; font-weight: bold; opacity: 0.9;">Estimación según objetivos:</p>
+                        <p style="margin-bottom: 8px; font-weight: bold; opacity: 0.9;">${labels.labelObjective || ''}</p>
                         <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                            <span>📉 Perder peso (-15%):</span>
-                            <strong>${Math.round(mantenimiento * 0.85)} kcal</strong>
+                            <span>${labels.labelLose || ''}:</span>
+                            <strong>${Math.round(perder)} ${labels.unit || 'kcal'}</strong>
                         </div>
                         <div style="display: flex; justify-content: space-between;">
-                            <span>📈 Ganar peso (+10%):</span>
-                            <strong>${Math.round(mantenimiento * 1.10)} kcal</strong>
+                            <span>${labels.labelGain || ''}:</span>
+                            <strong>${Math.round(ganar)} ${labels.unit || 'kcal'}</strong>
                         </div>
                     </div>
+
+                    <button class="btn-copy" style="margin-top: 15px; width: 100%; padding: 10px; cursor: pointer; border: 1px solid var(--border); border-radius: 6px; background: var(--card-bg); color: var(--text-main); font-weight: bold;">
+                        ${labels.btnCopy || 'Copy'}
+                    </button>
                     
                     <p style="font-size: 0.75rem; margin-top: 15px; font-style: italic; opacity: 0.7; line-height: 1.3;">
-                        * Valores aproximados. El mantenimiento es la cantidad de calorías para ni ganar ni perder peso.
+                        ${labels.labelFooter || ''}
                     </p>
                 </div>
             `;
+
+            // Evento de copiar
+            resultDiv.querySelector('.btn-copy').addEventListener('click', function() {
+                const text = `${labels.header}\n${labels.labelBmr}: ${Math.round(tmb)}\n${labels.labelTdee}: ${Math.round(mantenimiento)}`;
+                navigator.clipboard.writeText(text);
+                this.innerText = "✅";
+                setTimeout(() => this.innerText = labels.btnCopy, 2000);
+            });
         });
     }
 });
