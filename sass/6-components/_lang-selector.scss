@@ -1,0 +1,45 @@
+.lang-selector {
+    margin: 0 30px; // Esto es lo que separa el buscador del sol
+    display: inline-block;
+
+    select {
+        appearance: none;
+        -webkit-appearance: none;
+        background-color: var(--input-bg);
+        color: var(--text);
+        border: 1px solid var(--border);
+        border-radius: 50px;
+        padding: 8px 30px 8px 15px;
+        font-family: inherit;
+        font-weight: 700;
+        cursor: pointer;
+
+        // La flecha para que no salga la del sistema
+        background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>');
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        background-size: 12px;
+
+        // ESTO arregla lo de que no se lea el dropdown
+        option {
+            background-color: #1a1a1a; 
+            color: #fff;
+        }
+    }
+}
+
+/* Ajuste para móvil (basado en tu breakpoint de 992px) */
+@media (max-width: 992px) {
+    .lang-selector {
+        margin: 10px auto; // Centrado horizontal y un poco de aire arriba/abajo
+        display: flex;     // Usamos flex para asegurar que el select interno se centre
+        justify-content: center;
+        width: 100%;       // Ocupa el ancho para que el 'auto' del margen funcione
+
+        select {
+            width: auto;     // Que no se estire a todo el ancho si no quieres
+            min-width: 120px; // Un tamaño mínimo para que sea fácil de tocar con el dedo
+            padding: 12px 35px 12px 15px; // Un poco más de padding para que sea más "táctil"
+        }
+    }
+}

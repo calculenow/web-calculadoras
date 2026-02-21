@@ -168,3 +168,31 @@ function validarNumeros(inputs) {
         return valor !== "" && !isNaN(Number(valor)) && isFinite(Number(valor));
     });
 }
+
+/**
+ * Lógica del Selector de Idioma
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    const langSelect = document.querySelector('.lang-selector select');
+    
+    if (langSelect) {
+        // 1. Detectar idioma por la URL y marcar el 'selected'
+        const currentPath = window.location.pathname;
+        
+        if (currentPath.includes('/en/')) {
+            langSelect.value = '/en/';
+        } else {
+            langSelect.value = '/es/';
+        }
+
+        // 2. Gestionar el cambio de idioma
+        langSelect.addEventListener('change', (e) => {
+            const targetPath = e.target.value;
+            
+            // Solo redirige si es una ruta distinta a la actual
+            if (!window.location.pathname.startsWith(targetPath)) {
+                window.location.href = targetPath;
+            }
+        });
+    }
+});

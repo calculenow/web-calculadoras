@@ -1,64 +1,72 @@
 document.addEventListener("DOMContentLoaded", () => {
     // 1. DEFINICIÓN DE HTML (Nav & Mega Menú con doble botón para móvil)
-    const navHTML = `
-        <button class="menu-toggle">Menu</button>
-        
-        <nav class="main-nav">
-            <button class="menu-close-btn">✕ Cerrar</button>
-            
-            <div class="nav-center-group">
-                <div class="nav-links">
-                    <a href="/es">Inicio</a>
-                    <div class="dropdown">
-                        <button class="dropbtn">Herramientas ▼</button>
-                        <div class="dropdown-content">
-                            <div class="dropdown-column">
-                                <h3>Finanzas</h3>
-                                <ul>
-                        <li><a href="es/calculadora-iva">💶 IVA</a></li>
-                        <li><a href="es/calculadora-descuentos">🏷️ Descuentos</a></li>
-                        <li><a href="es/calculadora-propinas">☕ Propinas</a></li>
-                        <li><a href="es/calculadora-prestamos">🏦 Préstamos</a></li>
-                        <li><a href="es/calculadora-divisas">💱 Divisas</a></li>
-                        <li><a href="es/calculadora-interes-compuesto">📈 Interés</a></li>
-                    </ul>
-                            </div>
-                            <div class="dropdown-column">
-                                <h3>Salud y Mates</h3>
-                                <ul>
-                        <li><a href="es/calculadora-imc">⚖️ IMC</a></li>
-                        <li><a href="es/calculadora-calorias">🔥 Calorías (TMB)</a></li>
-                        <li><a href="es/calculadora-hidratacion">💧 Hidratación</a></li>
-                        <li><a href="es/calculadora-porcentajes">📊 Porcentajes</a></li>
-                    </ul>
-                            </div>
-                            <div class="dropdown-column">
-                                <h3>Administración</h3>
-                                <ul><li><a href="es/validador-dni">🪪 DNI</a></li></ul>
-                            </div>
-                            <div class="dropdown-column">
-                                <h3>Utilidades</h3>
-                                <ul><li><a href="calculadora-conversion">📐 Conversor</a></li></ul>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="es/contacto">Contacto</a>
-                </div>
+//     const navHTML = `
+//         <button class="menu-toggle">Menu</button>
 
-                <div class="search-box">
-                    <input type="text" id="calc-search" placeholder="Buscar..." autocomplete="off" class="search-input">
-                    <ul id="search-results" class="search-dropdown"></ul>
-                </div>
-            </div>
+// <nav class="main-nav">
+//     <button class="menu-close-btn">✕ Cerrar</button>
+    
+//     <div class="nav-center-group">
+//         <div class="nav-links">
+//             <a href="/es">Inicio</a>
+//             <div class="dropdown">
+//                 <button class="dropbtn">Herramientas ▼</button>
+//                 <div class="dropdown-content">
+//                     <div class="dropdown-column">
+//                         <h3>Finanzas</h3>
+//                         <ul>
+//                             <li><a href="es/calculadora-iva">💶 IVA</a></li>
+//                             <li><a href="es/calculadora-descuentos">🏷️ Descuentos</a></li>
+//                             <li><a href="es/calculadora-propinas">☕ Propinas</a></li>
+//                             <li><a href="es/calculadora-prestamos">🏦 Préstamos</a></li>
+//                             <li><a href="es/calculadora-divisas">💱 Divisas</a></li>
+//                             <li><a href="es/calculadora-interes-compuesto">📈 Interés</a></li>
+//                         </ul>
+//                     </div>
+//                     <div class="dropdown-column">
+//                         <h3>Salud y Mates</h3>
+//                         <ul>
+//                             <li><a href="es/calculadora-imc">⚖️ IMC</a></li>
+//                             <li><a href="es/calculadora-calorias">🔥 Calorías (TMB)</a></li>
+//                             <li><a href="es/calculadora-hidratacion">💧 Hidratación</a></li>
+//                             <li><a href="es/calculadora-porcentajes">📊 Porcentajes</a></li>
+//                         </ul>
+//                     </div>
+//                     <div class="dropdown-column">
+//                         <h3>Administración</h3>
+//                         <ul><li><a href="es/validador-dni">🪪 DNI</a></li></ul>
+//                     </div>
+//                     <div class="dropdown-column">
+//                         <h3>Utilidades</h3>
+//                         <ul><li><a href="calculadora-conversion">📐 Conversor</a></li></ul>
+//                     </div>
+//                 </div>
+//             </div>
+//             <a href="es/contacto">Contacto</a>
+//         </div>
 
-            <button class="toggle-dark-inline" id="theme-toggle">☀️</button>
-        </nav>
-    `;
+//         <div class="search-box">
+//             <input type="text" id="calc-search" placeholder="Buscar..." autocomplete="off" class="search-input">
+//             <ul id="search-results" class="search-dropdown"></ul>
+//         </div>
+//     </div>
+
+//     <div class="nav-controls">
+//         <div class="lang-selector">
+//     <select onchange="window.location.href=this.value">
+//         <option value="/es/">🇪🇸 Español</option>
+//         <option value="/en/">🇬🇧 English</option>
+//     </select>
+// </div>
+//         <button class="toggle-dark-inline" id="theme-toggle">☀️</button>
+//     </div>
+// </nav>
+//     `;
 
     // 2. INYECCIÓN Y LÓGICA DE NAVEGACIÓN
     const header = document.querySelector('header');
     if (header) {
-        header.innerHTML = navHTML;
+      //  header.innerHTML = navHTML;
 
         // --- LÓGICA MENÚ HAMBURGUESA (Doble Botón) ---
         const menuToggle = header.querySelector('.menu-toggle');      // Botón "Menu" (Abrir)

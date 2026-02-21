@@ -1,17 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <script>
-        (function() {
-            const lang = navigator.language || navigator.userLanguage;
-            if (lang.startsWith('es')) {
-                window.location.replace("/es/");
-            } else {
-                window.location.replace("/en/");
-            }
-        })();
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculenow - Select your language</title>
+    <link rel="stylesheet" href="css/styles.css"> <style>
+        .gateway-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .lang-options {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .lang-btn {
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            background: var(--primary); /* El color que uses en tu CSS */
+            color: white;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+        .lang-btn:hover {
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body>
+    <div class="gateway-container">
+        <h1>Welcome to Calculenow</h1>
+        <p>Please select your language / Por favor, selecciona tu idioma</p>
+        
+        <div class="lang-options">
+            <a href="/es/" class="lang-btn">Español</a>
+            <a href="/en/" class="lang-btn">English</a>
+        </div>
+    </div>
 </body>
 </html>
