@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        (function() {
+            const lang = navigator.language || navigator.userLanguage;
+            if (lang.startsWith('es')) {
+                window.location.replace("/es/");
+            } else {
+                window.location.replace("/en/");
+            }
+        })();
+    </script>
+</head>
+<body>
+</body>
+</html>

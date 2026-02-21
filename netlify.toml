@@ -1,3 +1,9 @@
+# Función para inyectar el menú en todas las páginas
 [[edge_functions]]
   function = "inyectar-nav"
   path = "/*"
+
+# Función Portero: SOLO actúa en la entrada de la web
+[[edge_functions]]
+  function = "languageredirect"
+  path = "/"
