@@ -7,15 +7,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!btnAdd || !btnRemove) return;
 
+    // Leemos las traducciones una sola vez al cargar
+    const txt = resultDiv.dataset;
+
     const calcularIVA = (tipo) => {
-        // Validación simple si no tienes la función global validarNumeros
+        // Validación usando el mensaje del HTML
         if (!importeInput.value || isNaN(importeInput.value)) {
-            resultDiv.innerHTML = "⚠️ Por favor, introduce un importe válido.";
+            resultDiv.innerHTML = `<div class="error-msg">${txt.msError || "⚠️ Error"}</div>`;
             return;
         }
 
         const importe = parseFloat(importeInput.value);
         const porcentaje = parseFloat(tipoIvaSelect.value);
+        const moneda = txt.symbol || "€";
         let ivaCalculado, base, total;
 
         if (tipo === 'add') {
@@ -23,70 +27,90 @@ document.addEventListener("DOMContentLoaded", () => {
             ivaCalculado = base * (porcentaje / 100);
             total = base + ivaCalculado;
             
-            renderResult("Base Imponible", base, "IVA (+)", ivaCalculado, "Total (PVP)", total, "add", porcentaje);
+            // Enviamos los labels definidos en el HTML para "Añadir"
+            renderResult(
+                txt.labelBase, 
+                base, 
+                `${txt.labelIva} (+)`, 
+                ivaCalculado, 
+                txt.labelTotalAdd, 
+                total, 
+                "add", 
+                porcentaje,
+                moneda
+            );
         } else {
             total = importe;
             base = total / (1 + (porcentaje / 100));
             ivaCalculado = total - base;
             
-            renderResult("Precio Total", total, "IVA incluido (-)", ivaCalculado, "Base Imponible", base, "remove", porcentaje);
+            // Enviamos los labels definidos en el HTML para "Desglosar"
+            renderResult(
+                txt.labelTotalRemove, 
+                total, 
+                `${txt.labelIva} (-)`, 
+                ivaCalculado, 
+                txt.labelBase, 
+                base, 
+                "remove", 
+                porcentaje,
+                moneda
+            );
         }
     };
 
-    // Función auxiliar para no repetir HTML
-    const renderResult = (labelPrincipal, valPrincipal, labelIva, valIva, labelFinal, valFinal, clase, porc) => {
-    const valorParaCopiar = valFinal.toFixed(2);
-    
-    resultDiv.innerHTML = `
-        <div class="resumen-calculo ${clase}">
-            <div class="resumen-header">Resultados del cálculo</div>
-            <div class="resumen-item">
-                <span>${labelPrincipal}:</span>
-                <strong>${valPrincipal.toFixed(2)}€</strong>
-            </div>
-            <div class="resumen-item">
-                <span>${labelIva} ${porc}%:</span>
-                <span class="iva-color">${valIva.toFixed(2)}€</span>
-            </div>
-            <div class="resumen-total">
-                <div class="total-info">
-                    <span>${labelFinal}:</span>
-                    <strong id="valor-total">${valorParaCopiar}€</strong>
+    const renderResult = (labelPrincipal, valPrincipal, labelIva, valIva, labelFinal, valFinal, clase, porc, moneda) => {
+        const valorParaCopiar = valFinal.toFixed(2);
+        
+        resultDiv.innerHTML = `
+            <div class="resumen-calculo ${clase}">
+                <div class="resumen-header">${txt.header}</div>
+                <div class="resumen-item">
+                    <span>${labelPrincipal}:</span>
+                    <strong>${valPrincipal.toFixed(2)}${moneda}</strong>
                 </div>
-                <button class="btn-copy" onclick="copiarAlPortapapeles('${valorParaCopiar}')" title="Copiar resultado">
-                    <span class="copy-icon">📋</span>
-                    <span class="copy-text">Copiar</span>
-                </button>
+                <div class="resumen-item">
+                    <span>${labelIva} ${porc}%:</span>
+                    <span class="iva-color">${valIva.toFixed(2)}${moneda}</span>
+                </div>
+                <div class="resumen-total">
+                    <div class="total-info">
+                        <span>${labelFinal}:</span>
+                        <strong id="valor-total">${valorParaCopiar}${moneda}</strong>
+                    </div>
+                    <button class="btn-copy" 
+                            onclick="window.copiarAlPortapapeles('${valorParaCopiar}', this)" 
+                            title="${txt.btnCopy}">
+                        <span class="copy-icon">📋</span>
+                        <span class="copy-text">${txt.btnCopy}</span>
+                    </button>
+                </div>
             </div>
-        </div>
-    `;
-};
+        `;
+    };
 
-// Función global para copiar (fuera del DOMContentLoaded o dentro, pero accesible)
-window.copiarAlPortapapeles = (valor) => {
-    navigator.clipboard.writeText(valor).then(() => {
-        const btn = document.querySelector('.btn-copy');
-        const originalText = btn.innerHTML;
-        
-        // Feedback visual de que se ha copiado
-        btn.innerHTML = '✅ ¡Copiado!';
-        btn.classList.add('copied');
-        
-        setTimeout(() => {
-            btn.innerHTML = originalText;
-            btn.classList.remove('copied');
-        }, 2000);
-    });
-};
+    // Función de copiar mejorada para ser independiente del idioma
+    window.copiarAlPortapapeles = (valor, btn) => {
+        navigator.clipboard.writeText(valor).then(() => {
+            const copyText = btn.querySelector('.copy-text');
+            const originalText = txt.btnCopy;
+            
+            copyText.innerText = txt.btnCopied;
+            btn.classList.add('copied');
+            
+            setTimeout(() => {
+                copyText.innerText = originalText;
+                btn.classList.remove('copied');
+            }, 2000);
+        });
+    };
 
-    // Eventos de clic
+    // Eventos
     btnAdd.addEventListener('click', () => calcularIVA('add'));
     btnRemove.addEventListener('click', () => calcularIVA('remove'));
 
-    // Evento de tecla Enter
     importeInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
-            // Por defecto, Enter suma el IVA si no se especifica
             calcularIVA('add');
         }
     });

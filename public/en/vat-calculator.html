@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme');
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "VAT Calculator UK",
+    "operatingSystem": "All",
+    "applicationCategory": "FinanceApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "GBP"
+    },
+    "description": "Calculate UK VAT (20%, 5%, 0%) quickly. Tool to add or exclude VAT from any amount for businesses and freelancers."
+  }
+  </script>
+
+  <title>VAT Calculator UK 2026 - Add or Exclude 20%, 5% and 0% | Calculenow</title>
+  <link rel="canonical" href="https://calculenow.com/en/vat-calculator">
+  
+  <link rel="alternate" hreflang="es" href="https://calculenow.com/calculadora-iva" />
+  <link rel="alternate" hreflang="en" href="https://calculenow.com/en/vat-calculator" />
+  <link rel="alternate" hreflang="x-default" href="https://calculenow.com/en/vat-calculator" />
+
+  <meta name="description" content="Instantly calculate and breakdown UK VAT. Supports 20%, 5%, and 0% rates. Ideal for UK small businesses and freelancers to get precise results for invoices.">
+
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)">
+
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+</head>
+<body>
+  <header></header>
+  
+  <main>
+    <div class="card iva-card">
+      <h1>VAT Calculator</h1>
+      
+      <label for="importe">Amount (£)</label>
+      <input id="importe" class="field importe" type="number" step="0.01" placeholder="Ex: 100">
+
+      <label for="tipo-iva">VAT Rate (%)</label>
+      <select id="tipo-iva" class="field tipo-iva">
+        <option value="20">Standard Rate (20%)</option>
+        <option value="5">Reduced Rate (5%)</option>
+        <option value="0">Zero Rated (0%)</option>
+      </select>
+
+      <div style="margin-top: 1rem; display: flex; gap: 10px;">
+        <button class="btn btn-add-iva" style="flex: 1;">Add VAT</button>
+        <button class="btn btn-remove-iva" style="flex: 1; background: var(--card); color: var(--text); border: 1px solid var(--border);">Exclude VAT</button>
+      </div>
+
+      <div class="result result-iva" 
+           data-ms-error="⚠️ Please enter a valid amount."
+           data-header="CALCULATION RESULTS"
+           data-label-base="Net Amount"
+           data-label-iva="VAT"
+           data-label-total-add="Total (Inc. VAT)"
+           data-label-total-remove="Net Amount"
+           data-btn-copy="Copy"
+           data-btn-copied="✅ Copied!"
+           data-symbol="£">
+      </div>
+
+      <div class="related-tools">
+        <p><strong>Management & Purchases:</strong></p>
+        <ul>
+          <li>
+            <a href="/en/discount-calculator">
+              ➔ <strong>Discount Calculator:</strong> Calculate final prices after discounts before taxes.
+            </a>
+          </li>
+          <li>
+            <a href="/en/loan-calculator">
+              ➔ <strong>Loans & Mortgages:</strong> Plan your financing for larger purchases.
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="legal-content">
+      <h2>How to Calculate VAT in 2026?</h2>
+      <p>Calculating VAT is an essential process for both businesses and consumers. <strong>Value Added Tax (VAT)</strong> is a consumption tax placed on a product whenever value is added at each stage of the supply chain.</p>
+      
+      <h3>Current VAT Rates in the UK</h3>
+      <ul>
+        <li><strong>Standard Rate (20%):</strong> Applicable to most goods and services (electronics, clothing, professional services).</li>
+        <li><strong>Reduced Rate (5%):</strong> Applied to specific goods like children's car seats and home energy.</li>
+        <li><strong>Zero Rate (0%):</strong> Applicable to most food items, books, and children's clothes.</li>
+      </ul>
+
+      <h3>Formulas to Add and Exclude VAT</h3>
+      <p>To work with VAT manually, you can use the following mathematical formulas:</p>
+      
+      <div class="formule">
+        <strong>Add VAT:</strong> Total Price = Net Amount × (1 + VAT Rate/100)
+      </div>
+      
+      <div class="formule">
+        <strong>Exclude VAT:</strong> Net Amount = Total Price / (1 + VAT Rate/100)
+      </div>
+    </section>
+
+    <div class="faq-section">
+      <h3>Frequently Asked Questions about VAT</h3>
+      
+      <details>
+        <summary>What is the difference between adding and excluding VAT?</summary>
+        <div class="faq-content">
+          <p><strong>Adding VAT</strong> is done on the net price (base amount) to find the total. <strong>Excluding (or stripping) VAT</strong> is performed on the final price (Gross) to find out how much corresponds to the tax and how much to the real value of the product.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What VAT rates exist in the UK?</summary>
+        <div class="faq-content">
+          <p>There are currently three rates:</p>
+          <ul>
+            <li><strong>Standard (20%):</strong> Applies to most products and services.</li>
+            <li><strong>Reduced (5%):</strong> Energy, heating, and some safety products.</li>
+            <li><strong>Zero (0%):</strong> Essential items like food, books, and children's clothing.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>How to calculate VAT manually?</summary>
+        <div class="faq-content">
+          <p>To add 20% VAT, multiply the net amount by 1.20. To extract it from a final price, divide the total by 1.20. The difference between the total and that result will be the VAT amount.</p>
+        </div>
+      </details>
+    </div>
+  </main>
+
+  <div class="cookie-banner" id="cookie-banner">
+    <div id="cookie-main-view">
+      <p>
+        We use cookies to improve your experience.
+        <a href="cookies.html">Cookie policy</a>
+      </p>
+      <div class="cookie-buttons">
+        <button class="accept-cookies" id="btn-accept-all">Accept all</button>
+        <button class="reject-cookies" id="btn-reject-all">Reject all</button>
+        <button class="settings-cookies" id="btn-open-settings">Settings</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/layout.js"></script>
+  <script src="../js/core.js"></script>
+  <script src="../js/iva.js"></script>
+</body>
+</html>
