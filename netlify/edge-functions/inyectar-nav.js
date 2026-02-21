@@ -39,7 +39,15 @@ export default async (request, context) => {
       porc: ["/es/calculadora-porcentajes", "📊 Porcentajes"],
       dni: ["/es/validador-dni", "🪪 DNI"],
       conv: ["/es/calculadora-conversion", "📐 Conversor"]
-    }
+    },
+    footer: {
+  legal: ["/es/aviso-legal", "Aviso legal"],
+  priv: ["/es/privacidad", "Privacidad"],
+  cook: ["/es/cookies", "Cookies"],
+  set: "Configuración de Cookies",
+  cont: ["/es/contacto", "Contacto"],
+  copy: "Todos los derechos reservados."
+},
   },
   en: {
     // UI General
@@ -75,7 +83,15 @@ export default async (request, context) => {
       porc: ["/en/percentage-calculator", "📊 Percentages"],
       dni: ["/en/id-validator", "🪪 ID Validator"],
       conv: ["/en/unit-converter", "📐 Converter"]
-    }
+    },
+    footer: {
+  legal: ["/en/legal-notice", "Legal notice"],
+  priv: ["/en/privacy-policy", "Privacy"],
+  cook: ["/en/cookies", "Cookies"],
+  set: "Cookie Settings",
+  cont: ["/en/contact", "Contact"],
+  copy: "All rights reserved."
+}
   }
 };
 
@@ -116,8 +132,23 @@ const navHTML = `
     </nav>
 `;
 
-  const nuevoHtml = html.replace(/<header>([\s\S]*?)<\/header>/i, `<header>${navHTML}</header>`);
-  return new Response(nuevoHtml, response);
+const footerHTML = `
+    <div class="footer-links">
+        <a href="${t.footer.legal[0]}">${t.footer.legal[1]}</a> ·
+        <a href="${t.footer.priv[0]}">${t.footer.priv[1]}</a> ·
+        <a href="${t.footer.cook[0]}">${t.footer.cook[1]}</a> ·
+        <a href="#" id="open-cookie-settings-footer">${t.footer.set}</a> ·
+        <a href="${t.footer.cont[0]}">${t.footer.cont[1]}</a>
+    </div>
+    <p>&copy; ${new Date().getFullYear()} Calculenow. ${t.footer.copy}</p>
+`;
+
+  // Buscamos las etiquetas header y footer y les metemos nuestro contenido dinámico
+const nuevoHtml = html
+  .replace(/<header>([\s\S]*?)<\/header>/i, `<header>${navHTML}</header>`)
+  .replace(/<footer>([\s\S]*?)<\/footer>/i, `<footer>${footerHTML}</footer>`);
+
+return new Response(nuevoHtml, response);
 };
 
 export const config = { path: "/*" };
