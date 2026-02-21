@@ -81,7 +81,6 @@ export default async (request, context) => {
       calo: ["/en/calorie-calculator", "🔥 Calories"],
       hidra: ["/en/hydration-calculator", "💧 Hydration"],
       porc: ["/en/percentage-calculator", "📊 Percentages"],
-      dni: ["/en/id-validator", "🪪 ID Validator"],
       conv: ["/en/unit-converter", "📐 Converter"]
     },
     footer: {

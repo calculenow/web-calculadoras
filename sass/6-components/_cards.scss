@@ -26,8 +26,7 @@
     line-height: 1.5;
   }
 
-  // Versión Desactivada (Muted) - Próximamente
-  // Se aplica directamente al div.card dentro del HTML
+  // --- Versión Desactivada (Muted) ---
   &.muted {
     opacity: 0.6;
     cursor: not-allowed;
@@ -36,21 +35,19 @@
 
     &::after {
       @include ribbon(var(--border)); 
-      content: "Próximamente";
+      content: "Próximamente"; // Texto base
       font-size: 0.75rem;
       font-weight: bold;
     }
   }
 }
 
-// Lógica para el contenedor del enlace (Controla el orden y hover)
+// --- Lógica del contenedor (Orden y Hover) ---
 .card-link {
   text-decoration: none;
   display: flex; 
   flex-direction: column;
-  
-  // NIVEL 2: Orden por defecto para calculadoras normales
-  order: 2; 
+  order: 2; // Nivel normal
 
   &:hover .card {
     border-color: var(--primary);
@@ -58,7 +55,7 @@
     transform: translateY(-5px);
   }
 
-  // NIVEL 1: NOVEDADES (Suben arriba)
+  // --- Nivel Novedades (data-estado="nuevo") ---
   &[data-estado="nuevo"] {
     order: 1; 
 
@@ -67,7 +64,7 @@
 
       &::after {
         @include ribbon(var(--success));
-        content: "¡NUEVO!";
+        content: "¡NUEVO!"; // Texto base
         font-size: 0.75rem;
         font-weight: bold;
       }
@@ -79,22 +76,33 @@
     }
   }
 
-  // NIVEL 3: Si el enlace contiene una card muted, lo mandamos al final
-  // Nota: Esto asume que en tu HTML las cards muted están dentro de un .card-link
-  // Si tus muted NO tienen enlace, aplica el order directamente al div.card
+  // --- Nivel Muted (Al final) ---
   &:has(.muted) {
     order: 3;
   }
 }
 
-// Si tus cards muted en el HTML NO tienen el wrapper .card-link:
+// Ajuste para cards muted sin wrapper
 .card.muted:not(.card-link .card) {
   order: 3;
 }
 
+// --- CAMBIO DE IDIOMA PARA LOS RIBBONS ---
+// Si el atributo lang del <html> es "en", cambiamos los textos
+[lang="en"] {
+  .card-link[data-estado="nuevo"] .card::after {
+    content: "NEW!";
+  }
+
+  .card.muted::after {
+    content: "COMING SOON";
+  }
+}
+
+// Contenedor con animación
 .cards-container {
   opacity: 0;
-  transform: translateY(10px); /* Opcional: un pequeño efecto de subida */
+  transform: translateY(10px);
   transition: opacity 0.4s ease, transform 0.4s ease;
   
   &.is-ready {

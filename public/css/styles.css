@@ -223,9 +223,16 @@ main {
   order: 3;
 }
 
+[lang=en] .card-link[data-estado=nuevo] .card::after {
+  content: "NEW!";
+}
+[lang=en] .card.muted::after {
+  content: "COMING SOON";
+}
+
 .cards-container {
   opacity: 0;
-  transform: translateY(10px); /* Opcional: un pequeño efecto de subida */
+  transform: translateY(10px);
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 .cards-container.is-ready {
