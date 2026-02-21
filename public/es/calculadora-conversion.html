@@ -33,8 +33,8 @@
     <meta name="description" content="Conversor de unidades gratuito. Pasa de metros a pies, kilogramos a libras, Celsius a Fahrenheit y mucho más en un solo clic.">
     <link rel="canonical" href="https://calculenow.com/calculadora-conversion">
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../css/styles.css"/>
 </head>
 <body>
     <header></header>
@@ -236,10 +236,50 @@
             </details>
         </section>
     </main>
+    <div class="cookie-banner" id="cookie-banner">
+    <div id="cookie-main-view">
+      <p>
+        Utilizamos cookies para mejorar tu experiencia.
+        <a href="../es/cookies.html">Ver política de cookies</a>
+      </p>
+      <div class="cookie-buttons">
+        <button class="accept-cookies" id="btn-accept-all">
+          Aceptar todas
+        </button>
+        <button class="reject-cookies" id="btn-reject-all">
+          Rechazar todas
+        </button>
+        <button class="settings-cookies" id="btn-open-settings">
+          Configurar
+        </button>
+      </div>
+    </div>
 
-    <script src="js/layout.js"></script>
-    <script src="js/buscador.js"></script>
-    <script src="js/core.js"></script>
-    <script src="js/conversion.js"></script>
+    <div id="cookie-settings-view" style="display: none">
+      <p><strong>Personaliza tus preferencias:</strong></p>
+      <div class="cookie-option">
+        <input type="checkbox" id="check-necessary" checked disabled />
+        <label>Necesarias (Obligatorias)</label>
+      </div>
+      <div class="cookie-option">
+        <input type="checkbox" id="check-analytics" />
+        <label>Analíticas (Google Analytics)</label>
+      </div>
+      <div class="cookie-option">
+        <input type="checkbox" id="check-marketing" />
+        <label>Marketing (Píxeles publicitarios)</label>
+      </div>
+      <div class="cookie-buttons" style="margin-top: 15px">
+        <button class="accept-cookies" id="btn-save-settings">
+          Guardar selección
+        </button>
+        <button class="settings-cookies" id="btn-back">Volver</button>
+      </div>
+    </div>
+  </div>
+    <script src="../js/layout.js"></script>
+    <script src="../js/buscador.js"></script>
+    <script src="../js/core.js"></script>
+    <script src="../js/conversion.js"></script>
 </body>
 </html>

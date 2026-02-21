@@ -33,8 +33,8 @@
   <meta name="description" content="Calculadora de divisas gratuita y actualizada. Convierte euros, dólares y más de 30 monedas con tipos de cambio oficiales en tiempo real. ¡Rápida y sin registros!">
   <link rel="canonical" href="https://calculenow.com/calculadora-divisas">
 
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../css/styles.css"/>
 </head>
 <body>
    <noscript>
@@ -137,12 +137,52 @@
     </details>
   </section>
 </main>
+<div class="cookie-banner" id="cookie-banner">
+    <div id="cookie-main-view">
+      <p>
+        Utilizamos cookies para mejorar tu experiencia.
+        <a href="../es/cookies.html">Ver política de cookies</a>
+      </p>
+      <div class="cookie-buttons">
+        <button class="accept-cookies" id="btn-accept-all">
+          Aceptar todas
+        </button>
+        <button class="reject-cookies" id="btn-reject-all">
+          Rechazar todas
+        </button>
+        <button class="settings-cookies" id="btn-open-settings">
+          Configurar
+        </button>
+      </div>
+    </div>
 
+    <div id="cookie-settings-view" style="display: none">
+      <p><strong>Personaliza tus preferencias:</strong></p>
+      <div class="cookie-option">
+        <input type="checkbox" id="check-necessary" checked disabled />
+        <label>Necesarias (Obligatorias)</label>
+      </div>
+      <div class="cookie-option">
+        <input type="checkbox" id="check-analytics" />
+        <label>Analíticas (Google Analytics)</label>
+      </div>
+      <div class="cookie-option">
+        <input type="checkbox" id="check-marketing" />
+        <label>Marketing (Píxeles publicitarios)</label>
+      </div>
+      <div class="cookie-buttons" style="margin-top: 15px">
+        <button class="accept-cookies" id="btn-save-settings">
+          Guardar selección
+        </button>
+        <button class="settings-cookies" id="btn-back">Volver</button>
+      </div>
+    </div>
+  </div>
   
-  <script src="js/ads.js" async defer></script>
-  <script src="js/layout.js"></script>
-    <script src="js/buscador.js"></script>
-  <script src="js/core.js"></script>
-  <script src="js/divisas.js"></script>
+  <script src="../js/ads.js" async defer></script>
+  <script src="../js/layout.js"></script>
+    <script src="../js/buscador.js"></script>
+  <script src="../js/core.js"></script>
+  <script src="../js/divisas.js"></script>
 </body>
 </html>
