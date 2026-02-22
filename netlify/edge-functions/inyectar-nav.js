@@ -1,4 +1,4 @@
-import { i18n } from "./data/translations.js";
+import { i18n } from "./translations.js";
 
 export default async (request, context) => {
   const response = await context.next();
@@ -8,13 +8,17 @@ export default async (request, context) => {
   const html = await response.text();
   const url = new URL(request.url);
   const currentPath = url.pathname;
-  const langPath = currentPath.split('/')[1] || 'en';
-  const t = i18n[langPath] || i18n.en;
 
-  // Lógica para encontrar la URL equivalente o devolver el parámetro de alerta
+  // 1. Detección robusta del idioma actual
+  const segments = currentPath.split('/');
+  const langPath = (segments[1] && i18n[segments[1]]) ? segments[1] : 'en';
+  const t = i18n[langPath];
+
+  // 2. Lógica de traducción inteligente (Busca por ID)
   const getTargetUrl = (targetLangCode) => {
     const targetI18n = i18n[targetLangCode];
     
+    // Lista de todos los links en el idioma actual
     const currentAllLinks = [
       ...Object.values(t.links).flat(),
       ...t.footer.links,
@@ -22,9 +26,10 @@ export default async (request, context) => {
       { id: "contact", url: t.contactUrl }
     ];
 
-    const currentTool = currentAllLinks.find(l => l.url === currentPath);
-    if (!currentTool) return targetI18n.homeUrl;
+    const currentItem = currentAllLinks.find(l => l.url === currentPath);
+    if (!currentItem) return targetI18n.homeUrl;
 
+    // Lista de todos los links en el idioma destino
     const targetAllLinks = [
       ...Object.values(targetI18n.links).flat(),
       ...targetI18n.footer.links,
@@ -32,12 +37,20 @@ export default async (request, context) => {
       { id: "contact", url: targetI18n.contactUrl }
     ];
 
-    const match = targetAllLinks.find(l => l.id === currentTool.id);
+    const match = targetAllLinks.find(l => l.id === currentItem.id);
     return match ? match.url : `${targetI18n.homeUrl}?alert=not-found`;
   };
 
-  const urlEs = langPath === 'es' ? currentPath : getTargetUrl('es');
-  const urlEn = langPath === 'en' ? currentPath : getTargetUrl('en');
+  // 3. Generación DINÁMICA de opciones de idioma (Escalable a N idiomas)
+  const langOptions = Object.keys(i18n).map(code => {
+    // Busca la etiqueta dinámica como langEs, langEn, langFr...
+    const labelKey = `lang${code.charAt(0).toUpperCase() + code.slice(1)}`;
+    return {
+      code,
+      name: t[labelKey], // Usamos el nombre traducido según el idioma actual
+      url: langPath === code ? currentPath : getTargetUrl(code)
+    };
+  });
 
   const renderColumn = (catKey) => {
     const links = t.links[catKey] || [];
@@ -60,10 +73,7 @@ export default async (request, context) => {
                 <div class="dropdown">
                     <button class="dropbtn" type="button">${t.tools}</button>
                     <div class="dropdown-content">
-                        ${renderColumn('finance')}
-                        ${renderColumn('health')}
-                        ${renderColumn('admin')}
-                        ${renderColumn('utils')}
+                        ${Object.keys(t.links).map(cat => renderColumn(cat)).join('')}
                     </div>
                 </div>
                 <a href="${t.contactUrl}">${t.contact}</a>
@@ -76,8 +86,11 @@ export default async (request, context) => {
         <div class="nav-controls">
             <div class="lang-selector">
                 <select id="lang-switcher">
-                    <option value="${urlEs}" ${langPath === 'es' ? 'selected' : ''}>${t.langEs}</option>
-                    <option value="${urlEn}" ${langPath === 'en' ? 'selected' : ''}>${t.langEn}</option>
+                    ${langOptions.map(opt => `
+                        <option value="${opt.url}" ${langPath === opt.code ? 'selected' : ''}>
+                            ${opt.name}
+                        </option>
+                    `).join('')}
                 </select>
             </div>
             <button type="button" class="toggle-dark-inline" id="theme-toggle">☀️</button>
@@ -87,8 +100,7 @@ export default async (request, context) => {
       document.getElementById('lang-switcher').addEventListener('change', function() {
         const dest = this.value;
         if (dest.includes('alert=not-found')) {
-          const msg = "${t.alertMsg}"; 
-          if (confirm(msg)) {
+          if (confirm("${t.alertMsg}")) {
             window.location.href = dest;
           } else {
             this.value = window.location.pathname;
