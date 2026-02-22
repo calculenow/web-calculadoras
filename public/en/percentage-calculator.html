@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme');
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Online Percentage Calculator",
+    "operatingSystem": "All",
+    "applicationCategory": "UtilitiesApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Quickly calculate the percentage of any amount, percentage increases, and decreases with our free tool."
+  }
+  </script>
+
+  <title>Online Percentage Calculator - Quick % Calculation | Calculenow</title>
+  <link rel="canonical" href="https://calculenow.com/en/percentage-calculator">
+  <meta name="description" content="Calculate percentages online without complications. Find out what X% of a figure is or the percentage difference between two numbers.">
+
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../css/styles.css"/>
+</head>
+<body>
+  <header></header>
+  <main>
+    <div class="card percent-card">
+      <h1>Percentage Calculator</h1>
+      
+      <div class="calculator-ui">
+        <div class="form-group">
+          <label for="total">Total Amount</label>
+          <input id="total" class="field total" type="number" step="0.01" placeholder="e.g.: 200">
+        </div>
+
+        <div class="form-group">
+          <label for="percent">Percentage (%)</label>
+          <input id="percent" class="field percent" type="number" step="0.01" placeholder="e.g.: 15">
+        </div>
+
+        <button class="btn btn-percent">Calculate Result</button>
+
+        <div class="result result-percent" 
+             data-btn-copy="Copy Result"
+             data-label-result="Result">
+        </div>
+      </div>
+
+      <div class="related-tools">
+        <p><strong>Looking for something more specific?</strong></p>
+        <ul>
+          <li>
+            <a href="/en/vat-calculator">
+              ➔ <strong>VAT Calculator:</strong> For tax management and invoices.
+            </a>
+          </li>
+          <li>
+            <a href="/en/discount-calculator">
+              ➔ <strong>Discount Calculator:</strong> For sales and commercial offers.
+            </a>
+          </li>
+          <li>
+            <a href="/en/tip-calculator">
+              ➔ <strong>Tip Calculator:</strong> For quick splits in services.
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div> 
+
+    <section class="legal-content">
+      <h2>How to get the percentage of an amount?</h2>
+      <p>Calculating a percentage is an operation that allows you to extract a proportional part of a total number. It is the basis for understanding distributions, interests, and statistical proportions in a standardized way.</p>
+
+      <h3>The direct calculation formula</h3>
+      <p>This tool applies the direct proportion mathematical formula to offer you an exact result:</p>
+      
+      
+      
+      <div class="formule">
+        <strong>Final Value = (Original Amount × Percentage) / 100</strong>
+      </div>
+      <p>By dividing by 100, we transform the "per cent" into a decimal unit that allows us to know the real value of that fraction of the total.</p>
+
+      <h3>When to use this calculator?</h3>
+      <p>This tool is ideal for generic calculations where you know the total and want to know what a specific percentage represents, without the additional rules that taxes or bank interests may have.</p>
+    </section>
+
+    <div class="faq-section">
+      <h3>FAQs about percentage calculation</h3>
+
+      <details>
+        <summary>What is a percentage point?</summary>
+        <div class="faq-content">
+          <p>A percentage point is the unit for the arithmetic difference between two percentages. A 10% increase is not the same as a 10-percentage-point increase.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Why do we use base 100?</summary>
+        <div class="faq-content">
+          <p>The centesimal system facilitates comparison. It is much more intuitive to know that something affects "20 out of every 100" than trying to compare fractions with different denominators.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Can I enter decimals in the calculator?</summary>
+        <div class="faq-content">
+          <p>Yes. You can calculate complex percentages like 12.5% or 0.5% by entering values with a decimal point or comma depending on your browser settings.</p>
+        </div>
+      </details>
+    </div>
+  </main>
+  <footer></footer>
+
+  <script src="../js/layout.js"></script>
+  <script src="../js/buscador.js"></script>
+  <script src="../js/core.js"></script>
+  <script src="../js/porcentajes.js"></script>
+</body>
+</html>

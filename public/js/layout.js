@@ -206,21 +206,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // 5. LÓGICA ADBLOCK (Aviso después de 30s)
-    const inyectarBannerAdblock = () => {
-        const bannerHTML = `
-            <div id="adblock-banner" class="adblock-msg">
-                <div class="adblock-content">
-                    <span class="adblock-icon">☕</span>
-                    <p><strong>¡Hola!</strong> Los anuncios mantienen gratis estas herramientas. Si te sirven, considera desactivar tu bloqueador. ¡Gracias!</p>
-                    <button id="close-adblock" class="adblock-close">Vale</button>
-                </div>
-            </div>`;
-        document.body.insertAdjacentHTML('beforeend', bannerHTML);
-        document.getElementById('close-adblock').addEventListener('click', (e) => {
-            e.target.closest('.adblock-msg').remove();
-            sessionStorage.setItem('adblock_msg_dismissed', 'true');
-        });
-    };
+    // const inyectarBannerAdblock = () => {
+    //     const bannerHTML = `
+    //         <div id="adblock-banner" class="adblock-msg">
+    //             <div class="adblock-content">
+    //                 <span class="adblock-icon">☕</span>
+    //                 <p><strong>¡Hola!</strong> Los anuncios mantienen gratis estas herramientas. Si te sirven, considera desactivar tu bloqueador. ¡Gracias!</p>
+    //                 <button id="close-adblock" class="adblock-close">Vale</button>
+    //             </div>
+    //         </div>`;
+    //     document.body.insertAdjacentHTML('beforeend', bannerHTML);
+    //     document.getElementById('close-adblock').addEventListener('click', (e) => {
+    //         e.target.closest('.adblock-msg').remove();
+    //         sessionStorage.setItem('adblock_msg_dismissed', 'true');
+    //     });
+    // };
 
     setTimeout(() => {
         const yaCerrado = sessionStorage.getItem('adblock_msg_dismissed');
