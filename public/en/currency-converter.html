@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme');
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Currency Converter and Exchange Rate Calculator",
+    "operatingSystem": "All",
+    "applicationCategory": "FinanceApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Convert between more than 30 world currencies with daily updated exchange rates."
+  }
+  </script>
+
+  <title>Currency Converter - Real-Time Exchange Rates | Calculenow</title>
+  <meta name="description" content="Free and updated currency calculator. Convert Euros, Dollars, and over 30 currencies with official real-time exchange rates. Fast and no registration required!">
+  <link rel="canonical" href="https://calculenow.com/en/currency-converter">
+
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../css/styles.css"/>
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)">
+</head>
+<body>
+  <header></header>
+  <main>
+  <div class="card">
+    <h1>Currency Converter</h1>
+
+    <div class="form-group">
+      <label for="cantidad">Amount to convert</label>
+      <input id="cantidad" class="field cantidad" type="number" value="100">
+    </div>
+
+    <div class="divisas-controls">
+      <div class="form-group">
+        <label for="desde">From</label>
+        <select id="desde" class="field desde"></select>
+      </div>
+
+      <button type="button" id="btn-swap" class="btn-swap" aria-label="Swap currencies">🔄</button>
+
+      <div class="form-group">
+        <label for="hacia">To</label>
+        <select id="hacia" class="field hacia"></select>
+      </div>
+    </div>
+
+    <button class="btn btn-divisas">Convert Currency</button>
+
+    <div class="result result-divisas" 
+         data-btn-copy="Copy Result"
+         data-error="Please enter a valid amount"
+         data-from="USD" 
+         data-to="EUR">
+    </div>
+
+    <p class="disclaimer-text">
+      * Exchange rates are provided for informational purposes. We do not guarantee total accuracy for commercial transactions.
+    </p>
+    
+    <div id="resumen-contenedor"></div>
+
+    <div class="related-tools">
+      <p><strong>Need another financial calculation?</strong></p>
+      <ul>
+        <li>
+          <a href="/en/discount-calculator">
+            ➔ <strong>Discount Calculator:</strong> Apply sales to your converted prices.
+          </a>
+        </li>
+        <li>
+          <a href="/en/vat-calculator">
+            ➔ <strong>VAT Calculator:</strong> Add or extract taxes from your international purchases.
+          </a>
+        </li>
+        <li>
+          <a href="/en/percentage-calculator">
+            ➔ <strong>Percentage Calculator:</strong> For price variations and margins.
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div> 
+
+  <section class="legal-content">
+    <h2>How does currency exchange work?</h2>
+    <p>The foreign exchange market determines the value of one currency against another. Our calculator uses official data updated daily to provide you with the mid-market rate.</p>
+
+    <h3>Factors influencing exchange rates</h3>
+    <ul>
+      <li><strong>Inflation:</strong> Countries with lower inflation usually see an appreciation in their currency value.</li>
+      <li><strong>Interest Rates:</strong> Central banks adjust them to control the economy.</li>
+      <li><strong>Political Stability:</strong> Investors look for currencies from countries with solid economies.</li>
+    </ul>
+
+    <div class="formule">
+      (Amount / Source Rate) * Destination Rate
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <h3>Frequently Asked Questions about Currency Exchange</h3>
+
+    <details>
+      <summary>What is the difference between the official and bank exchange rate?</summary>
+      <div class="faq-content">
+        <p>The official exchange rate is used by financial institutions. The bank rate includes profit margins set by the entity.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Which currency is best to carry for travel?</summary>
+      <div class="faq-content">
+        <p>The US Dollar (USD) and the Euro (EUR) are the most globally accepted.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Why do prices change every day?</summary>
+      <div class="faq-content">
+        <p>Due to the Forex market, which is influenced by interest rates and economic stability.</p>
+      </div>
+    </details>
+  </section>
+</main>
+<footer></footer>
+
+<div class="cookie-banner" id="cookie-banner">
+    <div id="cookie-main-view">
+      <p>
+        We use cookies to improve your experience.
+        <a href="/en/cookies">View cookie policy</a>
+      </p>
+      <div class="cookie-buttons">
+        <button class="accept-cookies" id="btn-accept-all">Accept all</button>
+        <button class="reject-cookies" id="btn-reject-all">Reject all</button>
+        <button class="settings-cookies" id="btn-open-settings">Configure</button>
+      </div>
+    </div>
+    <div id="cookie-settings-view" style="display: none">
+      <p><strong>Personalize your preferences:</strong></p>
+      <div class="cookie-option">
+        <input type="checkbox" id="check-necessary" checked disabled />
+        <label>Necessary (Required)</label>
+      </div>
+      <div class="cookie-option">
+        <input type="checkbox" id="check-analytics" />
+        <label>Analytics (Google Analytics)</label>
+      </div>
+      <div class="cookie-option">
+        <input type="checkbox" id="check-marketing" />
+        <label>Marketing (Advertising pixels)</label>
+      </div>
+      <div class="cookie-buttons" style="margin-top: 15px">
+        <button class="accept-cookies" id="btn-save-settings">Save selection</button>
+        <button class="settings-cookies" id="btn-back">Back</button>
+      </div>
+    </div>
+  </div>
+  
+  <script src="../js/layout.js"></script>
+  <script src="../js/buscador.js"></script>
+  <script src="../js/core.js"></script>
+  <script src="../js/divisas.js"></script>
+</body>
+</html>

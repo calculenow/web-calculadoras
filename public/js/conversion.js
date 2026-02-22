@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnSwap = document.getElementById('btn-swap');
     const resultDiv = document.querySelector('.result-conversion');
 
+    if (!categoriaSelect || !resultDiv) return;
+
     const isEn = window.location.pathname.includes('/en/');
     const lang = isEn ? 'en' : 'es';
 
@@ -28,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
             unidades: {
                 longitud: { m: "Metros (m)", km: "Kilómetros (km)", cm: "Centímetros (cm)", mm: "Milímetros (mm)", in: "Pulgadas (in)", ft: "Pies (ft)", yd: "Yardas (yd)", mi: "Millas (mi)" },
                 peso: { kg: "Kilogramos (kg)", g: "Gramos (g)", lb: "Libras (lb)", oz: "Onzas (oz)", t: "Toneladas (t)" },
-                volumen: { l: "Litros (l)", ml: "Mililitros (ml)", gal: "Galones (gal)", pt: "Pintas (pt)" },
+                volumen: { l: "Litros (l)", ml: "Millilitros (ml)", gal: "Galones (gal)", pt: "Pintas (pt)" },
                 temperatura: { c: "Celsius (°C)", f: "Fahrenheit (°F)", k: "Kelvin (K)" },
                 datos: { b: "Bits (b)", B: "Bytes (B)", KB: "Kilobytes (KB)", MB: "Megabytes (MB)", GB: "Gigabytes (GB)", TB: "Terabytes (TB)" }
             }
@@ -90,23 +92,28 @@ document.addEventListener('DOMContentLoaded', () => {
         const unidadTextoDe = diccionario[lang].unidades[cat][de].split(' (')[0];
         const unidadTextoA = diccionario[lang].unidades[cat][a].split(' (')[0];
 
+        const textoResultado = `${cant} ${unidadTextoDe} = ${resF} ${unidadTextoA}`;
+
         resultDiv.innerHTML = `
             <div class="resumen-calculo">
-                <div class="resumen-flex" style="display: flex; align-items: center; justify-content: center; gap: 15px;">
-                    <p style="font-size: 1.5rem; font-weight: bold; color: var(--primary); margin: 0;">
-                        ${cant} ${unidadTextoDe} ${labels.msgEqual} ${resF} ${unidadTextoA}
-                    </p>
-                    <button 
-                        class="btn-copy" 
-                        onclick="copiarConversion('${resF}', '${unidadTextoA}')" 
-                        data-btn-copy="${labels.btnCopy}" 
-                        style="background: var(--input-bg); border: 1px solid var(--border); border-radius: 8px; padding: 8px; cursor: pointer; font-size: 1.2rem;"
-                    >
-                        📋
-                    </button>
-                </div>
+                <p style="font-size: 1.5rem; font-weight: bold; color: var(--primary); margin-bottom: 15px; text-align: center;">
+                    ${textoResultado}
+                </p>
+                <button class="btn-copy" 
+                        style="width: 100%; padding: 10px; cursor: pointer; border: 1px solid var(--border); border-radius: 6px; background: var(--card-bg); color: var(--text-main); font-weight: bold;">
+                    ${labels.btnCopy}
+                </button>
             </div>
         `;
+
+        // Lógica de copiar
+        resultDiv.querySelector('.btn-copy').addEventListener('click', function() {
+            navigator.clipboard.writeText(textoResultado).then(() => {
+                const originalText = this.innerText;
+                this.innerText = "✅";
+                setTimeout(() => { this.innerText = originalText; }, 2000);
+            });
+        });
     }
 
     categoriaSelect.addEventListener('change', poblarSelectores);
@@ -119,13 +126,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     poblarSelectores();
 });
-
-window.copiarConversion = function(valor, unidad) {
-    const texto = `${valor} ${unidad}`;
-    navigator.clipboard.writeText(texto).then(() => {
-        const btn = document.querySelector('.btn-copy');
-        const originalIcon = btn.innerHTML;
-        btn.innerHTML = '✅';
-        setTimeout(() => btn.innerHTML = originalIcon, 2000);
-    });
-};
