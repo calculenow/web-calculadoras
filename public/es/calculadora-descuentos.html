@@ -49,16 +49,22 @@
     <h1>Calculadora de Descuentos</h1>
     
     <div class="calculator-ui">
-      <label for="precio-original">Precio original (€)</label>
-      <input id="precio-original" class="field precio-original" type="number" step="0.01" placeholder="Ej: 59.99">
+  <label for="precio-original">Precio original (€)</label>
+  <input id="precio-original" class="field precio-original" type="number" step="0.01" placeholder="Ej: 59.99">
 
-      <label for="descuento-pct">Descuento (%)</label>
-      <input id="descuento-pct" class="field descuento-pct" type="number" step="1" placeholder="Ej: 25">
+  <label for="descuento-pct">Descuento (%)</label>
+  <input id="descuento-pct" class="field descuento-pct" type="number" step="1" placeholder="Ej: 25">
 
-      <button class="btn btn-discount">Calcular Precio Final</button>
+  <button class="btn btn-discount">Calcular Precio Final</button>
 
-      <div class="result result-discount"></div>
-    </div>
+  <div class="result result-discount" 
+       data-label-final="Precio final:" 
+       data-label-save="Te ahorras:" 
+       data-unit="€"
+       data-error="Por favor, introduce valores correctos."
+       data-btn-copy="Copiar Resultado">
+  </div>
+</div>
 
     <div class="related-tools">
       <p><strong>¿Necesitas otro tipo de cálculo?</strong></p>
