@@ -1,4 +1,4 @@
-import { i18n } from "./data/translations";
+import { i18n } from "./data/translations.js";
 
 export default async (request, context) => {
   const response = await context.next();
