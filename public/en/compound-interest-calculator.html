@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <script>
+    (function () {
+      const theme = localStorage.getItem("theme");
+      if (theme === "dark") {
+        document.documentElement.classList.add("dark");
+      }
+    })();
+  </script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Compound Interest Calculator",
+      "operatingSystem": "All",
+      "applicationCategory": "FinanceApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Calculate the growth of your long-term savings and investments with our compound interest calculator with monthly contributions."
+    }
+  </script>
+
+  <title>Compound Interest Calculator | Calculenow</title>
+  <meta
+    name="description"
+    content="Calculate how much money you will have in the future. Project your savings with compound interest and monthly contributions. Free and easy to use!"
+  />
+  <link
+    rel="canonical"
+    href="https://calculenow.com/en/compound-interest-calculator"
+  />
+
+  <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+  <link rel="stylesheet" href="../css/styles.css"/>
+</head>
+<body>
+  <header></header>
+  <main>
+    <div class="card">
+      <h1>Compound Interest Calculator</h1>
+
+      <div class="form-group">
+        <label for="capital">Initial Capital ($)</label>
+        <input id="capital" class="field" type="number" value="1000" min="0" />
+      </div>
+
+      <div class="form-group">
+        <label for="aportacion">Monthly Contribution ($)</label>
+        <input id="aportacion" class="field" type="number" value="100" min="0" />
+      </div>
+
+      <div class="form-group">
+        <label for="interes">Estimated Annual Interest (%)</label>
+        <input id="interes" class="field" type="number" value="7" step="0.1" min="0" />
+
+        <div class="perfiles-interes" id="container-perfiles">
+          <button type="button" class="btn-mini" data-perfil="ahorro" id="btn-ahorro">🏦 Savings Account</button>
+          <button type="button" class="btn-mini" data-perfil="moderado" id="btn-moderado">📈 S&P 500</button>
+          <button type="button" class="btn-mini" data-perfil="tecnologico" id="btn-tech">🚀 NASDAQ</button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="anyos">Investment Years</label>
+        <input id="anyos" class="field" type="number" value="10" min="1" />
+      </div>
+
+      <button class="btn btn-interes" id="btn-calcular">Calculate Growth</button>
+
+      <div class="result-container">
+        <div id="visual-chart" class="chart-wrapper"></div>
+        
+        <div class="result result-interes" 
+             data-btn-copy="Copy Result"
+             data-label-final="Final Capital:"
+             data-label-profit="Interest Earned"
+             data-label-total-in="Total Invested"
+             data-label-initial="Initial Investment"
+             data-label-contrib="Total Contributions">
+        </div>
+      </div>
+
+      <div class="related-tools">
+        <p><strong>Optimize your personal finances:</strong></p>
+        <ul>
+          <li>
+            <a href="/en/loan-calculator">
+              ➔ <strong>Loan Calculator:</strong> Compare how bank interest affects your debts before investing.
+            </a>
+          </li>
+          <li>
+            <a href="/en/vat-calculator">
+              ➔ <strong>VAT Calculator:</strong> Break down taxes on your purchases to improve your savings capacity.
+            </a>
+          </li>
+          <li>
+            <a href="/en/currency-converter">
+              ➔ <strong>Currency Converter:</strong> If you invest in international markets (like NASDAQ), calculate real-time exchange rates.
+            </a>
+          </li>
+        </ul>
+      </div>
+      
+      <p class="disclaimer-text">
+        <strong>Legal Disclaimer:</strong> This tool does not constitute financial advice or an investment offer. Calculations are simulations based on historical data that do not guarantee future results.
+      </p>
+    </div>
+
+    <section class="legal-content">
+      <h2>What is compound interest and how does it work?</h2>
+      <p>
+        Compound interest is the process by which the interest on an investment is reinvested to generate new interest in subsequent periods. Unlike simple interest, where profits are withdrawn, here the capital grows exponentially, creating a multiplier effect over the long term.
+      </p>
+
+      <h3>The 3 pillars of long-term investing</h3>
+      <ul>
+        <li>
+          <strong>Initial Capital (P):</strong> The starting amount. While a larger capital speeds up the process, consistency in contributions is often more decisive.
+        </li>
+        <li>
+          <strong>Rate of Return (r):</strong> The annual profit percentage. Small variations in this rate can lead to significant differences in the final capital accumulated after several decades.
+        </li>
+        <li>
+          <strong>Time Factor (t):</strong> The variable with the greatest impact. Compound interest needs years to show its true potential, as the strongest growth occurs in the final stages of the cycle.
+        </li>
+      </ul>
+
+      <div class="formule">
+        A = P(1 + i)<sup>n</sup> + PMT × [(1 + i)<sup>n</sup> - 1] / i
+      </div>
+      <p>
+        <small>
+          *Where <strong>A</strong> is the total, <strong>P</strong> the initial, 
+          <strong>PMT</strong> the monthly contribution, <strong>i</strong> the monthly interest 
+          and <strong>n</strong> the number of months.
+        </small>
+      </p>
+
+      <h3>The Rule of 72</h3>
+      <p>
+        A simple way to understand the impact of interest is the "Rule of 72". If you divide 72 by your annual rate of return, you will get the approximate number of years it will take for your investment to double without making extra contributions.
+      </p>
+    </section>
+
+    <section class="faq-section">
+      <h3>Financial Strategy and Concepts</h3>
+
+      <details>
+        <summary>What is the difference between Nominal and Real return?</summary>
+        <div class="faq-content">
+          <p>
+            The <strong>nominal</strong> return is the gross profit percentage of the investment. The <strong>real</strong> return is the result of subtracting inflation from that figure. Investing helps capital maintain its purchasing power against the rising cost of living.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Is it better to invest all at once or monthly?</summary>
+        <div class="faq-content">
+          <p>
+            Making periodic contributions (a strategy known as <em>Dollar Cost Averaging</em>) allows you to average the purchase price. This reduces the impact of market volatility and helps generate a disciplined savings habit.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Why do we use values like 10% and 12%?</summary>
+        <div class="faq-content">
+          <p>
+            These figures represent the <strong>annualized historical averages</strong> of indices like the S&P 500 and the NASDAQ over recent decades. While past returns do not guarantee future profits, they are the most commonly used indicators for realistic financial projections.
+          </p>
+        </div>
+      </details>
+    </section>
+  </main>
+  <footer></footer>
+  
+  <div class="cookie-banner" id="cookie-banner">
+    <div id="cookie-main-view">
+      <p>
+        We use cookies to improve your experience.
+        <a href="/en/cookies">View cookie policy</a>
+      </p>
+      <div class="cookie-buttons">
+        <button class="accept-cookies" id="btn-accept-all">Accept all</button>
+        <button class="reject-cookies" id="btn-reject-all">Reject all</button>
+        <button class="settings-cookies" id="btn-open-settings">Configure</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/layout.js"></script>
+  <script src="../js/buscador.js"></script>
+  <script src="../js/core.js"></script>
+  <script src="../js/interes.js"></script>
+</body>
+</html>

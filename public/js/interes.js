@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     actualizarTextosBotones();
     initListeners();
-    calcularInteres(); // Cálculo inicial al cargar
+    // calcularInteres(); // <-- LÍNEA ELIMINADA para que no calcule al entrar
 });
 
 function initListeners() {
@@ -30,6 +30,10 @@ function initListeners() {
     const inputs = document.querySelectorAll('.field');
     inputs.forEach(input => {
         input.addEventListener('input', calcularInteres);
+        // Soporte para Enter
+        input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') calcularInteres();
+        });
     });
 
     // Eventos para los botones de perfiles (S&P 500, etc.)
@@ -104,8 +108,12 @@ function dibujarGraficoSimple(inicial, aportado, intereses) {
     const wAportado = (aportado / total) * 100;
     const wIntereses = (intereses / total) * 100;
 
+    const isEn = window.location.pathname.includes('/en/');
+    const labelInic = isEn ? 'Initial' : 'Inicial';
+    const labelApor = isEn ? 'Invested' : 'Aportado';
+    const labelInt = isEn ? 'Interest' : 'Interés';
+
     // Generamos el SVG interno (Barra apilada)
-    // El viewBox 0 0 100 20 nos permite trabajar con porcentajes directamente
     svg.innerHTML = `
         <svg viewBox="0 0 100 20" class="svg-render">
             <rect x="0" y="0" width="${wInicial}" height="20" fill="#3b82f6" />
@@ -113,9 +121,9 @@ function dibujarGraficoSimple(inicial, aportado, intereses) {
             <rect x="${wInicial + wAportado}" y="0" width="${wIntereses}" height="20" fill="#f59e0b" />
         </svg>
         <div class="chart-legend-simple">
-            <span><small>●</small> Inicial</span>
-            <span><small>●</small> Aportado</span>
-            <span><small>●</small> Interés</span>
+            <span><small>●</small> ${labelInic}</span>
+            <span><small>●</small> ${labelApor}</span>
+            <span><small>●</small> ${labelInt}</span>
         </div>
     `;
 }
@@ -124,27 +132,52 @@ function renderizarResultados(total, invertido, beneficios, inicial, aportacione
     const resDiv = document.querySelector('.result-interes');
     if (!resDiv) return;
 
+    const labels = resDiv.dataset;
+    const isEn = window.location.pathname.includes('/en/');
+    
+    // Limpieza de ":" para evitar duplicados ::
+    const clean = (s) => s ? s.replace(/:/g, '').trim() : '';
+
+    const tIni = clean(labels.labelInitial) || (isEn ? "Initial investment" : "Inversión inicial");
+    const tApo = clean(labels.labelContrib) || (isEn ? "Total contributions" : "Total aportaciones");
+    const tInt = clean(labels.labelProfit) || (isEn ? "Interest generated" : "Intereses generados");
+    const tFin = clean(labels.labelFinal) || (isEn ? "Estimated Final Capital" : "Capital Final Estimado");
+    const bCopy = labels.btnCopy || (isEn ? "Copy Result" : "Copiar Resultado");
+
     resDiv.innerHTML = `
         <div class="resumen-calculo">
             <ul>
-                <li><span>Inversión inicial:</span> <strong>${formatEuro(inicial)}</strong></li>
-                <li><span>Total aportaciones:</span> <strong>${formatEuro(aportaciones)}</strong></li>
-                <li><span>Intereses generados:</span> <strong style="color: #10b981">${formatEuro(beneficios)}</strong></li>
+                <li><span>${tIni}:</span> <strong>${formatEuro(inicial)}</strong></li>
+                <li><span>${tApo}:</span> <strong>${formatEuro(aportaciones)}</strong></li>
+                <li><span>${tInt}:</span> <strong style="color: #10b981">${formatEuro(beneficios)}</strong></li>
                 <li class="total-destacado">
-                    <span>Capital Final Estimado:</span> 
+                    <span>${tFin}:</span> 
                     <strong>${formatEuro(total)}</strong>
                 </li>
             </ul>
+            <button class="btn-copy" style="width: 100%; padding: 10px; margin-top:15px; cursor: pointer; border: 1px solid var(--border); border-radius: 6px; background: var(--card-bg); color: var(--text-main); font-weight: bold;">
+                ${bCopy}
+            </button>
         </div>
     `;
+
+    resDiv.querySelector('.btn-copy').addEventListener('click', function() {
+        const text = `${tIni}: ${formatEuro(inicial)}\n${tApo}: ${formatEuro(aportaciones)}\n${tInt}: ${formatEuro(beneficios)}\n---------------------------\n${tFin}: ${formatEuro(total)}`;
+        navigator.clipboard.writeText(text).then(() => {
+            const old = this.innerText;
+            this.innerText = "✅";
+            setTimeout(() => this.innerText = old, 2000);
+        });
+    });
 }
 
 function formatEuro(val) {
+    const isEn = window.location.pathname.includes('/en/');
     // Usamos 2 decimales solo si el valor es pequeño para mayor precisión SEO/Financiera
     const decimales = val < 1000 ? 2 : 0;
-    return val.toLocaleString('es-ES', { 
+    return val.toLocaleString(isEn ? 'en-US' : 'es-ES', { 
         style: 'currency', 
-        currency: 'EUR', 
+        currency: isEn ? 'USD' : 'EUR', 
         maximumFractionDigits: decimales 
     });
 }
@@ -153,8 +186,9 @@ function actualizarTextosBotones() {
     const bAhorro = document.getElementById('btn-ahorro');
     const bMod = document.getElementById('btn-moderado');
     const bTech = document.getElementById('btn-tech');
+    const isEn = window.location.pathname.includes('/en/');
 
-    if (bAhorro) bAhorro.innerHTML = `🏦 Ahorro <span>${datosMercado.macro.ahorro}%</span>`;
+    if (bAhorro) bAhorro.innerHTML = `${isEn ? '🏦 Savings' : '🏦 Ahorro'} <span>${datosMercado.macro.ahorro}%</span>`;
     if (bMod) bMod.innerHTML = `📈 S&P 500 <span>${datosMercado.indices.sp500}%</span>`;
     if (bTech) bTech.innerHTML = `🚀 NASDAQ <span>${datosMercado.indices.nasdaq}%</span>`;
 }
