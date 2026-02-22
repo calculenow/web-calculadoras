@@ -1,9 +1,15 @@
 export default async (request, context) => {
   const response = await context.next();
+  
+  // SEGURIDAD: Si no es un HTML, no toques nada (evita romper imágenes, CSS o JS)
+  const contentType = response.headers.get("content-type") || "";
+  if (!contentType.includes("text/html")) {
+    return response;
+  }
+
   const html = await response.text();
   const url = new URL(request.url);
 
-  // 1. Diccionario de Idiomas
   const i18n = {
     es: {
       home: "Inicio",
@@ -15,12 +21,6 @@ export default async (request, context) => {
       contactUrl: "/es/contacto",
       langEs: "Español",
       langEn: "Inglés",
-      categories: { 
-        finance: "Finanzas", 
-        health: "Salud y Mates", 
-        admin: "Administración", 
-        utils: "Utilidades" 
-      },
       links: {
         iva: ["/es/calculadora-iva", "💶 IVA"],
         desc: ["/es/calculadora-descuentos", "🏷️ Descuentos"],
@@ -42,7 +42,7 @@ export default async (request, context) => {
         set: "Configuración de Cookies",
         cont: ["/es/contacto", "Contacto"],
         copy: "Todos los derechos reservados."
-      },
+      }
     },
     en: {
       home: "Home",
@@ -54,12 +54,6 @@ export default async (request, context) => {
       contactUrl: "/en/contact",
       langEs: "Spain",
       langEn: "English",
-      categories: { 
-        finance: "Finance", 
-        health: "Health & Math", 
-        admin: "Admin", 
-        utils: "Utilities" 
-      },
       links: {
         iva: ["/en/vat-calculator", "💶 VAT"],
         desc: ["/en/discount-calculator", "🏷️ Discounts"],
@@ -84,16 +78,13 @@ export default async (request, context) => {
     }
   };
 
-  // 2. Lógica de detección (extrae 'es' o 'en' de la URL)
   const langPath = url.pathname.split('/')[1]; 
   const t = i18n[langPath] || i18n.en;
 
-  // 3. Generación dinámica de los links del dropdown
   const dropdownLinksHTML = Object.values(t.links)
     .map(link => `<a href="${link[0]}">${link[1]}</a>`)
     .join('');
 
-  // 4. Estructura HTML del Navigation Bar
   const navHTML = `
     <button class="menu-toggle">Menu</button>
     <nav class="main-nav">
@@ -102,7 +93,7 @@ export default async (request, context) => {
             <div class="nav-links">
                 <a href="${t.homeUrl}">${t.home}</a>
                 <div class="dropdown">
-                    <button class="dropbtn">${t.tools}</button>
+                    <button class="dropbtn" type="button">${t.tools}</button>
                     <div class="dropdown-content">
                         ${dropdownLinksHTML}
                     </div>
@@ -114,7 +105,6 @@ export default async (request, context) => {
                 <ul id="search-results" class="search-dropdown"></ul>
             </div>
         </div>
-
         <div class="nav-controls">
             <div class="lang-selector">
                 <select onchange="window.location.href=this.value">
@@ -122,12 +112,11 @@ export default async (request, context) => {
                     <option value="/en/" ${langPath === 'en' ? 'selected' : ''}>${t.langEn}</option>
                 </select>
             </div>
-            <button class="toggle-dark-inline" id="theme-toggle">☀️</button>
+            <button type="button" class="toggle-dark-inline" id="theme-toggle">☀️</button>
         </div>
     </nav>
   `;
 
-  // 5. Estructura HTML del Footer
   const footerHTML = `
     <div class="footer-links">
         <a href="${t.footer.legal[0]}">${t.footer.legal[1]}</a> ·
@@ -139,14 +128,11 @@ export default async (request, context) => {
     <p>&copy; ${new Date().getFullYear()} Calculenow. ${t.footer.copy}</p>
   `;
 
-  // 6. Inyección de contenido en el HTML original
   const nuevoHtml = html
-    .replace(/<header>([\s\S]*?)<\/header>/i, `<header>${navHTML}</header>`)
-    .replace(/<footer>([\s\S]*?)<\/footer>/i, `<footer>${footerHTML}</footer>`);
+    .replace(/<header>[\s\S]*?<\/header>/i, `<header>${navHTML}</header>`)
+    .replace(/<footer>[\s\S]*?<\/footer>/i, `<footer>${footerHTML}</footer>`);
 
-  return new Response(nuevoHtml, {
-    headers: { "content-type": "text/html;charset=UTF-8" }
-  });
+  return new Response(nuevoHtml, response);
 };
 
 export const config = { path: "/*" };
