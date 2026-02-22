@@ -9,15 +9,14 @@ export default async (request, context) => {
   const url = new URL(request.url);
   const currentPath = url.pathname;
 
-  // 1. Detectar idioma actual (es, en, fr...) basado en la primera carpeta de la URL
+  // 1. Detectar idioma basado en la URL
   const langPath = currentPath.split('/').filter(Boolean)[0] || 'en';
   const t = i18n[langPath] || i18n.en;
 
-  // 2. Lógica de redirección (Encuentra la misma herramienta en otro idioma)
+  // 2. Lógica de Redirección Inteligente (Misma herramienta en otro idioma)
   const getTargetUrl = (targetLangCode) => {
     const targetI18n = i18n[targetLangCode];
     
-    // Unificamos todos los links para buscar el ID actual
     const currentAllLinks = [
       ...Object.values(t.links).flat(),
       ...t.footer.links,
@@ -39,9 +38,9 @@ export default async (request, context) => {
     return match ? match.url : `${targetI18n.homeUrl}?alert=not-found`;
   };
 
-  // 3. GENERACIÓN DINÁMICA DEL SELECTOR (Aquí está la escalabilidad)
+  // 3. Preparar opciones del selector
   const langOptions = Object.keys(i18n).map(code => {
-    const labelKey = `lang${code.charAt(0).toUpperCase() + code.slice(1)}`; // langEs, langEn...
+    const labelKey = `lang${code.charAt(0).toUpperCase() + code.slice(1)}`;
     return {
       code,
       name: t[labelKey] || code.toUpperCase(),
@@ -51,7 +50,7 @@ export default async (request, context) => {
 
   const renderColumn = (catKey) => {
     const links = t.links[catKey] || [];
-    if (links.length === 0) return ""; // No renderiza columnas vacías (como admin en inglés)
+    if (links.length === 0) return "";
     return `
       <div class="dropdown-column">
         <h3>${t.categories[catKey]}</h3>
@@ -85,10 +84,8 @@ export default async (request, context) => {
             <div class="lang-selector">
                 <select id="lang-switcher">
                     ${langOptions.map(opt => {
-                        // LA CLAVE DEL ERROR VISUAL:
-                        // Si la URL actual empieza por el código de idioma, lo marcamos como seleccionado.
                         const isSelected = currentPath.startsWith(`/${opt.code}`);
-                        return `<option value="${opt.url}" ${isSelected ? 'selected' : ''}>${opt.name}</option>`;
+                        return `<option value="${opt.url}" ${isSelected ? 'selected="selected"' : ''}>${opt.name}</option>`;
                     }).join('')}
                 </select>
             </div>
@@ -96,18 +93,32 @@ export default async (request, context) => {
         </div>
     </nav>
     <script>
-      document.getElementById('lang-switcher').addEventListener('change', function() {
-        if (this.value.includes('alert=not-found')) {
-          if (confirm("${t.alertMsg}")) window.location.href = this.value;
-          else this.value = window.location.pathname;
-        } else {
-          window.location.href = this.value;
+      (function() {
+        const sw = document.getElementById('lang-switcher');
+        if (!sw) return;
+
+        // FIX DEL -1: Forzamos al navegador a reconocer la opción seleccionada
+        const selectedOpt = sw.querySelector('option[selected]');
+        if (selectedOpt) {
+          sw.value = selectedOpt.value;
         }
-      });
+
+        sw.addEventListener('change', function() {
+          const dest = this.value;
+          if (dest.includes('alert=not-found')) {
+            if (confirm("${t.alertMsg}")) {
+              window.location.href = dest;
+            } else {
+              this.value = window.location.pathname;
+            }
+          } else {
+            window.location.href = dest;
+          }
+        });
+      })();
     </script>
   `;
 
-  // El resto del código (footerHTML y replace) se mantiene igual...
   const footerHTML = `
     <div class="footer-links">
         ${t.footer.links.map((l, idx) => `<a href="${l.url}">${l.name}</a>${idx < t.footer.links.length - 1 ? ' · ' : ''}`).join('')}
