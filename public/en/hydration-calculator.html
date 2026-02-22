@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Daily Hydration Calculator",
+        "operatingSystem": "All",
+        "applicationCategory": "HealthApplication",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "description": "Calculate how much water you should drink per day based on your body weight and physical activity level."
+      }
+    </script>
+
+    <title>Daily Hydration Calculator | Calculenow</title>
+    <meta
+      name="description"
+      content="How much water should you drink a day? Calculate your ideal hydration based on weight and exercise. Stay healthy and perform better!"
+    />
+    <link
+      rel="canonical"
+      href="https://calculenow.com/en/hydration-calculator"
+    />
+
+    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../css/styles.css"/>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <div class="card">
+        <h1>Daily Hydration Calculator</h1>
+
+        <div class="form-group">
+          <label for="peso">Your body weight (kg)</label>
+          <input id="peso" class="field" type="number" value="70" min="20" step="1" />
+        </div>
+
+        <div class="form-group">
+          <label for="actividad">Daily physical activity level</label>
+          <select id="actividad" class="field">
+            <option value="0">Sedentary (No exercise)</option>
+            <option value="30">Light exercise (30 min/day)</option>
+            <option value="60">Moderate exercise (1 hour/day)</option>
+            <option value="120">Intense exercise (2 hours/day)</option>
+          </select>
+        </div>
+
+        <button class="btn btn-interes" id="btn-calcular-agua">Calculate Hydration</button>
+
+        <div 
+          class="result result-hidratacion" 
+          data-label-goal="Daily goal:"
+          data-label-equiv="Equivalent to:"
+          data-unit-liters="Liters"
+          data-unit-glasses="glasses of water"
+          data-btn-copy="Copy Results"
+        ></div>
+
+        <div class="related-tools">
+          <p><strong>Related health tools:</strong></p>
+          <ul>
+            <li>
+              <a href="/en/bmi-calculator">
+                ➔ <strong>BMI Calculator:</strong> Evaluate if your current weight is within recommended ranges.
+              </a>
+            </li>
+            <li>
+              <a href="/en/calorie-calculator">
+                ➔ <strong>Calorie Calculator (BMR):</strong> Discover how much energy your body needs.
+              </a>
+            </li>
+          </ul>
+        </div>
+          
+        <p class="disclaimer-text">
+          <strong>Notice:</strong> This calculation is an estimate based on standard conditions. Always consult with a health professional.
+        </p>
+      </div>
+
+      <section class="legal-content">
+        <h2>Why is it important to calculate your water intake?</h2>
+        <p>
+          Water represents approximately 60% of human body weight and is vital for almost all biological functions.
+        </p>
+
+        <h3>The recommended hydration formula</h3>
+        <p>
+          One of the most widely accepted formulas by nutrition experts to calculate basal water needs is:
+        </p>
+        <div class="formule">Intake (ml) = Weight (kg) × 35</div>
+
+        <p>
+          <small>*Approximately <strong>600-800 ml</strong> should be added to this base for every hour of intense exercise due to loss through sweat.</small>
+        </p>
+      </section>
+    </main>
+    <footer></footer>
+    <script src="../js/layout.js"></script>
+    <script src="../js/core.js"></script>
+    <script src="../js/hidratacion.js"></script>
+  </body>
+</html>
+Objetivo diario: 2.45 Litros
+Equivalente a: 10 vacos de agua
