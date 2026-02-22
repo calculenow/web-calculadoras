@@ -1,3 +1,87 @@
+# -----------------------------------------------------------
+# REDIRECCIONES 301: DE RAÍZ A /ES/
+# -----------------------------------------------------------
+
+[[redirects]]
+  from = "/aviso-legal"
+  to = "/es/aviso-legal"
+  status = 301
+
+[[redirects]]
+  from = "/calculadora-calorias"
+  to = "/es/calculadora-calorias"
+  status = 301
+
+[[redirects]]
+  from = "/calculadora-conversion"
+  to = "/es/calculadora-conversion"
+  status = 301
+
+[[redirects]]
+  from = "/calculadora-descuentos"
+  to = "/es/calculadora-descuentos"
+  status = 301
+
+[[redirects]]
+  from = "/calculadora-divisas"
+  to = "/es/calculadora-divisas"
+  status = 301
+
+[[redirects]]
+  from = "/calculadora-hidratacion"
+  to = "/es/calculadora-hidratacion"
+  status = 301
+
+[[redirects]]
+  from = "/calculadora-imc"
+  to = "/es/calculadora-imc"
+  status = 301
+
+[[redirects]]
+  from = "/calculadora-interes-compuesto"
+  to = "/es/calculadora-interes-compuesto"
+  status = 301
+
+[[redirects]]
+  from = "/calculadora-iva"
+  to = "/es/calculadora-iva"
+  status = 301
+
+[[redirects]]
+  from = "/calculadora-porcentajes"
+  to = "/es/calculadora-porcentajes"
+  status = 301
+
+[[redirects]]
+  from = "/calculadora-prestamos"
+  to = "/es/calculadora-prestamos"
+  status = 301
+
+[[redirects]]
+  from = "/calculadora-propinas"
+  to = "/es/calculadora-propinas"
+  status = 301
+
+[[redirects]]
+  from = "/contacto"
+  to = "/es/contacto"
+  status = 301
+
+[[redirects]]
+  from = "/cookies"
+  to = "/es/cookies"
+  status = 301
+
+[[redirects]]
+  from = "/privacidad"
+  to = "/es/privacidad"
+  status = 301
+
+[[redirects]]
+  from = "/validador-dni"
+  to = "/es/validador-dni"
+  status = 301
+
 # Función para inyectar el menú en todas las páginas
 [[edge_functions]]
   function = "inyectar-nav"
