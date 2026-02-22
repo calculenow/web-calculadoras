@@ -1,133 +1,54 @@
+import { i18n } from "./translations.js";
+
 export default async (request, context) => {
   const response = await context.next();
-  
   const contentType = response.headers.get("content-type") || "";
-  if (!contentType.includes("text/html")) {
-    return response;
-  }
+  if (!contentType.includes("text/html")) return response;
 
   const html = await response.text();
   const url = new URL(request.url);
-
-  const i18n = {
-    es: {
-      home: "Inicio",
-      tools: "Herramientas ▼",
-      close: "✕ Cerrar",
-      contact: "Contacto",
-      search: "Buscar...",
-      homeUrl: "/es/",
-      contactUrl: "/es/contacto",
-      langEs: "🇪🇸 Español",
-      langEn: "🇬🇧 English",
-      categories: {
-        finance: "Finanzas",
-        health: "Salud y Mates",
-        admin: "Administración",
-        utils: "Utilidades"
-      },
-      links: {
-        finance: [
-          ["/es/calculadora-iva", "💶 IVA"],
-          ["/es/calculadora-descuentos", "🏷️ Descuentos"],
-          ["/es/calculadora-propinas", "☕ Propinas"],
-          ["/es/calculadora-prestamos", "🏦 Préstamos"],
-          ["/es/calculadora-divisas", "💱 Divisas"],
-          ["/es/calculadora-interes-compuesto", "📈 Interés"]
-        ],
-        health: [
-          ["/es/calculadora-imc", "⚖️ IMC"],
-          ["/es/calculadora-calorias", "🔥 Calorías (TMB)"],
-          ["/es/calculadora-hidratacion", "💧 Hidratación"],
-          ["/es/calculadora-porcentajes", "📊 Porcentajes"]
-        ],
-        admin: [
-          ["/es/validador-dni", "🪪 DNI"]
-        ],
-        utils: [
-          ["/es/calculadora-conversion", "📐 Conversor"]
-        ]
-      },
-      footer: {
-        legal: ["/es/aviso-legal", "Aviso legal"],
-        priv: ["/es/privacidad", "Privacidad"],
-        cook: ["/es/cookies", "Cookies"],
-        set: "Configuración de Cookies",
-        cont: ["/es/contacto", "Contacto"],
-        copy: "Todos los derechos reservados."
-      }
-    },
-    en: {
-      home: "Home",
-      tools: "Tools ▼",
-      close: "✕ Close",
-      contact: "Contact",
-      search: "Search...",
-      homeUrl: "/en/",
-      contactUrl: "/en/contact",
-      langEs: "🇪🇸 Spain",
-      langEn: "🇬🇧 English",
-      categories: {
-        finance: "Finance",
-        health: "Health & Math",
-        admin: "Admin",
-        utils: "Utilities"
-      },
-      links: {
-        finance: [
-          ["/en/vat-calculator", "💶 VAT"],
-          ["/en/discount-calculator", "🏷️ Discounts"],
-          ["/en/tip-calculator", "☕ Tips"],
-          ["/en/loan-calculator", "🏦 Loans"],
-          ["/en/currency-converter", "💱 Currency"],
-          ["/en/compound-interest-calculator", "📈 Interest"]
-        ],
-        health: [
-          ["/en/bmi-calculator", "⚖️ BMI"],
-          ["/en/calorie-calculator", "🔥 Calories (BMR)"],
-          ["/en/hydration-calculator", "💧 Hydration"],
-          ["/en/percentage-calculator", "📊 Percentages"]
-        ],
-        admin: [
-          
-        ],
-        utils: [
-          ["/en/unit-converter", "📐 Converter"]
-        ]
-      },
-      footer: {
-        legal: ["/en/legal-notice", "Legal notice"],
-        priv: ["/en/privacy-policy", "Privacy"],
-        cook: ["/en/cookies", "Cookies"],
-        set: "Cookie Settings",
-        cont: ["/en/contact", "Contact"],
-        copy: "All rights reserved."
-      }
-    }
-  };
-
-  const langPath = url.pathname.split('/')[1]; 
+  const currentPath = url.pathname;
+  const langPath = currentPath.split('/')[1] || 'en';
   const t = i18n[langPath] || i18n.en;
 
-  // --- LÓGICA: Generar Columnas del Dropdown ---
+  // Lógica para encontrar la URL equivalente o devolver el parámetro de alerta
+  const getTargetUrl = (targetLangCode) => {
+    const targetI18n = i18n[targetLangCode];
+    
+    const currentAllLinks = [
+      ...Object.values(t.links).flat(),
+      ...t.footer.links,
+      { id: "home", url: t.homeUrl },
+      { id: "contact", url: t.contactUrl }
+    ];
+
+    const currentTool = currentAllLinks.find(l => l.url === currentPath);
+    if (!currentTool) return targetI18n.homeUrl;
+
+    const targetAllLinks = [
+      ...Object.values(targetI18n.links).flat(),
+      ...targetI18n.footer.links,
+      { id: "home", url: targetI18n.homeUrl },
+      { id: "contact", url: targetI18n.contactUrl }
+    ];
+
+    const match = targetAllLinks.find(l => l.id === currentTool.id);
+    return match ? match.url : `${targetI18n.homeUrl}?alert=not-found`;
+  };
+
+  const urlEs = langPath === 'es' ? currentPath : getTargetUrl('es');
+  const urlEn = langPath === 'en' ? currentPath : getTargetUrl('en');
+
   const renderColumn = (catKey) => {
     const links = t.links[catKey] || [];
     return `
       <div class="dropdown-column">
         <h3>${t.categories[catKey]}</h3>
         <ul>
-          ${links.map(l => `<li><a href="${l[0]}">${l[1]}</a></li>`).join('')}
+          ${links.map(l => `<li><a href="${l.url}">${l.name}</a></li>`).join('')}
         </ul>
-      </div>
-    `;
+      </div>`;
   };
-
-  const dropdownHTML = `
-    ${renderColumn('finance')}
-    ${renderColumn('health')}
-    ${renderColumn('admin')}
-    ${renderColumn('utils')}
-  `;
 
   const navHTML = `
     <button class="menu-toggle">Menu</button>
@@ -139,7 +60,10 @@ export default async (request, context) => {
                 <div class="dropdown">
                     <button class="dropbtn" type="button">${t.tools}</button>
                     <div class="dropdown-content">
-                        ${dropdownHTML}
+                        ${renderColumn('finance')}
+                        ${renderColumn('health')}
+                        ${renderColumn('admin')}
+                        ${renderColumn('utils')}
                     </div>
                 </div>
                 <a href="${t.contactUrl}">${t.contact}</a>
@@ -151,23 +75,37 @@ export default async (request, context) => {
         </div>
         <div class="nav-controls">
             <div class="lang-selector">
-                <select onchange="window.location.href=this.value">
-                    <option value="/es/" ${langPath === 'es' ? 'selected' : ''}>${t.langEs}</option>
-                    <option value="/en/" ${langPath === 'en' ? 'selected' : ''}>${t.langEn}</option>
+                <select id="lang-switcher">
+                    <option value="${urlEs}" ${langPath === 'es' ? 'selected' : ''}>${t.langEs}</option>
+                    <option value="${urlEn}" ${langPath === 'en' ? 'selected' : ''}>${t.langEn}</option>
                 </select>
             </div>
             <button type="button" class="toggle-dark-inline" id="theme-toggle">☀️</button>
         </div>
     </nav>
+    <script>
+      document.getElementById('lang-switcher').addEventListener('change', function() {
+        const dest = this.value;
+        if (dest.includes('alert=not-found')) {
+          const msg = "${t.alertMsg}"; 
+          if (confirm(msg)) {
+            window.location.href = dest;
+          } else {
+            this.value = window.location.pathname;
+          }
+        } else {
+          window.location.href = dest;
+        }
+      });
+    </script>
   `;
 
   const footerHTML = `
     <div class="footer-links">
-        <a href="${t.footer.legal[0]}">${t.footer.legal[1]}</a> ·
-        <a href="${t.footer.priv[0]}">${t.footer.priv[1]}</a> ·
-        <a href="${t.footer.cook[0]}">${t.footer.cook[1]}</a> ·
-        <a href="#" id="open-cookie-settings-footer">${t.footer.set}</a> ·
-        <a href="${t.footer.cont[0]}">${t.footer.cont[1]}</a>
+        ${t.footer.links.map((l, idx) => `
+            <a href="${l.url}">${l.name}</a>${idx < t.footer.links.length - 1 ? ' · ' : ''}
+        `).join('')}
+        · <a href="#" id="open-cookie-settings-footer">${t.footer.cookieSet}</a>
     </div>
     <p>&copy; ${new Date().getFullYear()} Calculenow. ${t.footer.copy}</p>
   `;
