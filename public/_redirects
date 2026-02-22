@@ -1,16 +1,40 @@
-# Herramientas (Nuevas y antiguas)
-/calculadora-porcentajes    /calculadora-porcentajes.html    200
-es/calculadora-imc            es/calculadora-imc.html            200
-/calculadora-iva            /calculadora-iva.html            200
-/calculadora-descuentos     /calculadora-descuentos.html     200
-/calculadora-propinas       /calculadora-propinas.html       200
-/calculadora-prestamos      /calculadora-prestamos.html      200
-/validador-dni              /validador-dni.html              200
-/calculadora-calorias       /calculadora-calorias.html       200
-/calculadora-divisas        /calculadora-divisas.html        200
+# --- IDIOMA ESPAÑOL (/es/) ---
+/es/calculadora-porcentajes    /es/calculadora-porcentajes.html    200
+/es/calculadora-imc            /es/calculadora-imc.html            200
+/es/calculadora-iva            /es/calculadora-iva.html            200
+/es/calculadora-descuentos     /es/calculadora-descuentos.html     200
+/es/calculadora-propinas       /es/calculadora-propinas.html       200
+/es/calculadora-prestamos      /es/calculadora-prestamos.html      200
+/es/calculadora-calorias       /es/calculadora-calorias.html       200
+/es/calculadora-divisas        /es/calculadora-divisas.html        200
+/es/validador-dni              /es/validador-dni.html              200
+/es/calculadora-hidratacion    /es/calculadora-hidratacion.html    200
+/es/calculadora-conversion     /es/calculadora-conversion.html     200
 
-# Páginas Legales y Estáticas
-/aviso-legal                /aviso-legal.html                200
-/privacidad                 /privacidad.html                 200
-/cookies                    /cookies.html                    200
-/contacto                   /contacto.html                   200
+# Legales ES
+/es/aviso-legal                /es/aviso-legal.html                200
+/es/privacidad                 /es/privacidad.html                 200
+/es/cookies                    /es/cookies.html                    200
+/es/contacto                   /es/contacto.html                   200
+
+# --- IDIOMA INGLÉS (/en/) ---
+/en/percentage-calculator      /en/percentage-calculator.html      200
+/en/bmi-calculator             /en/bmi-calculator.html             200
+/en/vat-calculator             /en/vat-calculator.html             200
+/en/discount-calculator        /en/discount-calculator.html        200
+/en/tip-calculator             /en/tip-calculator.html             200
+/en/loan-calculator            /en/loan-calculator.html            200
+/en/calorie-calculator         /en/calorie-calculator.html         200
+/en/currency-converter         /en/currency-converter.html         200
+/en/compound-interest-calculator /en/compound-interest-calculator.html 200
+/en/unit-converter             /en/unit-converter.html             200
+
+# Legales EN
+/en/legal-notice               /en/legal-notice.html               200
+/en/privacy-policy             /en/privacy-policy.html             200
+/en/cookies                    /en/cookies.html                    200
+/en/contact                    /en/contact.html                    200
+
+# Redirección de la raíz (opcional si no lo hace tu edge function)
+/ /es/index.html 302 Language=es
+/ /en/index.html 302
