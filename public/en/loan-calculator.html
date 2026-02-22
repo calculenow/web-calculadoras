@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <script>
+    (function () {
+      const theme = localStorage.getItem("theme");
+      if (theme === "dark") {
+        document.documentElement.classList.add("dark");
+      }
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Loan & Mortgage Calculator",
+    "operatingSystem": "All",
+    "applicationCategory": "FinanceApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Calculate your monthly loan or mortgage payment. Simulate interest and amortization schedules easily."
+  }
+  </script>
+  
+  <title>Loan & Mortgage Calculator - Monthly Payment & Costs | Calculenow</title>
+  <link rel="canonical" href="https://calculenow.com/en/loan-calculator" />
+  <meta name="description" content="Calculate your personal loan or mortgage payment. Discover how much interest you will pay and the total cost of your financing in seconds.">
+
+  <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+  <link rel="stylesheet" href="../css/styles.css"/>
+  
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+</head>
+<body>
+  <header></header>
+
+  <main>
+    <div class="card mortgage-card">
+      <h1>Loan & Mortgage Calculator</h1>
+      
+      <div class="calculator-ui">
+        <div class="form-group">
+          <label for="capital">Requested Capital ($)</label>
+          <input id="capital" class="field capital" type="number" placeholder="e.g.: 200,000 (Home) or 15,000 (Car)">
+        </div>
+
+        <div class="form-group">
+          <label for="interes">Annual Interest (Rate %)</label>
+          <input id="interes" class="field interes" type="number" step="0.1" placeholder="e.g.: 3.5">
+        </div>
+
+        <div class="form-group">
+          <label for="plazo">Repayment Term (Years)</label>
+          <input id="plazo" class="field plazo" type="number" placeholder="e.g.: 30 (Mortgage) or 5 (Loan)">
+        </div>
+
+        <button class="btn btn-mortgage">Calculate Monthly Payment</button>
+
+        <div class="result result-mortgage" data-btn-copy="Copy Summary"></div>
+      </div>
+
+      <div class="related-tools">
+        <p><strong>You might also be interested in:</strong></p>
+        <ul>
+          <li>
+            <a href="/en/vat-calculator">
+              ➔ <strong>VAT Calculator:</strong> To calculate the total cost of goods with taxes before financing.
+            </a>
+          </li>
+          <li>
+            <a href="/en/percentage-calculator">
+              ➔ <strong>Percentage Calculator:</strong> Ideal for calculating necessary savings or debt ratios.
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="legal-content">
+      <h2>What should you know before asking for financing?</h2>
+      <p>Whether buying your future home or for a personal project, understanding how interest works will save you thousands of dollars. Our calculator uses the <strong>French Amortization System</strong>, which is the standard for most consumer loans and mortgages.</p>
+
+      
+
+      <div class="info-grid">
+        <div class="card info-box">
+          <h3>💰 How do you pay your debt?</h3>
+          <p>With the French system, your monthly payment is fixed. However, at the beginning, you pay mostly <strong>interest</strong> and very little principal. As time passes, the balance shifts.</p>
+        </div>
+        <div class="card info-box">
+          <h3>⚠️ Safety Limit</h3>
+          <p>To maintain optimal financial health, your payment should not exceed <a href="/en/percentage-calculator">30% of your net income</a>. Exceeding this threshold increases the risk of default.</p>
+        </div>
+      </div>
+
+      <h3>Key Concepts: Don't get misled</h3>
+      <ul>
+        <li><strong>Nominal Rate:</strong> This is the "pure" price the bank charges you for the money.</li>
+        <li><strong>APR (Annual Percentage Rate):</strong> The most important indicator. It includes the interest rate plus commissions, mandatory insurance, and closing costs. <strong>Always compare offers using the APR.</strong></li>
+        <li><strong>Amortization:</strong> The process of paying off the borrowed capital. You can make partial prepayments to reduce future installments or the loan term.</li>
+      </ul>
+
+      <h3>Short term or long term?</h3>
+      <p>Choosing a longer term (like 30 years) reduces the monthly payment and provides immediate relief, but it <strong>drastically increases the total cost</strong> of the loan through interest. If your finances allow it, shorter terms are always the cheapest option.</p>
+    </section>
+
+    <div class="faq-section">
+      <h3>Common questions about loans and mortgages</h3>
+
+      <details>
+        <summary>What is a fixed-rate vs variable-rate mortgage?</summary>
+        <div class="faq-content">
+          <p>In a fixed-rate mortgage, the payment never changes. In a variable-rate mortgage, your payment depends on a benchmark index (like LIBOR or Euribor) and is reviewed periodically, which can increase or decrease your payment.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Can I pay off my loan early?</summary>
+        <div class="faq-content">
+          <p>Yes, this is called early repayment or prepayment. Banks may charge a small fee for this, but it usually pays off because of the significant interest savings from returning the capital sooner.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Why doesn't the monthly payment match my bank's quote?</summary>
+        <div class="faq-content">
+          <p>This calculator simulates pure interest. Your bank likely adds life insurance, home insurance, or monthly fees that are added to the base payment you see here.</p>
+        </div>
+      </details>
+    </div>
+  </main>
+  
+  <footer></footer>
+
+  <script src="../js/layout.js"></script>
+  <script src="../js/buscador.js"></script>
+  <script src="../js/core.js"></script>
+  <script src="../js/prestamos.js"></script>
+</body>
+</html>
