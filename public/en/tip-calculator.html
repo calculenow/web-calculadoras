@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme');
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Tip Calculator",
+    "operatingSystem": "All",
+    "applicationCategory": "UtilitiesApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Calculate the fair tip and split the bill among several friends quickly and easily."
+  }
+  </script>
+
+  <title>Tip Calculator - Split the Bill & % Tip | Calculenow</title>
+  <link rel="canonical" href="https://calculenow.com/en/tip-calculator">
+  <meta name="description" content="Split the restaurant bill fairly. Calculate the ideal tip and how much each person should pay without errors or complicated math.">
+
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../css/styles.css"/>
+  
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)">
+</head>
+<body>
+  <header></header>
+  <main>
+    <div class="card tip-card">
+      <h1>Tip Calculator</h1>
+      
+      <div class="calculator-ui">
+        <div class="form-group">
+          <label for="cuenta-total">Total Bill ($)</label>
+          <input id="cuenta-total" class="field cuenta-total" type="number" step="0.01" placeholder="e.g.: 85.50">
+        </div>
+
+        <div class="form-group">
+          <label for="propina-pct">Tip (%)</label>
+          <input id="propina-pct" class="field propina-pct" type="number" step="1" value="15" placeholder="e.g.: 15">
+        </div>
+
+        <div class="form-group">
+          <label for="personas">Number of People</label>
+          <input id="personas" class="field personas" type="number" step="1" value="1">
+        </div>
+
+        <button class="btn btn-tip">Calculate Split</button>
+
+        <div class="result result-tip" 
+             data-btn-copy="Copy Result"
+             data-label-total="Each person pays"
+             data-label-bill="Original bill"
+             data-label-tip="Tip">
+        </div>
+      </div>
+
+      <div class="related-tools">
+        <p><strong>You might also be interested in:</strong></p>
+        <ul>
+          <li>
+            <a href="/en/percentage-calculator">
+              ➔ <strong>Percentage Calculator:</strong> For other proportional calculations.
+            </a>
+          </li>
+          <li>
+            <a href="/en/vat-calculator">
+              ➔ <strong>VAT Calculator:</strong> Easily breakdown the tax from your receipt.
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div> 
+
+    <section class="legal-content">
+      <h2>How to split a bill with a tip?</h2>
+      <p>Splitting expenses at a group dinner can be a hassle. Our tool calculates the desired gratuity percentage, adds it to the total, and divides it equally among the guests.</p>
+      
+      <h3>What is a standard tip?</h3>
+      <p>While it depends on the country, in the US, a tip is standard and usually ranges between <strong>15-20%</strong>. In many European countries, it is voluntary and often around 5-10% for good service.</p>
+
+      <h3>Formula for per-person calculation</h3>
+      <p>To get the individual amount, we add the service cost to the bill and divide by the number of friends:</p>
+      <div class="formule">
+        <strong>Total per Person = (Bill + (Bill × % Tip / 100)) / No. of People</strong>
+      </div>
+    </section>
+
+    <div class="faq-section">
+      <h3>FAQs about restaurant payments</h3>
+
+      <details>
+        <summary>Should I leave a tip if service is already included?</summary>
+        <div class="faq-content">
+          <p>In some countries, the "service charge" is already included in the bill. In that case, an additional tip is entirely optional and reserved for cases where the service was exceptional.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>How to round the payment easily?</summary>
+        <div class="faq-content">
+          <p>If the calculator shows that each person should pay $21.35, it's common to round up to $22 to avoid dealing with loose change, leaving the excess as an extra gratuity.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What if someone doesn't want to leave a tip?</summary>
+        <div class="faq-content">
+          <p>Since it is a voluntary act in most countries, the calculator allows you to enter "0" in the percentage field to simply divide the net amount of the bill among those present.</p>
+        </div>
+      </details>
+    </div>
+  </main>
+  <footer></footer>
+
+  <script src="../js/layout.js"></script>
+  <script src="../js/buscador.js"></script>
+  <script src="../js/core.js"></script>
+  <script src="../js/propinas.js"></script>
+</body>
+</html>

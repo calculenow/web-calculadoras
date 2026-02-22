@@ -1,86 +1,148 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
   <url>
     <loc>https://calculenow.com/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/"/>
+    <lastmod>2026-02-22</lastmod>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://calculenow.com/calculadora-iva</loc>
+    <loc>https://calculenow.com/es/calculadora-iva</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-iva"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/vat-calculator"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/en/vat-calculator"/>
+    <lastmod>2026-02-22</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://calculenow.com/en/vat-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/vat-calculator"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-iva"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/en/vat-calculator"/>
+    <lastmod>2026-02-22</lastmod>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://calculenow.comes/calculadora-imc</loc>
+    <loc>https://calculenow.com/es/calculadora-imc</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-imc"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/bmi-calculator"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/en/bmi-calculator"/>
+    <lastmod>2026-02-22</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://calculenow.com/en/bmi-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/bmi-calculator"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-imc"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/en/bmi-calculator"/>
+    <lastmod>2026-02-22</lastmod>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://calculenow.com/calculadora-descuentos</loc>
+    <loc>https://calculenow.com/es/calculadora-prestamos</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-prestamos"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/loan-calculator"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/en/loan-calculator"/>
+    <lastmod>2026-02-22</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://calculenow.com/en/loan-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/loan-calculator"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-prestamos"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/en/loan-calculator"/>
+    <lastmod>2026-02-22</lastmod>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://calculenow.com/calculadora-porcentajes</loc>
+    <loc>https://calculenow.com/es/calculadora-propinas</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-propinas"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/tip-calculator"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/en/tip-calculator"/>
+    <lastmod>2026-02-22</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://calculenow.com/en/tip-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/tip-calculator"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-propinas"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/en/tip-calculator"/>
+    <lastmod>2026-02-22</lastmod>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://calculenow.com/calculadora-propinas</loc>
-    <priority>0.9</priority>
+    <loc>https://calculenow.com/es/contacto</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/contacto"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/en/contact"/>
+    <lastmod>2026-02-22</lastmod>
+    <priority>0.5</priority>
   </url>
-
-<url>
-    <loc>https://calculenow.com/calculadora-prestamos</loc>
-    <priority>0.9</priority>
-  </url>
-
   <url>
-    <loc>https://calculenow.com/validador-dni</loc>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://calculenow.com/calculadora-calorias</loc>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://calculenow.com/calculadora-divisas</loc>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://calculenow.com/calculadora-interes-compuesto</loc>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://calculenow.comes/calculadora-hidratacion</loc>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://calculenow.com/calculadora-conversion</loc>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://calculenow.com/contacto</loc>
+    <loc>https://calculenow.com/en/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/contacto"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/en/contact"/>
+    <lastmod>2026-02-22</lastmod>
     <priority>0.5</priority>
   </url>
 
   <url>
-    <loc>https://calculenow.com/aviso-legal</loc>
+    <loc>https://calculenow.com/es/privacidad</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/privacidad"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/privacy-policy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/en/privacy-policy"/>
+    <lastmod>2026-02-22</lastmod>
     <priority>0.2</priority>
   </url>
   <url>
-    <loc>https://calculenow.com/privacidad</loc>
+    <loc>https://calculenow.com/en/privacy-policy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/privacy-policy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/privacidad"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/en/privacy-policy"/>
+    <lastmod>2026-02-22</lastmod>
+    <priority>0.2</priority>
+  </url>
+
+  <url>
+    <loc>https://calculenow.com/es/aviso-legal</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/aviso-legal"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/legal-notice"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/en/legal-notice"/>
+    <lastmod>2026-02-22</lastmod>
     <priority>0.2</priority>
   </url>
   <url>
-    <loc>https://calculenow.com/cookies</loc>
+    <loc>https://calculenow.com/en/legal-notice</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/legal-notice"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/aviso-legal"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/en/legal-notice"/>
+    <lastmod>2026-02-22</lastmod>
+    <priority>0.2</priority>
+  </url>
+
+  <url>
+    <loc>https://calculenow.com/es/cookies</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/cookies"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/cookies"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/en/cookies"/>
+    <lastmod>2026-02-22</lastmod>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://calculenow.com/en/cookies</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/cookies"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/cookies"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/en/cookies"/>
+    <lastmod>2026-02-22</lastmod>
     <priority>0.2</priority>
   </url>
 
