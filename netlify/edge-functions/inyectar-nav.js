@@ -9,11 +9,11 @@ export default async (request, context) => {
   const url = new URL(request.url);
   const currentPath = url.pathname;
 
-  // 1. Detectar idioma basado en la URL
+  // 1. Detectar idioma actual (es, en...)
   const langPath = currentPath.split('/').filter(Boolean)[0] || 'en';
   const t = i18n[langPath] || i18n.en;
 
-  // 2. Lógica de Redirección Inteligente (Misma herramienta en otro idioma)
+  // 2. Lógica de Redirección Inteligente
   const getTargetUrl = (targetLangCode) => {
     const targetI18n = i18n[targetLangCode];
     
@@ -38,7 +38,7 @@ export default async (request, context) => {
     return match ? match.url : `${targetI18n.homeUrl}?alert=not-found`;
   };
 
-  // 3. Preparar opciones del selector
+  // 3. Generar opciones del selector (Escalable)
   const langOptions = Object.keys(i18n).map(code => {
     const labelKey = `lang${code.charAt(0).toUpperCase() + code.slice(1)}`;
     return {
@@ -60,6 +60,7 @@ export default async (request, context) => {
       </div>`;
   };
 
+  // 4. HTML del NAV (Sin scripts internos para evitar el bloqueo de renderizado)
   const navHTML = `
     <button class="menu-toggle">Menu</button>
     <nav class="main-nav">
@@ -84,6 +85,7 @@ export default async (request, context) => {
             <div class="lang-selector">
                 <select id="lang-switcher">
                     ${langOptions.map(opt => {
+                        // Marcamos el selected explícitamente para que el core.js lo encuentre
                         const isSelected = currentPath.startsWith(`/${opt.code}`);
                         return `<option value="${opt.url}" ${isSelected ? 'selected="selected"' : ''}>${opt.name}</option>`;
                     }).join('')}
@@ -92,31 +94,6 @@ export default async (request, context) => {
             <button type="button" class="toggle-dark-inline" id="theme-toggle">☀️</button>
         </div>
     </nav>
-    <script>
-      (function() {
-        const sw = document.getElementById('lang-switcher');
-        if (!sw) return;
-
-        // FIX DEL -1: Forzamos al navegador a reconocer la opción seleccionada
-        const selectedOpt = sw.querySelector('option[selected]');
-        if (selectedOpt) {
-          sw.value = selectedOpt.value;
-        }
-
-        sw.addEventListener('change', function() {
-          const dest = this.value;
-          if (dest.includes('alert=not-found')) {
-            if (confirm("${t.alertMsg}")) {
-              window.location.href = dest;
-            } else {
-              this.value = window.location.pathname;
-            }
-          } else {
-            window.location.href = dest;
-          }
-        });
-      })();
-    </script>
   `;
 
   const footerHTML = `

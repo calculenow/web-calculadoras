@@ -196,3 +196,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const sw = document.getElementById('lang-switcher');
+    
+    if (sw) {
+        // 1. FORZAR RENDERIZADO: El navegador a veces ignora el atributo HTML 'selected'.
+        // Buscamos la opción que tiene el atributo y forzamos el valor del select.
+        const selectedOpt = sw.querySelector('option[selected]');
+        if (selectedOpt) {
+            sw.value = selectedOpt.value;
+        }
+
+        // 2. ESCUCHADOR DE CAMBIOS:
+        sw.addEventListener('change', function() {
+            const dest = this.value;
+            if (dest.includes('alert=not-found')) {
+                // Aquí usamos una cadena de texto fija o un data-attribute si quieres traducirlo
+                const msg = "This tool is not available in this language. Go to Home?";
+                if (confirm(msg)) {
+                    window.location.href = dest;
+                } else {
+                    this.value = window.location.pathname;
+                }
+            } else {
+                window.location.href = dest;
+            }
+        });
+
+        // 3. TRUCO FINAL: Un pequeño "toque" al estilo para forzar el repintado
+        sw.style.display = 'inline-block';
+    }
+});
