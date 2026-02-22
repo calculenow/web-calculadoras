@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,26 +17,26 @@
       {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "name": "Calculadora de Conversión de Unidades",
+        "name": "Unit Conversion Calculator",
         "operatingSystem": "All",
         "applicationCategory": "UtilitiesApplication",
         "offers": {
           "@type": "Offer",
           "price": "0",
-          "priceCurrency": "EUR"
+          "priceCurrency": "USD"
         },
-        "description": "Convierte unidades de longitud, peso, temperatura y más de forma instantánea y precisa."
+        "description": "Convert units of length, weight, temperature, and more instantly and accurately."
       }
     </script>
 
-    <title>Calculadora de Conversión de Unidades | Calculenow</title>
+    <title>Unit Conversion Calculator | Calculenow</title>
     <meta
       name="description"
-      content="Conversor de unidades gratuito. Pasa de metros a pies, kilogramos a libras, Celsius a Fahrenheit y mucho más en un solo clic."
+      content="Free unit converter. Convert meters to feet, kilograms to pounds, Celsius to Fahrenheit, and much more in one click."
     />
     <link
       rel="canonical"
-      href="https://calculenow.com/es/calculadora-conversion"
+      href="https://calculenow.com/en/unit-converter"
     />
 
     <link rel="icon" type="image/x-icon" href="../favicon.ico" />
@@ -46,21 +46,21 @@
     <header></header>
     <main>
       <div class="card">
-        <h1>Calculadora de Conversión</h1>
+        <h1>Unit Converter</h1>
 
         <div class="form-group">
-          <label for="categoria">Categoría</label>
+          <label for="categoria">Category</label>
           <select id="categoria" class="field">
-            <option value="longitud">Longitud</option>
-            <option value="peso">Peso</option>
-            <option value="temperatura">Temperatura</option>
-            <option value="volumen">Volumen</option>
-            <option value="datos">Datos</option>
+            <option value="longitud">Length</option>
+            <option value="peso">Weight</option>
+            <option value="temperatura">Temperature</option>
+            <option value="volumen">Volume</option>
+            <option value="datos">Data</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label for="cantidad">Cantidad</label>
+          <label for="cantidad">Amount</label>
           <input
             id="cantidad"
             class="field"
@@ -72,39 +72,39 @@
 
         <div class="divisas-controls">
           <div class="form-group">
-            <label for="desde">De</label>
+            <label for="desde">From</label>
             <select id="desde" class="field"></select>
           </div>
 
           <button type="button" id="btn-swap" class="btn-swap">🔄</button>
 
           <div class="form-group">
-            <label for="hacia">A</label>
+            <label for="hacia">To</label>
             <select id="hacia" class="field"></select>
           </div>
         </div>
 
         <button class="btn btn-conversion" id="btn-convertir">
-          Convertir Unidades
+          Convert Units
         </button>
 
         <div
           class="result result-conversion"
-          data-btn-copy="Copiar Resultado"
+          data-btn-copy="Copy Result"
           data-msg-equal="="
         ></div>
 
         <div class="related-tools">
-          <p><strong>Otras herramientas útiles:</strong></p>
+          <p><strong>Other useful tools:</strong></p>
           <ul>
             <li>
-              <a href="/es/calculadora-imc"
-                >➔ <strong>IMC:</strong> Usa tus cm y kg convertidos aquí.</a
+              <a href="/en/bmi-calculator"
+                >➔ <strong>BMI:</strong> Use your converted cm and kg here.</a
               >
             </li>
             <li>
-              <a href="/es/calculadora-divisas"
-                >➔ <strong>Divisas:</strong> Convierte valores monetarios.</a
+              <a href="/en/currency-converter"
+                >➔ <strong>Currency:</strong> Convert monetary values.</a
               >
             </li>
           </ul>
@@ -112,92 +112,91 @@
       </div>
 
       <section class="legal-content">
-        <h2>Tablas de equivalencias comunes</h2>
+        <h2>Common Equivalency Tables</h2>
         <p>
-          Para facilitarte los cálculos rápidos, aquí tienes las conversiones
-          más consultadas entre el sistema métrico internacional y el sistema
-          imperial.
+          To help you with quick calculations, here are the most consulted conversions 
+          between the International Metric System and the Imperial System.
         </p>
 
-        <h3>📏 Longitud y Distancia</h3>
+        <h3>📏 Length and Distance</h3>
         <div class="table-container">
           <table>
             <thead>
               <tr>
-                <th>Unidad (Sistema Métrico)</th>
-                <th>Equivalencia (Sistema Imperial)</th>
+                <th>Unit (Metric System)</th>
+                <th>Equivalence (Imperial System)</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>1 Centímetro (cm)</td>
-                <td>0.3937 Pulgadas (in)</td>
+                <td>1 Centimeter (cm)</td>
+                <td>0.3937 Inches (in)</td>
               </tr>
               <tr>
-                <td>1 Metro (m)</td>
-                <td>3.2808 Pies (ft)</td>
+                <td>1 Meter (m)</td>
+                <td>3.2808 Feet (ft)</td>
               </tr>
               <tr>
-                <td>1 Metro (m)</td>
-                <td>1.0936 Yardas (yd)</td>
+                <td>1 Meter (m)</td>
+                <td>1.0936 Yards (yd)</td>
               </tr>
               <tr>
-                <td>1 Kilómetro (km)</td>
-                <td>0.6213 Millas (mi)</td>
+                <td>1 Kilometer (km)</td>
+                <td>0.6213 Miles (mi)</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <h3>⚖️ Peso y Masa</h3>
+        <h3>⚖️ Weight and Mass</h3>
         <div class="table-container">
           <table>
             <thead>
               <tr>
-                <th>Unidad (Sistema Métrico)</th>
-                <th>Equivalencia (Sistema Imperial)</th>
+                <th>Unit (Metric System)</th>
+                <th>Equivalence (Imperial System)</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>1 Gramo (g)</td>
-                <td>0.0352 Onzas (oz)</td>
+                <td>1 Gram (g)</td>
+                <td>0.0352 Ounces (oz)</td>
               </tr>
               <tr>
-                <td>1 Kilogramo (kg)</td>
-                <td>2.2046 Libras (lb)</td>
+                <td>1 Kilogram (kg)</td>
+                <td>2.2046 Pounds (lb)</td>
               </tr>
               <tr>
-                <td>1 Tonelada (t)</td>
-                <td>1.1023 Toneladas cortas (US)</td>
+                <td>1 Ton (t)</td>
+                <td>1.1023 Short Tons (US)</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <h3>🌡️ Puntos de referencia de Temperatura</h3>
+        <h3>🌡️ Temperature Reference Points</h3>
         <div class="table-container">
           <table>
             <thead>
               <tr>
-                <th>Estado del agua</th>
+                <th>Water State</th>
                 <th>Celsius (°C)</th>
                 <th>Fahrenheit (°F)</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Congelación</td>
+                <td>Freezing</td>
                 <td>0 °C</td>
                 <td>32 °F</td>
               </tr>
               <tr>
-                <td>Temperatura ambiente (media)</td>
+                <td>Room Temperature (avg)</td>
                 <td>20 °C</td>
                 <td>68 °F</td>
               </tr>
               <tr>
-                <td>Ebullición</td>
+                <td>Boiling</td>
                 <td>100 °C</td>
                 <td>212 °F</td>
               </tr>
@@ -205,27 +204,27 @@
           </table>
         </div>
 
-        <h3>💾 Almacenamiento Digital (Binario vs Decimal)</h3>
+        <h3>💾 Digital Storage (Binary vs Decimal)</h3>
         <div class="table-container">
           <table>
             <thead>
               <tr>
-                <th>Unidad Mayor</th>
-                <th>Equivalencia en Unidad Menor</th>
+                <th>Larger Unit</th>
+                <th>Equivalence in Smaller Unit</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>1 Terabyte (TB)</td>
-                <td>1.000 Gigabytes (GB)</td>
+                <td>1,000 Gigabytes (GB)</td>
               </tr>
               <tr>
                 <td>1 Gigabyte (GB)</td>
-                <td>1.000 Megabytes (MB)</td>
+                <td>1,000 Megabytes (MB)</td>
               </tr>
               <tr>
                 <td>1 Megabyte (MB)</td>
-                <td>1.000 Kilobytes (KB)</td>
+                <td>1,000 Kilobytes (KB)</td>
               </tr>
               <tr>
                 <td>1 Byte (B)</td>
@@ -237,34 +236,33 @@
       </section>
 
       <section class="legal-content">
-        <h2>¿Cómo convertir unidades correctamente?</h2>
+        <h2>How to convert units correctly?</h2>
         <p>
-          La conversión de unidades consiste en multiplicar o dividir por un
-          factor de conversión para obtener un valor equivalente en una escala
-          distinta.
+          Unit conversion consists of multiplying or dividing by a conversion factor 
+          to obtain an equivalent value on a different scale.
         </p>
         <div class="formule">
-          Valor Final = Valor Inicial × Factor de Conversión
+          Final Value = Initial Value × Conversion Factor
         </div>
       </section>
 
       <section class="faq-section">
-        <h3>Preguntas sobre conversión</h3>
+        <h3>Questions about conversion</h3>
         <details>
-          <summary>¿Qué es el sistema métrico decimal?</summary>
+          <summary>What is the decimal metric system?</summary>
           <div class="faq-content">
             <p>
-              Es el sistema de unidades basado en el metro, donde las unidades
-              aumentan o disminuyen en potencias de diez.
+              It is the system of units based on the meter, where units increase 
+              or decrease in powers of ten.
             </p>
           </div>
         </details>
         <details>
-          <summary>¿Por qué EE.UU. no usa el sistema métrico?</summary>
+          <summary>Why doesn't the US use the metric system?</summary>
           <div class="faq-content">
             <p>
-              Por tradición histórica y el alto coste industrial de cambiar toda
-              su infraestructura al sistema internacional.
+              Due to historical tradition and the high industrial cost of changing 
+              all its infrastructure to the international system.
             </p>
           </div>
         </details>
@@ -275,40 +273,40 @@
     <div class="cookie-banner" id="cookie-banner">
       <div id="cookie-main-view">
         <p>
-          Utilizamos cookies para mejorar tu experiencia.
-          <a href="/es/cookies">Ver política de cookies</a>
+          We use cookies to improve your experience.
+          <a href="/en/cookies">View cookie policy</a>
         </p>
         <div class="cookie-buttons">
           <button class="accept-cookies" id="btn-accept-all">
-            Aceptar todas
+            Accept all
           </button>
           <button class="reject-cookies" id="btn-reject-all">
-            Rechazar todas
+            Reject all
           </button>
           <button class="settings-cookies" id="btn-open-settings">
-            Configurar
+            Configure
           </button>
         </div>
       </div>
       <div id="cookie-settings-view" style="display: none">
-        <p><strong>Personaliza tus preferencias:</strong></p>
+        <p><strong>Personalize your preferences:</strong></p>
         <div class="cookie-option">
           <input type="checkbox" id="check-necessary" checked disabled />
-          <label>Necesarias (Obligatorias)</label>
+          <label>Necessary (Required)</label>
         </div>
         <div class="cookie-option">
           <input type="checkbox" id="check-analytics" />
-          <label>Analíticas (Google Analytics)</label>
+          <label>Analytics (Google Analytics)</label>
         </div>
         <div class="cookie-option">
           <input type="checkbox" id="check-marketing" />
-          <label>Marketing (Píxeles publicitarios)</label>
+          <label>Marketing (Advertising pixels)</label>
         </div>
         <div class="cookie-buttons" style="margin-top: 15px">
           <button class="accept-cookies" id="btn-save-settings">
-            Guardar selección
+            Save selection
           </button>
-          <button class="settings-cookies" id="btn-back">Volver</button>
+          <button class="settings-cookies" id="btn-back">Back</button>
         </div>
       </div>
     </div>

@@ -1,6 +1,5 @@
 /**
  * CALCULADORA DE CONVERSIÓN DE UNIDADES
- * Incluye: Longitud, Peso, Volumen, Temperatura y función Copiar.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,54 +8,66 @@ document.addEventListener('DOMContentLoaded', () => {
     const haciaSelect = document.getElementById('hacia');
     const btnConvertir = document.getElementById('btn-convertir');
     const btnSwap = document.getElementById('btn-swap');
+    const resultDiv = document.querySelector('.result-conversion');
 
-    // Diccionario de unidades y sus factores (respecto a una base)
-    const unidades = {
-        longitud: {
-            "Metros (m)": 1,
-            "Kilómetros (km)": 1000,
-            "Centímetros (cm)": 0.01,
-            "Milímetros (mm)": 0.001,
-            "Pulgadas (in)": 0.0254,
-            "Pies (ft)": 0.3048,
-            "Yardas (yd)": 0.9144,
-            "Millas (mi)": 1609.34
+    const isEn = window.location.pathname.includes('/en/');
+    const lang = isEn ? 'en' : 'es';
+
+    // Obtenemos los textos desde el HTML (hidratación)
+    const labels = resultDiv.dataset;
+
+    const diccionario = {
+        es: {
+            categorias: {
+                longitud: "Longitud (Metros, Pulgadas, Pies...)",
+                peso: "Peso (Kilos, Libras, Onzas...)",
+                temperatura: "Temperatura (Celsius, Fahrenheit...)",
+                volumen: "Volumen (Litros, Galones...)",
+                datos: "Datos (GB, MB, TB, Bytes...)"
+            },
+            unidades: {
+                longitud: { m: "Metros (m)", km: "Kilómetros (km)", cm: "Centímetros (cm)", mm: "Milímetros (mm)", in: "Pulgadas (in)", ft: "Pies (ft)", yd: "Yardas (yd)", mi: "Millas (mi)" },
+                peso: { kg: "Kilogramos (kg)", g: "Gramos (g)", lb: "Libras (lb)", oz: "Onzas (oz)", t: "Toneladas (t)" },
+                volumen: { l: "Litros (l)", ml: "Mililitros (ml)", gal: "Galones (gal)", pt: "Pintas (pt)" },
+                temperatura: { c: "Celsius (°C)", f: "Fahrenheit (°F)", k: "Kelvin (K)" },
+                datos: { b: "Bits (b)", B: "Bytes (B)", KB: "Kilobytes (KB)", MB: "Megabytes (MB)", GB: "Gigabytes (GB)", TB: "Terabytes (TB)" }
+            }
         },
-        peso: {
-            "Kilogramos (kg)": 1,
-            "Gramos (g)": 0.001,
-            "Libras (lb)": 0.453592,
-            "Onzas (oz)": 0.0283495,
-            "Toneladas (t)": 1000
-        },
-        volumen: {
-            "Litros (l)": 1,
-            "Mililitros (ml)": 0.001,
-            "Galones (gal)": 3.78541,
-            "Pintas (pt)": 0.473176
-        },
-        temperatura: {
-            "Celsius (°C)": "C",
-            "Fahrenheit (°F)": "F",
-            "Kelvin (K)": "K"
-        },
-        datos: {
-            "Bits (b)": 0.000000125,
-            "Bytes (B)": 0.000001,
-            "Kilobytes (KB)": 0.001,
-            "Megabytes (MB)": 1,
-            "Gigabytes (GB)": 1000,
-            "Terabytes (TB)": 1000000
+        en: {
+            categorias: {
+                longitud: "Length (Meters, Inches, Feet...)",
+                peso: "Weight (Kilos, Pounds, Ounces...)",
+                temperatura: "Temperature (Celsius, Fahrenheit...)",
+                volumen: "Volume (Liters, Gallons...)",
+                datos: "Data (GB, MB, TB, Bytes...)"
+            },
+            unidades: {
+                longitud: { m: "Meters (m)", km: "Kilometers (km)", cm: "Centimeters (cm)", mm: "Millimeters (mm)", in: "Inches (in)", ft: "Feet (ft)", yd: "Yards (yd)", mi: "Miles (mi)" },
+                peso: { kg: "Kilograms (kg)", g: "Grams (g)", lb: "Pounds (lb)", oz: "Ounces (oz)", t: "Tons (t)" },
+                temperatura: { c: "Celsius (°C)", f: "Fahrenheit (°F)", k: "Kelvin (K)" },
+                volumen: { l: "Liters (l)", ml: "Milliliters (ml)", gal: "Gallons (gal)", pt: "Pints (pt)" },
+                datos: { b: "Bits (b)", B: "Bytes (B)", KB: "Kilobytes (KB)", MB: "Megabytes (MB)", GB: "Gigabytes (GB)", TB: "Terabytes (TB)" }
+            }
         }
     };
 
-    function poblarSelects() {
+    const factores = {
+        longitud: { m: 1, km: 1000, cm: 0.01, mm: 0.001, in: 0.0254, ft: 0.3048, yd: 0.9144, mi: 1609.34 },
+        peso: { kg: 1, g: 0.001, lb: 0.453592, oz: 0.0283495, t: 1000 },
+        volumen: { l: 1, ml: 0.001, gal: 3.78541, pt: 0.473176 },
+        datos: { b: 0.000000125, B: 0.000001, KB: 0.001, MB: 1, GB: 1000, TB: 1000000 }
+    };
+
+    function poblarSelectores() {
         const cat = categoriaSelect.value;
-        const opciones = Object.keys(unidades[cat]);
-        
-        desdeSelect.innerHTML = opciones.map(o => `<option value="${o}">${o}</option>`).join('');
-        haciaSelect.innerHTML = opciones.map(o => `<option value="${o}">${o}</option>`).join('');
-        
+        Array.from(categoriaSelect.options).forEach(opt => {
+            opt.text = diccionario[lang].categorias[opt.value];
+        });
+        const unidadesHtml = Object.entries(diccionario[lang].unidades[cat])
+            .map(([val, texto]) => `<option value="${val}">${texto}</option>`)
+            .join('');
+        desdeSelect.innerHTML = unidadesHtml;
+        haciaSelect.innerHTML = unidadesHtml;
         if(haciaSelect.options[1]) haciaSelect.selectedIndex = 1;
     }
 
@@ -65,29 +76,32 @@ document.addEventListener('DOMContentLoaded', () => {
         const cant = parseFloat(document.getElementById('cantidad').value);
         const de = desdeSelect.value;
         const a = haciaSelect.value;
-        const resultDiv = document.querySelector('.result-conversion');
-
         if (isNaN(cant)) return;
 
         let resultado;
         if (cat === 'temperatura') {
-            resultado = convertirTemperatura(cant, de, a);
+            let c = (de === 'c') ? cant : (de === 'f') ? (cant - 32) * 5/9 : cant - 273.15;
+            resultado = (a === 'c') ? c : (a === 'f') ? (c * 9/5) + 32 : c + 273.15;
         } else {
-            const factorDe = unidades[cat][de];
-            const factorA = unidades[cat][a];
-            resultado = (cant * factorDe) / factorA;
+            resultado = (cant * factores[cat][de]) / factores[cat][a];
         }
 
-        const resFormateado = resultado.toLocaleString(undefined, { maximumFractionDigits: 4 });
-        const unidadA = a.split(' ')[0]; // Para mostrar solo "Centímetros" por ejemplo
+        const resF = resultado.toLocaleString(undefined, { maximumFractionDigits: 4 });
+        const unidadTextoDe = diccionario[lang].unidades[cat][de].split(' (')[0];
+        const unidadTextoA = diccionario[lang].unidades[cat][a].split(' (')[0];
 
         resultDiv.innerHTML = `
             <div class="resumen-calculo">
                 <div class="resumen-flex" style="display: flex; align-items: center; justify-content: center; gap: 15px;">
                     <p style="font-size: 1.5rem; font-weight: bold; color: var(--primary); margin: 0;">
-                        ${cant} ${de.split(' ')[0]} = ${resFormateado} ${unidadA}
+                        ${cant} ${unidadTextoDe} ${labels.msgEqual} ${resF} ${unidadTextoA}
                     </p>
-                    <button class="btn-copy" onclick="copiarConversion('${resFormateado}', '${unidadA}')" title="Copiar resultado" style="background: var(--input-bg); border: 1px solid var(--border); border-radius: 8px; padding: 8px; cursor: pointer; font-size: 1.2rem;">
+                    <button 
+                        class="btn-copy" 
+                        onclick="copiarConversion('${resF}', '${unidadTextoA}')" 
+                        data-btn-copy="${labels.btnCopy}" 
+                        style="background: var(--input-bg); border: 1px solid var(--border); border-radius: 8px; padding: 8px; cursor: pointer; font-size: 1.2rem;"
+                    >
                         📋
                     </button>
                 </div>
@@ -95,49 +109,23 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     }
 
-    function convertirTemperatura(v, de, a) {
-        let c;
-        if (de.includes("Celsius")) c = v;
-        else if (de.includes("Fahrenheit")) c = (v - 32) * 5 / 9;
-        else if (de.includes("Kelvin")) c = v - 273.15;
-
-        if (a.includes("Celsius")) return c;
-        if (a.includes("Fahrenheit")) return (c * 9 / 5) + 32;
-        if (a.includes("Kelvin")) return c + 273.15;
-    }
-
-    // --- EVENTOS ---
-    categoriaSelect.addEventListener('change', poblarSelects);
+    categoriaSelect.addEventListener('change', poblarSelectores);
     btnConvertir.addEventListener('click', convertir);
-    
     btnSwap.addEventListener('click', () => {
         const temp = desdeSelect.value;
         desdeSelect.value = haciaSelect.value;
         haciaSelect.value = temp;
-        convertir();
+        if (resultDiv.innerHTML !== "") convertir();
     });
-
-    poblarSelects();
+    poblarSelectores();
 });
 
-/**
- * Función global para copiar el resultado con su unidad
- */
 window.copiarConversion = function(valor, unidad) {
-    const textoACopiar = `${valor} ${unidad}`;
-    
-    navigator.clipboard.writeText(textoACopiar).then(() => {
+    const texto = `${valor} ${unidad}`;
+    navigator.clipboard.writeText(texto).then(() => {
         const btn = document.querySelector('.btn-copy');
         const originalIcon = btn.innerHTML;
-        
         btn.innerHTML = '✅';
-        btn.style.borderColor = '#10b981';
-        
-        setTimeout(() => {
-            btn.innerHTML = originalIcon;
-            btn.style.borderColor = '';
-        }, 2000);
-    }).catch(err => {
-        console.error('Error al copiar: ', err);
+        setTimeout(() => btn.innerHTML = originalIcon, 2000);
     });
 };
