@@ -1,7 +1,6 @@
 export default async (request, context) => {
   const response = await context.next();
   
-  // SEGURIDAD: Si no es un HTML, no toques nada (evita romper imágenes, CSS o JS)
   const contentType = response.headers.get("content-type") || "";
   if (!contentType.includes("text/html")) {
     return response;
@@ -19,21 +18,35 @@ export default async (request, context) => {
       search: "Buscar...",
       homeUrl: "/es/",
       contactUrl: "/es/contacto",
-      langEs: "Español",
-      langEn: "Inglés",
+      langEs: "🇪🇸 Español",
+      langEn: "🇬🇧 English",
+      categories: {
+        finance: "Finanzas",
+        health: "Salud y Mates",
+        admin: "Administración",
+        utils: "Utilidades"
+      },
       links: {
-        iva: ["/es/calculadora-iva", "💶 IVA"],
-        desc: ["/es/calculadora-descuentos", "🏷️ Descuentos"],
-        prop: ["/es/calculadora-propinas", "☕ Propinas"],
-        pres: ["/es/calculadora-prestamos", "🏦 Préstamos"],
-        divs: ["/es/calculadora-divisas", "💱 Divisas"],
-        inte: ["/es/calculadora-interes-compuesto", "📈 Interés"],
-        imc: ["/es/calculadora-imc", "⚖️ IMC"],
-        calo: ["/es/calculadora-calorias", "🔥 Calorías"],
-        hidra: ["/es/calculadora-hidratacion", "💧 Hidratación"],
-        porc: ["/es/calculadora-porcentajes", "📊 Porcentajes"],
-        dni: ["/es/validador-dni", "🪪 DNI"],
-        conv: ["/es/calculadora-conversion", "📐 Conversor"]
+        finance: [
+          ["/es/calculadora-iva", "💶 IVA"],
+          ["/es/calculadora-descuentos", "🏷️ Descuentos"],
+          ["/es/calculadora-propinas", "☕ Propinas"],
+          ["/es/calculadora-prestamos", "🏦 Préstamos"],
+          ["/es/calculadora-divisas", "💱 Divisas"],
+          ["/es/calculadora-interes-compuesto", "📈 Interés"]
+        ],
+        health: [
+          ["/es/calculadora-imc", "⚖️ IMC"],
+          ["/es/calculadora-calorias", "🔥 Calorías (TMB)"],
+          ["/es/calculadora-hidratacion", "💧 Hidratación"],
+          ["/es/calculadora-porcentajes", "📊 Porcentajes"]
+        ],
+        admin: [
+          ["/es/validador-dni", "🪪 DNI"]
+        ],
+        utils: [
+          ["/es/calculadora-conversion", "📐 Conversor"]
+        ]
       },
       footer: {
         legal: ["/es/aviso-legal", "Aviso legal"],
@@ -52,20 +65,35 @@ export default async (request, context) => {
       search: "Search...",
       homeUrl: "/en/",
       contactUrl: "/en/contact",
-      langEs: "Spain",
-      langEn: "English",
+      langEs: "🇪🇸 Spain",
+      langEn: "🇬🇧 English",
+      categories: {
+        finance: "Finance",
+        health: "Health & Math",
+        admin: "Admin",
+        utils: "Utilities"
+      },
       links: {
-        iva: ["/en/vat-calculator", "💶 VAT"],
-        desc: ["/en/discount-calculator", "🏷️ Discounts"],
-        prop: ["/en/tip-calculator", "☕ Tips"],
-        pres: ["/en/loan-calculator", "🏦 Loans"],
-        divs: ["/en/currency-converter", "💱 Currency"],
-        inte: ["/en/compound-interest-calculator", "📈 Interest"],
-        imc: ["/en/bmi-calculator", "⚖️ BMI"],
-        calo: ["/en/calorie-calculator", "🔥 Calories"],
-        hidra: ["/en/hydration-calculator", "💧 Hydration"],
-        porc: ["/en/percentage-calculator", "📊 Percentages"],
-        conv: ["/en/unit-converter", "📐 Converter"]
+        finance: [
+          ["/en/vat-calculator", "💶 VAT"],
+          ["/en/discount-calculator", "🏷️ Discounts"],
+          ["/en/tip-calculator", "☕ Tips"],
+          ["/en/loan-calculator", "🏦 Loans"],
+          ["/en/currency-converter", "💱 Currency"],
+          ["/en/compound-interest-calculator", "📈 Interest"]
+        ],
+        health: [
+          ["/en/bmi-calculator", "⚖️ BMI"],
+          ["/en/calorie-calculator", "🔥 Calories (BMR)"],
+          ["/en/hydration-calculator", "💧 Hydration"],
+          ["/en/percentage-calculator", "📊 Percentages"]
+        ],
+        admin: [
+          
+        ],
+        utils: [
+          ["/en/unit-converter", "📐 Converter"]
+        ]
       },
       footer: {
         legal: ["/en/legal-notice", "Legal notice"],
@@ -81,9 +109,25 @@ export default async (request, context) => {
   const langPath = url.pathname.split('/')[1]; 
   const t = i18n[langPath] || i18n.en;
 
-  const dropdownLinksHTML = Object.values(t.links)
-    .map(link => `<a href="${link[0]}">${link[1]}</a>`)
-    .join('');
+  // --- LÓGICA: Generar Columnas del Dropdown ---
+  const renderColumn = (catKey) => {
+    const links = t.links[catKey] || [];
+    return `
+      <div class="dropdown-column">
+        <h3>${t.categories[catKey]}</h3>
+        <ul>
+          ${links.map(l => `<li><a href="${l[0]}">${l[1]}</a></li>`).join('')}
+        </ul>
+      </div>
+    `;
+  };
+
+  const dropdownHTML = `
+    ${renderColumn('finance')}
+    ${renderColumn('health')}
+    ${renderColumn('admin')}
+    ${renderColumn('utils')}
+  `;
 
   const navHTML = `
     <button class="menu-toggle">Menu</button>
@@ -95,7 +139,7 @@ export default async (request, context) => {
                 <div class="dropdown">
                     <button class="dropbtn" type="button">${t.tools}</button>
                     <div class="dropdown-content">
-                        ${dropdownLinksHTML}
+                        ${dropdownHTML}
                     </div>
                 </div>
                 <a href="${t.contactUrl}">${t.contact}</a>
@@ -129,8 +173,8 @@ export default async (request, context) => {
   `;
 
   const nuevoHtml = html
-    .replace(/<header>[\s\S]*?<\/header>/i, `<header>${navHTML}</header>`)
-    .replace(/<footer>[\s\S]*?<\/footer>/i, `<footer>${footerHTML}</footer>`);
+    .replace(/<header>([\s\S]*?)<\/header>/i, `<header>${navHTML}</header>`)
+    .replace(/<footer>([\s\S]*?)<\/footer>/i, `<footer>${footerHTML}</footer>`);
 
   return new Response(nuevoHtml, response);
 };
