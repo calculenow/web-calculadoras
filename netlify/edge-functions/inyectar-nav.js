@@ -83,14 +83,13 @@ export default async (request, context) => {
         </div>
         <div class="nav-controls">
             <div class="lang-selector">
-                <select id="lang-switcher">
-                    ${langOptions.map(opt => {
-                        // Marcamos el selected explícitamente para que el core.js lo encuentre
-                        const isSelected = currentPath.startsWith(`/${opt.code}`);
-                        return `<option value="${opt.url}" ${isSelected ? 'selected="selected"' : ''}>${opt.name}</option>`;
-                    }).join('')}
-                </select>
-            </div>
+    <select id="lang-switcher" data-alert="${t.alertMsg}">
+        ${langOptions.map(opt => {
+            const isSelected = currentPath.startsWith(`/${opt.code}`);
+            return `<option value="${opt.url}" ${isSelected ? 'selected="selected"' : ''}>${opt.name}</option>`;
+        }).join('')}
+    </select>
+</div>
             <button type="button" class="toggle-dark-inline" id="theme-toggle">☀️</button>
         </div>
     </nav>
