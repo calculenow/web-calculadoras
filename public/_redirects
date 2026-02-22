@@ -35,6 +35,3 @@
 /en/cookies                    /en/cookies.html                    200
 /en/contact                    /en/contact.html                    200
 
-# Redirección de la raíz (opcional si no lo hace tu edge function)
-/ /es/index.html 302 Language=es
-/ /en/index.html 302
