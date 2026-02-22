@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "BMI Calculator (Body Mass Index)",
+        "operatingSystem": "All",
+        "applicationCategory": "HealthApplication",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "description": "Calculate your Body Mass Index for free. Find out if you are at your ideal weight according to WHO standards."
+      }
+    </script>
+
+    <title>Free BMI Calculator - Calculate Your Ideal Weight (WHO) | Calculenow</title>
+    <meta name="description" content="Discover your Body Mass Index (BMI) and if you are at your ideal weight according to the WHO. Free, fast, and easy-to-understand health calculator." />
+    <link rel="canonical" href="https://calculenow.com/en/bmi-calculator" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V" height="0" width="0" style="display: none; visibility: hidden"></iframe>
+    </noscript>
+    <header></header>
+
+    <main>
+      <div class="card imc-card">
+        <h1>BMI Calculator</h1>
+        <p>Enter your weight and height to find out your Body Mass Index.</p>
+
+        <div class="form-group">
+          <label for="peso">Weight (kg)</label>
+          <input id="peso" class="field peso" type="number" step="1" placeholder="e.g., 70" />
+        </div>
+
+        <div class="form-group">
+          <label for="altura">Height (cm)</label>
+          <input id="altura" class="field altura" type="number" step="1" placeholder="e.g., 170" />
+        </div>
+
+        <button class="btn btn-imc">Calculate BMI</button>
+
+        <div 
+  class="result result-imc" 
+  data-ms-empty="⚠️ Please fill in both fields."
+  data-ms-error="⚠️ The data appears to be incorrect."
+  data-label-res="Your BMI is"
+  data-status-low="Underweight"
+  data-status-normal="Normal weight"
+  data-status-over="Overweight"
+  data-status-obese="Obesity"
+  data-btn-copy="Copy"
+></div>
+
+        <div class="imc-bar">
+          <div class="imc-indicator"></div>
+        </div>
+
+        <p class="disclaimer">
+          This calculation is for guidance only and does not replace the advice of a healthcare professional.
+        </p>
+
+        <div class="related-tools">
+          <p><strong>Want to dive deeper into your health?</strong></p>
+          <ul>
+            <li>
+              <a href="/en/hydration-calculator">
+                ➔ <strong>Hydration Calculator:</strong> Find out how much water your body needs based on weight and activity.
+              </a>
+            </li>
+            <li>
+              <a href="/en/calorie-calculator">
+                ➔ <strong>Calorie Calculator (BMR):</strong> Discover how much energy your body needs based on your BMI.
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="legal-content">
+        <h2>What is Body Mass Index?</h2>
+        <p>
+          The <strong>Body Mass Index (BMI)</strong> is a simple index of weight-for-height that is commonly used to classify underweight, overweight, and obesity in adults.
+        </p>
+
+        <h2>How to interpret your BMI result</h2>
+        <p>
+          According to the <strong>World Health Organization (WHO)</strong>, these are the official ranges for adults:
+        </p>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Classification</th>
+                <th>BMI Range</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Underweight</td>
+                <td>&lt; 18.5</td>
+              </tr>
+              <tr class="highlight-green">
+                <td>Normal weight (Healthy)</td>
+                <td>18.5 – 24.9</td>
+              </tr>
+              <tr>
+                <td>Overweight</td>
+                <td>25.0 – 29.9</td>
+              </tr>
+              <tr>
+                <td>Obesity</td>
+                <td>&gt; 30.0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>BMI Formula</h3>
+        <p>To calculate it manually, the following formula is used:</p>
+        <div class="formule">BMI = weight (kg) / [height (m)]²</div>
+      </section>
+
+      <div class="faq-section">
+        <h3>Frequently Asked Questions about BMI</h3>
+
+        <details>
+          <summary>Is BMI the same for men and women?</summary>
+          <div class="faq-content">
+            <p>Yes, the formula and WHO ranges are the same for both sexes. However, it does not take into account that women usually have a higher percentage of body fat and men have more muscle mass.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Why is BMI not accurate for athletes?</summary>
+          <div class="faq-content">
+            <p>BMI only measures weight and height; it doesn't distinguish between fat and muscle. Since muscle weighs more than fat, an athlete with high muscle mass might get an "overweight" result without having actual excess fat.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>What other indicators exist besides BMI?</summary>
+          <div class="faq-content">
+            <p>For a more complete analysis, professionals usually also measure waist circumference, body fat percentage (bioimpedance), and the waist-to-hip ratio.</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+        </div>
+
+    <script src="../js/ads.js" async defer></script>
+    <script src="../js/layout.js"></script>
+    <script src="../js/buscador.js"></script>
+    <script src="../js/core.js"></script>
+    <script src="../js/imc.js"></script>
+  </body>
+</html>

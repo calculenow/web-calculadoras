@@ -2,64 +2,70 @@ document.addEventListener("DOMContentLoaded", () => {
     const btn = document.querySelector('.btn-imc');
     const pesoInput = document.getElementById('peso');
     const alturaInput = document.getElementById('altura');
+    const resultDiv = document.querySelector('.result-imc');
+    const indicador = document.querySelector('.imc-indicator');
 
-    // Función principal de cálculo
+    if (!btn || !resultDiv) return;
+    const labels = resultDiv.dataset;
+
     const calcularIMC = () => {
-        const resultadoDiv = document.querySelector('.result');
-        const indicador = document.querySelector('.imc-indicator');
-
         let peso = parseFloat(pesoInput.value);
         let altura = parseFloat(alturaInput.value);
 
-        // 1. Validación
         if (!peso || !altura) {
-            resultadoDiv.innerHTML = "⚠️ Por favor, completa ambos campos.";
+            resultDiv.innerHTML = labels.msEmpty;
             return;
         }
 
-        // 2. Autocorrección Metros/Cm
         if (altura < 3) altura = altura * 100;
 
-        // 3. Validación de coherencia
         if (peso < 20 || peso > 300 || altura < 50 || altura > 270) {
-            resultadoDiv.innerHTML = "⚠️ Los datos parecen incorrectos.";
+            resultDiv.innerHTML = labels.msError;
             return;
         }
 
-        // 4. Cálculo
         const alturaMetros = altura / 100;
         const imc = (peso / (alturaMetros * alturaMetros)).toFixed(1);
 
-        // 5. Diagnóstico
         let mensaje = "";
         let categoriaIndex = 0;
 
-        if (imc < 18.5) { mensaje = "Bajo peso"; categoriaIndex = 0; }
-        else if (imc < 25) { mensaje = "Peso normal"; categoriaIndex = 1; }
-        else if (imc < 30) { mensaje = "Sobrepeso"; categoriaIndex = 2; }
-        else { mensaje = "Obesidad"; categoriaIndex = 3; }
+        if (imc < 18.5) { mensaje = labels.statusLow; categoriaIndex = 0; }
+        else if (imc < 25) { mensaje = labels.statusNormal; categoriaIndex = 1; }
+        else if (imc < 30) { mensaje = labels.statusOver; categoriaIndex = 2; }
+        else { mensaje = labels.statusObese; categoriaIndex = 3; }
 
-        resultadoDiv.innerHTML = `Tu IMC es <strong>${imc}</strong> (${mensaje})`;
+        // Renderizado del resultado + Botón de copiar pequeño y útil
+        const textoResultado = `${labels.labelRes} ${imc} (${mensaje})`;
+        
+        resultDiv.innerHTML = `
+            ${labels.labelRes} <strong>${imc}</strong> (${mensaje})
+            <button class="minimal-copy" style="margin-left: 10px; border: none; background: none; cursor: pointer; padding: 0; font-size: 0.9rem;" title="${labels.btnCopy}">
+                📋
+            </button>
+        `;
 
-        // 6. Barra y Tabla
+        // Lógica de copiar (SOLO el texto del resultado)
+        resultDiv.querySelector('.minimal-copy').addEventListener('click', function() {
+            navigator.clipboard.writeText(textoResultado);
+            const originalEmoji = this.innerText;
+            this.innerText = "✅";
+            setTimeout(() => this.innerText = originalEmoji, 2000);
+        });
+
+        // Barra e indicador
         let porcentaje = ((imc - 15) / (40 - 15)) * 100;
         porcentaje = Math.max(0, Math.min(100, porcentaje));
-        indicador.style.left = `${porcentaje}%`;
+        if (indicador) indicador.style.left = `${porcentaje}%`;
 
+        // Resaltado de tabla
         document.querySelectorAll('table tbody tr').forEach(row => row.classList.remove('highlight-active'));
         const filas = document.querySelectorAll('table tbody tr');
         if (filas[categoriaIndex]) filas[categoriaIndex].classList.add('highlight-active');
     };
 
-    // EVENTO 1: Clic en el botón
     btn.addEventListener('click', calcularIMC);
-
-    // EVENTO 2: Tecla Enter en los inputs
     [pesoInput, alturaInput].forEach(input => {
-        input.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                calcularIMC();
-            }
-        });
+        input.addEventListener('keypress', (e) => { if (e.key === 'Enter') calcularIMC(); });
     });
 });

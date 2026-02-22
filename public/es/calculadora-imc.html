@@ -77,7 +77,17 @@
 
         <button class="btn btn-imc">Calcular IMC</button>
 
-        <div class="result" aria-live="polite"></div>
+        <div 
+  class="result result-imc" 
+  data-ms-empty="⚠️ Por favor, completa ambos campos."
+  data-ms-error="⚠️ Los datos parecen incorrectos."
+  data-label-res="Tu IMC es"
+  data-status-low="Bajo peso"
+  data-status-normal="Peso normal"
+  data-status-over="Sobrepeso"
+  data-status-obese="Obesidad"
+  data-btn-copy="Copiar"
+></div>
 
         <div class="imc-bar">
           <div class="imc-indicator"></div>
@@ -228,3 +238,5 @@
     <script src="../js/imc.js"></script>
   </body>
 </html>
+
+
