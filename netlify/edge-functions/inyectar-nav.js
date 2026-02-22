@@ -9,16 +9,15 @@ export default async (request, context) => {
   const url = new URL(request.url);
   const currentPath = url.pathname;
 
-  // 1. Detección robusta del idioma actual
-  const segments = currentPath.split('/');
-  const langPath = (segments[1] && i18n[segments[1]]) ? segments[1] : 'en';
-  const t = i18n[langPath];
+  // 1. Detectar idioma actual (es, en, fr...) basado en la primera carpeta de la URL
+  const langPath = currentPath.split('/').filter(Boolean)[0] || 'en';
+  const t = i18n[langPath] || i18n.en;
 
-  // 2. Lógica de traducción inteligente (Busca por ID)
+  // 2. Lógica de redirección (Encuentra la misma herramienta en otro idioma)
   const getTargetUrl = (targetLangCode) => {
     const targetI18n = i18n[targetLangCode];
     
-    // Lista de todos los links en el idioma actual
+    // Unificamos todos los links para buscar el ID actual
     const currentAllLinks = [
       ...Object.values(t.links).flat(),
       ...t.footer.links,
@@ -29,7 +28,6 @@ export default async (request, context) => {
     const currentItem = currentAllLinks.find(l => l.url === currentPath);
     if (!currentItem) return targetI18n.homeUrl;
 
-    // Lista de todos los links en el idioma destino
     const targetAllLinks = [
       ...Object.values(targetI18n.links).flat(),
       ...targetI18n.footer.links,
@@ -41,19 +39,19 @@ export default async (request, context) => {
     return match ? match.url : `${targetI18n.homeUrl}?alert=not-found`;
   };
 
-  // 3. Generación DINÁMICA de opciones de idioma (Escalable a N idiomas)
+  // 3. GENERACIÓN DINÁMICA DEL SELECTOR (Aquí está la escalabilidad)
   const langOptions = Object.keys(i18n).map(code => {
-    // Busca la etiqueta dinámica como langEs, langEn, langFr...
-    const labelKey = `lang${code.charAt(0).toUpperCase() + code.slice(1)}`;
+    const labelKey = `lang${code.charAt(0).toUpperCase() + code.slice(1)}`; // langEs, langEn...
     return {
       code,
-      name: t[labelKey], // Usamos el nombre traducido según el idioma actual
-      url: langPath === code ? currentPath : getTargetUrl(code)
+      name: t[labelKey] || code.toUpperCase(),
+      url: getTargetUrl(code)
     };
   });
 
   const renderColumn = (catKey) => {
     const links = t.links[catKey] || [];
+    if (links.length === 0) return ""; // No renderiza columnas vacías (como admin en inglés)
     return `
       <div class="dropdown-column">
         <h3>${t.categories[catKey]}</h3>
@@ -86,11 +84,12 @@ export default async (request, context) => {
         <div class="nav-controls">
             <div class="lang-selector">
                 <select id="lang-switcher">
-                    ${langOptions.map(opt => `
-                        <option value="${opt.url}" ${langPath === opt.code ? 'selected' : ''}>
-                            ${opt.name}
-                        </option>
-                    `).join('')}
+                    ${langOptions.map(opt => {
+                        // LA CLAVE DEL ERROR VISUAL:
+                        // Si la URL actual empieza por el código de idioma, lo marcamos como seleccionado.
+                        const isSelected = currentPath.startsWith(`/${opt.code}`);
+                        return `<option value="${opt.url}" ${isSelected ? 'selected' : ''}>${opt.name}</option>`;
+                    }).join('')}
                 </select>
             </div>
             <button type="button" class="toggle-dark-inline" id="theme-toggle">☀️</button>
@@ -98,25 +97,20 @@ export default async (request, context) => {
     </nav>
     <script>
       document.getElementById('lang-switcher').addEventListener('change', function() {
-        const dest = this.value;
-        if (dest.includes('alert=not-found')) {
-          if (confirm("${t.alertMsg}")) {
-            window.location.href = dest;
-          } else {
-            this.value = window.location.pathname;
-          }
+        if (this.value.includes('alert=not-found')) {
+          if (confirm("${t.alertMsg}")) window.location.href = this.value;
+          else this.value = window.location.pathname;
         } else {
-          window.location.href = dest;
+          window.location.href = this.value;
         }
       });
     </script>
   `;
 
+  // El resto del código (footerHTML y replace) se mantiene igual...
   const footerHTML = `
     <div class="footer-links">
-        ${t.footer.links.map((l, idx) => `
-            <a href="${l.url}">${l.name}</a>${idx < t.footer.links.length - 1 ? ' · ' : ''}
-        `).join('')}
+        ${t.footer.links.map((l, idx) => `<a href="${l.url}">${l.name}</a>${idx < t.footer.links.length - 1 ? ' · ' : ''}`).join('')}
         · <a href="#" id="open-cookie-settings-footer">${t.footer.cookieSet}</a>
     </div>
     <p>&copy; ${new Date().getFullYear()} Calculenow. ${t.footer.copy}</p>
