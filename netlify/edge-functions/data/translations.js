@@ -8,6 +8,7 @@ export const i18n = {
     search: "Buscar...",
     homeUrl: "/es/",
     contactUrl: "/es/contacto",
+    langSelectLabel: "Selector de lenguaje",
     langEs: "🇪🇸 Español",
     langEn: "🇬🇧 Inglés",
     categories: {
@@ -58,6 +59,7 @@ export const i18n = {
     search: "Search...",
     homeUrl: "/en/",
     contactUrl: "/en/contact",
+    langSelectLabel: "Language selector",
     langEs: "🇪🇸 Spanish",
     langEn: "🇬🇧 English",
     categories: {

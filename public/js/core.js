@@ -200,25 +200,33 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
     const sw = document.getElementById('lang-switcher');
     if (sw) {
-        // Sincronización visual (lo que arregló el cuadro blanco)
+        // Guardamos la URL actual nada más cargar para tener un punto de retorno
+        let currentUrl = window.location.pathname;
+
+        // Sincronización visual inicial
         const selectedOpt = sw.querySelector('option[selected]');
         if (selectedOpt) sw.value = selectedOpt.value;
 
-        // Listener de cambio de idioma
-        sw.addEventListener('change', function() {
+        sw.addEventListener('change', function(e) {
             const dest = this.value;
             
             if (dest.includes('alert=not-found')) {
-                // Recuperamos el mensaje traducido que inyectó el Edge Function
-                const msg = sw.getAttribute('data-alert') || "Tool not available"; 
+                const msg = this.getAttribute('data-alert') || "Tool not available";
                 
                 if (confirm(msg)) {
+                    // CASO A: El usuario acepta ir a la Home traducida
                     window.location.href = dest;
                 } else {
-                    // Si cancela, devolvemos el selector a la página actual
-                    this.value = window.location.pathname;
+                    // CASO B: El usuario cancela. 
+                    // 1. Evitamos cualquier acción extra
+                    e.preventDefault();
+                    // 2. IMPORTANTE: Reasignamos el valor del selector a la URL actual
+                    // Esto evita que el navegador se mueva y que el botón marque el idioma erróneo
+                    this.value = currentUrl; 
+                    return false;
                 }
             } else {
+                // CASO C: La página existe, vamos a ella
                 window.location.href = dest;
             }
         });
