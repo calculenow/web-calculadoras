@@ -11,7 +11,7 @@
   </url>
 
   <url>
-    <loc>https://calculenow.com/es</loc>
+    <loc>https://calculenow.com/es/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com"/>
@@ -20,7 +20,7 @@
   </url>
 
   <url>
-    <loc>https://calculenow.com/en</loc>
+    <loc>https://calculenow.com/en/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com"/>
