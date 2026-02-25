@@ -13,8 +13,8 @@ export default async (request, context) => {
   ];
 
   if (spanishSpeakingCountries.includes(countryCode)) {
-    return Response.redirect(new URL("/es", request.url), 302);
+    return Response.redirect(new URL("/es/", request.url), 302);
   } else {
-    return Response.redirect(new URL("/en", request.url), 302);
+    return Response.redirect(new URL("/en/", request.url), 302);
   }
 };
