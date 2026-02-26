@@ -1,6 +1,15 @@
 # -----------------------------------------------------------
 # REDIRECCIONES 301: DE RAÍZ A /ES/
 # -----------------------------------------------------------
+[[redirects]]
+  from = "/en"
+  to = "/en/"
+  status = 301
+
+[[redirects]]
+  from = "/es"
+  to = "/es/"
+  status = 301
 
 [[redirects]]
   from = "/aviso-legal"
