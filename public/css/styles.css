@@ -621,6 +621,19 @@ button.btn:hover {
   transform: translateY(-1px);
 }
 
+.btn-iva-container {
+  margin-top: 1rem;
+  display: flex;
+  gap: 10px;
+}
+
+.btn-remove-iva, .btn-add-iva {
+  flex: 1;
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
 /* Contenedor para botones en línea */
 .perfiles-interes {
   margin-top: 10px;

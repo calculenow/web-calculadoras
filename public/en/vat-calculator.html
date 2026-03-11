@@ -67,17 +67,10 @@
           <option value="0">Zero Rate (0%)</option>
         </select>
 
-        <div style="margin-top: 1rem; display: flex; gap: 10px">
-          <button class="btn btn-add-iva" style="flex: 1">Add VAT</button>
+       <div class="btn-iva-container">
+          <button class="btn btn-add-iva">Add VAT</button>
           <button
-            class="btn btn-remove-iva"
-            style="
-              flex: 1;
-              background: var(--card);
-              color: var(--text);
-              border: 1px solid var(--border);
-            "
-          >
+            class="btn btn-remove-iva">
             Remove VAT
           </button>
         </div>
@@ -184,6 +177,47 @@
       </div>
     </main>
     <footer></footer>
+    <div class="cookie-banner" id="cookie-banner">
+    <div id="cookie-main-view">
+      <p>
+        We use cookies to improve your experience.
+        <a href="/en/cookies">View cookie policy</a>
+      </p>
+      <div class="cookie-buttons">
+        <button class="accept-cookies" id="btn-accept-all">
+          Accept all
+        </button>
+        <button class="reject-cookies" id="btn-reject-all">
+          Reject all
+        </button>
+        <button class="settings-cookies" id="btn-open-settings">
+          Settings
+        </button>
+      </div>
+    </div>
+
+    <div id="cookie-settings-view" style="display: none">
+      <p><strong>Customize your preferences:</strong></p>
+      <div class="cookie-option">
+        <input type="checkbox" id="check-necessary" checked disabled />
+        <label>Necessary (Required)</label>
+      </div>
+      <div class="cookie-option">
+        <input type="checkbox" id="check-analytics" />
+        <label>Analytics (Google Analytics)</label>
+      </div>
+      <div class="cookie-option">
+        <input type="checkbox" id="check-marketing" />
+        <label>Marketing (Advertising pixels)</label>
+      </div>
+      <div class="cookie-buttons" style="margin-top: 15px">
+        <button class="accept-cookies" id="btn-save-settings">
+          Save settings
+        </button>
+        <button class="settings-cookies" id="btn-back">Back</button>
+      </div>
+    </div>
+  </div>
     <script src="../js/layout.js"></script>
     <script src="../js/buscador.js"></script>
     <script src="../js/core.js"></script>

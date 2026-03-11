@@ -128,6 +128,47 @@
     </div>
   </main>
   <footer></footer>
+   <div class="cookie-banner" id="cookie-banner">
+    <div id="cookie-main-view">
+      <p>
+        We use cookies to improve your experience.
+        <a href="/en/cookies">View cookie policy</a>
+      </p>
+      <div class="cookie-buttons">
+        <button class="accept-cookies" id="btn-accept-all">
+          Accept all
+        </button>
+        <button class="reject-cookies" id="btn-reject-all">
+          Reject all
+        </button>
+        <button class="settings-cookies" id="btn-open-settings">
+          Settings
+        </button>
+      </div>
+    </div>
+
+    <div id="cookie-settings-view" style="display: none">
+      <p><strong>Customize your preferences:</strong></p>
+      <div class="cookie-option">
+        <input type="checkbox" id="check-necessary" checked disabled />
+        <label>Necessary (Required)</label>
+      </div>
+      <div class="cookie-option">
+        <input type="checkbox" id="check-analytics" />
+        <label>Analytics (Google Analytics)</label>
+      </div>
+      <div class="cookie-option">
+        <input type="checkbox" id="check-marketing" />
+        <label>Marketing (Advertising pixels)</label>
+      </div>
+      <div class="cookie-buttons" style="margin-top: 15px">
+        <button class="accept-cookies" id="btn-save-settings">
+          Save settings
+        </button>
+        <button class="settings-cookies" id="btn-back">Back</button>
+      </div>
+    </div>
+  </div>
 
   <script src="../js/layout.js"></script>
   <script src="../js/buscador.js"></script>
