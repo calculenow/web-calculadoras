@@ -1,112 +1,47 @@
-/* ================= RESPONSIVE CORREGIDO ANDROID ================= */
+// 7-trumps/_responsive.scss
+// Overrides de breakpoint pequeño (≤480px).
+// La mayoría del responsive de componentes vive en su propio archivo (_dropdown, _search, _divisas…).
+// Aquí solo van los ajustes globales que afectan a varios componentes a la vez en móvil muy pequeño.
 
 @media (max-width: 480px) {
-  /* 1. BOTÓN DE MENÚ (CENTRAL) */
-  .menu-toggle {
-    display: block !important; 
-    width: 100%;
-    text-align: center;
-    background: var(--bg-nav);
-    color: var(--text);
+  // --- Hero ---
+  .hero h1 {
+    font-size: 1.8rem;
   }
 
-  /* 2. NAVEGACIÓN PRINCIPAL */
-  .main-nav { 
-    display: none; 
-    flex-direction: column; 
-    align-items: center; 
-    gap: 0.5rem; 
-    padding: 1rem 0.5rem; 
-    border-bottom: none;
-    width: 100% !important;
-
-    &.active {
-      display: flex !important;
-      border-bottom: 2px solid var(--accent);
-    }
+  // --- Campos de formulario ---
+  // En móvil muy pequeño se reduce ligeramente el padding para ganar espacio
+  .field {
+    font-size: 14px;
+    padding: 0.8rem 0.5rem;
   }
 
-  /* 3. DROPDOWN (ELIMINANDO FUGA A LA IZQUIERDA CON FUERZA) */
-  .dropdown {
-    width: 100%;
-    position: static !important; // Desactiva el eje de coordenadas de desktop
-
-    .dropbtn {
-      width: 100%;
-      text-align: center;
-      padding: 10px;
-    }
-
-    &-content {
-      /* RESET TOTAL CON PRIORIDAD */
-      position: static !important; 
-      width: 100% !important;
-      left: 0 !important;      // Pegado al borde izquierdo
-      margin: 0 !important;    // Sin márgenes raros
-      transform: none !important; // ¡ESTO es lo que lo mandaba a la izquierda!
-      
-      display: none; 
-      box-shadow: none;
-      border: none;
-      background: var(--input-bg);
-      margin-top: 5px;
-      visibility: visible !important;
-      opacity: 1 !important;
-
-      &.show {
-        display: block !important;
-      }
-
-      a {
-        text-align: center;
-        padding: 15px;
-        width: 100%;
-        color: var(--text) !important;
-        
-        &:hover {
-          padding-left: 15px !important; // Bloqueamos el movimiento lateral
-        }
-      }
-    }
-  }
-
-  /* 4. COOKIE BANNER */
+  // --- Banner de cookies ---
   .cookie-banner {
     bottom: 10px;
     left: 10px;
     right: 10px;
-    
-    .cookie-buttons { 
-      flex-direction: column; 
+
+    .cookie-buttons {
+      flex-direction: column;
     }
   }
 
-  /* 5. HERO */
-  .hero h1 { 
-    font-size: 1.8rem; 
-  }
-
-  /* 6. CALCULADORA DE DIVISAS (ESPECÍFICO) */
+  // --- Conversor de divisas: apilado vertical en pantallas muy estrechas ---
   .divisas-controls {
-    gap: 0.5rem; // Espacio mínimo entre elementos apilados
+    gap: 0.5rem;
 
     .form-group {
-      width: 100%; // Forzamos que ocupen todo el ancho
-      
+      width: 100%;
+
       label {
-        text-align: center; // Centramos etiquetas para coherencia con tu menú
+        text-align: center;
         display: block;
       }
     }
 
     .btn-swap {
-      margin: 0.5rem 0; // Reducimos margen para que no ocupe media pantalla
-      order: 0; // Mantiene el orden visual: De -> Swap -> A
+      margin: 0.5rem 0;
     }
-  }
-
-  .field {
-    font-size: 14px; // Un pelín más pequeño si el nombre de la moneda es muy largo
-    padding: 0.8rem 0.5rem; // Más espacio táctil, menos ancho
   }
 }

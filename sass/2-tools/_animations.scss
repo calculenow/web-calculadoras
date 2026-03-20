@@ -1,4 +1,7 @@
-/* ================= ANIMACIONES GLOBALES ================= */
+// 2-tools/_animations.scss
+// Keyframes globales reutilizables en toda la app.
+// fadeIn: entrada suave usada en resultados de calculadoras, cookies, etc.
+// slideUp: entrada desde abajo usada en buscador y adblock-msg.
 
 @keyframes fadeIn {
   from {
@@ -11,6 +14,13 @@
   }
 }
 
-// Aquí podrías añadir más en el futuro, por ejemplo:
-// @keyframes slideIn { ... }
-// @keyframes pulse { ... }
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,31 +1,36 @@
 // 7-trumps/_utilities.scss
+// Clases de utilidad de alto nivel. Solo deben usarse cuando no existe
+// un componente más específico. Prefijo u- para las clases de texto/layout.
 
+// --- Resaltado verde (ej: fila con mejor resultado en tablas) ---
 .highlight-green {
-    background-color: rgba(34, 197, 94, 0.15) !important; // Un verde suave
-    color: #166534 !important; // Texto verde oscuro para legibilidad
-    font-weight: bold;
-    
-    // Si estás en modo oscuro, ajustamos el color del texto
-    .dark & {
-        background-color: rgba(34, 197, 94, 0.25) !important;
-        color: #4ade80 !important; // Un verde más brillante para fondo oscuro
-    }
-}
-.highlight-active {
-    background-color: var(--accent) !important; // Usa tu color de acento
-    color: white !important;
-    font-weight: bold;
-    transition: all 0.3s ease; // Para que el cambio sea suave
-    
-    td {
-        color: white !important;
-    }
+  background-color: rgba(34, 197, 94, 0.15);
+  color: #166534;
+  font-weight: bold;
+
+  .dark & {
+    background-color: rgba(34, 197, 94, 0.25);
+    color: var(--success);
+  }
 }
 
+// --- Resaltado de acento (ej: fila seleccionada activa en tablas) ---
+.highlight-active {
+  background-color: var(--accent);
+  color: white;
+  font-weight: bold;
+  transition: all 0.3s ease;
+
+  td {
+    color: white;
+  }
+}
+
+// --- Texto de última actualización (ej: divisas) ---
 .u-update-text {
-    font-size: 0.75rem;
-    opacity: 0.6;
-    text-align: center;
-    margin-top: 1.5rem;
-    display: block;
+  font-size: 0.75rem;
+  opacity: 0.6;
+  text-align: center;
+  margin-top: 1.5rem;
+  display: block;
 }

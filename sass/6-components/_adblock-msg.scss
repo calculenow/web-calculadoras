@@ -1,23 +1,24 @@
 // 6-components/_adblock-msg.scss
+// Banner que sugiere desactivar el adblocker, inyectado por JS tras 30s.
+// Nota: la animación slideUp está definida en _search.scss y es compartida.
+
 .adblock-msg {
   position: fixed;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--card-bg, #ffffff); // Usa tu variable de fondo de card
-  border-left: 5px solid #22c55e;
+  background: var(--card);
+  border-left: 5px solid var(--success);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   padding: 15px 25px;
   border-radius: 8px;
   z-index: 10000;
   width: 90%;
   max-width: 500px;
-  display: none; // Se controla por JS
+  display: none; // Controlado por JS
   animation: slideUp 0.5s ease-out;
 
   .dark & {
-    background: #1f2937; // Fondo oscuro si el body tiene .dark
-    color: #f9fafb;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
   }
 }
@@ -27,14 +28,16 @@
   align-items: center;
   gap: 15px;
   font-size: 0.9rem;
-  
+
   p { margin: 0; }
 }
 
-.adblock-icon { font-size: 1.5rem; }
+.adblock-icon {
+  font-size: 1.5rem;
+}
 
 .adblock-close {
-  background: var(--input-bg, #f3f4f6);
+  background: var(--input-bg);
   color: var(--text);
   border: none;
   padding: 5px 12px;
@@ -47,9 +50,4 @@
     background: var(--accent);
     color: white;
   }
-}
-
-@keyframes slideUp {
-  from { transform: translate(-50%, 100px); opacity: 0; }
-  to { transform: translate(-50%, 0); opacity: 1; }
 }

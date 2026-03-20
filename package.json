@@ -1,0 +1,9 @@
+
+{
+  "devDependencies": {
+    "netlify-cli": "^24.3.0"
+  },
+  "scripts": {
+    "dev": "netlify dev"
+  }
+}

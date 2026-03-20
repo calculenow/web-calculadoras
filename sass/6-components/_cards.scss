@@ -25,29 +25,14 @@
     opacity: 0.9;
     line-height: 1.5;
   }
-
-  // --- Versión Desactivada (Muted) ---
-  &.muted {
-    opacity: 0.6;
-    cursor: not-allowed;
-    filter: grayscale(0.8);
-    pointer-events: none;
-
-    &::after {
-      @include ribbon(var(--border)); 
-      content: "Próximamente"; // Texto base
-      font-size: 0.75rem;
-      font-weight: bold;
-    }
-  }
 }
 
-// --- Lógica del contenedor (Orden y Hover) ---
+// --- Enlace que envuelve la card (en la home) ---
 .card-link {
   text-decoration: none;
-  display: flex; 
+  display: flex;
   flex-direction: column;
-  order: 2; // Nivel normal
+  order: 2;
 
   &:hover .card {
     border-color: var(--primary);
@@ -55,56 +40,41 @@
     transform: translateY(-5px);
   }
 
-  // --- Nivel Novedades (data-estado="nuevo") ---
+  // --- Estado "nuevo" ---
   &[data-estado="nuevo"] {
-    order: 1; 
+    order: 1;
 
     .card {
       border-color: var(--success);
 
       &::after {
         @include ribbon(var(--success));
-        content: "¡NUEVO!"; // Texto base
+        content: "¡NUEVO!";
         font-size: 0.75rem;
         font-weight: bold;
       }
     }
-    
+
     &:hover .card {
       border-color: var(--success);
       box-shadow: 0 10px 20px rgba(34, 197, 94, 0.2);
     }
   }
-
-  // --- Nivel Muted (Al final) ---
-  &:has(.muted) {
-    order: 3;
-  }
 }
 
-// Ajuste para cards muted sin wrapper
-.card.muted:not(.card-link .card) {
-  order: 3;
-}
-
-// --- CAMBIO DE IDIOMA PARA LOS RIBBONS ---
-// Si el atributo lang del <html> es "en", cambiamos los textos
+// --- Texto del ribbon según idioma ---
 [lang="en"] {
   .card-link[data-estado="nuevo"] .card::after {
     content: "NEW!";
   }
-
-  .card.muted::after {
-    content: "COMING SOON";
-  }
 }
 
-// Contenedor con animación
+// --- Animación de entrada del contenedor ---
 .cards-container {
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 0.4s ease, transform 0.4s ease;
-  
+
   &.is-ready {
     opacity: 1;
     transform: translateY(0);

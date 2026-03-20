@@ -1,5 +1,11 @@
+// 2-tools/_mixins.scss
+// Mixins globales reutilizables. No generan CSS por sí solos.
+
+// --- Ribbon de esquina (para cards "NUEVO" y "Próximamente") ---
+// Uso: @include ribbon(var(--success));
+// El content ("¡NUEVO!", "COMING SOON"…) se define en el selector que lo llama.
 @mixin ribbon($bg-color) {
-  content: ""; // Se define en el componente
+  content: "";
   position: absolute;
   top: 15px;
   right: -35px;
@@ -12,10 +18,13 @@
   padding: 4px 0;
   padding-left: 15px;
   transform: rotate(45deg);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   z-index: 10;
 }
 
+// --- Media query con breakpoint numérico ---
+// Uso: @include mq(768px) { ... }  ← siempre con unidad
+// INCORRECTO: @include mq(tablet)  ← no funciona, "tablet" no es un valor CSS válido
 @mixin mq($width) {
   @media (min-width: $width) {
     @content;

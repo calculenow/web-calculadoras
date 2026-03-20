@@ -1,41 +1,66 @@
-// 1. Settings
+// main.scss
+// Punto de entrada de todos los estilos. Sigue arquitectura ITCSS.
+// Para compilar: sass sass/main.scss public/css/styles.css --style compressed
+
+// ─── 1. SETTINGS ────────────────────────────────────────────────────────────
+// Variables Sass + CSS custom properties (colores, tema oscuro)
 @import '1-settings/colors';
 
-// 2. Tools
+// ─── 2. TOOLS ────────────────────────────────────────────────────────────────
+// Mixins y animaciones (sin output CSS por sí solos)
 @import '2-tools/mixins';
 @import '2-tools/animations';
 
-// 3. Generic
+// ─── 3. GENERIC ──────────────────────────────────────────────────────────────
+// Reset universal
 @import '3-generic/reset';
 
-// 4. Elements
+// ─── 4. ELEMENTS ─────────────────────────────────────────────────────────────
+// Estilos base para etiquetas HTML (body, a, main, header, footer…)
 @import '4-elements/base';
 
-// 5. Objects
+// ─── 5. OBJECTS ──────────────────────────────────────────────────────────────
+// Patrones de layout agnósticos (grid)
 @import '5-objects/grid';
 
-// 6. Components
+// ─── 6. COMPONENTS ───────────────────────────────────────────────────────────
+// Componentes UI específicos, uno por archivo.
+
+// Estructura y navegación
 @import '6-components/hero';
 @import '6-components/cards';
-@import '6-components/table';
 @import '6-components/dropdown';
-@import '6-components/forms';
-@import '6-components/legal-content';
-@import '6-components/disclaimer';
-@import '6-components/calculator-ui';
-@import '6-components/imc-bar';
-@import '6-components/lang-selector';
-@import '6-components/faq';
-@import '6-components/adblock-msg';
-@import '6-components/theme-toggle';
-@import '6-components/iva';
-@import '6-components/search';
-@import '6-components/divisas';
-@import '6-components/related-tools';
-@import '6-components/error';
-@import '6-components/cookies';
 @import '6-components/footer';
 
-// 7. Trumps
+// Formularios y tablas
+@import '6-components/forms';
+@import '6-components/table';
+
+// UI de calculadoras (compartido)
+@import '6-components/calculator-ui';
+
+// Calculadoras con estilos propios
+@import '6-components/imc-bar';
+@import '6-components/iva';
+@import '6-components/divisas';
+
+// Elementos de soporte
+@import '6-components/search';
+@import '6-components/faq';
+@import '6-components/legal-content';
+@import '6-components/disclaimer';
+@import '6-components/related-tools';
+@import '6-components/error';
+
+// Overlays y banners
+@import '6-components/cookies';
+@import '6-components/adblock-msg';
+
+// Controles de UI global
+@import '6-components/lang-selector';
+@import '6-components/theme-toggle';
+
+// ─── 7. TRUMPS ───────────────────────────────────────────────────────────────
+// Overrides, responsive y utilidades (mayor especificidad permitida)
 @import '7-trumps/responsive';
 @import '7-trumps/utilities';

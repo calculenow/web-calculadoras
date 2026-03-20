@@ -1,7 +1,11 @@
+// 6-components/_disclaimer.scss
+// Texto de aviso legal / disclaimer que aparece bajo los resultados de calculadoras.
+
 .disclaimer-text {
   font-size: 0.75rem;
-  color: #6b7280; /* Un gris suave */
+  color: var(--text);
+  opacity: 0.6;
   margin-top: 1.5rem;
-  line-height: 1.2;
+  line-height: 1.4;
   font-style: italic;
 }

@@ -1,156 +1,155 @@
-/* ==========================================================================
-   COMPONENT: Search Bar (Premium & Functional)
-   ========================================================================== */
+// 6-components/_search.scss
+// Barra de búsqueda del nav: input expandible + dropdown con resultados.
+// La animación slideUp está en 2-tools/_animations.scss.
 
+/* ==========================================================================
+   DESKTOP: Barra de búsqueda expandible
+   ========================================================================== */
 .search-box {
-    position: relative;
-    display: flex;
-    align-items: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .search-input {
+    width: 180px;
+    padding: 0.6rem 1rem 0.6rem 2.2rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    background: var(--input-bg);
+    color: var(--text);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+
+    &::placeholder {
+      color: var(--text);
+      opacity: 0.5;
+    }
+
+    &:focus {
+      width: 240px;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+    }
+  }
+
+  // Icono de lupa superpuesto al input
+  .search-icon {
+    position: absolute;
+    left: 12px;
+    color: var(--text);
+    opacity: 0.4;
+    pointer-events: none;
+    font-size: 0.9rem;
+  }
+
+  /* --- Dropdown de resultados --- */
+  .search-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    width: 300px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 0.6rem;
+    z-index: 1000;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                0 10px 10px -6px rgba(0, 0, 0, 0.05);
+
+    &.is-visible {
+      display: block;
+      animation: slideUp 0.2s ease-out;
+    }
+
+    .search-title {
+      padding: 0.8rem 1rem 0.4rem;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text);
+      font-weight: 700;
+      opacity: 0.6;
+    }
+
+    li {
+      margin-bottom: 2px;
+      list-style: none;
+
+      &:last-child { margin-bottom: 0; }
+
+      &.is-selected a {
+        background: var(--primary);
+        color: #fff;
+        transform: translateX(6px);
+
+        small { color: rgba(255, 255, 255, 0.8); }
+      }
+    }
+
+    .search-item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0.8rem 1rem;
+      color: var(--text);
+      text-decoration: none;
+      border-radius: 10px;
+      transition: all 0.2s ease;
+
+      .search-item-name {
+        font-weight: 600;
+        font-size: 0.95rem;
+        line-height: 1.2;
+        display: block;
+      }
+
+      .search-item-tags {
+        font-size: 0.75rem;
+        color: var(--text);
+        margin-top: 4px;
+        display: block;
+        opacity: 0.6;
+        font-weight: 400;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+      }
+
+      &:hover,
+      &.is-selected {
+        background: var(--primary);
+        color: #fff;
+        transform: translateX(6px);
+
+        .search-item-tags {
+          color: rgba(255, 255, 255, 0.9);
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+   MÓVIL: Buscador a ancho completo
+   ========================================================================== */
+@media (max-width: 992px) {
+  .search-box {
+    width: 100%;
 
     .search-input {
-        width: 180px; 
-        padding: 0.6rem 1rem 0.6rem 2.2rem; 
-        font-size: 0.85rem;
-        font-weight: 500;
-        border: 1px solid var(--border);
-        border-radius: 100px; 
-        background: var(--input-bg);
-        color: var(--text);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        outline: none;
-
-        &::placeholder {
-            color: var(--text-light);
-            opacity: 0.7;
-        }
-
-        &:focus {
-            width: 240px; 
-            border-color: var(--primary);
-            background: var(--card-bg);
-            box-shadow: 0 0 0 4px rgba(var(--primary-rgb), 0.1); 
-        }
+      width: 100%;
+      font-size: 16px; // Evita el zoom automático en iOS
     }
 
     .search-dropdown {
-        display: none;
-        position: absolute;
-        top: calc(100% + 12px); 
-        right: 0; 
-        width: 300px; // Un pelín más ancho para los tags
-        background: var(--card-bg);
-        backdrop-filter: blur(10px); 
-        border: 1px solid var(--border);
-        border-radius: 16px; // Bordes más suaves
-        padding: 0.6rem;
-        z-index: 1000;
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 
-                    0 10px 10px -6px rgba(0, 0, 0, 0.05);
-        
-        &.is-visible {
-            display: block;
-            animation: slideUp 0.2s ease-out;
-        }
-
-        // Título de "Búsquedas recientes"
-        .search-title {
-            padding: 0.8rem 1rem 0.4rem;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-light);
-            font-weight: 700;
-            opacity: 0.6;
-        }
-
-        li {
-            margin-bottom: 2px;
-            list-style: none;
-
-            &:last-child { margin-bottom: 0; }
-
-            // Estado de selección por teclado
-            &.is-selected a {
-                background: var(--primary);
-                color: #fff;
-                transform: translateX(6px);
-
-                small { color: rgba(255, 255, 255, 0.8); }
-            }
-        }
-
-        .search-item {
-            display: flex;
-            flex-direction: column; // Apilado vertical
-            align-items: flex-start;
-            padding: 0.8rem 1rem; // Más aire interno
-            color: var(--text);
-            text-decoration: none;
-            border-radius: 10px;
-            transition: all 0.2s ease;
-
-            .search-item-name {
-                font-weight: 600;
-                font-size: 0.95rem;
-                line-height: 1.2; // Evita que se pegue a lo de abajo
-                display: block; // Fuerza línea propia
-            }
-
-            .search-item-tags {
-                font-size: 0.75rem;
-                color: var(--text-light);
-                margin-top: 4px; // EL SECRETO: El respiro entre nombre y tags
-                display: block; 
-                opacity: 0.8;
-                font-weight: 400;
-                // Para que no se vea feo si hay muchos tags:
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis; 
-                width: 100%; 
-            }
-
-            &:hover, &.is-selected { // Unificamos estilos de selección
-                background: var(--primary);
-                color: #fff !important;
-                transform: translateX(6px);
-
-                .search-item-tags { 
-                    color: rgba(255, 255, 255, 0.9); 
-                    opacity: 1;
-                }
-            }
-        }
+      width: 100%;
+      left: 0;
+      right: 0;
     }
-}
-
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Al final de tu componente de Search */
-@media (max-width: 992px) {
-    .search-box {
-        width: 100%; 
-        .search-input {
-            width: 100% !important; // Que ocupe todo el ancho en el menú móvil
-            font-size: 16px; // Evita el zoom de iOS
-            &:focus {
-                width: 100% !important; // Que no intente crecer más del 100%
-            }
-        }
-        
-        .search-dropdown {
-            width: 100%; // Que el desplegable de resultados ocupe todo el ancho
-            left: 0;
-            right: 0;
-        }
-    }
+  }
 }
