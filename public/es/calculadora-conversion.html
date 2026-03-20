@@ -14,39 +14,89 @@
     </script>
 
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Calculadora de Conversión de Unidades",
-        "operatingSystem": "All",
-        "applicationCategory": "UtilitiesApplication",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "EUR"
-        },
-        "description": "Convierte unidades de longitud, peso, temperatura y más de forma instantánea y precisa."
-      }
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calculadora de Conversión de Unidades",
+      "url": "https://calculenow.com/es/calculadora-conversion",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "description": "Convierte unidades de longitud, peso, temperatura y más de forma instantánea y precisa."
+    }
     </script>
 
-    <title>Calculadora de Conversión de Unidades | Calculenow</title>
-    <meta
-      name="description"
-      content="Conversor de unidades gratuito. Pasa de metros a pies, kilogramos a libras, Celsius a Fahrenheit y mucho más en un solo clic."
-    />
-    <link
-      rel="canonical"
-      href="https://calculenow.com/es/calculadora-conversion"
-    />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es el sistema métrico decimal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Es el sistema de unidades basado en el metro, donde las unidades aumentan o disminuyen en potencias de diez. Es el sistema oficial en casi todos los países del mundo excepto Estados Unidos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué EE.UU. no usa el sistema métrico?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Por tradición histórica y el alto coste industrial de cambiar toda su infraestructura al sistema internacional. Aunque el sistema métrico es oficial en EE.UU., el sistema imperial sigue siendo el de uso cotidiano."
+          }
+        }
+      ]
+    }
+    </script>
 
-    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
-    <link rel="stylesheet" href="../css/styles.css" />
+    <title>Conversor de Unidades Online - Longitud, Peso, Temperatura | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/es/calculadora-conversion" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-conversion" />
+    <link rel="alternate" hreflang="en" href="https://calculenow.com/en/unit-converter" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/calculadora-conversion" />
+
+    <meta name="description" content="Conversor de unidades gratuito. Pasa de metros a pies, kilogramos a libras, Celsius a Fahrenheit y mucho más en un solo clic." />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/es/calculadora-conversion" />
+    <meta property="og:title" content="Conversor de Unidades Online - Longitud, Peso, Temperatura | Calculenow" />
+    <meta property="og:description" content="Convierte metros a pies, kilogramos a libras, Celsius a Fahrenheit y mucho más. Gratis y sin registro." />
+    <meta property="og:image" content="https://calculenow.com/images/og-es.jpg" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Conversor de Unidades Online - Longitud, Peso, Temperatura" />
+    <meta name="twitter:description" content="Convierte metros a pies, kilogramos a libras, Celsius a Fahrenheit y mucho más. Gratis." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-es.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   </head>
   <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
     <header></header>
+
     <main>
-      <div class="card">
-        <h1>Calculadora de Conversión</h1>
+      <div class="card conversion-card">
+        <h1>Conversor de Unidades Online</h1>
 
         <div class="form-group">
           <label for="categoria">Categoría</label>
@@ -61,13 +111,7 @@
 
         <div class="form-group">
           <label for="cantidad">Cantidad</label>
-          <input
-            id="cantidad"
-            class="field"
-            type="number"
-            value="1"
-            step="any"
-          />
+          <input id="cantidad" class="field" type="number" value="1" step="any" />
         </div>
 
         <div class="divisas-controls">
@@ -84,28 +128,25 @@
           </div>
         </div>
 
-        <button class="btn btn-conversion" id="btn-convertir">
-          Convertir Unidades
-        </button>
+        <button class="btn btn-conversion" id="btn-convertir">Convertir Unidades</button>
 
-        <div
-          class="result result-conversion"
+        <div class="result result-conversion"
           data-btn-copy="Copiar Resultado"
-          data-msg-equal="="
-        ></div>
+          data-msg-equal="=">
+        </div>
 
         <div class="related-tools">
           <p><strong>Otras herramientas útiles:</strong></p>
           <ul>
             <li>
-              <a href="/es/calculadora-imc"
-                >➔ <strong>IMC:</strong> Usa tus cm y kg convertidos aquí.</a
-              >
+              <a href="/es/calculadora-imc">
+                ➔ <strong>Calculadora de IMC:</strong> Usa tus cm y kg convertidos aquí.
+              </a>
             </li>
             <li>
-              <a href="/es/calculadora-divisas"
-                >➔ <strong>Divisas:</strong> Convierte valores monetarios.</a
-              >
+              <a href="/es/calculadora-divisas">
+                ➔ <strong>Calculadora de Divisas:</strong> Convierte valores monetarios.
+              </a>
             </li>
           </ul>
         </div>
@@ -113,11 +154,7 @@
 
       <section class="legal-content">
         <h2>Tablas de equivalencias comunes</h2>
-        <p>
-          Para facilitarte los cálculos rápidos, aquí tienes las conversiones
-          más consultadas entre el sistema métrico internacional y el sistema
-          imperial.
-        </p>
+        <p>Para facilitarte los cálculos rápidos, aquí tienes las conversiones más consultadas entre el sistema métrico internacional y el sistema imperial.</p>
 
         <h3>📏 Longitud y Distancia</h3>
         <div class="table-container">
@@ -129,22 +166,10 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1 Centímetro (cm)</td>
-                <td>0.3937 Pulgadas (in)</td>
-              </tr>
-              <tr>
-                <td>1 Metro (m)</td>
-                <td>3.2808 Pies (ft)</td>
-              </tr>
-              <tr>
-                <td>1 Metro (m)</td>
-                <td>1.0936 Yardas (yd)</td>
-              </tr>
-              <tr>
-                <td>1 Kilómetro (km)</td>
-                <td>0.6213 Millas (mi)</td>
-              </tr>
+              <tr><td>1 Centímetro (cm)</td><td>0.3937 Pulgadas (in)</td></tr>
+              <tr><td>1 Metro (m)</td><td>3.2808 Pies (ft)</td></tr>
+              <tr><td>1 Metro (m)</td><td>1.0936 Yardas (yd)</td></tr>
+              <tr><td>1 Kilómetro (km)</td><td>0.6213 Millas (mi)</td></tr>
             </tbody>
           </table>
         </div>
@@ -159,18 +184,9 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1 Gramo (g)</td>
-                <td>0.0352 Onzas (oz)</td>
-              </tr>
-              <tr>
-                <td>1 Kilogramo (kg)</td>
-                <td>2.2046 Libras (lb)</td>
-              </tr>
-              <tr>
-                <td>1 Tonelada (t)</td>
-                <td>1.1023 Toneladas cortas (US)</td>
-              </tr>
+              <tr><td>1 Gramo (g)</td><td>0.0352 Onzas (oz)</td></tr>
+              <tr><td>1 Kilogramo (kg)</td><td>2.2046 Libras (lb)</td></tr>
+              <tr><td>1 Tonelada (t)</td><td>1.1023 Toneladas cortas (US)</td></tr>
             </tbody>
           </table>
         </div>
@@ -186,26 +202,14 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Congelación</td>
-                <td>0 °C</td>
-                <td>32 °F</td>
-              </tr>
-              <tr>
-                <td>Temperatura ambiente (media)</td>
-                <td>20 °C</td>
-                <td>68 °F</td>
-              </tr>
-              <tr>
-                <td>Ebullición</td>
-                <td>100 °C</td>
-                <td>212 °F</td>
-              </tr>
+              <tr><td>Congelación</td><td>0 °C</td><td>32 °F</td></tr>
+              <tr><td>Temperatura ambiente (media)</td><td>20 °C</td><td>68 °F</td></tr>
+              <tr><td>Ebullición</td><td>100 °C</td><td>212 °F</td></tr>
             </tbody>
           </table>
         </div>
 
-        <h3>💾 Almacenamiento Digital (Binario vs Decimal)</h3>
+        <h3>💾 Almacenamiento Digital</h3>
         <div class="table-container">
           <table>
             <thead>
@@ -215,61 +219,41 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1 Terabyte (TB)</td>
-                <td>1.000 Gigabytes (GB)</td>
-              </tr>
-              <tr>
-                <td>1 Gigabyte (GB)</td>
-                <td>1.000 Megabytes (MB)</td>
-              </tr>
-              <tr>
-                <td>1 Megabyte (MB)</td>
-                <td>1.000 Kilobytes (KB)</td>
-              </tr>
-              <tr>
-                <td>1 Byte (B)</td>
-                <td>8 Bits (b)</td>
-              </tr>
+              <tr><td>1 Terabyte (TB)</td><td>1.000 Gigabytes (GB)</td></tr>
+              <tr><td>1 Gigabyte (GB)</td><td>1.000 Megabytes (MB)</td></tr>
+              <tr><td>1 Megabyte (MB)</td><td>1.000 Kilobytes (KB)</td></tr>
+              <tr><td>1 Byte (B)</td><td>8 Bits (b)</td></tr>
             </tbody>
           </table>
         </div>
-      </section>
 
-      <section class="legal-content">
         <h2>¿Cómo convertir unidades correctamente?</h2>
-        <p>
-          La conversión de unidades consiste en multiplicar o dividir por un
-          factor de conversión para obtener un valor equivalente en una escala
-          distinta.
-        </p>
+        <p>La conversión de unidades consiste en multiplicar o dividir por un factor de conversión para obtener un valor equivalente en una escala distinta.</p>
+
         <div class="formule">
           Valor Final = Valor Inicial × Factor de Conversión
         </div>
       </section>
 
-      <section class="faq-section">
-        <h3>Preguntas sobre conversión</h3>
+      <div class="faq-section">
+        <h3>Preguntas sobre conversión de unidades</h3>
+
         <details>
           <summary>¿Qué es el sistema métrico decimal?</summary>
           <div class="faq-content">
-            <p>
-              Es el sistema de unidades basado en el metro, donde las unidades
-              aumentan o disminuyen en potencias de diez.
-            </p>
+            <p>Es el sistema de unidades basado en el metro, donde las unidades aumentan o disminuyen en potencias de diez. Es el sistema oficial en casi todos los países del mundo excepto Estados Unidos.</p>
           </div>
         </details>
+
         <details>
           <summary>¿Por qué EE.UU. no usa el sistema métrico?</summary>
           <div class="faq-content">
-            <p>
-              Por tradición histórica y el alto coste industrial de cambiar toda
-              su infraestructura al sistema internacional.
-            </p>
+            <p>Por tradición histórica y el alto coste industrial de cambiar toda su infraestructura al sistema internacional. Aunque el sistema métrico es oficial en EE.UU., el sistema imperial sigue siendo el de uso cotidiano.</p>
           </div>
         </details>
-      </section>
+      </div>
     </main>
+
     <footer></footer>
 
     <div class="cookie-banner" id="cookie-banner">
@@ -279,18 +263,13 @@
           <a href="/es/cookies">Ver política de cookies</a>
         </p>
         <div class="cookie-buttons">
-          <button class="accept-cookies" id="btn-accept-all">
-            Aceptar todas
-          </button>
-          <button class="reject-cookies" id="btn-reject-all">
-            Rechazar todas
-          </button>
-          <button class="settings-cookies" id="btn-open-settings">
-            Configurar
-          </button>
+          <button class="accept-cookies" id="btn-accept-all">Aceptar todas</button>
+          <button class="reject-cookies" id="btn-reject-all">Rechazar todas</button>
+          <button class="settings-cookies" id="btn-open-settings">Configurar</button>
         </div>
       </div>
-      <div id="cookie-settings-view" style="display: none">
+
+      <div id="cookie-settings-view" style="display:none">
         <p><strong>Personaliza tus preferencias:</strong></p>
         <div class="cookie-option">
           <input type="checkbox" id="check-necessary" checked disabled />
@@ -304,18 +283,17 @@
           <input type="checkbox" id="check-marketing" />
           <label>Marketing (Píxeles publicitarios)</label>
         </div>
-        <div class="cookie-buttons" style="margin-top: 15px">
-          <button class="accept-cookies" id="btn-save-settings">
-            Guardar selección
-          </button>
+        <div class="cookie-buttons" style="margin-top:15px">
+          <button class="accept-cookies" id="btn-save-settings">Guardar selección</button>
           <button class="settings-cookies" id="btn-back">Volver</button>
         </div>
       </div>
     </div>
 
-    <script src="../js/layout.js"></script>
-    <script src="../js/buscador.js"></script>
-    <script src="../js/core.js"></script>
-    <script src="../js/conversion.js"></script>
+    <script src="/js/ads.js" async defer></script>
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/buscador.js" defer></script>
+    <script src="/js/core.js" defer></script>
+    <script src="/js/conversion.js" defer></script>
   </body>
 </html>

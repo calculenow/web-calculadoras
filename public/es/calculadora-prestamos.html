@@ -1,197 +1,241 @@
 <!doctype html>
 <html lang="es">
   <head>
-  <meta charset="UTF-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <script>
-    (function () {
-      const theme = localStorage.getItem("theme");
-      if (theme === "dark") {
-        document.documentElement.classList.add("dark");
-      }
-    })();
-  </script>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Calculadora de Préstamos e Hipotecas",
-  "operatingSystem": "All",
-  "applicationCategory": "FinanceApplication",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "EUR"
-  },
-  "description": "Calcula la cuota mensual de tu préstamo o hipoteca. Simula intereses y plazos de amortización fácilmente."
-}
-</script>
-  
-  <title>Calculadora de Préstamos e Hipotecas - Cuota y Gastos | Calculenow</title>
-  <link rel="canonical" href="https://calculenow.com/es/calculadora-prestamos" />
-  <meta name="description" content="Calcula la cuota de tu préstamo personal o hipoteca. Descubre cuánto pagarás de intereses y el coste total de tu financiación en segundos.">
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
 
-  <link rel="icon" type="image/x-icon" href="../favicon.ico" />
-      <link rel="stylesheet" href="../css/styles.css"/>  <meta
-    name="theme-color"
-    content="#ffffff"
-    media="(prefers-color-scheme: light)"
-  />
-  <meta
-    name="theme-color"
-    content="#111827"
-    media="(prefers-color-scheme: dark)"
-  />
-</head>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calculadora de Préstamos e Hipotecas",
+      "url": "https://calculenow.com/es/calculadora-prestamos",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "description": "Calcula la cuota mensual de tu préstamo o hipoteca. Simula intereses y plazos de amortización fácilmente."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es una hipoteca a tipo fijo vs variable?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En el tipo fijo, la cuota no cambia nunca. En el variable, tu cuota depende de un indicador (normalmente el Euríbor) y se revisa cada 6 o 12 meses, lo que puede subir o bajar tu pago."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo cancelar mi préstamo antes de tiempo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, se llama amortización anticipada. Los bancos pueden cobrar una pequeña comisión por esto, pero suele compensar por el gran ahorro en intereses que supone devolver el capital antes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué la cuota mensual no coincide con mi banco?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Esta calculadora simula el interés puro (TIN). Tu banco probablemente añade seguros de vida, de hogar o comisiones mensuales que se suman a la cuota base que ves aquí."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <title>Calculadora de Préstamos e Hipotecas 2026 - Cuota Mensual | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/es/calculadora-prestamos" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-prestamos" />
+    <link rel="alternate" hreflang="en" href="https://calculenow.com/en/loan-calculator" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/calculadora-prestamos" />
+
+    <meta name="description" content="Calcula la cuota de tu préstamo personal o hipoteca. Descubre cuánto pagarás de intereses y el coste total de tu financiación en segundos." />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/es/calculadora-prestamos" />
+    <meta property="og:title" content="Calculadora de Préstamos e Hipotecas 2026 - Cuota Mensual | Calculenow" />
+    <meta property="og:description" content="Calcula la cuota de tu préstamo personal o hipoteca. Descubre cuánto pagarás de intereses y el coste total de tu financiación en segundos." />
+    <meta property="og:image" content="https://calculenow.com/images/og-es.jpg" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Calculadora de Préstamos e Hipotecas 2026 - Cuota Mensual" />
+    <meta name="twitter:description" content="Calcula la cuota de tu préstamo o hipoteca y descubre el coste total de tu financiación. Gratis, sin registro." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-es.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
   <body>
     <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
-      height="0" width="0" style="display:none;visibility:hidden">
-    </iframe>
-  </noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
     <header></header>
 
     <main>
-  <div class="card mortgage-card">
-    <h1>Calculadora de Préstamos e Hipotecas</h1>
-    
-    <div class="calculator-ui">
-      <label for="capital">Capital solicitado (€)</label>
-      <input id="capital" class="field capital" type="number" placeholder="Ej: 200000 (Vivienda) o 15000 (Coche)">
+      <div class="card mortgage-card">
+        <h1>Calculadora de Préstamos e Hipotecas</h1>
 
-      <label for="interes">Interés anual (TIN %)</label>
-      <input id="interes" class="field interes" type="number" step="0.1" placeholder="Ej: 3.5">
+        <div class="calculator-ui">
+          <div class="form-group">
+            <label for="capital">Capital solicitado (€)</label>
+            <input id="capital" class="field capital" type="number" placeholder="Ej: 200000 (Vivienda) o 15000 (Coche)" />
+          </div>
 
-      <label for="plazo">Plazo de devolución (años)</label>
-      <input id="plazo" class="field plazo" type="number" placeholder="Ej: 30 (Hipoteca) o 5 (Préstamo)">
+          <div class="form-group">
+            <label for="interes">Interés anual (TIN %)</label>
+            <input id="interes" class="field interes" type="number" step="0.1" placeholder="Ej: 3.5" />
+          </div>
 
-      <button class="btn btn-mortgage">Calcular Cuota Mensual</button>
+          <div class="form-group">
+            <label for="plazo">Plazo de devolución (años)</label>
+            <input id="plazo" class="field plazo" type="number" placeholder="Ej: 30 (Hipoteca) o 5 (Préstamo)" />
+          </div>
 
-      <div class="result result-mortgage" 
-     data-btn-copy="Copiar Resumen">
-</div>
-    </div>
+          <button class="btn btn-mortgage">Calcular Cuota Mensual</button>
 
-    <div class="related-tools">
-      <p><strong>También te puede interesar:</strong></p>
-      <ul>
-        <li>
-          <a href="/es/calculadora-iva">
-            ➔ <strong>Calculadora de IVA:</strong> Para calcular el coste total de bienes con impuestos antes de financiarlos.
-          </a>
-        </li>
-        <li>
-          <a href="/es/calculadora-porcentajes">
-            ➔ <strong>Calculadora de Porcentajes:</strong> Ideal para calcular el ahorro necesario o el ratio de endeudamiento.
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
+          <div class="result result-mortgage" data-btn-copy="Copiar Resumen"></div>
+        </div>
 
-  <section class="legal-content">
-    <h2>¿Qué debes saber antes de pedir financiación?</h2>
-    <p>Ya sea para comprar tu futura casa o para un proyecto personal, entender cómo funcionan los intereses te ahorrará miles de euros. Nuestra calculadora utiliza el <strong>sistema de amortización francés</strong>, el estándar bancario en España y Europa.</p>
-    
-    
-
-    <div class="info-grid">
-      <div class="card info-box">
-        <h3>💰 ¿Cómo pagas tu deuda?</h3>
-        <p>Con el sistema francés, tu cuota mensual es fija. Sin embargo, al principio pagas principalmente <strong>intereses</strong> y muy poco capital. Según avanza el tiempo, la balanza se invierte.</p>
+        <div class="related-tools">
+          <p><strong>También te puede interesar:</strong></p>
+          <ul>
+            <li>
+              <a href="/es/calculadora-iva">
+                ➔ <strong>Calculadora de IVA:</strong> Para calcular el coste total de bienes con impuestos antes de financiarlos.
+              </a>
+            </li>
+            <li>
+              <a href="/es/calculadora-porcentajes">
+                ➔ <strong>Calculadora de Porcentajes:</strong> Ideal para calcular el ahorro necesario o el ratio de endeudamiento.
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="card info-box">
-        <h3>⚠️ Límite de Seguridad</h3>
-        <p>Para mantener una salud financiera óptima, tu cuota no debería superar el <a href="/calculadora-porcentajes">30% de tus ingresos</a> netos. Superar este umbral aumenta el riesgo de impago.</p>
+
+      <section class="legal-content">
+        <h2>¿Qué debes saber antes de pedir financiación?</h2>
+        <p>Ya sea para comprar tu futura casa o para un proyecto personal, entender cómo funcionan los intereses te ahorrará miles de euros. Nuestra calculadora utiliza el <strong>sistema de amortización francés</strong>, el estándar bancario en España y Europa.</p>
+
+        <div class="info-grid">
+          <div class="card info-box">
+            <h3>💰 ¿Cómo pagas tu deuda?</h3>
+            <p>Con el sistema francés, tu cuota mensual es fija. Sin embargo, al principio pagas principalmente <strong>intereses</strong> y muy poco capital. Según avanza el tiempo, la balanza se invierte.</p>
+          </div>
+          <div class="card info-box">
+            <h3>⚠️ Límite de Seguridad</h3>
+            <p>Para mantener una salud financiera óptima, tu cuota no debería superar el <a href="/es/calculadora-porcentajes">30% de tus ingresos</a> netos. Superar este umbral aumenta el riesgo de impago.</p>
+          </div>
+        </div>
+
+        <h3>Conceptos Clave: No te dejes engañar</h3>
+        <ul>
+          <li><strong>TIN (Interés Nominal):</strong> Es el precio "puro" que el banco te cobra por el dinero.</li>
+          <li><strong>TAE (Tasa Anual Equivalente):</strong> Es el indicador más importante. Incluye el TIN más comisiones, seguros obligatorios y gastos de apertura. <strong>Compara siempre ofertas usando la TAE.</strong></li>
+          <li><strong>Amortización:</strong> Es el proceso de devolver el capital prestado. Puedes hacer amortizaciones parciales para reducir cuota o plazo en el futuro.</li>
+        </ul>
+
+        <h3>¿Plazo corto o plazo largo?</h3>
+        <p>Elegir un plazo mayor (como 30 años) reduce la cuota mensual y te da tranquilidad inmediata, pero <strong>incrementa drásticamente el coste total</strong> de la operación en forma de intereses. Si tu economía lo permite, los plazos cortos siempre son la opción más barata.</p>
+      </section>
+
+      <div class="faq-section">
+        <h3>Dudas frecuentes sobre préstamos e hipotecas</h3>
+
+        <details>
+          <summary>¿Qué es una hipoteca a tipo fijo vs variable?</summary>
+          <div class="faq-content">
+            <p>En el tipo fijo, la cuota no cambia nunca. En el variable, tu cuota depende de un indicador (normalmente el Euríbor) y se revisa cada 6 o 12 meses, lo que puede subir o bajar tu pago.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Puedo cancelar mi préstamo antes de tiempo?</summary>
+          <div class="faq-content">
+            <p>Sí, se llama amortización anticipada. Los bancos pueden cobrar una pequeña comisión por esto, pero suele compensar por el gran ahorro en intereses que supone devolver el capital antes.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Por qué la cuota mensual no coincide con mi banco?</summary>
+          <div class="faq-content">
+            <p>Esta calculadora simula el interés puro (TIN). Tu banco probablemente añade seguros de vida, de hogar o comisiones mensuales que se suman a la cuota base que ves aquí.</p>
+          </div>
+        </details>
       </div>
-    </div>
+    </main>
 
-    <h3>Conceptos Clave: No te dejes engañar</h3>
-    <ul>
-      <li><strong>TIN (Interés Nominal):</strong> Es el precio "puro" que el banco te cobra por el dinero.</li>
-      <li><strong>TAE (Tasa Anual Equivalente):</strong> Es el indicador más importante. Incluye el TIN más comisiones, seguros obligatorios y gastos de apertura. <strong>Compara siempre ofertas usando la TAE.</strong></li>
-      <li><strong>Amortización:</strong> Es el proceso de devolver el capital prestado. Puedes hacer amortizaciones parciales para reducir cuota o plazo en el futuro.</li>
-    </ul>
-
-    <h3>¿Plazo corto o plazo largo?</h3>
-    <p>Elegir un plazo mayor (como 30 años) reduce la cuota mensual y te da tranquilidad inmediata, pero <strong>incrementa drásticamente el coste total</strong> de la operación en forma de intereses. Si tu economía lo permite, los plazos cortos siempre son la opción más barata.</p>
-  </section>
-
-  <div class="faq-section">
-    <h3>Dudas frecuentes sobre préstamos e hipotecas</h3>
-
-    <details>
-      <summary>¿Qué es una hipoteca a tipo fijo vs variable?</summary>
-      <div class="faq-content">
-        <p>En el tipo fijo, la cuota no cambia nunca. En el variable, tu cuota depende de un indicador (normalmente el Euríbor) y se revisa cada 6 o 12 meses, lo que puede subir o bajar tu pago.</p>
-      </div>
-    </details>
-
-    <details>
-      <summary>¿Puedo cancelar mi préstamo antes de tiempo?</summary>
-      <div class="faq-content">
-        <p>Sí, se llama amortización anticipada. Los bancos pueden cobrar una pequeña comisión por esto, pero suele compensar por el gran ahorro en intereses que supone devolver el capital antes.</p>
-      </div>
-    </details>
-
-    <details>
-      <summary>¿Por qué la cuota mensual no coincide con mi banco?</summary>
-      <div class="faq-content">
-        <p>Esta calculadora simula el interés puro (TIN). Tu banco probablemente añade seguros de vida, de hogar o comisiones mensuales que se suman a la cuota base que ves aquí.</p>
-      </div>
-    </details>
-  </div>
-</main>
     <footer></footer>
-    
-  <div class="cookie-banner" id="cookie-banner">
-    <div id="cookie-main-view">
-      <p>
-        Utilizamos cookies para mejorar tu experiencia.
-        <a href="/es/cookies">Ver política de cookies</a>
-      </p>
-      <div class="cookie-buttons">
-        <button class="accept-cookies" id="btn-accept-all">
-          Aceptar todas
-        </button>
-        <button class="reject-cookies" id="btn-reject-all">
-          Rechazar todas
-        </button>
-        <button class="settings-cookies" id="btn-open-settings">
-          Configurar
-        </button>
+
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>
+          Utilizamos cookies para mejorar tu experiencia.
+          <a href="/es/cookies">Ver política de cookies</a>
+        </p>
+        <div class="cookie-buttons">
+          <button class="accept-cookies" id="btn-accept-all">Aceptar todas</button>
+          <button class="reject-cookies" id="btn-reject-all">Rechazar todas</button>
+          <button class="settings-cookies" id="btn-open-settings">Configurar</button>
+        </div>
+      </div>
+
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Personaliza tus preferencias:</strong></p>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-necessary" checked disabled />
+          <label>Necesarias (Obligatorias)</label>
+        </div>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-analytics" />
+          <label>Analíticas (Google Analytics)</label>
+        </div>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-marketing" />
+          <label>Marketing (Píxeles publicitarios)</label>
+        </div>
+        <div class="cookie-buttons" style="margin-top:15px">
+          <button class="accept-cookies" id="btn-save-settings">Guardar selección</button>
+          <button class="settings-cookies" id="btn-back">Volver</button>
+        </div>
       </div>
     </div>
 
-    <div id="cookie-settings-view" style="display: none">
-      <p><strong>Personaliza tus preferencias:</strong></p>
-      <div class="cookie-option">
-        <input type="checkbox" id="check-necessary" checked disabled />
-        <label>Necesarias (Obligatorias)</label>
-      </div>
-      <div class="cookie-option">
-        <input type="checkbox" id="check-analytics" />
-        <label>Analíticas (Google Analytics)</label>
-      </div>
-      <div class="cookie-option">
-        <input type="checkbox" id="check-marketing" />
-        <label>Marketing (Píxeles publicitarios)</label>
-      </div>
-      <div class="cookie-buttons" style="margin-top: 15px">
-        <button class="accept-cookies" id="btn-save-settings">
-          Guardar selección
-        </button>
-        <button class="settings-cookies" id="btn-back">Volver</button>
-      </div>
-    </div>
-  </div>
-  <script src="../js/ads.js" async defer></script>
-
-    <script src="../js/layout.js"></script>
-    <script src="../js/buscador.js"></script>
-    <script src="../js/core.js"></script>
-    <script src="../js/prestamos.js"></script>
+    <script src="/js/ads.js" async defer></script>
+    <script src="/js/layout.js"></script>
+    <script src="/js/buscador.js"></script>
+    <script src="/js/core.js"></script>
+    <script src="/js/prestamos.js"></script>
   </body>
 </html>

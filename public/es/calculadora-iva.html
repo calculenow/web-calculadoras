@@ -2,7 +2,6 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <script>
@@ -15,85 +14,126 @@
     </script>
 
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Calculadora de IVA",
-        "operatingSystem": "All",
-        "applicationCategory": "FinanceApplication",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "EUR"
-        },
-        "description": "Calcula el IVA 21%, 10% y 4% de forma rápida. Herramienta para sumar o desglosar el IVA de cualquier importe."
-      }
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calculadora de IVA España",
+      "url": "https://calculenow.com/es/calculadora-iva",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "description": "Calcula el IVA 21%, 10% y 4% de forma rápida. Herramienta para sumar o desglosar el IVA de cualquier importe."
+    }
     </script>
 
-    <title>
-      Calculadora de IVA España 2026 - Desglosar 21, 10 y 4% | Calculenow
-    </title>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuál es la diferencia entre sumar e incluir el IVA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sumar IVA se hace sobre el precio neto (base imponible) para hallar el total. Extraer el IVA se realiza sobre el precio final (PVP) para saber cuánto de ese dinero corresponde al impuesto y cuánto al valor real del producto."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué tipos de IVA existen en España?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Actualmente existen tres tipos: General (21%) para la mayoría de productos y servicios, Reducido (10%) para alimentos en general, transporte de viajeros, hostelería y viviendas, y Superreducido (4%) para productos de primera necesidad como pan, leche, frutas, libros y medicamentos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo se calcula el IVA manualmente?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Para sumar el IVA al 21%, multiplica la base por 1.21. Para extraerlo de un precio final, divide el total entre 1.21. La diferencia entre el total y ese resultado será la cuota del IVA."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué es el recargo de equivalencia?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Es un régimen especial de IVA obligatorio para comerciantes minoristas que no transforman los productos que venden. Consiste en pagar un IVA algo más alto a cambio de no tener que hacer declaraciones trimestrales a Hacienda."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <title>Calculadora de IVA España 2026 - Desglosar 21, 10 y 4% | Calculenow</title>
     <link rel="canonical" href="https://calculenow.com/es/calculadora-iva" />
-    <meta
-      name="description"
-      content="Calcula y desglosa el IVA de forma instantánea. Soporta tipos del 21%, 10% y 4%. Ideal para autónomos y empresas en España que buscan rapidez y precisión."
-    />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-iva" />
+    <link rel="alternate" hreflang="en" href="https://calculenow.com/en/vat-calculator" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/calculadora-iva" />
 
-    <meta
-      name="theme-color"
-      content="#ffffff"
-      media="(prefers-color-scheme: light)"
-    />
-    <meta
-      name="theme-color"
-      content="#111827"
-      media="(prefers-color-scheme: dark)"
-    />
+    <meta name="description" content="Calcula y desglosa el IVA de forma instantánea. Soporta tipos del 21%, 10% y 4%. Ideal para autónomos y empresas en España que buscan rapidez y precisión." />
 
-    <link rel="stylesheet" href="../css/styles.css"/>
-    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/es/calculadora-iva" />
+    <meta property="og:title" content="Calculadora de IVA España 2026 - Desglosar 21, 10 y 4% | Calculenow" />
+    <meta property="og:description" content="Calcula y desglosa el IVA de forma instantánea. Soporta tipos del 21%, 10% y 4%. Ideal para autónomos y empresas en España." />
+    <meta property="og:image" content="https://calculenow.com/images/og-es.jpg" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Calculadora de IVA España 2026 - Desglosar 21, 10 y 4%" />
+    <meta name="twitter:description" content="Calcula y desglosa el IVA al 21%, 10% y 4%. Gratis, sin registro." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-es.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   </head>
   <body>
     <noscript>
-      <iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
-        height="0"
-        width="0"
-        style="display: none; visibility: hidden"
-      >
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
       </iframe>
     </noscript>
+
     <header></header>
+
     <main>
       <div class="card iva-card">
-        <h1>Calculadora de IVA</h1>
+        <h1>Calculadora de IVA España 2026</h1>
 
-        <label for="importe">Importe base (€)</label>
-        <input
-          id="importe"
-          class="field importe"
-          type="number"
-          step="0.01"
-          placeholder="Ej: 100"
-        />
+        <div class="form-group">
+          <label for="importe">Importe base (€)</label>
+          <input id="importe" class="field importe" type="number" step="0.01" placeholder="Ej: 100" />
+        </div>
 
-        <label for="tipo-iva">Tipo de IVA (%)</label>
-        <select id="tipo-iva" class="field tipo-iva">
-          <option value="21">General (21%)</option>
-          <option value="10">Reducido (10%)</option>
-          <option value="4">Superreducido (4%)</option>
-        </select>
+        <div class="form-group">
+          <label for="tipo-iva">Tipo de IVA (%)</label>
+          <select id="tipo-iva" class="field tipo-iva">
+            <option value="21">General (21%)</option>
+            <option value="10">Reducido (10%)</option>
+            <option value="4">Superreducido (4%)</option>
+          </select>
+        </div>
 
         <div class="btn-iva-container">
           <button class="btn btn-add-iva">Añadir IVA</button>
-          <button
-            class="btn btn-remove-iva">
-            Quitar IVA
-          </button>
+          <button class="btn btn-remove-iva">Quitar IVA</button>
         </div>
 
-        <div
-          class="result result-iva"
+        <div class="result result-iva"
           data-ms-error="⚠️ Por favor, introduce un importe válido."
           data-header="RESULTADOS DEL CÁLCULO"
           data-label-base="Base Imponible"
@@ -102,22 +142,20 @@
           data-label-total-remove="Precio Total"
           data-btn-copy="Copiar"
           data-btn-copied="✅ ¡Copiado!"
-          data-symbol="€"
-        ></div>
+          data-symbol="€">
+        </div>
 
         <div class="related-tools">
           <p><strong>Gestión de importes y compras:</strong></p>
           <ul>
             <li>
               <a href="/es/calculadora-descuentos">
-                ➔ <strong>Calculadora de Descuentos:</strong> Calcula el precio
-                final tras aplicar rebajas antes de impuestos.
+                ➔ <strong>Calculadora de Descuentos:</strong> Calcula el precio final tras aplicar rebajas antes de impuestos.
               </a>
             </li>
             <li>
               <a href="/es/calculadora-prestamos">
-                ➔ <strong>Préstamos e Hipotecas:</strong> Planifica la
-                financiación para tus compras de mayor importe.
+                ➔ <strong>Préstamos e Hipotecas:</strong> Planifica la financiación para tus compras de mayor importe.
               </a>
             </li>
           </ul>
@@ -127,70 +165,40 @@
       <section class="legal-content">
         <h2>¿Cómo calcular el IVA en España en 2026?</h2>
         <p>
-          Calcular el IVA es un proceso esencial tanto para autónomos como para
-          consumidores. El <strong>Impuesto sobre el Valor Añadido</strong> es
-          un impuesto indirecto que recae sobre el consumo de bienes y
-          servicios.
+          Calcular el IVA es un proceso esencial tanto para autónomos como para consumidores. El <strong>Impuesto sobre el Valor Añadido</strong> es un impuesto indirecto que recae sobre el consumo de bienes y servicios.
         </p>
 
         <h3>Tipos de IVA vigentes</h3>
         <ul>
-          <li>
-            <strong>Tipo General (21%):</strong> Aplicable por defecto a la
-            mayoría de operaciones comerciales (ropa, electrónica, servicios
-            profesionales).
-          </li>
-          <li>
-            <strong>Tipo Reducido (10%):</strong> Se aplica a alimentos para
-            consumo humano, agua, productos farmacéuticos y servicios de
-            hostelería.
-          </li>
-          <li>
-            <strong>Tipo Superreducido (4%):</strong> Reservado para bienes de
-            primera necesidad (pan, leche, huevos, frutas) y libros o
-            periódicos.
-          </li>
+          <li><strong>Tipo General (21%):</strong> Aplicable por defecto a la mayoría de operaciones comerciales (ropa, electrónica, servicios profesionales).</li>
+          <li><strong>Tipo Reducido (10%):</strong> Se aplica a alimentos para consumo humano, agua, productos farmacéuticos y servicios de hostelería.</li>
+          <li><strong>Tipo Superreducido (4%):</strong> Reservado para bienes de primera necesidad (pan, leche, huevos, frutas) y libros o periódicos.</li>
         </ul>
 
         <h3>Fórmulas para desglosar y añadir IVA</h3>
-        <p>
-          Para trabajar con el IVA manualmente, puedes utilizar las siguientes
-          fórmulas matemáticas:
-        </p>
+        <p>Para trabajar con el IVA manualmente, puedes utilizar las siguientes fórmulas matemáticas:</p>
 
         <div class="formule">
-          <strong>Añadir IVA:</strong> Importe Total = Base Imponible × (1 +
-          Tipo IVA/100)
+          <strong>Añadir IVA:</strong> Importe Total = Base Imponible × (1 + Tipo IVA/100)
         </div>
 
         <div class="formule">
-          <strong>Desglosar IVA:</strong> Base Imponible = Importe con IVA / (1
-          + Tipo IVA/100)
+          <strong>Desglosar IVA:</strong> Base Imponible = Importe con IVA / (1 + Tipo IVA/100)
         </div>
 
         <h3>¿Por qué usar una calculadora de IVA online?</h3>
         <p>
-          Usar nuestra herramienta evita errores de redondeo comunes en la
-          contabilidad manual y permite obtener el desglose exacto para tus
-          facturas en segundos, facilitando la presentación de modelos
-          trimestrales como el 303.
+          Usar nuestra herramienta evita errores de redondeo comunes en la contabilidad manual y permite obtener el desglose exacto para tus facturas en segundos, facilitando la presentación de modelos trimestrales como el 303.
         </p>
       </section>
+
       <div class="faq-section">
         <h3>Preguntas frecuentes sobre el IVA en España</h3>
 
         <details>
-          <summary>
-            ¿Cuál es la diferencia entre sumar e incluir el IVA?
-          </summary>
+          <summary>¿Cuál es la diferencia entre sumar e incluir el IVA?</summary>
           <div class="faq-content">
-            <p>
-              <strong>Sumar IVA</strong> se hace sobre el precio neto (base
-              imponible) para hallar el total.
-              <strong>Extraer el IVA</strong> se realiza sobre el precio final
-              (PVP) para saber cuánto de ese dinero corresponde al impuesto y
-              cuánto al valor real del producto.
-            </p>
+            <p><strong>Sumar IVA</strong> se hace sobre el precio neto (base imponible) para hallar el total. <strong>Extraer el IVA</strong> se realiza sobre el precio final (PVP) para saber cuánto de ese dinero corresponde al impuesto y cuánto al valor real del producto.</p>
           </div>
         </details>
 
@@ -199,18 +207,9 @@
           <div class="faq-content">
             <p>Actualmente existen tres tipos:</p>
             <ul>
-              <li>
-                <strong>General (21%):</strong> Se aplica a la mayoría de
-                productos y servicios.
-              </li>
-              <li>
-                <strong>Reducido (10%):</strong> Alimentos en general,
-                transporte de viajeros, hostelería y viviendas.
-              </li>
-              <li>
-                <strong>Superreducido (4%):</strong> Productos de primera
-                necesidad como pan, leche, frutas, libros y medicamentos.
-              </li>
+              <li><strong>General (21%):</strong> Se aplica a la mayoría de productos y servicios.</li>
+              <li><strong>Reducido (10%):</strong> Alimentos en general, transporte de viajeros, hostelería y viviendas.</li>
+              <li><strong>Superreducido (4%):</strong> Productos de primera necesidad como pan, leche, frutas, libros y medicamentos.</li>
             </ul>
           </div>
         </details>
@@ -218,28 +217,21 @@
         <details>
           <summary>¿Cómo se calcula el IVA manualmente?</summary>
           <div class="faq-content">
-            <p>
-              Para sumar el IVA al 21%, multiplica la base por 1.21. Para
-              extraerlo de un precio final, divide el total entre 1.21. La
-              diferencia entre el total y ese resultado será la cuota del IVA.
-            </p>
+            <p>Para sumar el IVA al 21%, multiplica la base por 1.21. Para extraerlo de un precio final, divide el total entre 1.21. La diferencia entre el total y ese resultado será la cuota del IVA.</p>
           </div>
         </details>
 
         <details>
           <summary>¿Qué es el recargo de equivalencia?</summary>
           <div class="faq-content">
-            <p>
-              Es un régimen especial de IVA obligatorio para comerciantes
-              minoristas que no transforman los productos que venden. Consiste
-              en pagar un IVA algo más alto a cambio de no tener que hacer
-              declaraciones trimestrales a Hacienda.
-            </p>
+            <p>Es un régimen especial de IVA obligatorio para comerciantes minoristas que no transforman los productos que venden. Consiste en pagar un IVA algo más alto a cambio de no tener que hacer declaraciones trimestrales a Hacienda.</p>
           </div>
         </details>
       </div>
     </main>
+
     <footer></footer>
+
     <div class="cookie-banner" id="cookie-banner">
       <div id="cookie-main-view">
         <p>
@@ -247,19 +239,13 @@
           <a href="/es/cookies">Ver política de cookies</a>
         </p>
         <div class="cookie-buttons">
-          <button class="accept-cookies" id="btn-accept-all">
-            Aceptar todas
-          </button>
-          <button class="reject-cookies" id="btn-reject-all">
-            Rechazar todas
-          </button>
-          <button class="settings-cookies" id="btn-open-settings">
-            Configurar
-          </button>
+          <button class="accept-cookies" id="btn-accept-all">Aceptar todas</button>
+          <button class="reject-cookies" id="btn-reject-all">Rechazar todas</button>
+          <button class="settings-cookies" id="btn-open-settings">Configurar</button>
         </div>
       </div>
 
-      <div id="cookie-settings-view" style="display: none">
+      <div id="cookie-settings-view" style="display:none">
         <p><strong>Personaliza tus preferencias:</strong></p>
         <div class="cookie-option">
           <input type="checkbox" id="check-necessary" checked disabled />
@@ -273,19 +259,17 @@
           <input type="checkbox" id="check-marketing" />
           <label>Marketing (Píxeles publicitarios)</label>
         </div>
-        <div class="cookie-buttons" style="margin-top: 15px">
-          <button class="accept-cookies" id="btn-save-settings">
-            Guardar selección
-          </button>
+        <div class="cookie-buttons" style="margin-top:15px">
+          <button class="accept-cookies" id="btn-save-settings">Guardar selección</button>
           <button class="settings-cookies" id="btn-back">Volver</button>
         </div>
       </div>
     </div>
-    <script src="../js/ads.js" async defer></script>
 
-    <script src="../js/layout.js"></script>
-    <script src="../js/buscador.js"></script>
-    <script src="../js/core.js"></script>
-    <script src="../js/iva.js"></script>
+    <script src="/js/ads.js" async defer></script>
+    <script src="/js/layout.js"></script>
+    <script src="/js/buscador.js"></script>
+    <script src="/js/core.js"></script>
+    <script src="/js/iva.js"></script>
   </body>
 </html>

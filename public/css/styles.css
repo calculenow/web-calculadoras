@@ -238,6 +238,18 @@ main {
   transform: translateY(0);
 }
 
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+@media (max-width: 600px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ==========================================================================
    ESTRUCTURA COMPARTIDA
    ========================================================================== */
@@ -533,6 +545,32 @@ button.btn:hover {
 }
 button.btn:active {
   transform: scale(0.98);
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+}
+.form-row .form-group {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.field--highlight {
+  background-color: #e0f2fe;
+  transition: background-color 0.3s ease;
+}
+
+.privacy-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 15px 0;
+  font-size: 0.9rem;
+}
+.privacy-notice input[type=checkbox] {
+  margin-top: 4px;
+  flex-shrink: 0;
 }
 
 .table-container {

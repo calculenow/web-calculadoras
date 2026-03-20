@@ -1,182 +1,235 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
-  <meta charset="UTF-8">
-  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <script>
-      (function() {
-        const theme = localStorage.getItem('theme');
-        if (theme === 'dark') {
-          document.documentElement.classList.add('dark');
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
         }
       })();
-      </script>
-      <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Calculadora de Porcentajes Online",
-  "operatingSystem": "All",
-  "applicationCategory": "UtilitiesApplication",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "EUR"
-  },
-  "description": "Calcula rápidamente el porcentaje de cualquier cantidad, aumentos y disminuciones porcentuales con nuestra herramienta gratuita."
-}
-</script>
+    </script>
 
-<title>Calculadora de Porcentajes Online - Calcular % rápido | Calculenow</title>
-<link rel="canonical" href="https://calculenow.com/es/calculadora-porcentajes">
-<meta name="description" content="Saca porcentajes online sin complicaciones. Calcula cuánto es el X% de una cifra o qué porcentaje de diferencia hay entre dos números.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calculadora de Porcentajes Online",
+      "url": "https://calculenow.com/es/calculadora-porcentajes",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "description": "Calcula rápidamente el porcentaje de cualquier cantidad, aumentos y disminuciones porcentuales con nuestra herramienta gratuita."
+    }
+    </script>
 
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es un punto porcentual?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un punto porcentual es la unidad para la diferencia aritmética entre dos porcentajes. No es lo mismo una subida del 10% que una subida de 10 puntos porcentuales."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué usamos la base 100?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El sistema centesimal facilita la comparación. Es mucho más intuitivo saber que algo afecta a '20 de cada 100' que intentar comparar fracciones con denominadores distintos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo introducir decimales en la calculadora?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Puedes calcular porcentajes complejos como el 12,5% o el 0,5% introduciendo los valores con punto o coma decimal según la configuración de tu navegador."
+          }
+        }
+      ]
+    }
+    </script>
 
-<link rel="icon" type="image/x-icon" href="../favicon.ico">
-<link rel="stylesheet" href="../css/styles.css"/>
-</head>
-<body>
-  <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
-      height="0" width="0" style="display:none;visibility:hidden">
-    </iframe>
-  </noscript>
-  <header></header>
-<main>
-  <div class="card percent-card">
-    <h1>Calculadora de porcentajes</h1>
-    
-   <div class="calculator-ui">
-  <label for="total">Cantidad Total</label>
-  <input id="total" class="field total" type="number" step="0.01" placeholder="Ej: 200">
+    <title>Calculadora de Porcentajes Online - Calcular % Rápido y Gratis | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/es/calculadora-porcentajes" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-porcentajes" />
+    <link rel="alternate" hreflang="en" href="https://calculenow.com/en/percentage-calculator" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/calculadora-porcentajes" />
 
-  <label for="percent">Porcentaje (%)</label>
-  <input id="percent" class="field percent" type="number" step="0.01" placeholder="Ej: 15">
+    <meta name="description" content="Saca porcentajes online sin complicaciones. Calcula cuánto es el X% de una cifra o qué porcentaje de diferencia hay entre dos números. Gratis e instantáneo." />
 
-  <button class="btn btn-percent">Calcular resultado</button>
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/es/calculadora-porcentajes" />
+    <meta property="og:title" content="Calculadora de Porcentajes Online - Calcular % Rápido y Gratis | Calculenow" />
+    <meta property="og:description" content="Saca porcentajes online sin complicaciones. Calcula cuánto es el X% de una cifra o qué porcentaje de diferencia hay entre dos números." />
+    <meta property="og:image" content="https://calculenow.com/images/og-es.jpg" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Calculenow" />
 
-  <div class="result result-percent" 
-       data-btn-copy="Copiar Resultado"
-       data-label-result="Resultado">
-  </div>
-</div>
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Calculadora de Porcentajes Online - Calcular % Rápido y Gratis" />
+    <meta name="twitter:description" content="Calcula porcentajes online sin complicaciones. Gratis e instantáneo." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-es.jpg" />
 
-    <div class="related-tools">
-      <p><strong>¿Buscas algo más específico?</strong></p>
-      <ul>
-        <li>
-          <a href="/es/calculadora-iva">
-            ➔ <strong>Calculadora de IVA:</strong> Para gestiones fiscales y facturas.
-          </a>
-        </li>
-        <li>
-          <a href="/es/calculadora-descuentos">
-            ➔ <strong>Calculadora de Descuentos:</strong> Para rebajas y ofertas comerciales.
-          </a>
-        </li>
-        <li>
-          <a href="/es/calculadora-propinas">
-            ➔ <strong>Calculadora de Propinas:</strong> Para repartos rápidos en servicios.
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div> 
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
 
-  <section class="legal-content">
-    <h2>¿Cómo obtener el porcentaje de una cantidad?</h2>
-    <p>Calcular el porcentaje es una operación que permite extraer una parte proporcional de un número total. Es la base para entender repartos, intereses y proporciones estadísticas de forma estandarizada.</p>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
 
-    
+    <header></header>
 
-    <h3>La fórmula de cálculo directo</h3>
-    <p>Esta herramienta aplica la fórmula matemática de proporción directa para ofrecerte un resultado exacto:</p>
-    <div class="formule">
-      <strong>Valor Final = (Cantidad Original × Porcentaje) / 100</strong>
-    </div>
-    <p>Al dividir entre 100, transformamos el "por ciento" en una unidad decimal que nos permite conocer el valor real de esa fracción del total.</p>
+    <main>
+      <div class="card percent-card">
+        <h1>Calculadora de Porcentajes Online</h1>
 
-    <h3>¿Cuándo usar esta calculadora?</h3>
-    <p>Esta herramienta es ideal para cálculos genéricos donde conoces el total y quieres saber cuánto representa un porcentaje específico, sin las reglas adicionales que puedan tener los impuestos o los intereses bancarios.</p>
-  </section>
+        <div class="calculator-ui">
+          <div class="form-group">
+            <label for="total">Cantidad Total</label>
+            <input id="total" class="field total" type="number" step="0.01" placeholder="Ej: 200" />
+          </div>
 
-  <div class="faq-section">
-    <h3>Dudas sobre el cálculo de porcentajes</h3>
+          <div class="form-group">
+            <label for="percent">Porcentaje (%)</label>
+            <input id="percent" class="field percent" type="number" step="0.01" placeholder="Ej: 15" />
+          </div>
 
-    <details>
-      <summary>¿Qué es un punto porcentual?</summary>
-      <div class="faq-content">
-        <p>Un punto porcentual es la unidad para la diferencia aritmética entre dos porcentajes. No es lo mismo una subida del 10% que una subida de 10 puntos porcentuales.</p>
+          <button class="btn btn-percent">Calcular resultado</button>
+
+          <div class="result result-percent"
+            data-btn-copy="Copiar Resultado"
+            data-label-result="Resultado">
+          </div>
+        </div>
+
+        <div class="related-tools">
+          <p><strong>¿Buscas algo más específico?</strong></p>
+          <ul>
+            <li>
+              <a href="/es/calculadora-iva">
+                ➔ <strong>Calculadora de IVA:</strong> Para gestiones fiscales y facturas.
+              </a>
+            </li>
+            <li>
+              <a href="/es/calculadora-descuentos">
+                ➔ <strong>Calculadora de Descuentos:</strong> Para rebajas y ofertas comerciales.
+              </a>
+            </li>
+            <li>
+              <a href="/es/calculadora-propinas">
+                ➔ <strong>Calculadora de Propinas:</strong> Para repartos rápidos en servicios.
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </details>
 
-    <details>
-      <summary>¿Por qué usamos la base 100?</summary>
-      <div class="faq-content">
-        <p>El sistema centesimal facilita la comparación. Es mucho más intuitivo saber que algo afecta a "20 de cada 100" que intentar comparar fracciones con denominadores distintos.</p>
-      </div>
-    </details>
+      <section class="legal-content">
+        <h2>¿Cómo obtener el porcentaje de una cantidad?</h2>
+        <p>Calcular el porcentaje es una operación que permite extraer una parte proporcional de un número total. Es la base para entender repartos, intereses y proporciones estadísticas de forma estandarizada.</p>
 
-    <details>
-      <summary>¿Puedo introducir decimales en la calculadora?</summary>
-      <div class="faq-content">
-        <p>Sí. Puedes calcular porcentajes complejos como el 12,5% o el 0,5% introduciendo los valores con punto o coma decimal según la configuración de tu navegador.</p>
+        <h3>La fórmula de cálculo directo</h3>
+        <p>Esta herramienta aplica la fórmula matemática de proporción directa para ofrecerte un resultado exacto:</p>
+
+        <div class="formule">
+          <strong>Valor Final = (Cantidad Original × Porcentaje) / 100</strong>
+        </div>
+
+        <p>Al dividir entre 100, transformamos el "por ciento" en una unidad decimal que nos permite conocer el valor real de esa fracción del total.</p>
+
+        <h3>¿Cuándo usar esta calculadora?</h3>
+        <p>Esta herramienta es ideal para cálculos genéricos donde conoces el total y quieres saber cuánto representa un porcentaje específico, sin las reglas adicionales que puedan tener los impuestos o los intereses bancarios.</p>
+      </section>
+
+      <div class="faq-section">
+        <h3>Dudas sobre el cálculo de porcentajes</h3>
+
+        <details>
+          <summary>¿Qué es un punto porcentual?</summary>
+          <div class="faq-content">
+            <p>Un punto porcentual es la unidad para la diferencia aritmética entre dos porcentajes. No es lo mismo una subida del 10% que una subida de 10 puntos porcentuales.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Por qué usamos la base 100?</summary>
+          <div class="faq-content">
+            <p>El sistema centesimal facilita la comparación. Es mucho más intuitivo saber que algo afecta a "20 de cada 100" que intentar comparar fracciones con denominadores distintos.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Puedo introducir decimales en la calculadora?</summary>
+          <div class="faq-content">
+            <p>Sí. Puedes calcular porcentajes complejos como el 12,5% o el 0,5% introduciendo los valores con punto o coma decimal según la configuración de tu navegador.</p>
+          </div>
+        </details>
       </div>
-    </details>
-  </div>
-</main>
-<footer></footer>
+    </main>
+
+    <footer></footer>
 
     <div class="cookie-banner" id="cookie-banner">
-    <div id="cookie-main-view">
-      <p>
-        Utilizamos cookies para mejorar tu experiencia.
-        <a href="/es/cookies">Ver política de cookies</a>
-      </p>
-      <div class="cookie-buttons">
-        <button class="accept-cookies" id="btn-accept-all">
-          Aceptar todas
-        </button>
-        <button class="reject-cookies" id="btn-reject-all">
-          Rechazar todas
-        </button>
-        <button class="settings-cookies" id="btn-open-settings">
-          Configurar
-        </button>
+      <div id="cookie-main-view">
+        <p>
+          Utilizamos cookies para mejorar tu experiencia.
+          <a href="/es/cookies">Ver política de cookies</a>
+        </p>
+        <div class="cookie-buttons">
+          <button class="accept-cookies" id="btn-accept-all">Aceptar todas</button>
+          <button class="reject-cookies" id="btn-reject-all">Rechazar todas</button>
+          <button class="settings-cookies" id="btn-open-settings">Configurar</button>
+        </div>
+      </div>
+
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Personaliza tus preferencias:</strong></p>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-necessary" checked disabled />
+          <label>Necesarias (Obligatorias)</label>
+        </div>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-analytics" />
+          <label>Analíticas (Google Analytics)</label>
+        </div>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-marketing" />
+          <label>Marketing (Píxeles publicitarios)</label>
+        </div>
+        <div class="cookie-buttons" style="margin-top:15px">
+          <button class="accept-cookies" id="btn-save-settings">Guardar selección</button>
+          <button class="settings-cookies" id="btn-back">Volver</button>
+        </div>
       </div>
     </div>
 
-    <div id="cookie-settings-view" style="display: none">
-      <p><strong>Personaliza tus preferencias:</strong></p>
-      <div class="cookie-option">
-        <input type="checkbox" id="check-necessary" checked disabled />
-        <label>Necesarias (Obligatorias)</label>
-      </div>
-      <div class="cookie-option">
-        <input type="checkbox" id="check-analytics" />
-        <label>Analíticas (Google Analytics)</label>
-      </div>
-      <div class="cookie-option">
-        <input type="checkbox" id="check-marketing" />
-        <label>Marketing (Píxeles publicitarios)</label>
-      </div>
-      <div class="cookie-buttons" style="margin-top: 15px">
-        <button class="accept-cookies" id="btn-save-settings">
-          Guardar selección
-        </button>
-        <button class="settings-cookies" id="btn-back">Volver</button>
-      </div>
-    </div>
-  </div>
-  <script src="../js/ads.js" async defer></script>
-
-    <script src="../js/layout.js"></script>
-    <script src="../js/buscador.js"></script>
-    <script src="../js/core.js"></script>
-    <script src="../js/porcentajes.js"></script>
+    <script src="/js/ads.js" async defer></script>
+    <script src="/js/layout.js"></script>
+    <script src="/js/buscador.js"></script>
+    <script src="/js/core.js"></script>
+    <script src="/js/porcentajes.js"></script>
   </body>
 </html>

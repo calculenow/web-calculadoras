@@ -1,114 +1,127 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <script>
-      (function() {
-        const theme = localStorage.getItem('theme');
-        if (theme === 'dark') {
-          document.documentElement.classList.add('dark');
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
         }
       })();
     </script>
 
     <title>Contacto – Calculenow</title>
-    <meta name="description" content="¿Tienes alguna duda o sugerencia? Contacta con el equipo de Calculenow. Estaremos encantados de ayudarte con nuestras herramientas.">
-    <link rel="canonical" href="https://calculenow.com/es/contacto">
+    <link rel="canonical" href="https://calculenow.com/es/contacto" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/contacto" />
+    <link rel="alternate" hreflang="en" href="https://calculenow.com/en/contact" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/contacto" />
 
-    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)">
+    <meta name="description" content="¿Tienes alguna duda o sugerencia? Contacta con el equipo de Calculenow. Estaremos encantados de ayudarte con nuestras herramientas." />
+    <meta name="robots" content="noindex, nofollow" />
 
-    <link rel="icon" type="image/x-icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../css/styles.css">
-</head>
-<body>
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/es/contacto" />
+    <meta property="og:title" content="Contacto – Calculenow" />
+    <meta property="og:description" content="¿Tienes alguna duda o sugerencia? Contacta con el equipo de Calculenow." />
+    <meta property="og:image" content="https://calculenow.com/images/og-es.jpg" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
     <noscript>
-        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
-          height="0" width="0" style="display:none;visibility:hidden">
-        </iframe>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
     </noscript>
-    
+
     <header></header>
 
     <main>
-        <div class="card contact-card">
-            <h1>Contacto</h1>
-            <p>Si tienes dudas, sugerencias o comentarios, rellena el siguiente formulario y te responderemos lo antes posible.</p>
-        
-            <form id="contact-form">
-                <label for="nombre">Nombre:</label>
-                <input class="field" type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
-            
-                <label for="email">Correo electrónico:</label>
-                <input class="field" type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
-            
-                <label for="mensaje">Mensaje:</label>
-                <textarea class="field" id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí..." rows="5" required></textarea>
-                
-                <div class="privacy-notice" style="display: flex; align-items: flex-start; gap: 10px; margin: 15px 0; font-size: 0.9rem;">
-                    <input type="checkbox" id="privacy-check" name="privacy-check" required style="margin-top: 4px;">
-                    <label for="privacy-check">He leído y acepto la <a href="/es/privacidad" style="text-decoration: underline; color: var(--primary);">política de privacidad</a>.</label>
-                </div>
+      <div class="card contact-card">
+        <h1>Contacto</h1>
+        <p>Si tienes dudas, sugerencias o comentarios, rellena el siguiente formulario y te responderemos lo antes posible.</p>
 
-                <div id="form-status" class="form-status"></div>
-                <button type="submit" class="btn">Enviar</button>
-            </form>
-        
-            <p>O también puedes escribirnos directamente a: <a href="mailto:contact@calculenow.com">contact@calculenow.com</a></p>
-        </div>
+        <form id="contact-form">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input class="field" type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input class="field" type="email" id="email" name="email" placeholder="ejemplo@correo.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="mensaje">Mensaje</label>
+            <textarea class="field" id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí..." rows="5" required></textarea>
+          </div>
+
+          <div class="privacy-notice">
+            <input type="checkbox" id="privacy-check" name="privacy-check" required />
+            <label for="privacy-check">He leído y acepto la <a href="/es/privacidad">política de privacidad</a>.</label>
+          </div>
+
+          <div id="form-status" class="form-status"></div>
+
+          <button type="submit" class="btn">Enviar mensaje</button>
+        </form>
+
+        <p>O también puedes escribirnos directamente a: <a href="mailto:contact@calculenow.com">contact@calculenow.com</a></p>
+      </div>
     </main>
 
     <footer></footer>
 
-   <div class="cookie-banner" id="cookie-banner">
-    <div id="cookie-main-view">
-      <p>
-        Utilizamos cookies para mejorar tu experiencia.
-        <a href="/es/cookies">Ver política de cookies</a>
-      </p>
-      <div class="cookie-buttons">
-        <button class="accept-cookies" id="btn-accept-all">
-          Aceptar todas
-        </button>
-        <button class="reject-cookies" id="btn-reject-all">
-          Rechazar todas
-        </button>
-        <button class="settings-cookies" id="btn-open-settings">
-          Configurar
-        </button>
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>
+          Utilizamos cookies para mejorar tu experiencia.
+          <a href="/es/cookies">Ver política de cookies</a>
+        </p>
+        <div class="cookie-buttons">
+          <button class="accept-cookies" id="btn-accept-all">Aceptar todas</button>
+          <button class="reject-cookies" id="btn-reject-all">Rechazar todas</button>
+          <button class="settings-cookies" id="btn-open-settings">Configurar</button>
+        </div>
+      </div>
+
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Personaliza tus preferencias:</strong></p>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-necessary" checked disabled />
+          <label>Necesarias (Obligatorias)</label>
+        </div>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-analytics" />
+          <label>Analíticas (Google Analytics)</label>
+        </div>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-marketing" />
+          <label>Marketing (Píxeles publicitarios)</label>
+        </div>
+        <div class="cookie-buttons" style="margin-top:15px">
+          <button class="accept-cookies" id="btn-save-settings">Guardar selección</button>
+          <button class="settings-cookies" id="btn-back">Volver</button>
+        </div>
       </div>
     </div>
 
-    <div id="cookie-settings-view" style="display: none">
-      <p><strong>Personaliza tus preferencias:</strong></p>
-      <div class="cookie-option">
-        <input type="checkbox" id="check-necessary" checked disabled />
-        <label>Necesarias (Obligatorias)</label>
-      </div>
-      <div class="cookie-option">
-        <input type="checkbox" id="check-analytics" />
-        <label>Analíticas (Google Analytics)</label>
-      </div>
-      <div class="cookie-option">
-        <input type="checkbox" id="check-marketing" />
-        <label>Marketing (Píxeles publicitarios)</label>
-      </div>
-      <div class="cookie-buttons" style="margin-top: 15px">
-        <button class="accept-cookies" id="btn-save-settings">
-          Guardar selección
-        </button>
-        <button class="settings-cookies" id="btn-back">Volver</button>
-      </div>
-    </div>
-  </div>
-
-    <script src="../js/ads.js" async defer></script>
-    <script src="../js/layout.js"></script>
-    <script src="../js/buscador.js"></script>
-    <script src="../js/core.js"></script>
-    <script src="../js/contacto.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+    <script src="/js/ads.js" async defer></script>
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/buscador.js" defer></script>
+    <script src="/js/core.js" defer></script>
+    <script src="/js/contacto.js" defer></script>
+  </body>
 </html>

@@ -70,3 +70,29 @@ button.btn {
     transform: scale(0.98);
   }
 }
+
+.form-row {
+  display: flex;
+  gap: 10px;
+
+  .form-group {
+    flex: 1;
+    margin-bottom: 0;
+  }
+}
+.field--highlight {
+  background-color: #e0f2fe;
+  transition: background-color 0.3s ease;
+}
+.privacy-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 15px 0;
+  font-size: 0.9rem;
+
+  input[type="checkbox"] {
+    margin-top: 4px;
+    flex-shrink: 0;
+  }
+}

@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="es">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -14,32 +14,88 @@
     </script>
 
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Calculadora de Hidratación Diaria",
-        "operatingSystem": "All",
-        "applicationCategory": "HealthApplication",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "EUR"
-        },
-        "description": "Calcula cuánta agua debes beber al día según tu peso corporal y nivel de actividad física con nuestra calculadora gratuita."
-      }
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calculadora de Hidratación Diaria",
+      "url": "https://calculenow.com/es/calculadora-hidratacion",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "description": "Calcula cuánta agua debes beber al día según tu peso corporal y nivel de actividad física con nuestra calculadora gratuita."
+    }
     </script>
 
-    <title>Calculadora de Hidratación Diaria | Calculenow</title>
-    <meta name="description" content="¿Cuánta agua hay que beber al día? Calcula tu hidratación ideal según tu peso y ejercicio. ¡Mantente sano y rinde más!" />
-    <link rel="canonical" href="https://calculenow.com/es/calculadora-hidratacion" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuenta el café o el té para la hidratación diaria?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, las infusiones contribuyen al total diario. Aunque la cafeína es diurética, el aporte de líquido compensa ese efecto en la mayoría de personas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Se puede beber demasiada agua?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, se conoce como hiponatremia. Beber cantidades extremas en poco tiempo puede diluir peligrosamente los electrolitos del organismo."
+          }
+        }
+      ]
+    }
+    </script>
 
-    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
-    <link rel="stylesheet" href="../css/styles.css"/>
-</head>
-<body>
+    <title>Calculadora de Hidratación Diaria - ¿Cuánta Agua Beber? | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/es/calculadora-hidratacion" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-hidratacion" />
+    <link rel="alternate" hreflang="en" href="https://calculenow.com/en/hydration-calculator" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/calculadora-hidratacion" />
+
+    <meta name="description" content="¿Cuánta agua hay que beber al día? Calcula tu hidratación ideal según tu peso y nivel de ejercicio. Gratis, rápido y sin registro." />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/es/calculadora-hidratacion" />
+    <meta property="og:title" content="Calculadora de Hidratación Diaria - ¿Cuánta Agua Beber? | Calculenow" />
+    <meta property="og:description" content="Calcula cuánta agua debes beber al día según tu peso y actividad física. Gratis y sin registro." />
+    <meta property="og:image" content="https://calculenow.com/images/og-es.jpg" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Calculadora de Hidratación Diaria - ¿Cuánta Agua Beber?" />
+    <meta name="twitter:description" content="Calcula cuánta agua debes beber al día según tu peso y actividad física. Gratis y sin registro." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-es.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
     <header></header>
+
     <main>
-      <div class="card">
+      <div class="card hidratacion-card">
         <h1>Calculadora de Hidratación Diaria</h1>
 
         <div class="form-group">
@@ -57,16 +113,15 @@
           </select>
         </div>
 
-        <button class="btn btn-interes" id="btn-calcular-agua">Calcular Hidratación</button>
+        <button class="btn btn-hidratacion" id="btn-calcular-agua">Calcular Hidratación</button>
 
-        <div 
-          class="result result-hidratacion" 
+        <div class="result result-hidratacion"
           data-label-goal="Objetivo diario:"
           data-label-equiv="Equivalente a:"
           data-unit-liters="Litros"
           data-unit-glasses="vasos de agua"
-          data-btn-copy="Copiar Resultados"
-        ></div>
+          data-btn-copy="Copiar Resultados">
+        </div>
 
         <div class="related-tools">
           <p><strong>Herramientas de salud relacionadas:</strong></p>
@@ -83,7 +138,7 @@
             </li>
           </ul>
         </div>
-          
+
         <p class="disclaimer-text">
           <strong>Aviso:</strong> Este cálculo es una estimación basada en condiciones estándar. Consulta siempre con un profesional de la salud.
         </p>
@@ -95,33 +150,73 @@
 
         <h3>La fórmula de hidratación recomendada</h3>
         <p>Una de las fórmulas más aceptadas por expertos en nutrición para calcular la necesidad hídrica basal es:</p>
+
         <div class="formule">Consumo (ml) = Peso (kg) × 35</div>
-        
+
         <p>
           <small>*A esta base se le deben sumar aproximadamente <strong>600-800 ml</strong> por cada hora de ejercicio intenso realizado.</small>
         </p>
       </section>
 
-      <section class="faq-section">
-        <h2>Preguntas frecuentes sobre hidratación</h2>
+      <div class="faq-section">
+        <h3>Preguntas frecuentes sobre hidratación</h3>
+
         <details>
           <summary>¿Cuenta el café o el té para la hidratación?</summary>
           <div class="faq-content">
-            <p>Sí, las infusiones contribuyen al total diario. Aunque la cafeína es diurética, el aporte de líquido compensa ese efecto.</p>
+            <p>Sí, las infusiones contribuyen al total diario. Aunque la cafeína es diurética, el aporte de líquido compensa ese efecto en la mayoría de personas.</p>
           </div>
         </details>
+
         <details>
           <summary>¿Se puede beber demasiada agua?</summary>
           <div class="faq-content">
-            <p>Sí, se conoce como hiponatremia. Beber cantidades extremas en poco tiempo puede diluir peligrosamente los electrolitos.</p>
+            <p>Sí, se conoce como hiponatremia. Beber cantidades extremas en poco tiempo puede diluir peligrosamente los electrolitos del organismo.</p>
           </div>
         </details>
-      </section>
+      </div>
     </main>
+
     <footer></footer>
 
-    <script src="../js/layout.js"></script>
-    <script src="../js/core.js"></script>
-    <script src="../js/hidratacion.js"></script>
-</body>
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>
+          Utilizamos cookies para mejorar tu experiencia.
+          <a href="/es/cookies">Ver política de cookies</a>
+        </p>
+        <div class="cookie-buttons">
+          <button class="accept-cookies" id="btn-accept-all">Aceptar todas</button>
+          <button class="reject-cookies" id="btn-reject-all">Rechazar todas</button>
+          <button class="settings-cookies" id="btn-open-settings">Configurar</button>
+        </div>
+      </div>
+
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Personaliza tus preferencias:</strong></p>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-necessary" checked disabled />
+          <label>Necesarias (Obligatorias)</label>
+        </div>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-analytics" />
+          <label>Analíticas (Google Analytics)</label>
+        </div>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-marketing" />
+          <label>Marketing (Píxeles publicitarios)</label>
+        </div>
+        <div class="cookie-buttons" style="margin-top:15px">
+          <button class="accept-cookies" id="btn-save-settings">Guardar selección</button>
+          <button class="settings-cookies" id="btn-back">Volver</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/ads.js" async defer></script>
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/buscador.js" defer></script>
+    <script src="/js/core.js" defer></script>
+    <script src="/js/hidratacion.js" defer></script>
+  </body>
 </html>

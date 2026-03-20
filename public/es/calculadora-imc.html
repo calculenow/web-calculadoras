@@ -1,10 +1,9 @@
 <!doctype html>
 <html lang="es">
   <head>
-  <meta charset="UTF-8">
-  
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <script>
       (function () {
         const theme = localStorage.getItem("theme");
@@ -12,151 +11,185 @@
           document.documentElement.classList.add("dark");
         }
       })();
-      </script>
+    </script>
+
     <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Calculadora de IMC (Índice de Masa Corporal)",
-  "operatingSystem": "All",
-  "applicationCategory": "HealthApplication",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "EUR"
-  },
-  "description": "Calcula tu Índice de Masa Corporal de forma gratuita. Conoce si estás en tu peso ideal según los estándares de la OMS."
-}
-</script>
-<title>Calculadora de IMC Gratis - Calcula tu Peso Ideal (OMS) | Calculenow</title>
-<meta name="description" content="Descubre tu Índice de Masa Corporal (IMC) y si estás en tu peso ideal según la OMS. Calculadora de salud gratuita, rápida y fácil de entender."/>
-<link rel="canonical" href="https://calculenow.com/es/calculadora-imc.html" />
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calculadora de IMC (Índice de Masa Corporal)",
+      "url": "https://calculenow.com/es/calculadora-imc",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "description": "Calcula tu Índice de Masa Corporal de forma gratuita. Conoce si estás en tu peso ideal según los estándares de la OMS."
+    }
+    </script>
 
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Es el IMC igual para hombres que para mujeres?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, la fórmula y los rangos de la OMS son los mismos para ambos sexos. Sin embargo, no tiene en cuenta que las mujeres suelen tener un mayor porcentaje de grasa corporal y los hombres más masa muscular."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué el IMC no es exacto para deportistas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El IMC solo mide peso y altura, no diferencia entre grasa y músculo. Como el músculo pesa más que la grasa, un atleta con mucha masa muscular podría obtener un resultado de sobrepeso sin tener un exceso de grasa real."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué otros indicadores existen además del IMC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Para un análisis más completo, los profesionales suelen medir también el perímetro de la cintura, el porcentaje de grasa corporal (bioimpedancia) y la relación cintura-cadera."
+          }
+        }
+      ]
+    }
+    </script>
 
-<link rel="icon" type="image/x-icon" href="../favicon.ico" />
-<link rel="stylesheet" href="../css/styles.css"/>
+    <title>Calculadora de IMC Gratis - Calcula tu Peso Ideal (OMS) | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/es/calculadora-imc" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-imc" />
+    <link rel="alternate" hreflang="en" href="https://calculenow.com/en/bmi-calculator" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/calculadora-imc" />
+
+    <meta name="description" content="Descubre tu Índice de Masa Corporal (IMC) y si estás en tu peso ideal según la OMS. Calculadora de salud gratuita, rápida y fácil de entender." />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/es/calculadora-imc" />
+    <meta property="og:title" content="Calculadora de IMC Gratis - Calcula tu Peso Ideal (OMS) | Calculenow" />
+    <meta property="og:description" content="Descubre tu Índice de Masa Corporal (IMC) y si estás en tu peso ideal según la OMS. Gratuita, rápida y fácil de entender." />
+    <meta property="og:image" content="https://calculenow.com/images/og-es.jpg" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Calculadora de IMC Gratis - Calcula tu Peso Ideal (OMS)" />
+    <meta name="twitter:description" content="Descubre tu IMC y si estás en tu peso ideal según la OMS. Gratis y sin registro." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-es.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   </head>
   <body>
     <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
-      height="0" width="0" style="display:none;visibility:hidden">
-    </iframe>
-  </noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
     <header></header>
 
     <main>
       <div class="card imc-card">
-        <h1>Calculadora de IMC</h1>
-        <p>
-          Introduce tu peso y altura para conocer tu Índice de Masa Corporal.
-        </p>
+        <h1>Calculadora de IMC — Índice de Masa Corporal</h1>
+        <p>Introduce tu peso y altura para conocer tu Índice de Masa Corporal.</p>
 
         <div class="form-group">
           <label for="peso">Peso (kg)</label>
-          <input
-            id="peso"
-            class="field peso"
-            type="number"
-            step="1"
-            placeholder="Ej: 70"
-          />
+          <input id="peso" class="field peso" type="number" step="1" placeholder="Ej: 70" />
         </div>
 
         <div class="form-group">
           <label for="altura">Altura (cm)</label>
-          <input
-            id="altura"
-            class="field altura"
-            type="number"
-            step="1"
-            placeholder="Ej: 170"
-          />
+          <input id="altura" class="field altura" type="number" step="1" placeholder="Ej: 170" />
         </div>
 
         <button class="btn btn-imc">Calcular IMC</button>
 
-        <div 
-  class="result result-imc" 
-  data-ms-empty="⚠️ Por favor, completa ambos campos."
-  data-ms-error="⚠️ Los datos parecen incorrectos."
-  data-label-res="Tu IMC es"
-  data-status-low="Bajo peso"
-  data-status-normal="Peso normal"
-  data-status-over="Sobrepeso"
-  data-status-obese="Obesidad"
-  data-btn-copy="Copiar"
-></div>
+        <div class="result result-imc"
+          data-ms-empty="⚠️ Por favor, completa ambos campos."
+          data-ms-error="⚠️ Los datos parecen incorrectos."
+          data-label-res="Tu IMC es"
+          data-status-low="Bajo peso"
+          data-status-normal="Peso normal"
+          data-status-over="Sobrepeso"
+          data-status-obese="Obesidad"
+          data-btn-copy="Copiar">
+        </div>
 
         <div class="imc-bar">
           <div class="imc-indicator"></div>
         </div>
 
-        <p class="disclaimer">
-          Este cálculo es orientativo y no sustituye el consejo de un
-          profesional sanitario.
+        <p class="disclaimer-text">
+          Este cálculo es orientativo y no sustituye el consejo de un profesional sanitario.
         </p>
 
         <div class="related-tools">
-  <p><strong>¿Quieres profundizar en tu salud?</strong></p>
-  <ul>
-    <li>
-      <a href="/es/calculadora-hidratacion">
-        ➔ <strong>Calculadora de Hidratación:</strong> Descubre cuánta agua necesita tu cuerpo según tu peso y actividad.
-      </a>
-    </li>
-    <li>
-      <a href="/es/calculadora-calorias">
-        ➔ <strong>Calculadora de Calorías (TMB):</strong> Descubre cuánta energía necesita tu cuerpo según tu IMC.
-      </a>
-    </li>
-  </ul>
-</div>
+          <p><strong>¿Quieres profundizar en tu salud?</strong></p>
+          <ul>
+            <li>
+              <a href="/es/calculadora-hidratacion">
+                ➔ <strong>Calculadora de Hidratación:</strong> Descubre cuánta agua necesita tu cuerpo según tu peso y actividad.
+              </a>
+            </li>
+            <li>
+              <a href="/es/calculadora-calorias">
+                ➔ <strong>Calculadora de Calorías (TMB):</strong> Descubre cuánta energía necesita tu cuerpo según tu IMC.
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
 
       <section class="legal-content">
         <h2>¿Qué es el Índice de Masa Corporal?</h2>
-        <p>
-          El <strong>Índice de Masa Corporal (IMC)</strong> es un indicador
-          simple de la relación entre el peso y la talla que se utiliza
-          frecuentemente para identificar el sobrepeso y la obesidad en los
-          adultos.
-        </p>
+        <p>El <strong>Índice de Masa Corporal (IMC)</strong> es un indicador simple de la relación entre el peso y la talla que se utiliza frecuentemente para identificar el sobrepeso y la obesidad en los adultos.</p>
 
         <h2>Cómo interpretar tu resultado de IMC</h2>
-        <p>
-          Según la <strong>Organización Mundial de la Salud (OMS)</strong>,
-          estos son los rangos oficiales para adultos:
-        </p>
+        <p>Según la <strong>Organización Mundial de la Salud (OMS)</strong>, estos son los rangos oficiales para adultos:</p>
+
         <div class="table-container">
-  <table>
-    <thead>
-      <tr>
-        <th>Clasificación</th>
-        <th>Rango de IMC</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Bajo peso</td>
-        <td>&lt; 18.5</td>
-      </tr>
-      <tr class="highlight-green">
-        <td>Peso normal (Saludable)</td>
-        <td>18.5 – 24.9</td>
-      </tr>
-      <tr>
-        <td>Sobrepeso</td>
-        <td>25.0 – 29.9</td>
-      </tr>
-      <tr>
-        <td>Obesidad</td>
-        <td>&gt; 30.0</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+          <table>
+            <thead>
+              <tr>
+                <th>Clasificación</th>
+                <th>Rango de IMC</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Bajo peso</td>
+                <td>&lt; 18.5</td>
+              </tr>
+              <tr class="highlight-green">
+                <td>Peso normal (Saludable)</td>
+                <td>18.5 – 24.9</td>
+              </tr>
+              <tr>
+                <td>Sobrepeso</td>
+                <td>25.0 – 29.9</td>
+              </tr>
+              <tr>
+                <td>Obesidad</td>
+                <td>&gt; 30.0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <h3>Fórmula del IMC</h3>
         <p>Para calcularlo manualmente se utiliza la siguiente fórmula:</p>
@@ -164,79 +197,71 @@
       </section>
 
       <div class="faq-section">
-  <h3>Preguntas frecuentes sobre el IMC</h3>
-  
-  <details>
-    <summary>¿Es el IMC igual para hombres que para mujeres?</summary>
-    <div class="faq-content">
-      <p>Sí, la fórmula y los rangos de la OMS son los mismos para ambos sexos. Sin embargo, no tiene en cuenta que las mujeres suelen tener un mayor porcentaje de grasa corporal y los hombres más masa muscular.</p>
-    </div>
-  </details>
+        <h3>Preguntas frecuentes sobre el IMC</h3>
 
-  <details>
-    <summary>¿Por qué el IMC no es exacto para deportistas?</summary>
-    <div class="faq-content">
-      <p>El IMC solo mide peso y altura, no diferencia entre grasa y músculo. Como el músculo pesa más que la grasa, un atleta con mucha masa muscular podría obtener un resultado de "sobrepeso" sin tener un exceso de grasa real.</p>
-    </div>
-  </details>
+        <details>
+          <summary>¿Es el IMC igual para hombres que para mujeres?</summary>
+          <div class="faq-content">
+            <p>Sí, la fórmula y los rangos de la OMS son los mismos para ambos sexos. Sin embargo, no tiene en cuenta que las mujeres suelen tener un mayor porcentaje de grasa corporal y los hombres más masa muscular.</p>
+          </div>
+        </details>
 
-  <details>
-    <summary>¿Qué otros indicadores existen además del IMC?</summary>
-    <div class="faq-content">
-      <p>Para un análisis más completo, los profesionales suelen medir también el perímetro de la cintura, el porcentaje de grasa corporal (bioimpedancia) y la relación cintura-cadera.</p>
-    </div>
-  </details>
-</div>
+        <details>
+          <summary>¿Por qué el IMC no es exacto para deportistas?</summary>
+          <div class="faq-content">
+            <p>El IMC solo mide peso y altura, no diferencia entre grasa y músculo. Como el músculo pesa más que la grasa, un atleta con mucha masa muscular podría obtener un resultado de "sobrepeso" sin tener un exceso de grasa real.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Qué otros indicadores existen además del IMC?</summary>
+          <div class="faq-content">
+            <p>Para un análisis más completo, los profesionales suelen medir también el perímetro de la cintura, el porcentaje de grasa corporal (bioimpedancia) y la relación cintura-cadera.</p>
+          </div>
+        </details>
+      </div>
     </main>
+
     <footer></footer>
+
     <div class="cookie-banner" id="cookie-banner">
-    <div id="cookie-main-view">
-      <p>
-        Utilizamos cookies para mejorar tu experiencia.
-        <a href="/es/cookies">Ver política de cookies</a>
-      </p>
-      <div class="cookie-buttons">
-        <button class="accept-cookies" id="btn-accept-all">
-          Aceptar todas
-        </button>
-        <button class="reject-cookies" id="btn-reject-all">
-          Rechazar todas
-        </button>
-        <button class="settings-cookies" id="btn-open-settings">
-          Configurar
-        </button>
+      <div id="cookie-main-view">
+        <p>
+          Utilizamos cookies para mejorar tu experiencia.
+          <a href="/es/cookies">Ver política de cookies</a>
+        </p>
+        <div class="cookie-buttons">
+          <button class="accept-cookies" id="btn-accept-all">Aceptar todas</button>
+          <button class="reject-cookies" id="btn-reject-all">Rechazar todas</button>
+          <button class="settings-cookies" id="btn-open-settings">Configurar</button>
+        </div>
+      </div>
+
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Personaliza tus preferencias:</strong></p>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-necessary" checked disabled />
+          <label>Necesarias (Obligatorias)</label>
+        </div>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-analytics" />
+          <label>Analíticas (Google Analytics)</label>
+        </div>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-marketing" />
+          <label>Marketing (Píxeles publicitarios)</label>
+        </div>
+        <div class="cookie-buttons" style="margin-top:15px">
+          <button class="accept-cookies" id="btn-save-settings">Guardar selección</button>
+          <button class="settings-cookies" id="btn-back">Volver</button>
+        </div>
       </div>
     </div>
 
-    <div id="cookie-settings-view" style="display: none">
-      <p><strong>Personaliza tus preferencias:</strong></p>
-      <div class="cookie-option">
-        <input type="checkbox" id="check-necessary" checked disabled />
-        <label>Necesarias (Obligatorias)</label>
-      </div>
-      <div class="cookie-option">
-        <input type="checkbox" id="check-analytics" />
-        <label>Analíticas (Google Analytics)</label>
-      </div>
-      <div class="cookie-option">
-        <input type="checkbox" id="check-marketing" />
-        <label>Marketing (Píxeles publicitarios)</label>
-      </div>
-      <div class="cookie-buttons" style="margin-top: 15px">
-        <button class="accept-cookies" id="btn-save-settings">
-          Guardar selección
-        </button>
-        <button class="settings-cookies" id="btn-back">Volver</button>
-      </div>
-    </div>
-  </div>
-  <script src="../js/ads.js" async defer></script>
-
-    <script src="../js/layout.js"></script>
-    <script src="../js/buscador.js"></script>
-    <script src="../js/core.js"></script>
-    <script src="../js/imc.js"></script>
+    <script src="/js/ads.js" async defer></script>
+    <script src="/js/layout.js"></script>
+    <script src="/js/buscador.js"></script>
+    <script src="/js/core.js"></script>
+    <script src="/js/imc.js"></script>
   </body>
 </html>
-
-
