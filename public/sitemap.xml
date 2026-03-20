@@ -2,37 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-  <loc>https://calculenow.com/</loc>
-  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/"/>
-  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/"/>
-  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/"/>
-  <lastmod>2026-03-20</lastmod>
-  <priority>1.0</priority>
-</url>
+    <loc>https://calculenow.com/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/"/>
+    <lastmod>2026-03-20</lastmod>
+    <priority>1.0</priority>
+  </url>
 
- <url>
-  <loc>https://calculenow.com/es/</loc>
-  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/"/>
-  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/"/>
-  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/"/>
-  <lastmod>2026-03-20</lastmod>
-  <priority>0.9</priority>
-</url>
+  <url>
+    <loc>https://calculenow.com/es/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/"/>
+    <lastmod>2026-03-20</lastmod>
+    <priority>0.9</priority>
+  </url>
 
-<url>
-  <loc>https://calculenow.com/en/</loc>
-  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/"/>
-  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/"/>
-  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/"/>
-  <lastmod>2026-03-20</lastmod>
-  <priority>0.9</priority>
-</url>
+  <url>
+    <loc>https://calculenow.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/"/>
+    <lastmod>2026-03-20</lastmod>
+    <priority>0.9</priority>
+  </url>
 
   <url>
     <loc>https://calculenow.com/es/calculadora-iva</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-iva"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/vat-calculator"/>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-20</lastmod>
   </url>
   <url>
     <loc>https://calculenow.com/en/vat-calculator</loc>
@@ -45,7 +45,7 @@
     <loc>https://calculenow.com/es/calculadora-prestamos</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-prestamos"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/loan-calculator"/>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-20</lastmod>
   </url>
   <url>
     <loc>https://calculenow.com/en/loan-calculator</loc>
@@ -58,7 +58,7 @@
     <loc>https://calculenow.com/es/calculadora-interes-compuesto</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-interes-compuesto"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/compound-interest-calculator"/>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-20</lastmod>
   </url>
   <url>
     <loc>https://calculenow.com/en/compound-interest-calculator</loc>
@@ -71,7 +71,7 @@
     <loc>https://calculenow.com/es/calculadora-divisas</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-divisas"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/currency-converter"/>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-20</lastmod>
   </url>
   <url>
     <loc>https://calculenow.com/en/currency-converter</loc>
@@ -84,7 +84,7 @@
     <loc>https://calculenow.com/es/calculadora-descuentos</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-descuentos"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/discount-calculator"/>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-20</lastmod>
   </url>
   <url>
     <loc>https://calculenow.com/en/discount-calculator</loc>
@@ -97,7 +97,7 @@
     <loc>https://calculenow.com/es/calculadora-propinas</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-propinas"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/tip-calculator"/>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-20</lastmod>
   </url>
   <url>
     <loc>https://calculenow.com/en/tip-calculator</loc>
@@ -110,7 +110,7 @@
     <loc>https://calculenow.com/es/calculadora-imc</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-imc"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/bmi-calculator"/>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-20</lastmod>
   </url>
   <url>
     <loc>https://calculenow.com/en/bmi-calculator</loc>
@@ -123,7 +123,7 @@
     <loc>https://calculenow.com/es/calculadora-calorias</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-calorias"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/calorie-calculator"/>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-20</lastmod>
   </url>
   <url>
     <loc>https://calculenow.com/en/calorie-calculator</loc>
@@ -136,7 +136,7 @@
     <loc>https://calculenow.com/es/calculadora-hidratacion</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-hidratacion"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/hydration-calculator"/>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-20</lastmod>
   </url>
   <url>
     <loc>https://calculenow.com/en/hydration-calculator</loc>
@@ -149,7 +149,7 @@
     <loc>https://calculenow.com/es/calculadora-porcentajes</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-porcentajes"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/percentage-calculator"/>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-20</lastmod>
   </url>
   <url>
     <loc>https://calculenow.com/en/percentage-calculator</loc>
@@ -162,7 +162,7 @@
     <loc>https://calculenow.com/es/calculadora-conversion</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-conversion"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/unit-converter"/>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-20</lastmod>
   </url>
   <url>
     <loc>https://calculenow.com/en/unit-converter</loc>
@@ -174,14 +174,14 @@
   <url>
     <loc>https://calculenow.com/es/validador-dni</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/validador-dni"/>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-20</lastmod>
   </url>
 
   <url>
     <loc>https://calculenow.com/es/contacto</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/contacto"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/contact"/>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-20</lastmod>
   </url>
   <url>
     <loc>https://calculenow.com/en/contact</loc>
@@ -194,7 +194,7 @@
     <loc>https://calculenow.com/es/aviso-legal</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/aviso-legal"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/legal-notice"/>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-20</lastmod>
   </url>
   <url>
     <loc>https://calculenow.com/en/legal-notice</loc>
@@ -202,11 +202,12 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/aviso-legal"/>
     <lastmod>2026-02-22</lastmod>
   </url>
+
   <url>
     <loc>https://calculenow.com/es/privacidad</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/privacidad"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/privacy-policy"/>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-20</lastmod>
   </url>
   <url>
     <loc>https://calculenow.com/en/privacy-policy</loc>
@@ -214,13 +215,13 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/privacidad"/>
     <lastmod>2026-02-22</lastmod>
   </url>
+
   <url>
     <loc>https://calculenow.com/es/cookies</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/cookies"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/cookies"/>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-20</lastmod>
   </url>
-
   <url>
     <loc>https://calculenow.com/en/cookies</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/cookies"/>

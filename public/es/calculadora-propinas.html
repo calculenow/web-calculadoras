@@ -33,35 +33,51 @@
 
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "¿Se debe dejar propina si el servicio ya está incluido?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "En algunos países el servicio ya viene en la factura. En ese caso, la propina adicional es totalmente opcional y se reserva para casos donde la atención ha sido excepcional."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Cómo redondear el pago de forma sencilla?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Si la calculadora indica que cada uno debe pagar 21,35€, es habitual redondear a 22€ para evitar el manejo de céntimos sueltos y dejar ese excedente como gratificación extra."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Qué pasa si alguien no quiere dejar propina?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Al ser un acto voluntario en la mayoría de países europeos, la calculadora permite poner 0 en el campo de porcentaje para simplemente dividir el importe neto de la cuenta entre los presentes."
-          }
-        }
-      ]
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Se debe dejar propina si el servicio ya está incluido?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En algunos países el servicio ya viene en la factura. En ese caso, la propina adicional es totalmente opcional y se reserva para casos donde la atención ha sido excepcional."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo redondear el pago de forma sencilla?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Si la calculadora indica que cada uno debe pagar 21,35€, es habitual redondear a 22€ para evitar el manejo de céntimos sueltos y dejar ese excedente como gratificación extra."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pasa si alguien no quiere dejar propina?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Al ser un acto voluntario en la mayoría de países europeos, la calculadora permite poner 0 en el campo de porcentaje para simplemente dividir el importe neto de la cuenta entre los presentes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánta propina se deja en España?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En España la propina es completamente voluntaria y no existe una norma establecida. Lo habitual es dejar entre un 5% y un 10% en restaurantes cuando el servicio ha sido bueno. En bares o cafeterías es común redondear la cuenta o dejar el cambio."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es obligatorio dejar propina en EE.UU.?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No es legalmente obligatorio, pero sí es una norma social muy arraigada. En EE.UU. los camareros cobran salarios base muy bajos y dependen de las propinas para completar su sueldo. Lo estándar es entre el 15% y el 20%, y no dejar propina se considera una falta de educación."
+      }
     }
+  ]
+}
     </script>
 
     <title>Calculadora de Propinas - Divide la Cuenta y el % | Calculenow</title>
@@ -150,44 +166,78 @@
       </div>
 
       <section class="legal-content">
-        <h2>¿Cómo repartir una cuenta con propina?</h2>
-        <p>Dividir los gastos en una cena de grupo puede ser un lío. Nuestra herramienta calcula el porcentaje de gratificación deseado, lo suma al total y lo divide equitativamente entre los comensales.</p>
+  <h2>¿Cómo repartir una cuenta con propina?</h2>
+  <p>Dividir los gastos en una cena de grupo puede ser un lío. Nuestra herramienta calcula el porcentaje de gratificación deseado, lo suma al total y lo divide equitativamente entre los comensales.</p>
 
-        <h3>¿Cuánto es la propina estándar?</h3>
-        <p>Aunque depende del país, en España la propina es voluntaria y suele rondar el <strong>5-10%</strong> en buenos servicios. En países como EE.UU., lo habitual es entre el 15% y el 20%.</p>
+  <h3>¿Cuánto es la propina estándar por país?</h3>
+  <p>Las costumbres sobre propinas varían enormemente según el país. Conocerlas antes de viajar evita malentendidos:</p>
 
-        <h3>Fórmula para el cálculo por persona</h3>
-        <p>Para obtener el importe individual, sumamos el coste del servicio a la cuenta y dividimos por el número de amigos:</p>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>País</th>
+          <th>Propina habitual</th>
+          <th>Notas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>España</td><td>5 – 10%</td><td>Voluntaria, se deja en efectivo</td></tr>
+        <tr><td>Estados Unidos</td><td>15 – 20%</td><td>Prácticamente obligatoria socialmente</td></tr>
+        <tr><td>Reino Unido</td><td>10 – 12.5%</td><td>A veces ya incluida como "service charge"</td></tr>
+        <tr><td>Francia</td><td>5 – 10%</td><td>El servicio está incluido por ley</td></tr>
+        <tr><td>Japón</td><td>0%</td><td>Dejar propina puede considerarse ofensivo</td></tr>
+        <tr><td>México</td><td>10 – 15%</td><td>Muy habitual, especialmente en ciudades</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-        <div class="formule">
-          <strong>Total por Persona = (Cuenta + (Cuenta × % Propina / 100)) / Nº de Personas</strong>
-        </div>
-      </section>
+  <h3>Fórmula para el cálculo por persona</h3>
+  <p>Para obtener el importe individual, sumamos el coste del servicio a la cuenta y dividimos por el número de comensales:</p>
 
-      <div class="faq-section">
-        <h3>Preguntas sobre el pago en restaurantes</h3>
+  <div class="formule">
+    <strong>Total por Persona = (Cuenta + (Cuenta × % Propina / 100)) / Nº de Personas</strong>
+  </div>
+</section>
 
-        <details>
-          <summary>¿Se debe dejar propina si el servicio ya está incluido?</summary>
-          <div class="faq-content">
-            <p>En algunos países el "servicio" ya viene en la factura. En ese caso, la propina adicional es totalmente opcional y se reserva para casos donde la atención ha sido excepcional.</p>
-          </div>
-        </details>
+<div class="faq-section">
+  <h3>Preguntas sobre el pago en restaurantes</h3>
 
-        <details>
-          <summary>¿Cómo redondear el pago de forma sencilla?</summary>
-          <div class="faq-content">
-            <p>Si la calculadora indica que cada uno debe pagar 21,35€, es habitual redondear a 22€ para evitar el manejo de céntimos sueltos y dejar ese excedente como gratificación extra.</p>
-          </div>
-        </details>
+  <details>
+    <summary>¿Se debe dejar propina si el servicio ya está incluido?</summary>
+    <div class="faq-content">
+      <p>En algunos países el "servicio" ya viene en la factura. En ese caso, la propina adicional es totalmente opcional y se reserva para casos donde la atención ha sido excepcional.</p>
+    </div>
+  </details>
 
-        <details>
-          <summary>¿Qué pasa si alguien no quiere dejar propina?</summary>
-          <div class="faq-content">
-            <p>Al ser un acto voluntario en la mayoría de países europeos, la calculadora permite poner "0" en el campo de porcentaje para simplemente dividir el importe neto de la cuenta entre los presentes.</p>
-          </div>
-        </details>
-      </div>
+  <details>
+    <summary>¿Cómo redondear el pago de forma sencilla?</summary>
+    <div class="faq-content">
+      <p>Si la calculadora indica que cada uno debe pagar 21,35€, es habitual redondear a 22€ para evitar el manejo de céntimos sueltos y dejar ese excedente como gratificación extra.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>¿Qué pasa si alguien no quiere dejar propina?</summary>
+    <div class="faq-content">
+      <p>Al ser un acto voluntario en la mayoría de países europeos, la calculadora permite poner "0" en el campo de porcentaje para simplemente dividir el importe neto de la cuenta entre los presentes.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>¿Cuánta propina se deja en España?</summary>
+    <div class="faq-content">
+      <p>En España la propina es completamente voluntaria y no existe una norma establecida. Lo habitual es dejar entre un 5% y un 10% en restaurantes cuando el servicio ha sido bueno. En bares o cafeterías es común redondear la cuenta o dejar el cambio.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>¿Es obligatorio dejar propina en EE.UU.?</summary>
+    <div class="faq-content">
+      <p>No es legalmente obligatorio, pero sí es una norma social muy arraigada. En EE.UU. los camareros cobran salarios base muy bajos y dependen de las propinas para completar su sueldo. Lo estándar es entre el 15% y el 20%, y no dejar propina se considera una falta de educación.</p>
+    </div>
+  </details>
+</div>
     </main>
 
     <footer></footer>

@@ -132,3 +132,14 @@
   span:nth-child(2) small { color: #10b981; }
   span:nth-child(3) small { color: #f59e0b; }
 }
+.dark .btn-mini {
+  background: var(--border);
+  color: var(--text);
+  border-color: var(--text);
+
+  &:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+  }
+}

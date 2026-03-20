@@ -729,6 +729,17 @@ table tr:last-child td {
   color: #f59e0b;
 }
 
+.dark .btn-mini {
+  background: var(--border);
+  color: var(--text);
+  border-color: var(--text);
+}
+.dark .btn-mini:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
 .imc-bar {
   width: 100%;
   height: 12px;
