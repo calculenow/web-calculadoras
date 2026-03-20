@@ -128,6 +128,35 @@ main {
   margin-bottom: 1rem;
 }
 
+.gateway-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  gap: 1rem;
+}
+
+.lang-options {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.lang-btn {
+  padding: 15px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  background: var(--primary);
+  color: white;
+  font-weight: bold;
+  transition: transform 0.2s ease;
+}
+.lang-btn:hover {
+  transform: scale(1.05);
+}
+
 .card {
   background: var(--card);
   border-radius: 12px;

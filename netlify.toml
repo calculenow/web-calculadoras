@@ -3,7 +3,15 @@
   framework = "#static"
 
 # -----------------------------------------------------------
-# REDIRECCIONES 301: DE RAÍZ A /ES/
+# REDIRECCIONES: RAÍZ AL IDIOMA PRINCIPAL
+# -----------------------------------------------------------
+[[redirects]]
+  from = "/"
+  to = "/es/"
+  status = 301
+
+# -----------------------------------------------------------
+# REDIRECCIONES 301: URLS LEGACY SIN IDIOMA
 # -----------------------------------------------------------
 [[redirects]]
   from = "/en"
@@ -95,12 +103,16 @@
   to = "/es/validador-dni"
   status = 301
 
-# Función para inyectar el menú en todas las páginas
+# -----------------------------------------------------------
+# EDGE FUNCTIONS
+# -----------------------------------------------------------
+
+# Inyecta el menú de navegación en todas las páginas
 [[edge_functions]]
   function = "inyectar-nav"
   path = "/*"
 
-# Función Portero: SOLO actúa en la entrada de la web
+# Detecta el idioma del usuario y redirige a /es/ o /en/
 [[edge_functions]]
   function = "languageredirect"
   path = "/"
