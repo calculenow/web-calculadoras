@@ -215,6 +215,13 @@
   </url>
 
   <url>
+    <loc>https://calculenow.com/es/calculadora-irpf-foral</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-irpf-foral"/>
+    <lastmod>2026-03-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://calculenow.com/es/contacto</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/contacto"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/contact"/>

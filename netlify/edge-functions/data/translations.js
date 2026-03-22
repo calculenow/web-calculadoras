@@ -79,6 +79,7 @@ export const i18n = {
       admin: [
         { id: "dni",       url: "/es/validador-dni",                  name: "🪪 Validador DNI" },
         { id: "irpf",      url: "/es/calculadora-irpf",               name: "📄 IRPF" },
+        { id: "irpf-foral", url: "/es/calculadora-irpf-foral",        name: "🏛️ IRPF Foral (Navarra/PV)" },
         // Próximamente:
         // { id: "iban",   url: "/es/validador-iban",                  name: "🏛️ Validador IBAN" },
         // { id: "niw",    url: "/es/validador-niw",                   name: "🏢 NIW empresa" },

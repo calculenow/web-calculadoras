@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calculadora IRPF Foral 2025 — Navarra y País Vasco",
+      "url": "https://calculenow.com/es/calculadora-irpf-foral",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "description": "Calcula tu IRPF 2025 si resides en Navarra o en el País Vasco (Álava, Bizkaia o Gipuzkoa). Tramos forales actualizados con simulador de retención."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Por qué el IRPF es diferente en Navarra y País Vasco?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Navarra y País Vasco tienen régimen foral propio reconocido por la Constitución y el Estatuto de Autonomía. Gestionan y recaudan sus propios impuestos mediante el Convenio Económico (Navarra) y el Concierto Económico (País Vasco), completamente independientes del sistema fiscal común."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Son iguales los tramos de IRPF en Álava, Bizkaia y Gipuzkoa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Están parcialmente armonizados pero no son idénticos. Los tres territorios históricos comparten una estructura similar con 8 tramos que van del 23% al 49%, aunque pueden existir diferencias en tramos concretos y deducciones aplicables."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿El IRPF foral es más alto o más bajo que el común?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Depende del nivel de ingresos. Para rentas bajas y medias el IRPF foral puede resultar más alto (los tramos empiezan más arriba, al 23%). Sin embargo, los territorios forales cuentan con deducciones y mínimos propios que pueden compensar la diferencia. Para rentas muy altas, el tipo máximo foral (49% en País Vasco, 52% en Navarra) es superior al estatal (47%)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué ocurre si vivo en Navarra pero trabajo en Madrid?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Se aplica la normativa del territorio donde tengas tu residencia habitual, no donde trabajes. Si resides más de 183 días al año en Navarra, tributa por el régimen foral navarro independientemente de dónde esté tu empresa."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <title>Calculadora IRPF Foral 2025 — Navarra y País Vasco | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/es/calculadora-irpf-foral" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-irpf-foral" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/calculadora-irpf-foral" />
+
+    <meta name="description" content="Calcula tu IRPF 2025 si vives en Navarra o en el País Vasco. Tramos forales actualizados para Navarra, Álava, Bizkaia y Gipuzkoa. Gratis y sin registro." />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/es/calculadora-irpf-foral" />
+    <meta property="og:title" content="Calculadora IRPF Foral 2025 — Navarra y País Vasco | Calculenow" />
+    <meta property="og:description" content="Calcula tu IRPF 2025 si vives en Navarra o en el País Vasco. Tramos forales actualizados." />
+    <meta property="og:image" content="https://calculenow.com/images/og-es.jpg" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Calculadora IRPF Foral 2025 — Navarra y País Vasco" />
+    <meta name="twitter:description" content="Calcula tu IRPF foral 2025 para Navarra, Álava, Bizkaia y Gipuzkoa. Gratis." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-es.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
+    <header></header>
+
+    <main>
+      <div class="card irpf-card">
+        <h1>Calculadora IRPF Foral 2025</h1>
+        <p>Calcula tu IRPF si resides en <strong>Navarra</strong> o en el <strong>País Vasco</strong> (Álava, Bizkaia o Gipuzkoa). Estos territorios tienen un sistema fiscal propio completamente distinto al régimen común.</p>
+
+        <div class="irpf-foral-nota" style="display:block; margin-bottom: 1.5rem;">
+          🏛️ ¿Resides en otra comunidad? Usa la <a href="/es/calculadora-irpf"><strong>calculadora de IRPF de régimen común</strong></a>.
+        </div>
+
+        <div class="form-group">
+          <label for="territorio">Territorio foral</label>
+          <select id="territorio" class="field">
+            <option value="">— Selecciona tu territorio —</option>
+            <optgroup label="País Vasco">
+              <option value="pais_vasco">Álava / Bizkaia / Gipuzkoa</option>
+            </optgroup>
+            <optgroup label="Navarra">
+              <option value="navarra">Comunidad Foral de Navarra</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="salario-bruto">Salario bruto anual (€)</label>
+            <input id="salario-bruto" class="field" type="number" placeholder="Ej: 35000" min="0" step="100" />
+          </div>
+          <div class="form-group">
+            <label for="edad">Edad</label>
+            <select id="edad" class="field">
+              <option value="menor65">Menor de 65 años</option>
+              <option value="65_75">Entre 65 y 75 años</option>
+              <option value="mayor75">Mayor de 75 años</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="situacion">Situación familiar</label>
+            <select id="situacion" class="field">
+              <option value="soltero">Soltero/a sin hijos</option>
+              <option value="casado">Casado/a sin hijos</option>
+              <option value="hijos1">1 hijo/a a cargo</option>
+              <option value="hijos2">2 hijos/as a cargo</option>
+              <option value="hijos3">3 o más hijos/as a cargo</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="retencion-actual">Retención actual en nómina (% o 0 si no sabes)</label>
+            <input id="retencion-actual" class="field" type="number" placeholder="Ej: 20" min="0" max="52" step="0.1" />
+          </div>
+        </div>
+
+        <button class="btn btn-irpf" id="btn-calcular" type="button">Calcular IRPF foral</button>
+
+        <div class="result irpf-result" id="irpf-result"></div>
+
+        <p class="disclaimer-text">
+          * Cálculo orientativo basado en los tramos forales de 2025. Los regímenes forales tienen sus propias deducciones, mínimos y reducciones que pueden diferir significativamente del régimen común. Para una liquidación exacta consulta con un asesor fiscal o las haciendas forales correspondientes.
+        </p>
+
+        <div class="related-tools">
+          <p><strong>Otras herramientas útiles:</strong></p>
+          <ul>
+            <li>
+              <a href="/es/calculadora-irpf">
+                ➔ <strong>IRPF Régimen Común:</strong> Para las otras 15 comunidades autónomas.
+              </a>
+            </li>
+            <li>
+              <a href="/es/calculadora-prestamos">
+                ➔ <strong>Calculadora de Préstamos:</strong> Calcula tu cuota mensual e intereses.
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="legal-content">
+        <h2>¿Por qué el IRPF es diferente en Navarra y País Vasco?</h2>
+        <p>El origen de los regímenes forales se remonta a los fueros históricos de estos territorios, reconocidos y protegidos por la Constitución Española de 1978 y el Estatuto de Gernika. Navarra y los tres territorios históricos del País Vasco tienen la capacidad de mantener, establecer y regular su propio sistema tributario.</p>
+        <ul>
+          <li><strong>Navarra</strong> gestiona sus impuestos a través del <em>Convenio Económico</em> con el Estado. Tiene su propia ley foral del IRPF con 11 tramos y un tipo máximo del 52%.</li>
+          <li><strong>País Vasco</strong> (Álava, Bizkaia y Gipuzkoa) opera a través del <em>Concierto Económico</em>. Cada territorio histórico tiene su propia norma foral, aunque están parcialmente armonizados entre sí. Escala de 8 tramos con tipo máximo del 49%.</li>
+        </ul>
+
+        <h2>Tramos IRPF foral 2025 — País Vasco</h2>
+        <p>Los tres territorios históricos comparten una estructura similar. Esta es la escala general aplicable a rendimientos del trabajo:</p>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>Base liquidable hasta (€)</th><th>Tipo aplicable</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>16.030 €</td><td>23 %</td></tr>
+              <tr><td>32.060 €</td><td>28 %</td></tr>
+              <tr><td>48.090 €</td><td>35 %</td></tr>
+              <tr><td>68.690 €</td><td>40 %</td></tr>
+              <tr><td>95.150 €</td><td>45 %</td></tr>
+              <tr><td>126.850 €</td><td>46 %</td></tr>
+              <tr><td>184.950 €</td><td>47 %</td></tr>
+              <tr><td>En adelante</td><td>49 %</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Tramos IRPF foral 2025 — Navarra</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>Base liquidable hasta (€)</th><th>Tipo aplicable</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>4.080 €</td><td>13 %</td></tr>
+              <tr><td>9.180 €</td><td>22 %</td></tr>
+              <tr><td>19.380 €</td><td>25 %</td></tr>
+              <tr><td>32.640 €</td><td>28 %</td></tr>
+              <tr><td>46.920 €</td><td>36,5 %</td></tr>
+              <tr><td>61.200 €</td><td>41,5 %</td></tr>
+              <tr><td>81.600 €</td><td>44 %</td></tr>
+              <tr><td>127.500 €</td><td>47 %</td></tr>
+              <tr><td>178.500 €</td><td>49 %</td></tr>
+              <tr><td>306.000 €</td><td>50,5 %</td></tr>
+              <tr><td>En adelante</td><td>52 %</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>¿Dónde tributo si vivo en un sitio y trabajo en otro?</h2>
+        <p>La normativa aplicable depende de tu <strong>residencia habitual</strong>, no de dónde esté tu empresa ni donde prestés tus servicios. Se considera que resides en un territorio si has permanecido allí más de 183 días durante el año fiscal o si allí está el núcleo principal de tus actividades económicas o intereses.</p>
+      </section>
+
+      <div class="faq-section">
+        <h3>Preguntas frecuentes sobre el IRPF foral</h3>
+
+        <details>
+          <summary>¿Por qué el IRPF es diferente en Navarra y País Vasco?</summary>
+          <div class="faq-content">
+            <p>Tienen régimen foral propio reconocido por la Constitución. Gestionan sus propios impuestos mediante el Convenio Económico (Navarra) y el Concierto Económico (País Vasco), con total autonomía fiscal.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Son iguales los tramos en Álava, Bizkaia y Gipuzkoa?</summary>
+          <div class="faq-content">
+            <p>Están armonizados pero no son idénticos. Los tres comparten una estructura de 8 tramos del 23% al 49%, aunque pueden existir diferencias en deducciones y algunos parámetros concretos.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿El IRPF foral es más alto o más bajo que el común?</summary>
+          <div class="faq-content">
+            <p>Depende del nivel de ingresos y las deducciones aplicables. Para rentas bajas y medias los tipos marginales forales son más altos, pero los territorios forales tienen deducciones propias que pueden compensarlo. Para rentas muy altas, el tipo máximo foral es superior (49%-52% frente al 47% estatal).</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Qué ocurre si vivo en Navarra pero trabajo en Madrid?</summary>
+          <div class="faq-content">
+            <p>Tributa por el régimen foral navarro. La normativa aplicable es la del territorio de residencia habitual, no donde esté el empleador ni donde se realice el trabajo.</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>Utilizamos cookies para mejorar tu experiencia. <a href="/es/cookies">Más información</a></p>
+        <div class="cookie-buttons">
+          <button id="btn-accept-all">Aceptar todas</button>
+          <button id="btn-reject-all">Rechazar</button>
+          <button id="btn-open-settings">Configurar</button>
+        </div>
+      </div>
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Configuración de cookies</strong></p>
+        <label><input type="checkbox" id="check-analytics" /> Analíticas</label>
+        <label><input type="checkbox" id="check-marketing" /> Marketing</label>
+        <div class="cookie-buttons">
+          <button id="btn-back">← Volver</button>
+          <button id="btn-save-settings">Guardar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/irpf-foral.js" defer></script>
+  </body>
+</html>
