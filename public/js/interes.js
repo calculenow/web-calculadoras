@@ -3,15 +3,22 @@
  * Lógica de cálculo, interactividad y gráficos SVG
  */
 
+// Constante global de idioma
+const isEn = window.location.pathname.includes('/en/');
+
+// Valores de respaldo
 let datosMercado = {
   indices: { sp500: 10.0, nasdaq: 12.0 },
-  macro: { ahorro: 3.5 },
+  macro: { ahorro: 3.5, inflacion: 2.5 },
   last_update: "Febrero 2026"
 };
 
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    const response = await fetch('/data/mercado.json');
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 5000);
+    const response = await fetch('/data/mercado.json', { signal: controller.signal });
+    clearTimeout(timeout);
     if (response.ok) {
       datosMercado = await response.json();
     }
@@ -20,6 +27,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   actualizarTextosBotones();
+  actualizarFecha();
   initListeners();
 });
 
@@ -42,7 +50,6 @@ function initListeners() {
     if (perfil === 'moderado') inputInteres.value = datosMercado.indices.sp500;
     if (perfil === 'tecnologico') inputInteres.value = datosMercado.indices.nasdaq;
 
-    // Feedback visual usando clase CSS en vez de estilo inline
     inputInteres.classList.add('field--highlight');
     setTimeout(() => inputInteres.classList.remove('field--highlight'), 300);
 
@@ -78,7 +85,16 @@ function calcularInteres() {
   const totalInvertido = capital + totalAportado;
   const beneficios = totalFinal - totalInvertido;
 
-  renderizarResultados(totalFinal, totalInvertido, beneficios, capital, totalAportado);
+  // Rentabilidad real descontando inflación
+  const tasaReal = tasaAnual - datosMercado.macro.inflacion;
+  const tasaMensualReal = (tasaReal / 100) / 12;
+  const capitalFinalReal = capital * Math.pow(1 + tasaMensualReal, mesesTotales);
+  const aportacionesFinalesReal = tasaMensualReal > 0
+    ? aportacion * ((Math.pow(1 + tasaMensualReal, mesesTotales) - 1) / tasaMensualReal)
+    : aportacion * mesesTotales;
+  const totalFinalReal = capitalFinalReal + aportacionesFinalesReal;
+
+  renderizarResultados(totalFinal, totalInvertido, beneficios, capital, totalAportado, totalFinalReal);
   dibujarGrafico(capital, totalAportado, beneficios);
 }
 
@@ -89,11 +105,11 @@ function dibujarGrafico(inicial, aportado, intereses) {
   const total = inicial + aportado + intereses;
   if (total <= 0) return;
 
+  // Normalizamos para evitar gaps por decimales de coma flotante
   const wInicial = (inicial / total) * 100;
   const wAportado = (aportado / total) * 100;
-  const wIntereses = (intereses / total) * 100;
+  const wIntereses = 100 - wInicial - wAportado;
 
-  const isEn = window.location.pathname.includes('/en/');
   const labelInic = isEn ? 'Initial' : 'Inicial';
   const labelApor = isEn ? 'Invested' : 'Aportado';
   const labelInt = isEn ? 'Interest' : 'Interés';
@@ -112,32 +128,38 @@ function dibujarGrafico(inicial, aportado, intereses) {
   `;
 }
 
-function renderizarResultados(total, invertido, beneficios, inicial, aportaciones) {
+function renderizarResultados(total, invertido, beneficios, inicial, aportaciones, totalReal) {
   const resDiv = document.querySelector('.result-interes');
   if (!resDiv) return;
 
   const labels = resDiv.dataset;
-  const isEn = window.location.pathname.includes('/en/');
   const clean = (s) => s ? s.replace(/:/g, '').trim() : '';
 
   const tIni = clean(labels.labelInitial) || (isEn ? "Initial investment" : "Inversión inicial");
   const tApo = clean(labels.labelContrib) || (isEn ? "Total contributions" : "Total aportaciones");
   const tInt = clean(labels.labelProfit) || (isEn ? "Interest generated" : "Intereses generados");
   const tFin = clean(labels.labelFinal) || (isEn ? "Estimated Final Capital" : "Capital Final Estimado");
+  const tReal = isEn
+    ? `Real return (inflation ${datosMercado.macro.inflacion}%)`
+    : `Rentabilidad real (inflación ${datosMercado.macro.inflacion}%)`;
   const bCopy = labels.btnCopy || (isEn ? "Copy Result" : "Copiar Resultado");
 
   resDiv.innerHTML = `
     <div class="resumen-calculo">
       <ul>
-        <li><span>${tIni}:</span> <strong>${formatEuro(inicial)}</strong></li>
-        <li><span>${tApo}:</span> <strong>${formatEuro(aportaciones)}</strong></li>
-        <li><span>${tInt}:</span> <strong style="color: var(--success)">${formatEuro(beneficios)}</strong></li>
+        <li><span>${tIni}:</span> <strong>${formatMoneda(inicial)}</strong></li>
+        <li><span>${tApo}:</span> <strong>${formatMoneda(aportaciones)}</strong></li>
+        <li><span>${tInt}:</span> <strong style="color: var(--success)">${formatMoneda(beneficios)}</strong></li>
         <li class="total-destacado">
           <span>${tFin}:</span>
-          <strong>${formatEuro(total)}</strong>
+          <strong>${formatMoneda(total)}</strong>
+        </li>
+        <li class="total-real">
+          <span>${tReal}:</span>
+          <strong>${formatMoneda(totalReal)}</strong>
         </li>
       </ul>
-      <button class="btn-copy" data-copy-text="${tIni}: ${formatEuro(inicial)}&#10;${tApo}: ${formatEuro(aportaciones)}&#10;${tInt}: ${formatEuro(beneficios)}&#10;---------------------------&#10;${tFin}: ${formatEuro(total)}">
+      <button class="btn-copy" data-copy-text="${tIni}: ${formatMoneda(inicial)}&#10;${tApo}: ${formatMoneda(aportaciones)}&#10;${tInt}: ${formatMoneda(beneficios)}&#10;---------------------------&#10;${tFin}: ${formatMoneda(total)}&#10;${tReal}: ${formatMoneda(totalReal)}">
         ${bCopy}
       </button>
     </div>
@@ -157,12 +179,12 @@ function renderizarResultados(total, invertido, beneficios, inicial, aportacione
   });
 }
 
-function formatEuro(val) {
-  const isEn = window.location.pathname.includes('/en/');
+function formatMoneda(val) {
   const decimales = val < 1000 ? 2 : 0;
   return val.toLocaleString(isEn ? 'en-US' : 'es-ES', {
     style: 'currency',
     currency: isEn ? 'USD' : 'EUR',
+    minimumFractionDigits: decimales,
     maximumFractionDigits: decimales
   });
 }
@@ -171,9 +193,15 @@ function actualizarTextosBotones() {
   const bAhorro = document.getElementById('btn-ahorro');
   const bMod = document.getElementById('btn-moderado');
   const bTech = document.getElementById('btn-tech');
-  const isEn = window.location.pathname.includes('/en/');
 
   if (bAhorro) bAhorro.innerHTML = `${isEn ? '🏦 Savings' : '🏦 Ahorro'} <span>${datosMercado.macro.ahorro}%</span>`;
   if (bMod) bMod.innerHTML = `📈 S&P 500 <span>${datosMercado.indices.sp500}%</span>`;
   if (bTech) bTech.innerHTML = `🚀 NASDAQ <span>${datosMercado.indices.nasdaq}%</span>`;
+}
+
+function actualizarFecha() {
+  const el = document.getElementById('fecha-actualizacion');
+  if (el) el.textContent = isEn
+    ? `Historical averages updated: ${datosMercado.last_update}`
+    : `Medias históricas actualizadas: ${datosMercado.last_update}`;
 }

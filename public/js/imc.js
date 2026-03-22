@@ -40,10 +40,10 @@ document.addEventListener("DOMContentLoaded", () => {
         
         resultDiv.innerHTML = `
             ${labels.labelRes} <strong>${imc}</strong> (${mensaje})
-            <button class="minimal-copy" style="margin-left: 10px; border: none; background: none; cursor: pointer; padding: 0; font-size: 0.9rem;" title="${labels.btnCopy}">
+            <button class="minimal-copy" title="${labels.btnCopy}">
                 📋
             </button>
-        `;
+            `;
 
         // Lógica de copiar (SOLO el texto del resultado)
         resultDiv.querySelector('.minimal-copy').addEventListener('click', function() {

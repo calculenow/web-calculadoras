@@ -33,10 +33,20 @@
     transform: scale(0.95);
   }
 
+
   @media (min-width: 993px) {
     position: absolute;
     top: 20px;
     right: 50px;
     margin: 0;
+  }
+}
+
+#theme-toggle {
+  opacity: 0;
+  transition: opacity 0.1s ease;
+
+  &.ready {
+    opacity: 1;
   }
 }

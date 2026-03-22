@@ -17,6 +17,7 @@ $green-new: #22c55e;
   --bg-nav: #f5f5f5;
   --accent: #{$blue-dark};
   --success: #{$green-new}; 
+  --danger: #e11d48;
 }
 
 /* Modo oscuro */
@@ -32,4 +33,5 @@ body.dark, html.dark {
   --bg-nav: #222222;
   --accent: #4f9fff;
   --success: #4ade80; 
+  --danger: #fb7185;
 }

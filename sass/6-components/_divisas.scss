@@ -1,5 +1,4 @@
 // 6-components/_divisas.scss
-// Estilos del conversor de divisas / monedas.
 
 .divisas-controls {
   display: flex;
@@ -21,7 +20,6 @@
   }
 }
 
-// Botón de intercambio de divisas (⇄)
 .btn-swap {
   background: var(--input-bg);
   border: 1px solid var(--border);
@@ -37,6 +35,10 @@
   transition: all 0.2s ease;
   margin-bottom: 1rem;
 
+  @media (min-width: 600px) {
+    margin-bottom: 0.35rem;
+  }
+
   &:hover {
     border-color: var(--primary);
     transform: rotate(180deg);
@@ -46,4 +48,19 @@
   &:active {
     transform: scale(0.9) rotate(180deg);
   }
+}
+
+.divisas-tasa {
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 5px;
+}
+
+.divisas-resultado {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--primary);
+  margin-bottom: 15px;
 }

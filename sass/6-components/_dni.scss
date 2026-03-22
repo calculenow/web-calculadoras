@@ -1,0 +1,25 @@
+.dni-letra {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary);
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+.dni-valido {
+  border-color: var(--success);
+}
+
+.dni-valido-texto {
+  color: var(--success);
+  font-weight: bold;
+}
+
+.dni-invalido {
+  border-color: var(--danger);
+}
+
+.dni-invalido-texto {
+  color: var(--danger);
+  font-weight: bold;
+}

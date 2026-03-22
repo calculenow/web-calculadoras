@@ -143,3 +143,9 @@
     border-color: var(--primary);
   }
 }
+.resumen-titulo {
+  font-weight: bold;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 5px;
+  margin-bottom: 0.75rem;
+}

@@ -1,56 +1,67 @@
 // ==================== FORMULARIO DE CONTACTO ====================
-(function() {
-    if (typeof emailjs !== 'undefined') {
-        emailjs.init({ publicKey: "ZaG9iF5eQ1j7txAUR" });
-    }
+
+const isEn = window.location.pathname.includes('/en/');
+
+(function () {
+  if (typeof emailjs !== 'undefined') {
+    emailjs.init({ publicKey: "ZaG9iF5eQ1j7txAUR" });
+  }
 })();
 
 document.addEventListener("DOMContentLoaded", () => {
-    const contactForm = document.getElementById('contact-form');
-    const formStatus = document.getElementById('form-status');
+  const contactForm = document.getElementById('contact-form');
+  const formStatus = document.getElementById('form-status');
 
-    if (contactForm) {
-        const btnEnviar = contactForm.querySelector('button[type="submit"]');
+  if (!contactForm || !formStatus) return;
 
-        contactForm.addEventListener('submit', function(event) {
-            event.preventDefault();
+  const btnEnviar = contactForm.querySelector('button[type="submit"]');
 
-            // Limpieza de estados previos
-            formStatus.textContent = '';
-            formStatus.className = 'form-status';
+  const validarFormulario = (campos) => {
+    return campos.every(campo => campo && campo.value.trim() !== '');
+  };
 
-            const campos = [
-                document.getElementById('nombre'),
-                document.getElementById('email'),
-                document.getElementById('mensaje')
-            ];
+  contactForm.addEventListener('submit', function (event) {
+    event.preventDefault();
 
-            // Validación de texto/email del core.js
-            if (!validarFormulario(campos)) {
-                formStatus.textContent = 'Por favor, rellena los campos correctamente.';
-                formStatus.classList.add('error-text');
-                return;
-            }
+    formStatus.textContent = '';
+    formStatus.className = 'form-status';
 
-            const originalText = btnEnviar.textContent;
-            btnEnviar.textContent = 'Enviando...';
-            btnEnviar.disabled = true;
+    const campos = [
+      document.getElementById('nombre'),
+      document.getElementById('email'),
+      document.getElementById('mensaje')
+    ];
 
-            emailjs.sendForm('service_a49ave5', 'template_w1oi5ir', this)
-                .then(() => {
-                    formStatus.textContent = '¡Mensaje enviado con éxito!';
-                    formStatus.classList.add('success-text');
-                    contactForm.reset();
-                })
-                .catch((error) => {
-                    console.error('EmailJS Error:', error);
-                    formStatus.textContent = 'Error al enviar. Inténtalo de nuevo.';
-                    formStatus.classList.add('error-text');
-                })
-                .finally(() => {
-                    btnEnviar.textContent = originalText;
-                    btnEnviar.disabled = false;
-                });
-        });
+    if (!validarFormulario(campos)) {
+      formStatus.textContent = isEn
+        ? 'Please fill in all fields correctly.'
+        : 'Por favor, rellena los campos correctamente.';
+      formStatus.classList.add('error-text');
+      return;
     }
+
+    const originalText = btnEnviar.textContent;
+    btnEnviar.textContent = isEn ? 'Sending...' : 'Enviando...';
+    btnEnviar.disabled = true;
+
+    emailjs.sendForm('service_a49ave5', 'template_w1oi5ir', this)
+      .then(() => {
+        formStatus.textContent = isEn
+          ? 'Message sent successfully!'
+          : '¡Mensaje enviado con éxito!';
+        formStatus.classList.add('success-text');
+        contactForm.reset();
+      })
+      .catch((error) => {
+        console.error('EmailJS Error:', error);
+        formStatus.textContent = isEn
+          ? 'Error sending message. Please try again.'
+          : 'Error al enviar. Inténtalo de nuevo.';
+        formStatus.classList.add('error-text');
+      })
+      .finally(() => {
+        btnEnviar.textContent = originalText;
+        btnEnviar.disabled = false;
+      });
+  });
 });

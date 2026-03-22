@@ -95,4 +95,25 @@ button.btn {
     margin-top: 4px;
     flex-shrink: 0;
   }
+
+  a {
+    color: var(--primary);
+    text-decoration: underline;
+  }
+}
+
+// --- Estado del formulario de contacto ---
+.form-status {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+
+  &.success-text {
+    color: var(--success);
+  }
+
+  &.error-text {
+    color: var(--danger);
+  }
 }

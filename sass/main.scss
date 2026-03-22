@@ -41,9 +41,17 @@
 @import '6-components/calculator-ui';
 
 // Calculadoras con estilos propios
-@import '6-components/imc-bar';
+@import '6-components/imc';
+@import '6-components/calorias';
+@import '6-components/hidratacion';
 @import '6-components/iva';
 @import '6-components/divisas';
+@import '6-components/interes';
+@import '6-components/prestamos';
+@import '6-components/descuentos';
+@import '6-components/conversion';
+@import '6-components/dni';
+
 
 // Elementos de soporte
 @import '6-components/search';

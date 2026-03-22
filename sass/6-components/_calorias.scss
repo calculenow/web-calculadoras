@@ -1,0 +1,33 @@
+.calorias-tdee {
+  font-size: 1.5rem;
+  color: #f59e0b;
+  font-weight: 800;
+}
+
+.calorias-objetivos {
+  margin-top: 20px;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.calorias-objetivos-titulo {
+  margin-bottom: 8px;
+  font-weight: bold;
+  opacity: 0.9;
+}
+
+.calorias-objetivo-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.calorias-footer {
+  font-size: 0.75rem;
+  margin-top: 15px;
+  font-style: italic;
+  opacity: 0.7;
+  line-height: 1.3;
+}
