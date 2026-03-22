@@ -1,178 +1,283 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <script>
-    (function() {
-      const theme = localStorage.getItem('theme');
-      if (theme === 'dark') {
-        document.documentElement.classList.add('dark');
-      }
-    })();
-  </script>
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Tip Calculator",
-    "operatingSystem": "All",
-    "applicationCategory": "UtilitiesApplication",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "description": "Calculate the fair tip and split the bill among several friends quickly and easily."
-  }
-  </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Tip Calculator",
+      "url": "https://calculenow.com/en/tip-calculator",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Calculate the fair tip and split the bill among several friends quickly and easily."
+    }
+    </script>
 
-  <title>Tip Calculator - Split the Bill & % Tip | Calculenow</title>
-  <link rel="canonical" href="https://calculenow.com/en/tip-calculator">
-  <meta name="description" content="Split the restaurant bill fairly. Calculate the ideal tip and how much each person should pay without errors or complicated math.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Should I leave a tip if service is already included?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In some countries, the service charge is already included in the bill. In that case, an additional tip is entirely optional and reserved for cases where the service was exceptional."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How to round the payment easily?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If the calculator shows that each person should pay $21.35, it's common to round up to $22 to avoid dealing with loose change, leaving the excess as an extra gratuity."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if someone doesn't want to leave a tip?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Since it is a voluntary act in most countries, the calculator allows you to enter 0 in the percentage field to simply divide the net amount of the bill among those present."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much should you tip in the US?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In the US, tipping is a deeply rooted social norm. The standard is 15-20% for restaurant service. Servers typically earn a low base wage and rely on tips to complete their income. Not leaving a tip is considered rude."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is tipping mandatory in Europe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, tipping is voluntary in most European countries. In Spain and France, 5-10% is common for good service. In Germany, rounding up the bill is typical. In Japan, tipping is not customary and can even be considered offensive."
+          }
+        }
+      ]
+    }
+    </script>
 
-  <link rel="icon" type="image/x-icon" href="../favicon.ico">
-  <link rel="stylesheet" href="../css/styles.css"/>
-  
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)">
-</head>
-<body>
-  <header></header>
-  <main>
-    <div class="card tip-card">
-      <h1>Tip Calculator</h1>
-      
-      <div class="calculator-ui">
-        <div class="form-group">
-          <label for="cuenta-total">Total Bill ($)</label>
-          <input id="cuenta-total" class="field cuenta-total" type="number" step="0.01" placeholder="e.g.: 85.50">
+    <title>Tip Calculator - Split the Bill & Calculate % Tip | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/en/tip-calculator" />
+    <link rel="alternate" hreflang="en" href="https://calculenow.com/en/tip-calculator" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-propinas" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/calculadora-propinas" />
+
+    <meta name="description" content="Split the restaurant bill fairly. Calculate the ideal tip and how much each person should pay without errors or complicated math. Free and instant." />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/en/tip-calculator" />
+    <meta property="og:title" content="Tip Calculator - Split the Bill & Calculate % Tip | Calculenow" />
+    <meta property="og:description" content="Split the restaurant bill fairly. Calculate the ideal tip and how much each person should pay. Free and instant." />
+    <meta property="og:image" content="https://calculenow.com/images/og-en.jpg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Tip Calculator - Split the Bill & Calculate % Tip" />
+    <meta name="twitter:description" content="Split the restaurant bill fairly and calculate the ideal tip per person. Free and instant." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-en.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
+    <header></header>
+
+    <main>
+      <div class="card tip-card">
+        <h1>Tip Calculator</h1>
+
+        <div class="calculator-ui">
+          <div class="form-group">
+            <label for="cuenta-total">Total Bill ($)</label>
+            <input id="cuenta-total" class="field cuenta-total" type="number" step="0.01" placeholder="e.g.: 85.50" />
+          </div>
+
+          <div class="form-group">
+            <label for="propina-pct">Tip (%)</label>
+            <input id="propina-pct" class="field propina-pct" type="number" step="1" value="15" placeholder="e.g.: 15" />
+          </div>
+
+          <div class="form-group">
+            <label for="personas">Number of People</label>
+            <input id="personas" class="field personas" type="number" step="1" value="1" />
+          </div>
+
+          <button class="btn btn-tip">Calculate Split</button>
+
+          <div class="result result-tip"
+            data-btn-copy="Copy Result"
+            data-label-total="Each person pays"
+            data-label-bill="Original bill"
+            data-label-tip="Tip">
+          </div>
         </div>
 
-        <div class="form-group">
-          <label for="propina-pct">Tip (%)</label>
-          <input id="propina-pct" class="field propina-pct" type="number" step="1" value="15" placeholder="e.g.: 15">
-        </div>
-
-        <div class="form-group">
-          <label for="personas">Number of People</label>
-          <input id="personas" class="field personas" type="number" step="1" value="1">
-        </div>
-
-        <button class="btn btn-tip">Calculate Split</button>
-
-        <div class="result result-tip" 
-             data-btn-copy="Copy Result"
-             data-label-total="Each person pays"
-             data-label-bill="Original bill"
-             data-label-tip="Tip">
+        <div class="related-tools">
+          <p><strong>You might also be interested in:</strong></p>
+          <ul>
+            <li>
+              <a href="/en/percentage-calculator">
+                ➔ <strong>Percentage Calculator:</strong> For other proportional calculations.
+              </a>
+            </li>
+            <li>
+              <a href="/en/vat-calculator">
+                ➔ <strong>VAT Calculator:</strong> Easily breakdown the tax from your receipt.
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
 
-      <div class="related-tools">
-        <p><strong>You might also be interested in:</strong></p>
-        <ul>
-          <li>
-            <a href="/en/percentage-calculator">
-              ➔ <strong>Percentage Calculator:</strong> For other proportional calculations.
-            </a>
-          </li>
-          <li>
-            <a href="/en/vat-calculator">
-              ➔ <strong>VAT Calculator:</strong> Easily breakdown the tax from your receipt.
-            </a>
-          </li>
-        </ul>
+      <section class="legal-content">
+        <h2>How to split a bill with a tip?</h2>
+        <p>Splitting expenses at a group dinner can be a hassle. Our tool calculates the desired gratuity percentage, adds it to the total, and divides it equally among the guests.</p>
+
+        <h3>Standard tip percentages by country</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Country</th>
+                <th>Typical Tip</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>United States</td><td>15 – 20%</td><td>Practically a social obligation</td></tr>
+              <tr><td>United Kingdom</td><td>10 – 12.5%</td><td>Sometimes included as "service charge"</td></tr>
+              <tr><td>Canada</td><td>15 – 20%</td><td>Similar to the US standard</td></tr>
+              <tr><td>Spain</td><td>5 – 10%</td><td>Voluntary, left in cash</td></tr>
+              <tr><td>France</td><td>5 – 10%</td><td>Service charge included by law</td></tr>
+              <tr><td>Japan</td><td>0%</td><td>Tipping can be considered offensive</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Formula for per-person calculation</h3>
+        <p>To get the individual amount, we add the service cost to the bill and divide by the number of guests:</p>
+
+        <div class="formule">
+          <strong>Total per Person = (Bill + (Bill × % Tip / 100)) / No. of People</strong>
+        </div>
+      </section>
+
+      <div class="faq-section">
+        <h3>FAQs about restaurant payments</h3>
+
+        <details>
+          <summary>Should I leave a tip if service is already included?</summary>
+          <div class="faq-content">
+            <p>In some countries, the "service charge" is already included in the bill. In that case, an additional tip is entirely optional and reserved for cases where the service was exceptional.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>How to round the payment easily?</summary>
+          <div class="faq-content">
+            <p>If the calculator shows that each person should pay $21.35, it's common to round up to $22 to avoid dealing with loose change, leaving the excess as an extra gratuity.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>What if someone doesn't want to leave a tip?</summary>
+          <div class="faq-content">
+            <p>Since it is a voluntary act in most countries, the calculator allows you to enter "0" in the percentage field to simply divide the net amount of the bill among those present.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>How much should you tip in the US?</summary>
+          <div class="faq-content">
+            <p>In the US, tipping is a deeply rooted social norm. The standard is 15-20% for restaurant service. Servers typically earn a low base wage and rely on tips to complete their income. Not leaving a tip is considered rude.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Is tipping mandatory in Europe?</summary>
+          <div class="faq-content">
+            <p>No, tipping is voluntary in most European countries. In Spain and France, 5-10% is common for good service. In Germany, rounding up the bill is typical. In Japan, tipping is not customary and can even be considered offensive.</p>
+          </div>
+        </details>
       </div>
-    </div> 
+    </main>
 
-    <section class="legal-content">
-      <h2>How to split a bill with a tip?</h2>
-      <p>Splitting expenses at a group dinner can be a hassle. Our tool calculates the desired gratuity percentage, adds it to the total, and divides it equally among the guests.</p>
-      
-      <h3>What is a standard tip?</h3>
-      <p>While it depends on the country, in the US, a tip is standard and usually ranges between <strong>15-20%</strong>. In many European countries, it is voluntary and often around 5-10% for good service.</p>
+    <footer></footer>
 
-      <h3>Formula for per-person calculation</h3>
-      <p>To get the individual amount, we add the service cost to the bill and divide by the number of friends:</p>
-      <div class="formule">
-        <strong>Total per Person = (Bill + (Bill × % Tip / 100)) / No. of People</strong>
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>
+          We use cookies to improve your experience.
+          <a href="/en/cookies">View cookie policy</a>
+        </p>
+        <div class="cookie-buttons">
+          <button class="accept-cookies" id="btn-accept-all">Accept all</button>
+          <button class="reject-cookies" id="btn-reject-all">Reject all</button>
+          <button class="settings-cookies" id="btn-open-settings">Settings</button>
+        </div>
       </div>
-    </section>
 
-    <div class="faq-section">
-      <h3>FAQs about restaurant payments</h3>
-
-      <details>
-        <summary>Should I leave a tip if service is already included?</summary>
-        <div class="faq-content">
-          <p>In some countries, the "service charge" is already included in the bill. In that case, an additional tip is entirely optional and reserved for cases where the service was exceptional.</p>
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Customize your preferences:</strong></p>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-necessary" checked disabled />
+          <label>Necessary (Required)</label>
         </div>
-      </details>
-
-      <details>
-        <summary>How to round the payment easily?</summary>
-        <div class="faq-content">
-          <p>If the calculator shows that each person should pay $21.35, it's common to round up to $22 to avoid dealing with loose change, leaving the excess as an extra gratuity.</p>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-analytics" />
+          <label>Analytics (Google Analytics)</label>
         </div>
-      </details>
-
-      <details>
-        <summary>What if someone doesn't want to leave a tip?</summary>
-        <div class="faq-content">
-          <p>Since it is a voluntary act in most countries, the calculator allows you to enter "0" in the percentage field to simply divide the net amount of the bill among those present.</p>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-marketing" />
+          <label>Marketing (Advertising pixels)</label>
         </div>
-      </details>
+        <div class="cookie-buttons" style="margin-top:15px">
+          <button class="accept-cookies" id="btn-save-settings">Save settings</button>
+          <button class="settings-cookies" id="btn-back">Back</button>
+        </div>
+      </div>
     </div>
-  </main>
-  <footer></footer>
-   <div class="cookie-banner" id="cookie-banner">
-    <div id="cookie-main-view">
-      <p>
-        We use cookies to improve your experience.
-        <a href="/en/cookies">View cookie policy</a>
-      </p>
-      <div class="cookie-buttons">
-        <button class="accept-cookies" id="btn-accept-all">
-          Accept all
-        </button>
-        <button class="reject-cookies" id="btn-reject-all">
-          Reject all
-        </button>
-        <button class="settings-cookies" id="btn-open-settings">
-          Settings
-        </button>
-      </div>
-    </div>
 
-    <div id="cookie-settings-view" style="display: none">
-      <p><strong>Customize your preferences:</strong></p>
-      <div class="cookie-option">
-        <input type="checkbox" id="check-necessary" checked disabled />
-        <label>Necessary (Required)</label>
-      </div>
-      <div class="cookie-option">
-        <input type="checkbox" id="check-analytics" />
-        <label>Analytics (Google Analytics)</label>
-      </div>
-      <div class="cookie-option">
-        <input type="checkbox" id="check-marketing" />
-        <label>Marketing (Advertising pixels)</label>
-      </div>
-      <div class="cookie-buttons" style="margin-top: 15px">
-        <button class="accept-cookies" id="btn-save-settings">
-          Save settings
-        </button>
-        <button class="settings-cookies" id="btn-back">Back</button>
-      </div>
-    </div>
-  </div>
-
-  <script src="../js/layout.js"></script>
-  <script src="../js/buscador.js"></script>
-  <script src="../js/core.js"></script>
-  <script src="../js/propinas.js"></script>
-</body>
+    <script src="/js/ads.js" async defer></script>
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/buscador.js" defer></script>
+    <script src="/js/core.js" defer></script>
+    <script src="/js/propinas.js" defer></script>
+  </body>
 </html>

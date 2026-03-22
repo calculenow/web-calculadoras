@@ -14,35 +14,92 @@
     </script>
 
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "BMI Calculator (Body Mass Index)",
-        "operatingSystem": "All",
-        "applicationCategory": "HealthApplication",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "BMI Calculator (Body Mass Index)",
+      "url": "https://calculenow.com/en/bmi-calculator",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Calculate your Body Mass Index for free. Find out if you are at your ideal weight according to WHO standards."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is BMI the same for men and women?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, the formula and WHO ranges are the same for both sexes. However, it does not take into account that women usually have a higher percentage of body fat and men have more muscle mass."
+          }
         },
-        "description": "Calculate your Body Mass Index for free. Find out if you are at your ideal weight according to WHO standards."
-      }
+        {
+          "@type": "Question",
+          "name": "Why is BMI not accurate for athletes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "BMI only measures weight and height; it does not distinguish between fat and muscle. Since muscle weighs more than fat, an athlete with high muscle mass might get an overweight result without having actual excess fat."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What other indicators exist besides BMI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For a more complete analysis, professionals usually also measure waist circumference, body fat percentage (bioimpedance), and the waist-to-hip ratio."
+          }
+        }
+      ]
+    }
     </script>
 
     <title>Free BMI Calculator - Calculate Your Ideal Weight (WHO) | Calculenow</title>
-    <meta name="description" content="Discover your Body Mass Index (BMI) and if you are at your ideal weight according to the WHO. Free, fast, and easy-to-understand health calculator." />
     <link rel="canonical" href="https://calculenow.com/en/bmi-calculator" />
+    <link rel="alternate" hreflang="en" href="https://calculenow.com/en/bmi-calculator" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-imc" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/calculadora-imc" />
+
+    <meta name="description" content="Discover your Body Mass Index (BMI) and if you are at your ideal weight according to the WHO. Free, fast, and easy-to-understand health calculator." />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/en/bmi-calculator" />
+    <meta property="og:title" content="Free BMI Calculator - Calculate Your Ideal Weight (WHO) | Calculenow" />
+    <meta property="og:description" content="Discover your Body Mass Index and if you are at your ideal weight according to WHO standards. Free and instant." />
+    <meta property="og:image" content="https://calculenow.com/images/og-en.jpg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Free BMI Calculator - Calculate Your Ideal Weight (WHO)" />
+    <meta name="twitter:description" content="Discover your Body Mass Index and ideal weight range according to WHO standards. Free and instant." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-en.jpg" />
 
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
 
-    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
-    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   </head>
   <body>
     <noscript>
-      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V" height="0" width="0" style="display: none; visibility: hidden"></iframe>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
     </noscript>
+
     <header></header>
 
     <main>
@@ -62,23 +119,22 @@
 
         <button class="btn btn-imc">Calculate BMI</button>
 
-        <div 
-  class="result result-imc" 
-  data-ms-empty="⚠️ Please fill in both fields."
-  data-ms-error="⚠️ The data appears to be incorrect."
-  data-label-res="Your BMI is"
-  data-status-low="Underweight"
-  data-status-normal="Normal weight"
-  data-status-over="Overweight"
-  data-status-obese="Obesity"
-  data-btn-copy="Copy"
-></div>
+        <div class="result result-imc"
+          data-ms-empty="⚠️ Please fill in both fields."
+          data-ms-error="⚠️ The data appears to be incorrect."
+          data-label-res="Your BMI is"
+          data-status-low="Underweight"
+          data-status-normal="Normal weight"
+          data-status-over="Overweight"
+          data-status-obese="Obesity"
+          data-btn-copy="Copy">
+        </div>
 
         <div class="imc-bar">
           <div class="imc-indicator"></div>
         </div>
 
-        <p class="disclaimer">
+        <p class="disclaimer-text">
           This calculation is for guidance only and does not replace the advice of a healthcare professional.
         </p>
 
@@ -101,14 +157,11 @@
 
       <section class="legal-content">
         <h2>What is Body Mass Index?</h2>
-        <p>
-          The <strong>Body Mass Index (BMI)</strong> is a simple index of weight-for-height that is commonly used to classify underweight, overweight, and obesity in adults.
-        </p>
+        <p>The <strong>Body Mass Index (BMI)</strong> is a simple index of weight-for-height that is commonly used to classify underweight, overweight, and obesity in adults.</p>
 
         <h2>How to interpret your BMI result</h2>
-        <p>
-          According to the <strong>World Health Organization (WHO)</strong>, these are the official ranges for adults:
-        </p>
+        <p>According to the <strong>World Health Organization (WHO)</strong>, these are the official ranges for adults:</p>
+
         <div class="table-container">
           <table>
             <thead>
@@ -118,22 +171,10 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Underweight</td>
-                <td>&lt; 18.5</td>
-              </tr>
-              <tr class="highlight-green">
-                <td>Normal weight (Healthy)</td>
-                <td>18.5 – 24.9</td>
-              </tr>
-              <tr>
-                <td>Overweight</td>
-                <td>25.0 – 29.9</td>
-              </tr>
-              <tr>
-                <td>Obesity</td>
-                <td>&gt; 30.0</td>
-              </tr>
+              <tr><td>Underweight</td><td>&lt; 18.5</td></tr>
+              <tr class="highlight-green"><td>Normal weight (Healthy)</td><td>18.5 – 24.9</td></tr>
+              <tr><td>Overweight</td><td>25.0 – 29.9</td></tr>
+              <tr><td>Obesity</td><td>&gt; 30.0</td></tr>
             </tbody>
           </table>
         </div>
@@ -172,12 +213,43 @@
     <footer></footer>
 
     <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>
+          We use cookies to improve your experience.
+          <a href="/en/cookies">View cookie policy</a>
+        </p>
+        <div class="cookie-buttons">
+          <button class="accept-cookies" id="btn-accept-all">Accept all</button>
+          <button class="reject-cookies" id="btn-reject-all">Reject all</button>
+          <button class="settings-cookies" id="btn-open-settings">Settings</button>
         </div>
+      </div>
 
-    <script src="../js/ads.js" async defer></script>
-    <script src="../js/layout.js"></script>
-    <script src="../js/buscador.js"></script>
-    <script src="../js/core.js"></script>
-    <script src="../js/imc.js"></script>
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Customize your preferences:</strong></p>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-necessary" checked disabled />
+          <label>Necessary (Required)</label>
+        </div>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-analytics" />
+          <label>Analytics (Google Analytics)</label>
+        </div>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-marketing" />
+          <label>Marketing (Advertising pixels)</label>
+        </div>
+        <div class="cookie-buttons" style="margin-top:15px">
+          <button class="accept-cookies" id="btn-save-settings">Save settings</button>
+          <button class="settings-cookies" id="btn-back">Back</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/ads.js" async defer></script>
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/buscador.js" defer></script>
+    <script src="/js/core.js" defer></script>
+    <script src="/js/imc.js" defer></script>
   </body>
 </html>

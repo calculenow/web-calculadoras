@@ -14,39 +14,89 @@
     </script>
 
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Unit Conversion Calculator",
-        "operatingSystem": "All",
-        "applicationCategory": "UtilitiesApplication",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        },
-        "description": "Convert units of length, weight, temperature, and more instantly and accurately."
-      }
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Unit Conversion Calculator",
+      "url": "https://calculenow.com/en/unit-converter",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Convert units of length, weight, temperature, and more instantly and accurately."
+    }
     </script>
 
-    <title>Unit Conversion Calculator | Calculenow</title>
-    <meta
-      name="description"
-      content="Free unit converter. Convert meters to feet, kilograms to pounds, Celsius to Fahrenheit, and much more in one click."
-    />
-    <link
-      rel="canonical"
-      href="https://calculenow.com/en/unit-converter"
-    />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the decimal metric system?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is the system of units based on the meter, where units increase or decrease in powers of ten. It is the official system in almost every country in the world except the United States."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why doesn't the US use the metric system?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Due to historical tradition and the high industrial cost of changing all its infrastructure to the international system. Although the metric system is officially recognized in the US, the imperial system remains the one used in everyday life."
+          }
+        }
+      ]
+    }
+    </script>
 
-    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
-    <link rel="stylesheet" href="../css/styles.css" />
+    <title>Unit Converter Online - Length, Weight, Temperature | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/en/unit-converter" />
+    <link rel="alternate" hreflang="en" href="https://calculenow.com/en/unit-converter" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-conversion" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/calculadora-conversion" />
+
+    <meta name="description" content="Free unit converter. Convert meters to feet, kilograms to pounds, Celsius to Fahrenheit, and much more in one click." />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/en/unit-converter" />
+    <meta property="og:title" content="Unit Converter Online - Length, Weight, Temperature | Calculenow" />
+    <meta property="og:description" content="Convert meters to feet, kilograms to pounds, Celsius to Fahrenheit and more. Free, no registration required." />
+    <meta property="og:image" content="https://calculenow.com/images/og-en.jpg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Unit Converter Online - Length, Weight, Temperature" />
+    <meta name="twitter:description" content="Convert meters to feet, kilograms to pounds, Celsius to Fahrenheit and more. Free." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-en.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   </head>
   <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
     <header></header>
+
     <main>
-      <div class="card">
-        <h1>Unit Converter</h1>
+      <div class="card conversion-card">
+        <h1>Unit Converter Online</h1>
 
         <div class="form-group">
           <label for="categoria">Category</label>
@@ -61,13 +111,7 @@
 
         <div class="form-group">
           <label for="cantidad">Amount</label>
-          <input
-            id="cantidad"
-            class="field"
-            type="number"
-            value="1"
-            step="any"
-          />
+          <input id="cantidad" class="field" type="number" value="1" step="any" />
         </div>
 
         <div class="divisas-controls">
@@ -84,28 +128,25 @@
           </div>
         </div>
 
-        <button class="btn btn-conversion" id="btn-convertir">
-          Convert Units
-        </button>
+        <button class="btn btn-conversion" id="btn-convertir">Convert Units</button>
 
-        <div
-          class="result result-conversion"
+        <div class="result result-conversion"
           data-btn-copy="Copy Result"
-          data-msg-equal="="
-        ></div>
+          data-msg-equal="=">
+        </div>
 
         <div class="related-tools">
           <p><strong>Other useful tools:</strong></p>
           <ul>
             <li>
-              <a href="/en/bmi-calculator"
-                >➔ <strong>BMI:</strong> Use your converted cm and kg here.</a
-              >
+              <a href="/en/bmi-calculator">
+                ➔ <strong>BMI Calculator:</strong> Use your converted cm and kg here.
+              </a>
             </li>
             <li>
-              <a href="/en/currency-converter"
-                >➔ <strong>Currency:</strong> Convert monetary values.</a
-              >
+              <a href="/en/currency-converter">
+                ➔ <strong>Currency Converter:</strong> Convert monetary values between countries.
+              </a>
             </li>
           </ul>
         </div>
@@ -113,10 +154,7 @@
 
       <section class="legal-content">
         <h2>Common Equivalency Tables</h2>
-        <p>
-          To help you with quick calculations, here are the most consulted conversions 
-          between the International Metric System and the Imperial System.
-        </p>
+        <p>To help you with quick calculations, here are the most consulted conversions between the International Metric System and the Imperial System.</p>
 
         <h3>📏 Length and Distance</h3>
         <div class="table-container">
@@ -128,22 +166,10 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1 Centimeter (cm)</td>
-                <td>0.3937 Inches (in)</td>
-              </tr>
-              <tr>
-                <td>1 Meter (m)</td>
-                <td>3.2808 Feet (ft)</td>
-              </tr>
-              <tr>
-                <td>1 Meter (m)</td>
-                <td>1.0936 Yards (yd)</td>
-              </tr>
-              <tr>
-                <td>1 Kilometer (km)</td>
-                <td>0.6213 Miles (mi)</td>
-              </tr>
+              <tr><td>1 Centimeter (cm)</td><td>0.3937 Inches (in)</td></tr>
+              <tr><td>1 Meter (m)</td><td>3.2808 Feet (ft)</td></tr>
+              <tr><td>1 Meter (m)</td><td>1.0936 Yards (yd)</td></tr>
+              <tr><td>1 Kilometer (km)</td><td>0.6213 Miles (mi)</td></tr>
             </tbody>
           </table>
         </div>
@@ -158,18 +184,9 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1 Gram (g)</td>
-                <td>0.0352 Ounces (oz)</td>
-              </tr>
-              <tr>
-                <td>1 Kilogram (kg)</td>
-                <td>2.2046 Pounds (lb)</td>
-              </tr>
-              <tr>
-                <td>1 Ton (t)</td>
-                <td>1.1023 Short Tons (US)</td>
-              </tr>
+              <tr><td>1 Gram (g)</td><td>0.0352 Ounces (oz)</td></tr>
+              <tr><td>1 Kilogram (kg)</td><td>2.2046 Pounds (lb)</td></tr>
+              <tr><td>1 Ton (t)</td><td>1.1023 Short Tons (US)</td></tr>
             </tbody>
           </table>
         </div>
@@ -185,26 +202,14 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Freezing</td>
-                <td>0 °C</td>
-                <td>32 °F</td>
-              </tr>
-              <tr>
-                <td>Room Temperature (avg)</td>
-                <td>20 °C</td>
-                <td>68 °F</td>
-              </tr>
-              <tr>
-                <td>Boiling</td>
-                <td>100 °C</td>
-                <td>212 °F</td>
-              </tr>
+              <tr><td>Freezing</td><td>0 °C</td><td>32 °F</td></tr>
+              <tr><td>Room Temperature (avg)</td><td>20 °C</td><td>68 °F</td></tr>
+              <tr><td>Boiling</td><td>100 °C</td><td>212 °F</td></tr>
             </tbody>
           </table>
         </div>
 
-        <h3>💾 Digital Storage (Binary vs Decimal)</h3>
+        <h3>💾 Digital Storage</h3>
         <div class="table-container">
           <table>
             <thead>
@@ -214,60 +219,41 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1 Terabyte (TB)</td>
-                <td>1,000 Gigabytes (GB)</td>
-              </tr>
-              <tr>
-                <td>1 Gigabyte (GB)</td>
-                <td>1,000 Megabytes (MB)</td>
-              </tr>
-              <tr>
-                <td>1 Megabyte (MB)</td>
-                <td>1,000 Kilobytes (KB)</td>
-              </tr>
-              <tr>
-                <td>1 Byte (B)</td>
-                <td>8 Bits (b)</td>
-              </tr>
+              <tr><td>1 Terabyte (TB)</td><td>1,000 Gigabytes (GB)</td></tr>
+              <tr><td>1 Gigabyte (GB)</td><td>1,000 Megabytes (MB)</td></tr>
+              <tr><td>1 Megabyte (MB)</td><td>1,000 Kilobytes (KB)</td></tr>
+              <tr><td>1 Byte (B)</td><td>8 Bits (b)</td></tr>
             </tbody>
           </table>
         </div>
-      </section>
 
-      <section class="legal-content">
         <h2>How to convert units correctly?</h2>
-        <p>
-          Unit conversion consists of multiplying or dividing by a conversion factor 
-          to obtain an equivalent value on a different scale.
-        </p>
+        <p>Unit conversion consists of multiplying or dividing by a conversion factor to obtain an equivalent value on a different scale.</p>
+
         <div class="formule">
           Final Value = Initial Value × Conversion Factor
         </div>
       </section>
 
-      <section class="faq-section">
-        <h3>Questions about conversion</h3>
+      <div class="faq-section">
+        <h3>Questions about unit conversion</h3>
+
         <details>
           <summary>What is the decimal metric system?</summary>
           <div class="faq-content">
-            <p>
-              It is the system of units based on the meter, where units increase 
-              or decrease in powers of ten.
-            </p>
+            <p>It is the system of units based on the meter, where units increase or decrease in powers of ten. It is the official system in almost every country in the world except the United States.</p>
           </div>
         </details>
+
         <details>
           <summary>Why doesn't the US use the metric system?</summary>
           <div class="faq-content">
-            <p>
-              Due to historical tradition and the high industrial cost of changing 
-              all its infrastructure to the international system.
-            </p>
+            <p>Due to historical tradition and the high industrial cost of changing all its infrastructure to the international system. Although the metric system is officially recognized in the US, the imperial system remains the one used in everyday life.</p>
           </div>
         </details>
-      </section>
+      </div>
     </main>
+
     <footer></footer>
 
     <div class="cookie-banner" id="cookie-banner">
@@ -277,19 +263,14 @@
           <a href="/en/cookies">View cookie policy</a>
         </p>
         <div class="cookie-buttons">
-          <button class="accept-cookies" id="btn-accept-all">
-            Accept all
-          </button>
-          <button class="reject-cookies" id="btn-reject-all">
-            Reject all
-          </button>
-          <button class="settings-cookies" id="btn-open-settings">
-            Configure
-          </button>
+          <button class="accept-cookies" id="btn-accept-all">Accept all</button>
+          <button class="reject-cookies" id="btn-reject-all">Reject all</button>
+          <button class="settings-cookies" id="btn-open-settings">Settings</button>
         </div>
       </div>
-      <div id="cookie-settings-view" style="display: none">
-        <p><strong>Personalize your preferences:</strong></p>
+
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Customize your preferences:</strong></p>
         <div class="cookie-option">
           <input type="checkbox" id="check-necessary" checked disabled />
           <label>Necessary (Required)</label>
@@ -302,18 +283,17 @@
           <input type="checkbox" id="check-marketing" />
           <label>Marketing (Advertising pixels)</label>
         </div>
-        <div class="cookie-buttons" style="margin-top: 15px">
-          <button class="accept-cookies" id="btn-save-settings">
-            Save selection
-          </button>
+        <div class="cookie-buttons" style="margin-top:15px">
+          <button class="accept-cookies" id="btn-save-settings">Save settings</button>
           <button class="settings-cookies" id="btn-back">Back</button>
         </div>
       </div>
     </div>
 
-    <script src="../js/layout.js"></script>
-    <script src="../js/buscador.js"></script>
-    <script src="../js/core.js"></script>
-    <script src="../js/conversion.js"></script>
+    <script src="/js/ads.js" async defer></script>
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/buscador.js" defer></script>
+    <script src="/js/core.js" defer></script>
+    <script src="/js/conversion.js" defer></script>
   </body>
 </html>

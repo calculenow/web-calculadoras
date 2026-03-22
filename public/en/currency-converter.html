@@ -1,184 +1,303 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  
-  <script>
-    (function() {
-      const theme = localStorage.getItem('theme');
-      if (theme === 'dark') {
-        document.documentElement.classList.add('dark');
-      }
-    })();
-  </script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Currency Converter and Exchange Rate Calculator",
-    "operatingSystem": "All",
-    "applicationCategory": "FinanceApplication",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "description": "Convert between more than 30 world currencies with daily updated exchange rates."
-  }
-  </script>
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
 
-  <title>Currency Converter - Real-Time Exchange Rates | Calculenow</title>
-  <meta name="description" content="Free and updated currency calculator. Convert Euros, Dollars, and over 30 currencies with official real-time exchange rates. Fast and no registration required!">
-  <link rel="canonical" href="https://calculenow.com/en/currency-converter">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Currency Converter and Exchange Rate Calculator",
+      "url": "https://calculenow.com/en/currency-converter",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Convert between more than 30 world currencies with daily updated exchange rates."
+    }
+    </script>
 
-  <link rel="icon" type="image/x-icon" href="../favicon.ico">
-  <link rel="stylesheet" href="../css/styles.css"/>
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)">
-</head>
-<body>
-  <header></header>
-  <main>
-  <div class="card">
-    <h1>Currency Converter</h1>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the difference between the official and bank exchange rate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The official (interbank) rate is used by financial institutions among themselves and is the most favorable. The bank rate includes profit margins, commissions and operating costs, so it is always less favorable for the customer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which currency is best to carry for travel?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The US Dollar (USD) and the Euro (EUR) are the most globally accepted. In Asian destinations like Thailand or Vietnam, USD is more practical. For travel within Europe, the Euro eliminates any conversion within the eurozone."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do exchange rates change every day?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Forex market operates 24 hours a day, 5 days a week, and prices fluctuate constantly based on supply and demand. The main daily factors are central bank decisions, macroeconomic data releases (CPI, employment, GDP) and geopolitical events."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is the best place to exchange money before a trip?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ATMs at your destination generally offer better exchange rates than airport currency exchange booths. Cards with no foreign transaction fees (like Revolut or Wise) are currently the most economical option for international travel."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the spread in currency exchange?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The spread is the difference between the buy and sell price of a currency. It is the main source of profit for banks and exchange offices. The smaller the spread, the better exchange rate you are getting."
+          }
+        }
+      ]
+    }
+    </script>
 
-    <div class="form-group">
-      <label for="cantidad">Amount to convert</label>
-      <input id="cantidad" class="field cantidad" type="number" value="100">
+    <title>Currency Converter - Real-Time Exchange Rates | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/en/currency-converter" />
+    <link rel="alternate" hreflang="en" href="https://calculenow.com/en/currency-converter" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-divisas" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/calculadora-divisas" />
+
+    <meta name="description" content="Free and updated currency calculator. Convert Euros, Dollars, and over 30 currencies with official real-time exchange rates. Fast and no registration required!" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/en/currency-converter" />
+    <meta property="og:title" content="Currency Converter - Real-Time Exchange Rates | Calculenow" />
+    <meta property="og:description" content="Convert Euros, Dollars and over 30 currencies with official real-time exchange rates. Free, no registration required." />
+    <meta property="og:image" content="https://calculenow.com/images/og-en.jpg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Currency Converter - Real-Time Exchange Rates" />
+    <meta name="twitter:description" content="Convert between 30+ currencies with real-time exchange rates. Free and instant." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-en.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
+    <header></header>
+
+    <main>
+      <div class="card divisas-card">
+        <h1>Currency Converter and Exchange Rate Calculator</h1>
+
+        <div class="form-group">
+          <label for="cantidad">Amount to convert</label>
+          <input id="cantidad" class="field cantidad" type="number" value="100" />
+        </div>
+
+        <div class="divisas-controls">
+          <div class="form-group">
+            <label for="desde">From</label>
+            <select id="desde" class="field desde"></select>
+          </div>
+
+          <button type="button" id="btn-swap" class="btn-swap" aria-label="Swap currencies">🔄</button>
+
+          <div class="form-group">
+            <label for="hacia">To</label>
+            <select id="hacia" class="field hacia"></select>
+          </div>
+        </div>
+
+        <button class="btn btn-divisas">Convert Currency</button>
+
+        <div class="result result-divisas"
+          data-btn-copy="Copy Result"
+          data-error="Please enter a valid amount"
+          data-from="USD"
+          data-to="EUR">
+        </div>
+
+        <p class="disclaimer-text">
+          * Exchange rates are provided for informational purposes. We do not guarantee total accuracy for commercial transactions.
+        </p>
+
+        <div id="resumen-contenedor"></div>
+        <p id="fecha-actualizacion" class="u-update-text"></p>
+
+        <div class="related-tools">
+          <p><strong>Need another financial calculation?</strong></p>
+          <ul>
+            <li>
+              <a href="/en/discount-calculator">
+                ➔ <strong>Discount Calculator:</strong> Apply sales to your converted prices.
+              </a>
+            </li>
+            <li>
+              <a href="/en/vat-calculator">
+                ➔ <strong>VAT Calculator:</strong> Add or extract taxes from your international purchases.
+              </a>
+            </li>
+            <li>
+              <a href="/en/percentage-calculator">
+                ➔ <strong>Percentage Calculator:</strong> For price variations and margins.
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="legal-content">
+        <h2>How does currency exchange work?</h2>
+        <p>The foreign exchange market (Forex) is the largest financial market in the world, with a daily trading volume exceeding $6 trillion. It determines the value of one currency against another in real time. Our calculator uses official data updated daily to provide you with the mid-market rate.</p>
+
+        <h3>Factors influencing exchange rates</h3>
+        <ul>
+          <li><strong>Inflation:</strong> Countries with lower inflation usually see an appreciation in their currency value, as their purchasing power remains more stable.</li>
+          <li><strong>Interest Rates:</strong> Central banks (Fed, ECB, Bank of England) adjust them to control the economy. Higher rates attract foreign investment and strengthen the currency.</li>
+          <li><strong>Political Stability:</strong> Investors look for currencies from countries with predictable economies. Political uncertainty weakens the local currency.</li>
+          <li><strong>Trade Balance:</strong> If a country exports more than it imports, there is greater demand for its currency, which appreciates it.</li>
+        </ul>
+
+        <h3>Exchange rate formula</h3>
+        <div class="formule">
+          Converted Amount = (Amount / Source Rate) × Destination Rate
+        </div>
+
+        <h3>Most traded currencies in the world</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Currency</th>
+                <th>Code</th>
+                <th>Region</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>US Dollar</td><td>USD</td><td>United States</td></tr>
+              <tr><td>Euro</td><td>EUR</td><td>Eurozone (20 countries)</td></tr>
+              <tr><td>Japanese Yen</td><td>JPY</td><td>Japan</td></tr>
+              <tr><td>British Pound</td><td>GBP</td><td>United Kingdom</td></tr>
+              <tr><td>Swiss Franc</td><td>CHF</td><td>Switzerland</td></tr>
+              <tr><td>Australian Dollar</td><td>AUD</td><td>Australia</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <div class="faq-section">
+        <h3>Frequently Asked Questions about Currency Exchange</h3>
+
+        <details>
+          <summary>What is the difference between the official and bank exchange rate?</summary>
+          <div class="faq-content">
+            <p>The official (interbank) rate is used by financial institutions among themselves and is the most favorable. The bank rate includes profit margins, commissions and operating costs, so it is always less favorable for the customer. Our calculator shows the mid-market rate as a reference.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Which currency is best to carry for travel?</summary>
+          <div class="faq-content">
+            <p>The US Dollar (USD) and the Euro (EUR) are the most globally accepted. In Asian destinations like Thailand or Vietnam, USD is more practical. For travel within Europe, the Euro eliminates any conversion within the eurozone.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Why do exchange rates change every day?</summary>
+          <div class="faq-content">
+            <p>The Forex market operates 24 hours a day, 5 days a week, and prices fluctuate constantly based on supply and demand. The main daily factors are central bank decisions, macroeconomic data releases (CPI, employment, GDP) and geopolitical events.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Where is the best place to exchange money before a trip?</summary>
+          <div class="faq-content">
+            <p>ATMs at your destination generally offer better exchange rates than airport currency exchange booths. Cards with no foreign transaction fees (like Revolut or Wise) are currently the most economical option for international travel.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>What is the spread in currency exchange?</summary>
+          <div class="faq-content">
+            <p>The spread is the difference between the buy and sell price of a currency. It is the main source of profit for banks and exchange offices. The smaller the spread, the better exchange rate you are getting.</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>
+          We use cookies to improve your experience.
+          <a href="/en/cookies">View cookie policy</a>
+        </p>
+        <div class="cookie-buttons">
+          <button class="accept-cookies" id="btn-accept-all">Accept all</button>
+          <button class="reject-cookies" id="btn-reject-all">Reject all</button>
+          <button class="settings-cookies" id="btn-open-settings">Settings</button>
+        </div>
+      </div>
+
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Customize your preferences:</strong></p>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-necessary" checked disabled />
+          <label>Necessary (Required)</label>
+        </div>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-analytics" />
+          <label>Analytics (Google Analytics)</label>
+        </div>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-marketing" />
+          <label>Marketing (Advertising pixels)</label>
+        </div>
+        <div class="cookie-buttons" style="margin-top:15px">
+          <button class="accept-cookies" id="btn-save-settings">Save settings</button>
+          <button class="settings-cookies" id="btn-back">Back</button>
+        </div>
+      </div>
     </div>
 
-    <div class="divisas-controls">
-      <div class="form-group">
-        <label for="desde">From</label>
-        <select id="desde" class="field desde"></select>
-      </div>
-
-      <button type="button" id="btn-swap" class="btn-swap" aria-label="Swap currencies">🔄</button>
-
-      <div class="form-group">
-        <label for="hacia">To</label>
-        <select id="hacia" class="field hacia"></select>
-      </div>
-    </div>
-
-    <button class="btn btn-divisas">Convert Currency</button>
-
-    <div class="result result-divisas" 
-         data-btn-copy="Copy Result"
-         data-error="Please enter a valid amount"
-         data-from="USD" 
-         data-to="EUR">
-    </div>
-
-    <p class="disclaimer-text">
-      * Exchange rates are provided for informational purposes. We do not guarantee total accuracy for commercial transactions.
-    </p>
-    
-    <div id="resumen-contenedor"></div>
-
-    <div class="related-tools">
-      <p><strong>Need another financial calculation?</strong></p>
-      <ul>
-        <li>
-          <a href="/en/discount-calculator">
-            ➔ <strong>Discount Calculator:</strong> Apply sales to your converted prices.
-          </a>
-        </li>
-        <li>
-          <a href="/en/vat-calculator">
-            ➔ <strong>VAT Calculator:</strong> Add or extract taxes from your international purchases.
-          </a>
-        </li>
-        <li>
-          <a href="/en/percentage-calculator">
-            ➔ <strong>Percentage Calculator:</strong> For price variations and margins.
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div> 
-
-  <section class="legal-content">
-    <h2>How does currency exchange work?</h2>
-    <p>The foreign exchange market determines the value of one currency against another. Our calculator uses official data updated daily to provide you with the mid-market rate.</p>
-
-    <h3>Factors influencing exchange rates</h3>
-    <ul>
-      <li><strong>Inflation:</strong> Countries with lower inflation usually see an appreciation in their currency value.</li>
-      <li><strong>Interest Rates:</strong> Central banks adjust them to control the economy.</li>
-      <li><strong>Political Stability:</strong> Investors look for currencies from countries with solid economies.</li>
-    </ul>
-
-    <div class="formule">
-      (Amount / Source Rate) * Destination Rate
-    </div>
-  </section>
-
-  <section class="faq-section">
-    <h3>Frequently Asked Questions about Currency Exchange</h3>
-
-    <details>
-      <summary>What is the difference between the official and bank exchange rate?</summary>
-      <div class="faq-content">
-        <p>The official exchange rate is used by financial institutions. The bank rate includes profit margins set by the entity.</p>
-      </div>
-    </details>
-
-    <details>
-      <summary>Which currency is best to carry for travel?</summary>
-      <div class="faq-content">
-        <p>The US Dollar (USD) and the Euro (EUR) are the most globally accepted.</p>
-      </div>
-    </details>
-
-    <details>
-      <summary>Why do prices change every day?</summary>
-      <div class="faq-content">
-        <p>Due to the Forex market, which is influenced by interest rates and economic stability.</p>
-      </div>
-    </details>
-  </section>
-</main>
-<footer></footer>
-
-<div class="cookie-banner" id="cookie-banner">
-    <div id="cookie-main-view">
-      <p>
-        We use cookies to improve your experience.
-        <a href="/en/cookies">View cookie policy</a>
-      </p>
-      <div class="cookie-buttons">
-        <button class="accept-cookies" id="btn-accept-all">Accept all</button>
-        <button class="reject-cookies" id="btn-reject-all">Reject all</button>
-        <button class="settings-cookies" id="btn-open-settings">Configure</button>
-      </div>
-    </div>
-    <div id="cookie-settings-view" style="display: none">
-      <p><strong>Personalize your preferences:</strong></p>
-      <div class="cookie-option">
-        <input type="checkbox" id="check-necessary" checked disabled />
-        <label>Necessary (Required)</label>
-      </div>
-      <div class="cookie-option">
-        <input type="checkbox" id="check-analytics" />
-        <label>Analytics (Google Analytics)</label>
-      </div>
-      <div class="cookie-option">
-        <input type="checkbox" id="check-marketing" />
-        <label>Marketing (Advertising pixels)</label>
-      </div>
-      <div class="cookie-buttons" style="margin-top: 15px">
-        <button class="accept-cookies" id="btn-save-settings">Save selection</button>
-        <button class="settings-cookies" id="btn-back">Back</button>
-      </div>
-    </div>
-  </div>
-  
-  <script src="../js/layout.js"></script>
-  <script src="../js/buscador.js"></script>
-  <script src="../js/core.js"></script>
-  <script src="../js/divisas.js"></script>
-</body>
+    <script src="/js/ads.js" async defer></script>
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/buscador.js" defer></script>
+    <script src="/js/core.js" defer></script>
+    <script src="/js/divisas.js" defer></script>
+  </body>
 </html>

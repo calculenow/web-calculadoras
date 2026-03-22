@@ -1,189 +1,241 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <script>
-    (function () {
-      const theme = localStorage.getItem("theme");
-      if (theme === "dark") {
-        document.documentElement.classList.add("dark");
-      }
-    })();
-  </script>
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Loan & Mortgage Calculator",
-    "operatingSystem": "All",
-    "applicationCategory": "FinanceApplication",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "description": "Calculate your monthly loan or mortgage payment. Simulate interest and amortization schedules easily."
-  }
-  </script>
-  
-  <title>Loan & Mortgage Calculator - Monthly Payment & Costs | Calculenow</title>
-  <link rel="canonical" href="https://calculenow.com/en/loan-calculator" />
-  <meta name="description" content="Calculate your personal loan or mortgage payment. Discover how much interest you will pay and the total cost of your financing in seconds.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Loan & Mortgage Calculator",
+      "url": "https://calculenow.com/en/loan-calculator",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Calculate your monthly loan or mortgage payment. Simulate interest and amortization schedules easily."
+    }
+    </script>
 
-  <link rel="icon" type="image/x-icon" href="../favicon.ico" />
-  <link rel="stylesheet" href="../css/styles.css"/>
-  
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
-</head>
-<body>
-  <header></header>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a fixed-rate vs variable-rate mortgage?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In a fixed-rate mortgage, the payment never changes. In a variable-rate mortgage, your payment depends on a benchmark index (like LIBOR or Euribor) and is reviewed periodically, which can increase or decrease your payment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I pay off my loan early?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, this is called early repayment or prepayment. Banks may charge a small fee for this, but it usually pays off because of the significant interest savings from returning the capital sooner."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why doesn't the monthly payment match my bank's quote?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "This calculator simulates pure interest. Your bank likely adds life insurance, home insurance, or monthly fees that are added to the base payment you see here."
+          }
+        }
+      ]
+    }
+    </script>
 
-  <main>
-    <div class="card mortgage-card">
-      <h1>Loan & Mortgage Calculator</h1>
-      
-      <div class="calculator-ui">
-        <div class="form-group">
-          <label for="capital">Requested Capital ($)</label>
-          <input id="capital" class="field capital" type="number" placeholder="e.g.: 200,000 (Home) or 15,000 (Car)">
+    <title>Loan & Mortgage Calculator - Monthly Payment & Costs | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/en/loan-calculator" />
+    <link rel="alternate" hreflang="en" href="https://calculenow.com/en/loan-calculator" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-prestamos" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/calculadora-prestamos" />
+
+    <meta name="description" content="Calculate your personal loan or mortgage payment. Discover how much interest you will pay and the total cost of your financing in seconds." />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/en/loan-calculator" />
+    <meta property="og:title" content="Loan & Mortgage Calculator - Monthly Payment & Costs | Calculenow" />
+    <meta property="og:description" content="Calculate your monthly loan or mortgage payment and total interest cost. Free, no registration required." />
+    <meta property="og:image" content="https://calculenow.com/images/og-en.jpg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Loan & Mortgage Calculator - Monthly Payment & Costs" />
+    <meta name="twitter:description" content="Calculate your monthly loan or mortgage payment and total interest cost. Free and instant." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-en.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
+    <header></header>
+
+    <main>
+      <div class="card mortgage-card">
+        <h1>Loan & Mortgage Calculator</h1>
+
+        <div class="calculator-ui">
+          <div class="form-group">
+            <label for="capital">Requested Capital ($)</label>
+            <input id="capital" class="field capital" type="number" placeholder="e.g.: 200,000 (Home) or 15,000 (Car)" />
+          </div>
+
+          <div class="form-group">
+            <label for="interes">Annual Interest Rate (%)</label>
+            <input id="interes" class="field interes" type="number" step="0.1" placeholder="e.g.: 3.5" />
+          </div>
+
+          <div class="form-group">
+            <label for="plazo">Repayment Term (Years)</label>
+            <input id="plazo" class="field plazo" type="number" placeholder="e.g.: 30 (Mortgage) or 5 (Loan)" />
+          </div>
+
+          <button class="btn btn-mortgage">Calculate Monthly Payment</button>
+
+          <div class="result result-mortgage" data-btn-copy="Copy Summary"></div>
         </div>
 
-        <div class="form-group">
-          <label for="interes">Annual Interest (Rate %)</label>
-          <input id="interes" class="field interes" type="number" step="0.1" placeholder="e.g.: 3.5">
+        <div class="related-tools">
+          <p><strong>You might also be interested in:</strong></p>
+          <ul>
+            <li>
+              <a href="/en/compound-interest-calculator">
+                ➔ <strong>Compound Interest Calculator:</strong> Compare what your money could earn if invested instead.
+              </a>
+            </li>
+            <li>
+              <a href="/en/percentage-calculator">
+                ➔ <strong>Percentage Calculator:</strong> Ideal for calculating savings ratios and debt percentages.
+              </a>
+            </li>
+          </ul>
         </div>
-
-        <div class="form-group">
-          <label for="plazo">Repayment Term (Years)</label>
-          <input id="plazo" class="field plazo" type="number" placeholder="e.g.: 30 (Mortgage) or 5 (Loan)">
-        </div>
-
-        <button class="btn btn-mortgage">Calculate Monthly Payment</button>
-
-        <div class="result result-mortgage" data-btn-copy="Copy Summary"></div>
       </div>
 
-      <div class="related-tools">
-        <p><strong>You might also be interested in:</strong></p>
+      <section class="legal-content">
+        <h2>What should you know before asking for financing?</h2>
+        <p>Whether buying your future home or funding a personal project, understanding how interest works will save you thousands of dollars. Our calculator uses the <strong>French Amortization System</strong>, which is the standard for most consumer loans and mortgages.</p>
+
+        <div class="info-grid">
+          <div class="card info-box">
+            <h3>💰 How do you pay your debt?</h3>
+            <p>With the French system, your monthly payment is fixed. However, at the beginning, you pay mostly <strong>interest</strong> and very little principal. As time passes, the balance shifts.</p>
+          </div>
+          <div class="card info-box">
+            <h3>⚠️ Safety Limit</h3>
+            <p>To maintain optimal financial health, your payment should not exceed <a href="/en/percentage-calculator">30% of your net income</a>. Exceeding this threshold increases the risk of default.</p>
+          </div>
+        </div>
+
+        <h3>Key Concepts: Don't get misled</h3>
         <ul>
-          <li>
-            <a href="/en/vat-calculator">
-              ➔ <strong>VAT Calculator:</strong> To calculate the total cost of goods with taxes before financing.
-            </a>
-          </li>
-          <li>
-            <a href="/en/percentage-calculator">
-              ➔ <strong>Percentage Calculator:</strong> Ideal for calculating necessary savings or debt ratios.
-            </a>
-          </li>
+          <li><strong>Nominal Rate:</strong> The "pure" price the bank charges you for the money, without additional costs.</li>
+          <li><strong>APR (Annual Percentage Rate):</strong> The most important indicator. It includes the interest rate plus commissions, mandatory insurance, and closing costs. <strong>Always compare offers using the APR.</strong></li>
+          <li><strong>Amortization:</strong> The process of paying off the borrowed capital. You can make partial prepayments to reduce future installments or the loan term.</li>
         </ul>
+
+        <h3>Short term or long term?</h3>
+        <p>Choosing a longer term (like 30 years) reduces the monthly payment and provides immediate relief, but it <strong>drastically increases the total cost</strong> of the loan through interest. If your finances allow it, shorter terms are always the cheapest option.</p>
+      </section>
+
+      <div class="faq-section">
+        <h3>Common questions about loans and mortgages</h3>
+
+        <details>
+          <summary>What is a fixed-rate vs variable-rate mortgage?</summary>
+          <div class="faq-content">
+            <p>In a fixed-rate mortgage, the payment never changes. In a variable-rate mortgage, your payment depends on a benchmark index (like LIBOR or Euribor) and is reviewed periodically, which can increase or decrease your payment.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Can I pay off my loan early?</summary>
+          <div class="faq-content">
+            <p>Yes, this is called early repayment or prepayment. Banks may charge a small fee for this, but it usually pays off because of the significant interest savings from returning the capital sooner.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Why doesn't the monthly payment match my bank's quote?</summary>
+          <div class="faq-content">
+            <p>This calculator simulates pure interest. Your bank likely adds life insurance, home insurance, or monthly fees that are added to the base payment you see here.</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>
+          We use cookies to improve your experience.
+          <a href="/en/cookies">View cookie policy</a>
+        </p>
+        <div class="cookie-buttons">
+          <button class="accept-cookies" id="btn-accept-all">Accept all</button>
+          <button class="reject-cookies" id="btn-reject-all">Reject all</button>
+          <button class="settings-cookies" id="btn-open-settings">Settings</button>
+        </div>
+      </div>
+
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Customize your preferences:</strong></p>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-necessary" checked disabled />
+          <label>Necessary (Required)</label>
+        </div>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-analytics" />
+          <label>Analytics (Google Analytics)</label>
+        </div>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-marketing" />
+          <label>Marketing (Advertising pixels)</label>
+        </div>
+        <div class="cookie-buttons" style="margin-top:15px">
+          <button class="accept-cookies" id="btn-save-settings">Save settings</button>
+          <button class="settings-cookies" id="btn-back">Back</button>
+        </div>
       </div>
     </div>
 
-    <section class="legal-content">
-      <h2>What should you know before asking for financing?</h2>
-      <p>Whether buying your future home or for a personal project, understanding how interest works will save you thousands of dollars. Our calculator uses the <strong>French Amortization System</strong>, which is the standard for most consumer loans and mortgages.</p>
-
-      
-
-      <div class="info-grid">
-        <div class="card info-box">
-          <h3>💰 How do you pay your debt?</h3>
-          <p>With the French system, your monthly payment is fixed. However, at the beginning, you pay mostly <strong>interest</strong> and very little principal. As time passes, the balance shifts.</p>
-        </div>
-        <div class="card info-box">
-          <h3>⚠️ Safety Limit</h3>
-          <p>To maintain optimal financial health, your payment should not exceed <a href="/en/percentage-calculator">30% of your net income</a>. Exceeding this threshold increases the risk of default.</p>
-        </div>
-      </div>
-
-      <h3>Key Concepts: Don't get misled</h3>
-      <ul>
-        <li><strong>Nominal Rate:</strong> This is the "pure" price the bank charges you for the money.</li>
-        <li><strong>APR (Annual Percentage Rate):</strong> The most important indicator. It includes the interest rate plus commissions, mandatory insurance, and closing costs. <strong>Always compare offers using the APR.</strong></li>
-        <li><strong>Amortization:</strong> The process of paying off the borrowed capital. You can make partial prepayments to reduce future installments or the loan term.</li>
-      </ul>
-
-      <h3>Short term or long term?</h3>
-      <p>Choosing a longer term (like 30 years) reduces the monthly payment and provides immediate relief, but it <strong>drastically increases the total cost</strong> of the loan through interest. If your finances allow it, shorter terms are always the cheapest option.</p>
-    </section>
-
-    <div class="faq-section">
-      <h3>Common questions about loans and mortgages</h3>
-
-      <details>
-        <summary>What is a fixed-rate vs variable-rate mortgage?</summary>
-        <div class="faq-content">
-          <p>In a fixed-rate mortgage, the payment never changes. In a variable-rate mortgage, your payment depends on a benchmark index (like LIBOR or Euribor) and is reviewed periodically, which can increase or decrease your payment.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>Can I pay off my loan early?</summary>
-        <div class="faq-content">
-          <p>Yes, this is called early repayment or prepayment. Banks may charge a small fee for this, but it usually pays off because of the significant interest savings from returning the capital sooner.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>Why doesn't the monthly payment match my bank's quote?</summary>
-        <div class="faq-content">
-          <p>This calculator simulates pure interest. Your bank likely adds life insurance, home insurance, or monthly fees that are added to the base payment you see here.</p>
-        </div>
-      </details>
-    </div>
-  </main>
-  
-  <footer></footer>
-   <div class="cookie-banner" id="cookie-banner">
-    <div id="cookie-main-view">
-      <p>
-        We use cookies to improve your experience.
-        <a href="/en/cookies">View cookie policy</a>
-      </p>
-      <div class="cookie-buttons">
-        <button class="accept-cookies" id="btn-accept-all">
-          Accept all
-        </button>
-        <button class="reject-cookies" id="btn-reject-all">
-          Reject all
-        </button>
-        <button class="settings-cookies" id="btn-open-settings">
-          Settings
-        </button>
-      </div>
-    </div>
-
-    <div id="cookie-settings-view" style="display: none">
-      <p><strong>Customize your preferences:</strong></p>
-      <div class="cookie-option">
-        <input type="checkbox" id="check-necessary" checked disabled />
-        <label>Necessary (Required)</label>
-      </div>
-      <div class="cookie-option">
-        <input type="checkbox" id="check-analytics" />
-        <label>Analytics (Google Analytics)</label>
-      </div>
-      <div class="cookie-option">
-        <input type="checkbox" id="check-marketing" />
-        <label>Marketing (Advertising pixels)</label>
-      </div>
-      <div class="cookie-buttons" style="margin-top: 15px">
-        <button class="accept-cookies" id="btn-save-settings">
-          Save settings
-        </button>
-        <button class="settings-cookies" id="btn-back">Back</button>
-      </div>
-    </div>
-  </div>
-
-  <script src="../js/layout.js"></script>
-  <script src="../js/buscador.js"></script>
-  <script src="../js/core.js"></script>
-  <script src="../js/prestamos.js"></script>
-</body>
+    <script src="/js/ads.js" async defer></script>
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/buscador.js" defer></script>
+    <script src="/js/core.js" defer></script>
+    <script src="/js/prestamos.js" defer></script>
+  </body>
 </html>

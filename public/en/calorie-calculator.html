@@ -14,85 +14,146 @@
     </script>
 
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "BMR and Calorie Calculator",
-        "operatingSystem": "All",
-        "applicationCategory": "HealthApplication",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "BMR and Calorie Calculator",
+      "url": "https://calculenow.com/en/calorie-calculator",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Calculate your Basal Metabolic Rate (BMR) and daily calorie needs based on your activity level using the Mifflin-St Jeor equation."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What factors influence metabolism?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Muscle mass is the primary factor: muscle burns more calories than fat even at rest. Genetics, age (metabolism slows down over time), and the hormonal system also play a role."
+          }
         },
-        "description": "Calculate your Basal Metabolic Rate (BMR) and daily calorie needs based on your activity level using the Mifflin-St Jeor equation."
-      }
+        {
+          "@type": "Question",
+          "name": "Why is there a difference between the male and female formulas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The difference (+5 for men, -161 for women) accounts for average body composition. Biologically, men tend to have more muscle mass, while women possess a higher percentage of essential fat necessary for the hormonal system."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How accurate is this calorie calculation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is a close estimate based on the Mifflin-St Jeor equation, currently the most accurate for the general population. The only way to know with total precision is through indirect calorimetry in a clinical setting. Use this as a starting point to adjust your diet."
+          }
+        }
+      ]
+    }
     </script>
 
     <title>Calorie & BMR Calculator - Daily Energy Expenditure | Calculenow</title>
     <link rel="canonical" href="https://calculenow.com/en/calorie-calculator" />
-    <meta
-      name="description"
-      content="Find out how many calories your body needs daily. Calculate your BMR and total daily energy expenditure (TDEE) based on your physical activity to manage your weight scientifically."
-    />
+    <link rel="alternate" hreflang="en" href="https://calculenow.com/en/calorie-calculator" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-calorias" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/calculadora-calorias" />
 
-    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
-    <link rel="stylesheet" href="../css/styles.css" />
+    <meta name="description" content="Find out how many calories your body needs daily. Calculate your BMR and total daily energy expenditure (TDEE) based on your physical activity to manage your weight scientifically." />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/en/calorie-calculator" />
+    <meta property="og:title" content="Calorie & BMR Calculator - Daily Energy Expenditure | Calculenow" />
+    <meta property="og:description" content="Find out how many calories your body needs daily based on your BMR and activity level. Free, no registration required." />
+    <meta property="og:image" content="https://calculenow.com/images/og-en.jpg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Calorie & BMR Calculator - Daily Energy Expenditure" />
+    <meta name="twitter:description" content="Calculate your BMR and daily calorie needs based on your activity level. Free and instant." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-en.jpg" />
+
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   </head>
   <body>
     <noscript>
-      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V" height="0" width="0" style="display: none; visibility: hidden"></iframe>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
     </noscript>
+
     <header></header>
+
     <main>
       <div class="card tmb-card">
         <h1>Calorie Calculator (BMR)</h1>
 
-        <label for="genero">Gender</label>
-        <select id="genero" class="field genero">
-          <option value="hombre">Male</option>
-          <option value="mujer">Female</option>
-        </select>
+        <div class="form-group">
+          <label for="genero">Gender</label>
+          <select id="genero" class="field genero">
+            <option value="hombre">Male</option>
+            <option value="mujer">Female</option>
+          </select>
+        </div>
 
-        <div class="input-group-row" style="display: flex; gap: 10px">
-          <div style="flex: 1">
+        <div class="form-row">
+          <div class="form-group">
             <label for="peso">Weight (kg)</label>
             <input id="peso" class="field peso" type="number" placeholder="e.g., 75" />
           </div>
-          <div style="flex: 1">
+          <div class="form-group">
             <label for="altura">Height (cm)</label>
             <input id="altura" class="field altura" type="number" placeholder="e.g., 175" />
           </div>
         </div>
 
-        <label for="edad">Age (years)</label>
-        <input id="edad" class="field edad" type="number" placeholder="e.g., 30" />
+        <div class="form-group">
+          <label for="edad">Age (years)</label>
+          <input id="edad" class="field edad" type="number" placeholder="e.g., 30" />
+        </div>
 
-        <label for="actividad">Activity Level</label>
-        <select id="actividad" class="field actividad">
-          <option value="1.2">Sedentary (Office job, little exercise)</option>
-          <option value="1.375">Lightly Active (Exercise 1-3 days/week)</option>
-          <option value="1.55">Moderately Active (Exercise 3-5 days/week)</option>
-          <option value="1.725">Very Active (Athletes or physical job)</option>
-        </select>
+        <div class="form-group">
+          <label for="actividad">Activity Level</label>
+          <select id="actividad" class="field actividad">
+            <option value="1.2">Sedentary (Office job, little exercise)</option>
+            <option value="1.375">Lightly Active (Exercise 1-3 days/week)</option>
+            <option value="1.55">Moderately Active (Exercise 3-5 days/week)</option>
+            <option value="1.725">Very Active (Athletes or physical job)</option>
+          </select>
+        </div>
 
         <button class="btn btn-tmb">Calculate Calories</button>
 
-        <div 
-  class="result result-tmb" 
-  data-ms-error="⚠️ Please enter realistic values (Weight: 20-400kg, Height: 50-260cm, Age: 15-110 years)."
-  data-header="CALCULATION RESULTS"
-  data-label-bmr="Basal Metabolic Rate (BMR)"
-  data-label-tdee="Total Daily Energy Expenditure (TDEE)"
-  data-label-objective="Estimation by objectives:"
-  data-label-lose="To Lose Weight (-15%)"
-  data-label-gain="To Gain Weight (+10%)"
-  data-label-footer="* Approximate values. Maintenance is the amount of calories to neither gain nor lose weight."
-  data-unit="kcal/day"
-  data-btn-copy="Copy Results"
-></div>
+        <div class="result result-tmb"
+          data-ms-error="⚠️ Please enter realistic values (Weight: 20-400kg, Height: 50-260cm, Age: 15-110 years)."
+          data-header="CALCULATION RESULTS"
+          data-label-bmr="Basal Metabolic Rate (BMR)"
+          data-label-tdee="Total Daily Energy Expenditure (TDEE)"
+          data-label-objective="Estimation by objectives:"
+          data-label-lose="To Lose Weight (-15%)"
+          data-label-gain="To Gain Weight (+10%)"
+          data-label-footer="* Approximate values. Maintenance is the amount of calories to neither gain nor lose weight."
+          data-unit="kcal/day"
+          data-btn-copy="Copy Results">
+        </div>
 
         <div class="related-tools">
           <p><strong>Related health tools:</strong></p>
@@ -113,29 +174,21 @@
 
       <section class="legal-content">
         <h2>What is Basal Metabolic Rate (BMR)?</h2>
-        <p>
-          BMR is the minimum amount of energy your body needs to survive while performing basic functions, such as breathing, heart rate control, and maintaining body temperature at total rest.
-        </p>
+        <p>BMR is the minimum amount of energy your body needs to survive while performing basic functions, such as breathing, heart rate control, and maintaining body temperature at total rest.</p>
 
         <div class="info-grid">
           <div class="card info-box">
             <h3>🍎 Total Daily Energy Expenditure (TDEE)</h3>
-            <p>
-              TDEE is the sum of your BMR plus the energy you burn through movement. This figure is the real indicator of how many calories you should consume to maintain your current weight.
-            </p>
+            <p>TDEE is the sum of your BMR plus the energy you burn through movement. This figure is the real indicator of how many calories you should consume to maintain your current weight.</p>
           </div>
           <div class="card info-box">
             <h3>⚖️ Deficit and Surplus</h3>
-            <p>
-              If you consume fewer calories than your total expenditure, you will lose weight (deficit). If you consume more, you will gain weight (surplus). Consistency is key.
-            </p>
+            <p>If you consume fewer calories than your total expenditure, you will lose weight (deficit). If you consume more, you will gain weight (surplus). Consistency is key.</p>
           </div>
         </div>
 
         <h3>The Mifflin-St Jeor Equation</h3>
-        <p>
-          Our calculator uses the revised Mifflin-St Jeor equation, currently considered the most accurate for the general population.
-        </p>
+        <p>Our calculator uses the revised Mifflin-St Jeor equation, currently considered the most accurate for the general population.</p>
 
         <div class="formule">
           <strong>Men:</strong> (10 × weight kg) + (6.25 × height cm) - (5 × age) + 5
@@ -143,46 +196,28 @@
         <div class="formule">
           <strong>Women:</strong> (10 × weight kg) + (6.25 × height cm) - (5 × age) - 161
         </div>
+
+        <h3>Activity Levels and Multipliers</h3>
+        <p>To obtain your actual caloric expenditure, we multiply your BMR by an activity factor (PAL). Be as honest as possible:</p>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Level</th>
+                <th>Description</th>
+                <th>Factor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Sedentary</strong></td><td>Office work, mostly sitting, no exercise.</td><td>x1.2</td></tr>
+              <tr><td><strong>Lightly Active</strong></td><td>Light exercise 1-3 days per week.</td><td>x1.375</td></tr>
+              <tr><td><strong>Moderately Active</strong></td><td>Intense exercise 3-5 days per week.</td><td>x1.55</td></tr>
+              <tr><td><strong>Very Active</strong></td><td>Athletes or very physical jobs daily.</td><td>x1.725</td></tr>
+            </tbody>
+          </table>
+        </div>
       </section>
-
-      <h3>Activity Levels and Multipliers</h3>
-      <p>
-        To obtain your actual caloric expenditure, we multiply your BMR by an activity factor (PAL). Be as honest as possible:
-      </p>
-
-      <div class="table-container">
-        <table>
-          <thead>
-            <tr>
-              <th>Level</th>
-              <th>Description</th>
-              <th>Factor</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Sedentary</strong></td>
-              <td>Office work, mostly sitting, no exercise.</td>
-              <td>x1.2</td>
-            </tr>
-            <tr>
-              <td><strong>Lightly Active</strong></td>
-              <td>Light exercise 1-3 days per week.</td>
-              <td>x1.375</td>
-            </tr>
-            <tr>
-              <td><strong>Moderately Active</strong></td>
-              <td>Intense exercise 3-5 days per week.</td>
-              <td>x1.55</td>
-            </tr>
-            <tr>
-              <td><strong>Very Active</strong></td>
-              <td>Athletes or very physical jobs daily.</td>
-              <td>x1.725</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
 
       <div class="faq-section">
         <h3>Frequently Asked Questions about Metabolism</h3>
@@ -190,41 +225,67 @@
         <details>
           <summary>What factors influence metabolism?</summary>
           <div class="faq-content">
-            <p>
-              Muscle mass is the primary factor: muscle burns more calories than fat even at rest. Genetics, age (metabolism slows down over time), and the hormonal system also play a role.
-            </p>
+            <p>Muscle mass is the primary factor: muscle burns more calories than fat even at rest. Genetics, age (metabolism slows down over time), and the hormonal system also play a role.</p>
           </div>
         </details>
 
         <details>
           <summary>Why is there a difference between the male and female formulas?</summary>
           <div class="faq-content">
-            <p>
-              The difference (+5 for men, -161 for women) accounts for **average body composition**. Biologically, men tend to have more muscle mass, while women possess a higher percentage of essential fat necessary for the hormonal system. The formula adjustment compensates for this difference in active tissue that a scale doesn't see.
-            </p>
+            <p>The difference (+5 for men, -161 for women) accounts for average body composition. Biologically, men tend to have more muscle mass, while women possess a higher percentage of essential fat necessary for the hormonal system. The formula adjustment compensates for this difference in active tissue that a scale doesn't see.</p>
           </div>
         </details>
 
         <details>
-          <summary>How accurate is this calculation?</summary>
+          <summary>How accurate is this calorie calculation?</summary>
           <div class="faq-content">
-            <p>
-              It is a close estimate, but the only way to know with total precision is through indirect calorimetry in a clinical setting. Use this as a starting point to adjust your diet.
-            </p>
-            <p>
-              <strong>Note:</strong> If you are an athlete with high muscle mass, this calculator might underestimate your needs. Conversely, if your body fat percentage is very high, the result may be overestimated.
-            </p>
+            <p>It is a close estimate, but the only way to know with total precision is through indirect calorimetry in a clinical setting. Use this as a starting point to adjust your diet.</p>
+            <p><strong>Note:</strong> If you are an athlete with high muscle mass, this calculator might underestimate your needs. Conversely, if your body fat percentage is very high, the result may be overestimated.</p>
           </div>
         </details>
       </div>
     </main>
+
     <footer></footer>
+
     <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>
+          We use cookies to improve your experience.
+          <a href="/en/cookies">View cookie policy</a>
+        </p>
+        <div class="cookie-buttons">
+          <button class="accept-cookies" id="btn-accept-all">Accept all</button>
+          <button class="reject-cookies" id="btn-reject-all">Reject all</button>
+          <button class="settings-cookies" id="btn-open-settings">Settings</button>
         </div>
-    <script src="../js/ads.js" async defer></script>
-    <script src="../js/layout.js"></script>
-    <script src="../js/buscador.js"></script>
-    <script src="../js/core.js"></script>
-    <script src="../js/calorias.js"></script>
+      </div>
+
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Customize your preferences:</strong></p>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-necessary" checked disabled />
+          <label>Necessary (Required)</label>
+        </div>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-analytics" />
+          <label>Analytics (Google Analytics)</label>
+        </div>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-marketing" />
+          <label>Marketing (Advertising pixels)</label>
+        </div>
+        <div class="cookie-buttons" style="margin-top:15px">
+          <button class="accept-cookies" id="btn-save-settings">Save settings</button>
+          <button class="settings-cookies" id="btn-back">Back</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/ads.js" async defer></script>
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/buscador.js" defer></script>
+    <script src="/js/core.js" defer></script>
+    <script src="/js/calorias.js" defer></script>
   </body>
 </html>

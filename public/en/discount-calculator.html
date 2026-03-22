@@ -1,171 +1,270 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  
-  <script>
-    (function() {
-      const theme = localStorage.getItem('theme');
-      if (theme === 'dark') {
-        document.documentElement.classList.add('dark');
-      }
-    })();
-  </script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Discount and Sales Calculator",
-    "operatingSystem": "All",
-    "applicationCategory": "UtilitiesApplication",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "description": "Calculate the final price after applying a discount. Ideal for sales and comparing savings on your purchases."
-  }
-  </script>
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
 
-  <title>Discount Calculator - Sales and Final Price | Calculenow</title>
-  <link rel="canonical" href="https://calculenow.com/en/discount-calculator">
-  <meta name="description" content="How much do you really save this sales season? Calculate the final price and exact savings after applying any discount percentage in seconds."> 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Discount and Sales Calculator",
+      "url": "https://calculenow.com/en/discount-calculator",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Calculate the final price after applying a discount. Ideal for sales and comparing savings on your purchases."
+    }
+    </script>
 
-  <link rel="icon" type="image/x-icon" href="../favicon.ico">
-  <link rel="stylesheet" href="../css/styles.css"/>
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)">
-</head>
-<body>
-  <header></header>
-  <main>
-  <div class="card discount-card">
-    <h1>Discount Calculator</h1>
-    
-    <div class="calculator-ui">
-      <label for="precio-original">Original price ($)</label>
-      <input id="precio-original" class="field precio-original" type="number" step="0.01" placeholder="Ex: 59.99">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a cumulative discount?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It occurs when a discount is applied to a product that was already on sale. The percentages are not added; the second discount is applied to the new, already reduced price. For example, 20% + 10% is not 30%, it is a 28% total discount."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How to know if a discount is real?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Always compare the crossed-out original price with the final price. Legally, shops must show the lowest price the product has had in the last 30 days before the promotion."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is a fixed discount or a percentage better?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on the amount. For expensive products, a percentage usually saves you more money. For cheap products, a fixed discount coupon (e.g., $5 off) can be more beneficial than 10%."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How to calculate what percentage has been discounted?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If you know the initial and final price, divide the savings by the original price and multiply by 100. This will give you the exact percentage of the applied discount."
+          }
+        }
+      ]
+    }
+    </script>
 
-      <label for="descuento-pct">Discount (%)</label>
-      <input id="descuento-pct" class="field descuento-pct" type="number" step="1" placeholder="Ex: 25">
+    <title>Discount Calculator - Sales and Final Price 2026 | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/en/discount-calculator" />
+    <link rel="alternate" hreflang="en" href="https://calculenow.com/en/discount-calculator" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-descuentos" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/calculadora-descuentos" />
 
-      <button class="btn btn-discount">Calculate Final Price</button>
+    <meta name="description" content="How much do you really save this sales season? Calculate the final price and exact savings after applying any discount percentage in seconds." />
 
-      <div class="result result-discount" 
-           data-label-final="Final price:" 
-           data-label-save="You save:" 
-           data-unit="$"
-           data-error="Please enter valid values."
-           data-btn-copy="Copy Result">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/en/discount-calculator" />
+    <meta property="og:title" content="Discount Calculator - Sales and Final Price 2026 | Calculenow" />
+    <meta property="og:description" content="Calculate the final price and exact savings after applying any discount. Free, no registration required." />
+    <meta property="og:image" content="https://calculenow.com/images/og-en.jpg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Discount Calculator - Sales and Final Price 2026" />
+    <meta name="twitter:description" content="Calculate the final price and exact savings after applying any discount. Free, instant." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-en.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
+    <header></header>
+
+    <main>
+      <div class="card discount-card">
+        <h1>Discount Calculator</h1>
+
+        <div class="calculator-ui">
+          <div class="form-group">
+            <label for="precio-original">Original price ($)</label>
+            <input id="precio-original" class="field precio-original" type="number" step="0.01" placeholder="Ex: 59.99" />
+          </div>
+
+          <div class="form-group">
+            <label for="descuento-pct">Discount (%)</label>
+            <input id="descuento-pct" class="field descuento-pct" type="number" step="1" placeholder="Ex: 25" />
+          </div>
+
+          <button class="btn btn-discount">Calculate Final Price</button>
+
+          <div class="result result-discount"
+            data-label-final="Final price:"
+            data-label-save="You save:"
+            data-unit="$"
+            data-error="Please enter valid values."
+            data-btn-copy="Copy Result">
+          </div>
+        </div>
+
+        <div class="related-tools">
+          <p><strong>Need another type of calculation?</strong></p>
+          <ul>
+            <li>
+              <a href="/en/percentage-calculator">
+                ➔ <strong>Percentage Calculator:</strong> For general calculations and ratios.
+              </a>
+            </li>
+            <li>
+              <a href="/en/vat-calculator">
+                ➔ <strong>VAT Calculator:</strong> Add or extract taxes from your invoices.
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="legal-content">
+        <h2>How to calculate a discount quickly?</h2>
+        <p>Knowing how much you are actually going to pay during sales helps you shop smarter. A discount is a percentage reduction from the original retail price.</p>
+
+        <h3>Formula to get the final price</h3>
+        <p>Our calculator uses the direct subtraction method to show you both the money you save and the final amount you will have to pay:</p>
+
+        <div class="formule">
+          <strong>Final Price = Original Price - (Original Price × Percentage / 100)</strong>
+        </div>
+
+        <p>For example, if a jacket costs $60 and has a 20% discount: you calculate 20% of 60 (which is $12) and subtract it from the initial price (60 - 12 = $48).</p>
+
+        <h3>The "multiplier factor" trick</h3>
+        <p>If you want to do it mentally like an expert, multiply the original price by what remains after the discount. If something has a 30% discount, you pay 70% of its value. Just multiply the price by <strong>0.70</strong>.</p>
+
+        <h3>Common discount reference table</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Discount</th>
+                <th>Multiplier</th>
+                <th>Example: $100 item</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>10%</td><td>× 0.90</td><td>$90.00</td></tr>
+              <tr><td>15%</td><td>× 0.85</td><td>$85.00</td></tr>
+              <tr><td>20%</td><td>× 0.80</td><td>$80.00</td></tr>
+              <tr><td>25%</td><td>× 0.75</td><td>$75.00</td></tr>
+              <tr><td>30%</td><td>× 0.70</td><td>$70.00</td></tr>
+              <tr><td>50%</td><td>× 0.50</td><td>$50.00</td></tr>
+              <tr><td>70%</td><td>× 0.30</td><td>$30.00</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <div class="faq-section">
+        <h3>Questions about Sales and Savings</h3>
+
+        <details>
+          <summary>What is a cumulative discount?</summary>
+          <div class="faq-content">
+            <p>It occurs when a discount is applied to a product that was already on sale. The percentages are not added; the second discount is applied to the new, already reduced price. For example, 20% + 10% is not 30% — it is a 28% total discount.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>How to know if a discount is real?</summary>
+          <div class="faq-content">
+            <p>Always compare the crossed-out original price with the final price. Legally, shops must show the lowest price the product has had in the last 30 days before the promotion.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Is a fixed discount or a percentage better?</summary>
+          <div class="faq-content">
+            <p>It depends on the amount. For expensive products, a percentage usually saves you more money. For cheap products, a fixed discount coupon (e.g., $5 off) can be more beneficial than 10%.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>How to calculate what percentage has been discounted?</summary>
+          <div class="faq-content">
+            <p>If you know the initial and final price, divide the savings by the original price and multiply by 100. For example, if something was $80 and now costs $60, the savings are $20 and the discount is (20 / 80) × 100 = 25%.</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>
+          We use cookies to improve your experience.
+          <a href="/en/cookies">View cookie policy</a>
+        </p>
+        <div class="cookie-buttons">
+          <button class="accept-cookies" id="btn-accept-all">Accept all</button>
+          <button class="reject-cookies" id="btn-reject-all">Reject all</button>
+          <button class="settings-cookies" id="btn-open-settings">Settings</button>
+        </div>
+      </div>
+
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Customize your preferences:</strong></p>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-necessary" checked disabled />
+          <label>Necessary (Required)</label>
+        </div>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-analytics" />
+          <label>Analytics (Google Analytics)</label>
+        </div>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-marketing" />
+          <label>Marketing (Advertising pixels)</label>
+        </div>
+        <div class="cookie-buttons" style="margin-top:15px">
+          <button class="accept-cookies" id="btn-save-settings">Save settings</button>
+          <button class="settings-cookies" id="btn-back">Back</button>
+        </div>
       </div>
     </div>
 
-    <div class="related-tools">
-      <p><strong>Need another type of calculation?</strong></p>
-      <ul>
-        <li>
-          <a href="/en/percentage-calculator">
-            ➔ <strong>Percentage Calculator:</strong> For general calculations and ratios.
-          </a>
-        </li>
-        <li>
-          <a href="/en/vat-calculator">
-            ➔ <strong>VAT Calculator:</strong> Add or extract taxes from your invoices.
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div> 
-
-  <section class="legal-content">
-    <h2>How to calculate a discount quickly?</h2>
-    <p>Knowing how much you are actually going to pay during sales helps you shop smarter. A discount is a percentage reduction from the original retail price.</p>
-
-    <h3>Formula to get the final price</h3>
-    <p>Our calculator uses the direct subtraction method to show you both the money you save and the final amount you will have to pay:</p>
-    
-    <div class="formule">
-      <strong>Final Price = Original Price - (Original Price × Percentage / 100)</strong>
-    </div>
-
-    <p>For example, if a jacket costs $60 and has a 20% discount: you calculate 20% of 60 (which is $12) and subtract it from the initial price (60 - 12 = $48).</p>
-
-    <h3>The "multiplier factor" trick</h3>
-    <p>If you want to do it mentally like an expert, you can multiply the original price by the difference to 100. If something has a 30% discount, it means you are going to pay 70% of its value. You just have to multiply the price by <strong>0.70</strong>.</p>
-  </section>
-
-  <div class="faq-section">
-    <h3>Questions about Sales and Savings</h3>
-
-    <details>
-      <summary>What is a cumulative discount?</summary>
-      <div class="faq-content">
-        <p>It occurs when a discount is applied to a product that was already on sale. It is important to know that the percentages are not added; the second discount is applied to the new, already reduced price.</p>
-      </div>
-    </details>
-
-    <details>
-      <summary>How to know if a discount is real?</summary>
-      <div class="faq-content">
-        <p>Always compare the crossed-out original price with the final price. Legally, shops must show the lowest price the product has had in the last 30 days before the promotion.</p>
-      </div>
-    </details>
-
-    <details>
-      <summary>Is a fixed discount or a percentage better?</summary>
-      <div class="faq-content">
-        <p>It depends on the amount. For expensive products, a percentage usually saves you more money. For cheap products, a fixed discount coupon (e.g., $5 off) can be more beneficial than 10%.</p>
-      </div>
-    </details>
-
-    <details>
-      <summary>How to calculate what percentage has been discounted?</summary>
-      <div class="faq-content">
-        <p>If you know the initial and final price, divide the savings by the original price and multiply by 100. This will give you the exact percentage of the applied discount.</p>
-      </div>
-    </details>
-  </div>
-</main>
-<footer></footer>
-
-  <div class="cookie-banner" id="cookie-banner">
-    <div id="cookie-main-view">
-      <p>
-        We use cookies to improve your experience.
-        <a href="/en/cookies">View cookie policy</a>
-      </p>
-      <div class="cookie-buttons">
-        <button class="accept-cookies" id="btn-accept-all">Accept all</button>
-        <button class="reject-cookies" id="btn-reject-all">Reject all</button>
-        <button class="settings-cookies" id="btn-open-settings">Configure</button>
-      </div>
-    </div>
-    <div id="cookie-settings-view" style="display: none">
-      <p><strong>Personalize your preferences:</strong></p>
-      <div class="cookie-option">
-        <input type="checkbox" id="check-necessary" checked disabled />
-        <label>Necessary (Required)</label>
-      </div>
-      <div class="cookie-option">
-        <input type="checkbox" id="check-analytics" />
-        <label>Analytics (Google Analytics)</label>
-      </div>
-      <div class="cookie-option">
-        <input type="checkbox" id="check-marketing" />
-        <label>Marketing (Advertising pixels)</label>
-      </div>
-      <div class="cookie-buttons" style="margin-top: 15px">
-        <button class="accept-cookies" id="btn-save-settings">Save selection</button>
-        <button class="settings-cookies" id="btn-back">Back</button>
-      </div>
-    </div>
-  </div>
-  
-  <script src="../js/layout.js"></script>
-  <script src="../js/buscador.js"></script>
-  <script src="../js/core.js"></script>
-  <script src="../js/descuentos.js"></script>
-</body>
+    <script src="/js/ads.js" async defer></script>
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/buscador.js" defer></script>
+    <script src="/js/core.js" defer></script>
+    <script src="/js/descuentos.js" defer></script>
+  </body>
 </html>

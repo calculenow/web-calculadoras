@@ -14,38 +14,104 @@
     </script>
 
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Daily Hydration Calculator",
-        "operatingSystem": "All",
-        "applicationCategory": "HealthApplication",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        },
-        "description": "Calculate how much water you should drink per day based on your body weight and physical activity level."
-      }
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Daily Hydration Calculator",
+      "url": "https://calculenow.com/en/hydration-calculator",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Calculate how much water you should drink per day based on your body weight and physical activity level."
+    }
     </script>
 
-    <title>Daily Hydration Calculator | Calculenow</title>
-    <meta
-      name="description"
-      content="How much water should you drink a day? Calculate your ideal hydration based on weight and exercise. Stay healthy and perform better!"
-    />
-    <link
-      rel="canonical"
-      href="https://calculenow.com/en/hydration-calculator"
-    />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does coffee or tea count towards daily hydration?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, infusions contribute to the daily total. Although caffeine has a mild diuretic effect, the fluid intake compensates for that effect in most people with moderate consumption (less than 4 cups a day)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you drink too much water?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, it is known as hyponatremia or water intoxication. Drinking extreme amounts in a short time can dangerously dilute the body's electrolytes, especially sodium. It is uncommon in healthy people with normal activity levels."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it better to drink water in sips or all at once?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Small, frequent sips throughout the day are better. The body absorbs water more effectively when ingested continuously rather than in large amounts at once. Drinking a glass upon waking is especially beneficial as the body has gone hours without hydration."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do fruits and vegetables count as hydration?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Foods like cucumber, watermelon, lettuce, or tomato contain between 90% and 97% water. While they do not replace plain water, they contribute significantly to total daily hydration."
+          }
+        }
+      ]
+    }
+    </script>
 
-    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
-    <link rel="stylesheet" href="../css/styles.css"/>
+    <title>Daily Hydration Calculator - How Much Water Should You Drink? | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/en/hydration-calculator" />
+    <link rel="alternate" hreflang="en" href="https://calculenow.com/en/hydration-calculator" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-hidratacion" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/calculadora-hidratacion" />
+
+    <meta name="description" content="How much water should you drink a day? Calculate your ideal hydration based on weight and exercise level. Free, fast and no registration required." />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/en/hydration-calculator" />
+    <meta property="og:title" content="Daily Hydration Calculator - How Much Water Should You Drink? | Calculenow" />
+    <meta property="og:description" content="Calculate how much water you should drink daily based on your weight and activity level. Free and no registration required." />
+    <meta property="og:image" content="https://calculenow.com/images/og-en.jpg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Daily Hydration Calculator - How Much Water Should You Drink?" />
+    <meta name="twitter:description" content="Calculate your ideal daily water intake based on weight and activity. Free and instant." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-en.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   </head>
   <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
     <header></header>
+
     <main>
-      <div class="card">
+      <div class="card hidratacion-card">
         <h1>Daily Hydration Calculator</h1>
 
         <div class="form-group">
@@ -63,16 +129,15 @@
           </select>
         </div>
 
-        <button class="btn btn-interes" id="btn-calcular-agua">Calculate Hydration</button>
+        <button class="btn btn-hidratacion" id="btn-calcular-agua">Calculate Hydration</button>
 
-        <div 
-          class="result result-hidratacion" 
+        <div class="result result-hidratacion"
           data-label-goal="Daily goal:"
           data-label-equiv="Equivalent to:"
           data-unit-liters="Liters"
           data-unit-glasses="glasses of water"
-          data-btn-copy="Copy Results"
-        ></div>
+          data-btn-copy="Copy Results">
+        </div>
 
         <div class="related-tools">
           <p><strong>Related health tools:</strong></p>
@@ -89,7 +154,7 @@
             </li>
           </ul>
         </div>
-          
+
         <p class="disclaimer-text">
           <strong>Notice:</strong> This calculation is an estimate based on standard conditions. Always consult with a health professional.
         </p>
@@ -97,65 +162,116 @@
 
       <section class="legal-content">
         <h2>Why is it important to calculate your water intake?</h2>
-        <p>
-          Water represents approximately 60% of human body weight and is vital for almost all biological functions.
-        </p>
+        <p>Water represents approximately 60% of human body weight and is vital for almost all biological functions: it regulates body temperature, transports nutrients, eliminates toxins and lubricates joints.</p>
 
         <h3>The recommended hydration formula</h3>
-        <p>
-          One of the most widely accepted formulas by nutrition experts to calculate basal water needs is:
-        </p>
+        <p>One of the most widely accepted formulas by nutrition experts to calculate basal water needs is:</p>
         <div class="formule">Intake (ml) = Weight (kg) × 35</div>
+        <p><small>*Approximately <strong>600-800 ml</strong> should be added to this base for every hour of intense exercise due to loss through sweat.</small></p>
 
-        <p>
-          <small>*Approximately <strong>600-800 ml</strong> should be added to this base for every hour of intense exercise due to loss through sweat.</small>
-        </p>
+        <h3>Reference table by body weight</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Body weight</th>
+                <th>Minimum daily water</th>
+                <th>With moderate exercise</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>50 kg</td><td>1.75 L</td><td>2.35 L</td></tr>
+              <tr><td>60 kg</td><td>2.1 L</td><td>2.7 L</td></tr>
+              <tr><td>70 kg</td><td>2.45 L</td><td>3.05 L</td></tr>
+              <tr><td>80 kg</td><td>2.8 L</td><td>3.4 L</td></tr>
+              <tr><td>90 kg</td><td>3.15 L</td><td>3.75 L</td></tr>
+              <tr><td>100 kg</td><td>3.5 L</td><td>4.1 L</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Factors that increase your water needs</h3>
+        <ul>
+          <li><strong>Hot or humid climate:</strong> Sweating considerably increases fluid loss.</li>
+          <li><strong>Pregnancy and breastfeeding:</strong> Water needs increase by 300-700 ml daily.</li>
+          <li><strong>Fever:</strong> For each degree of fever, approximately 500 ml of additional fluids are lost.</li>
+          <li><strong>High altitude:</strong> Accelerated breathing at high altitude increases water loss.</li>
+        </ul>
       </section>
+
+      <div class="faq-section">
+        <h3>Frequently Asked Questions about Hydration</h3>
+
+        <details>
+          <summary>Does coffee or tea count towards daily hydration?</summary>
+          <div class="faq-content">
+            <p>Yes, infusions contribute to the daily total. Although caffeine has a mild diuretic effect, the fluid intake compensates for that effect in most people with moderate consumption (less than 4 cups a day).</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Can you drink too much water?</summary>
+          <div class="faq-content">
+            <p>Yes, it is known as hyponatremia or water intoxication. Drinking extreme amounts in a short time can dangerously dilute the body's electrolytes, especially sodium. It is uncommon in healthy people with normal activity levels.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Is it better to drink water in sips or all at once?</summary>
+          <div class="faq-content">
+            <p>Small, frequent sips throughout the day are better. The body absorbs water more effectively when ingested continuously rather than in large amounts at once. Drinking a glass upon waking is especially beneficial as the body has gone hours without hydration.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Do fruits and vegetables count as hydration?</summary>
+          <div class="faq-content">
+            <p>Yes. Foods like cucumber, watermelon, lettuce, or tomato contain between 90% and 97% water. While they do not replace plain water, they contribute significantly to total daily hydration.</p>
+          </div>
+        </details>
+      </div>
     </main>
+
     <footer></footer>
-     <div class="cookie-banner" id="cookie-banner">
-    <div id="cookie-main-view">
-      <p>
-        We use cookies to improve your experience.
-        <a href="/en/cookies">View cookie policy</a>
-      </p>
-      <div class="cookie-buttons">
-        <button class="accept-cookies" id="btn-accept-all">
-          Accept all
-        </button>
-        <button class="reject-cookies" id="btn-reject-all">
-          Reject all
-        </button>
-        <button class="settings-cookies" id="btn-open-settings">
-          Settings
-        </button>
+
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>
+          We use cookies to improve your experience.
+          <a href="/en/cookies">View cookie policy</a>
+        </p>
+        <div class="cookie-buttons">
+          <button class="accept-cookies" id="btn-accept-all">Accept all</button>
+          <button class="reject-cookies" id="btn-reject-all">Reject all</button>
+          <button class="settings-cookies" id="btn-open-settings">Settings</button>
+        </div>
+      </div>
+
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Customize your preferences:</strong></p>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-necessary" checked disabled />
+          <label>Necessary (Required)</label>
+        </div>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-analytics" />
+          <label>Analytics (Google Analytics)</label>
+        </div>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-marketing" />
+          <label>Marketing (Advertising pixels)</label>
+        </div>
+        <div class="cookie-buttons" style="margin-top:15px">
+          <button class="accept-cookies" id="btn-save-settings">Save settings</button>
+          <button class="settings-cookies" id="btn-back">Back</button>
+        </div>
       </div>
     </div>
 
-    <div id="cookie-settings-view" style="display: none">
-      <p><strong>Customize your preferences:</strong></p>
-      <div class="cookie-option">
-        <input type="checkbox" id="check-necessary" checked disabled />
-        <label>Necessary (Required)</label>
-      </div>
-      <div class="cookie-option">
-        <input type="checkbox" id="check-analytics" />
-        <label>Analytics (Google Analytics)</label>
-      </div>
-      <div class="cookie-option">
-        <input type="checkbox" id="check-marketing" />
-        <label>Marketing (Advertising pixels)</label>
-      </div>
-      <div class="cookie-buttons" style="margin-top: 15px">
-        <button class="accept-cookies" id="btn-save-settings">
-          Save settings
-        </button>
-        <button class="settings-cookies" id="btn-back">Back</button>
-      </div>
-    </div>
-  </div>
-    <script src="../js/layout.js"></script>
-    <script src="../js/core.js"></script>
-    <script src="../js/hidratacion.js"></script>
+    <script src="/js/ads.js" async defer></script>
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/buscador.js" defer></script>
+    <script src="/js/core.js" defer></script>
+    <script src="/js/hidratacion.js" defer></script>
   </body>
 </html>
