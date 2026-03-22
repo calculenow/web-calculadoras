@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calculadora de IRPF 2025 por Comunidad Autónoma",
+      "url": "https://calculenow.com/es/calculadora-irpf",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "description": "Calcula tu IRPF 2025 según tu comunidad autónoma. Incluye tramos estatales y autonómicos, mínimo personal y simulador de retención."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cómo funciona el IRPF en España?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El IRPF es un impuesto progresivo que se divide en tramo estatal (igual para toda España) y tramo autonómico (fijado por cada comunidad). No pagas el mismo porcentaje sobre todos tus ingresos: cada tramo tributa solo por la parte que le corresponde."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué varía el IRPF según la comunidad autónoma?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Las comunidades autónomas tienen capacidad para fijar sus propios tipos autonómicos, añadir tramos o modificar deducciones. Madrid es la comunidad donde menos IRPF se paga; Cataluña y Comunitat Valenciana, donde más."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué es el mínimo personal en el IRPF?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Es la parte de la renta que Hacienda considera necesaria para cubrir las necesidades básicas del contribuyente y no tributa. En 2025 es de 5.550 € para contribuyentes menores de 65 años, 6.700 € entre 65 y 75 años, y 8.100 € para mayores de 75 años."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Navarra y País Vasco usan los mismos tramos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Navarra y País Vasco tienen régimen foral propio con un sistema fiscal completamente distinto al del territorio común. Esta calculadora cubre las 15 comunidades de régimen común."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuál es la diferencia entre base imponible y base liquidable?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La base imponible son tus ingresos brutos menos gastos deducibles (como la reducción por trabajo). La base liquidable es el resultado de restar a la base imponible las reducciones adicionales aplicables (planes de pensiones, alquiler de vivienda, etc.). Es sobre la base liquidable sobre la que se aplican los tramos."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <title>Calculadora IRPF 2025 por Comunidad Autónoma — Cuota y Retención | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/es/calculadora-irpf" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-irpf" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/calculadora-irpf" />
+
+    <meta name="description" content="Calcula tu IRPF 2025 según tu comunidad autónoma. Tramos estatales y autonómicos actualizados, mínimo personal y simulador de retención. Gratis y sin registro." />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/es/calculadora-irpf" />
+    <meta property="og:title" content="Calculadora IRPF 2025 por Comunidad Autónoma — Cuota y Retención | Calculenow" />
+    <meta property="og:description" content="Calcula tu IRPF 2025 según tu comunidad autónoma. Tramos actualizados, mínimo personal y simulador de retención." />
+    <meta property="og:image" content="https://calculenow.com/images/og-es.jpg" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Calculadora IRPF 2025 por Comunidad Autónoma" />
+    <meta name="twitter:description" content="Calcula tu IRPF 2025 con tramos estatales y autonómicos actualizados. Gratis." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-es.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
+    <header></header>
+
+    <main>
+      <div class="card irpf-card">
+        <h1>Calculadora de IRPF 2025</h1>
+        <p>Estima tu cuota de IRPF y si tu declaración saldrá a pagar o a devolver, según tu comunidad autónoma.</p>
+
+        <div class="form-group">
+          <label for="ccaa">Comunidad autónoma</label>
+          <select id="ccaa" class="field">
+            <option value="">— Selecciona tu comunidad —</option>
+            <option value="andalucia">Andalucía</option>
+            <option value="aragon">Aragón</option>
+            <option value="asturias">Asturias</option>
+            <option value="baleares">Illes Balears</option>
+            <option value="canarias">Canarias</option>
+            <option value="cantabria">Cantabria</option>
+            <option value="castilla_la_mancha">Castilla-La Mancha</option>
+            <option value="castilla_y_leon">Castilla y León</option>
+            <option value="cataluna">Cataluña</option>
+            <option value="extremadura">Extremadura</option>
+            <option value="galicia">Galicia</option>
+            <option value="madrid">Comunidad de Madrid</option>
+            <option value="murcia">Región de Murcia</option>
+            <option value="la_rioja">La Rioja</option>
+            <option value="c_valenciana">Comunitat Valenciana</option>
+            <optgroup label="──────────────────">
+              <option value="foral">Navarra y País Vasco → régimen foral (ver nota)</option>
+            </optgroup>
+          </select>
+          <p class="irpf-foral-nota" id="foral-nota" style="display:none">
+            ⚠️ Navarra y País Vasco tienen <strong>régimen foral propio</strong> con un sistema fiscal completamente distinto. Esta calculadora cubre únicamente las comunidades de régimen común. Próximamente añadiremos calculadoras específicas para estos territorios.
+          </p>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="salario-bruto">Salario bruto anual (€)</label>
+            <input id="salario-bruto" class="field" type="number" placeholder="Ej: 30000" min="0" step="100" />
+          </div>
+          <div class="form-group">
+            <label for="edad">Edad</label>
+            <select id="edad" class="field">
+              <option value="menor65">Menor de 65 años</option>
+              <option value="65_75">Entre 65 y 75 años</option>
+              <option value="mayor75">Mayor de 75 años</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="situacion">Situación familiar</label>
+            <select id="situacion" class="field">
+              <option value="soltero">Soltero/a sin hijos</option>
+              <option value="casado">Casado/a sin hijos</option>
+              <option value="hijos1">1 hijo/a a cargo</option>
+              <option value="hijos2">2 hijos/as a cargo</option>
+              <option value="hijos3">3 o más hijos/as a cargo</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="retencion-actual">Retención actual en nómina (% o 0 si no sabes)</label>
+            <input id="retencion-actual" class="field" type="number" placeholder="Ej: 15" min="0" max="47" step="0.1" />
+          </div>
+        </div>
+
+        <button class="btn btn-irpf" id="btn-calcular" type="button">Calcular IRPF</button>
+
+        <div class="result irpf-result" id="irpf-result"></div>
+
+        <p class="disclaimer-text">
+          * Cálculo orientativo basado en los tramos de 2025. No sustituye el asesoramiento fiscal profesional ni la calculadora oficial de la Agencia Tributaria. No se tienen en cuenta deducciones autonómicas específicas ni rendimientos del capital.
+        </p>
+
+        <div class="related-tools">
+          <p><strong>Otras herramientas financieras:</strong></p>
+          <ul>
+            <li>
+              <a href="/es/calculadora-prestamos">
+                ➔ <strong>Calculadora de Préstamos:</strong> Calcula tu cuota mensual e intereses totales.
+              </a>
+            </li>
+            <li>
+              <a href="/es/calculadora-interes-compuesto">
+                ➔ <strong>Interés Compuesto:</strong> Simula el crecimiento de tus ahorros a largo plazo.
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="legal-content">
+        <h2>¿Cómo funciona el IRPF en España?</h2>
+        <p>El Impuesto sobre la Renta de las Personas Físicas (IRPF) es un impuesto <strong>progresivo</strong>: cuanto más ganas, mayor porcentaje pagas, pero solo por la parte que supera cada tramo. El tipo más alto nunca se aplica a toda tu renta, sino solo a la fracción que cae en ese tramo.</p>
+
+        <p>El IRPF se divide en dos partes que se suman:</p>
+        <ul>
+          <li><strong>Tramo estatal:</strong> igual para todos los contribuyentes del territorio común.</li>
+          <li><strong>Tramo autonómico:</strong> fijado por cada comunidad autónoma, y aquí es donde aparecen las diferencias importantes.</li>
+        </ul>
+
+        <h2>Tramos estatales 2025</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>Base liquidable (€)</th><th>Tipo estatal</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Hasta 12.450 €</td><td>9,50 %</td></tr>
+              <tr><td>12.450 € – 20.200 €</td><td>12,00 %</td></tr>
+              <tr><td>20.200 € – 35.200 €</td><td>15,00 %</td></tr>
+              <tr><td>35.200 € – 60.000 €</td><td>18,50 %</td></tr>
+              <tr><td>60.000 € – 300.000 €</td><td>22,50 %</td></tr>
+              <tr><td>Más de 300.000 €</td><td>24,50 %</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Diferencias entre comunidades autónomas</h2>
+        <p>La comunidad donde menos IRPF se paga es Madrid, con tipos autonómicos que van del 9% al 21%. En el otro extremo, Cataluña y Comunitat Valenciana aplican los tipos más altos, llegando al 25,5% y 29,5% respectivamente en los tramos superiores. Para una renta de 60.000 €, la diferencia entre vivir en Madrid o en la Comunitat Valenciana puede superar los 3.000 € anuales.</p>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>Comunidad</th><th>Tipo mín. autonómico</th><th>Tipo máx. autonómico</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Comunidad de Madrid</td><td>9,00 %</td><td>21,00 %</td></tr>
+              <tr><td>Castilla y León</td><td>9,00 %</td><td>21,50 %</td></tr>
+              <tr><td>Andalucía</td><td>9,50 %</td><td>22,50 %</td></tr>
+              <tr><td>Castilla-La Mancha</td><td>9,50 %</td><td>22,50 %</td></tr>
+              <tr><td>Región de Murcia</td><td>9,50 %</td><td>22,50 %</td></tr>
+              <tr><td>Galicia</td><td>9,00 %</td><td>22,50 %</td></tr>
+              <tr><td>Canarias</td><td>9,00 %</td><td>26,00 %</td></tr>
+              <tr><td>Cantabria</td><td>9,00 %</td><td>24,75 %</td></tr>
+              <tr><td>Aragón</td><td>10,00 %</td><td>25,00 %</td></tr>
+              <tr><td>Asturias</td><td>9,00 %</td><td>26,00 %</td></tr>
+              <tr><td>Illes Balears</td><td>9,50 %</td><td>27,50 %</td></tr>
+              <tr><td>La Rioja</td><td>9,00 %</td><td>27,00 %</td></tr>
+              <tr><td>Extremadura</td><td>8,00 %</td><td>25,00 %</td></tr>
+              <tr><td>Cataluña</td><td>10,50 %</td><td>25,50 %</td></tr>
+              <tr><td>Comunitat Valenciana</td><td>10,00 %</td><td>29,50 %</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>¿Qué es el mínimo personal y cómo reduce tu IRPF?</h2>
+        <p>El mínimo personal es la parte de tu renta que Hacienda considera intocable porque la necesitas para vivir. Esa cantidad <strong>no tributa</strong>. En 2025 es de:</p>
+        <ul>
+          <li><strong>5.550 €</strong> para menores de 65 años</li>
+          <li><strong>6.700 €</strong> para contribuyentes entre 65 y 75 años</li>
+          <li><strong>8.100 €</strong> para mayores de 75 años</li>
+        </ul>
+        <p>Además, hay mínimos adicionales por descendientes: 2.400 € por el primer hijo, 2.700 € por el segundo, 4.000 € por el tercero y 4.500 € por el cuarto y siguientes.</p>
+      </section>
+
+      <div class="faq-section">
+        <h3>Preguntas frecuentes sobre el IRPF</h3>
+
+        <details>
+          <summary>¿Cómo funciona el IRPF en España?</summary>
+          <div class="faq-content">
+            <p>El IRPF es un impuesto progresivo dividido en tramo estatal y autonómico. No pagas el mismo porcentaje sobre todos tus ingresos: cada tramo tributa solo por la parte que le corresponde.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Por qué varía el IRPF según la comunidad autónoma?</summary>
+          <div class="faq-content">
+            <p>Las comunidades autónomas pueden fijar sus propios tipos autonómicos y deducciones. Madrid es donde menos IRPF se paga; Cataluña y Comunitat Valenciana, donde más.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Qué es el mínimo personal en el IRPF?</summary>
+          <div class="faq-content">
+            <p>Es la parte de la renta que no tributa porque Hacienda la considera necesaria para cubrir necesidades básicas. En 2025 es de 5.550 € para menores de 65 años, 6.700 € entre 65 y 75 años, y 8.100 € para mayores de 75 años.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Navarra y País Vasco usan los mismos tramos?</summary>
+          <div class="faq-content">
+            <p>No. Tienen régimen foral propio con un sistema fiscal completamente distinto. Esta calculadora cubre únicamente las 15 comunidades de régimen común.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Cuál es la diferencia entre base imponible y base liquidable?</summary>
+          <div class="faq-content">
+            <p>La base imponible son tus ingresos menos gastos deducibles. La base liquidable es el resultado de restar reducciones adicionales (planes de pensiones, etc.). Los tramos se aplican sobre la base liquidable.</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>Utilizamos cookies para mejorar tu experiencia. <a href="/es/cookies">Más información</a></p>
+        <div class="cookie-buttons">
+          <button id="btn-accept-all">Aceptar todas</button>
+          <button id="btn-reject-all">Rechazar</button>
+          <button id="btn-open-settings">Configurar</button>
+        </div>
+      </div>
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Configuración de cookies</strong></p>
+        <label><input type="checkbox" id="check-analytics" /> Analíticas</label>
+        <label><input type="checkbox" id="check-marketing" /> Marketing</label>
+        <div class="cookie-buttons">
+          <button id="btn-back">← Volver</button>
+          <button id="btn-save-settings">Guardar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/irpf.js" defer></script>
+  </body>
+</html>

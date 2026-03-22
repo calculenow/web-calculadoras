@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { nombre: "Divisas", url: "/es/calculadora-divisas", tags: ["moneda", "euro", "dolar", "cambio", "forex"] },
             { nombre: "Préstamos", url: "/es/calculadora-prestamos", tags: ["banco", "hipoteca", "credito", "deuda", "cuota"] },
             { nombre: "DNI", url: "/es/validador-dni", tags: ["nif", "letra", "documento", "identidad"] },
+            { nombre: "IRPF", url: "/es/calculadora-irpf", tags: ["impuestos", "renta", "hacienda", "declaracion", "retencion", "comunidad autonoma"] },
             { nombre: "Propinas", url: "/es/calculadora-propinas", tags: ["restaurante", "camarero", "cuenta", "cenas", "dividir"] },
             { nombre: "Porcentajes", url: "/es/calculadora-porcentajes", tags: ["matematicas", "proporcion", "regla de tres", "calculo"] },
             { nombre: "Descuentos", url: "/es/calculadora-descuentos", tags: ["rebajas", "ofertas", "ahorro", "compras", "precio final"] },

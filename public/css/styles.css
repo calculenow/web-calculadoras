@@ -1195,6 +1195,45 @@ table tr:last-child td {
     flex-direction: column;
   }
 }
+.irpf-card .irpf-foral-nota {
+  font-size: 0.85rem;
+  color: var(--text);
+  background: var(--input-bg);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  padding: 10px 14px;
+  margin-top: 8px;
+  line-height: 1.5;
+}
+.irpf-card .error-msg {
+  color: var(--danger);
+  font-size: 0.9rem;
+  margin-top: 0.75rem;
+}
+
+.irpf-separador span {
+  width: 100%;
+  text-align: center;
+  font-size: 0.75rem;
+  opacity: 0.5;
+  font-style: italic;
+  border-bottom: none !important;
+}
+
+.irpf-devolver {
+  color: var(--success) !important;
+}
+.irpf-devolver span:last-child {
+  color: var(--success) !important;
+}
+
+.irpf-pagar {
+  color: var(--danger) !important;
+}
+.irpf-pagar span:last-child {
+  color: var(--danger) !important;
+}
+
 /* ==========================================================================
    DESKTOP: Barra de búsqueda expandible
    ========================================================================== */
