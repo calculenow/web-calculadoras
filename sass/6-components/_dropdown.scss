@@ -1,6 +1,18 @@
 // 6-components/_dropdown.scss
-// Navegación principal: barra de desktop y menú lateral de móvil.
-// El JS gestiona las clases .active, .show y .column-active.
+// Navegación principal: barra de desktop y menú lateral/acordeón de móvil.
+//
+// Estructura del dropdown:
+//   .dropdown-content
+//     .dropdown-tabs-bar        ← tabs de categoría (solo desktop)
+//       .dropdown-tab[data-tab]
+//     .dropdown-panels
+//       .dropdown-column[data-cat]   ← panel de cada categoría
+//         h3                         ← cabecera acordeón (solo móvil)
+//         ul > li > a
+//
+// El JS gestiona:
+//   - Desktop: .active en .dropdown-tab y visibilidad de .dropdown-column
+//   - Móvil:   .column-active en .dropdown-column para acordeón
 
 /* ==========================================================================
    ESTRUCTURA COMPARTIDA
@@ -14,7 +26,6 @@
   transition: background 0.3s ease;
 }
 
-// Reset de listas dentro del nav
 .nav-links ul,
 .dropdown-content ul {
   list-style: none;
@@ -63,7 +74,8 @@
       align-items: center;
       gap: 30px;
 
-      a, .dropbtn {
+      a,
+      .dropbtn {
         color: var(--text);
         font-weight: 700;
         font-size: 1.1rem;
@@ -91,38 +103,100 @@
     top: 60px;
     left: 50%;
     transform: translateX(-50%);
-    width: 650px;
+    // Ancho generoso para acomodar 5+ categorías sin estrechez
+    width: 720px;
     background: var(--bg-nav);
-    padding: 30px;
     border-radius: 12px;
     border: 1px solid var(--border);
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
 
     &.show {
-      display: grid;
+      display: block;
     }
 
+    // --- Barra de tabs (solo desktop) ---
+    .dropdown-tabs-bar {
+      display: flex;
+      border-bottom: 1px solid var(--border);
+      background: var(--input-bg);
+      overflow-x: auto; // por si en algún breakpoint intermedio hay muchas tabs
+
+      // Ocultar scrollbar visual manteniendo funcionalidad
+      scrollbar-width: none;
+      &::-webkit-scrollbar { display: none; }
+    }
+
+    .dropdown-tab {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 16px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      font-family: inherit;
+      white-space: nowrap;
+      transition: color 0.15s ease, border-color 0.15s ease;
+      opacity: 0.65;
+
+      .tab-icon { font-size: 0.9rem; }
+
+      &:hover {
+        opacity: 1;
+        color: var(--primary);
+      }
+
+      &.active {
+        opacity: 1;
+        color: var(--primary);
+        border-bottom-color: var(--primary);
+        background: var(--bg-nav);
+      }
+    }
+
+    // --- Área de paneles ---
+    .dropdown-panels {
+      padding: 20px 24px;
+      min-height: 120px; // evita que el dropdown "salte" de tamaño entre tabs
+    }
+
+    // --- Cada panel de categoría ---
     .dropdown-column {
+      display: none; // oculto por defecto; el JS activa el de la tab activa
+
+      &.column-active {
+        display: block;
+      }
+
+      // En desktop el h3 es decorativo (no clickable), mostramos solo el label
       h3 {
-        color: var(--text);
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        border-bottom: 1px solid var(--border);
-        margin-bottom: 10px;
-        padding-bottom: 5px;
+        display: none;
+      }
+
+      ul {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2px 16px;
       }
 
       li a {
-        color: var(--primary);
-        padding: 5px 0;
         display: block;
+        padding: 7px 8px;
+        border-radius: 6px;
+        color: var(--text);
+        font-size: 0.88rem;
         font-weight: 400;
         text-decoration: none;
+        transition: background 0.12s ease, color 0.12s ease;
 
         &:hover {
-          text-decoration: underline;
+          background: var(--input-bg);
+          color: var(--primary);
         }
       }
     }
@@ -130,7 +204,7 @@
 }
 
 /* ==========================================================================
-   MÓVIL (max-width: 992px) — menú pantalla completa
+   MÓVIL (max-width: 992px) — menú pantalla completa con acordeón
    ========================================================================== */
 @media (max-width: 992px) {
   .menu-toggle {
@@ -187,7 +261,8 @@
         flex-direction: column;
         order: 1;
 
-        a, .dropbtn {
+        a,
+        .dropbtn {
           width: 100%;
           padding: 18px;
           text-align: center;
@@ -202,18 +277,18 @@
         }
       }
 
-      // El selector de idioma va debajo de los links
-      .lang-selector {
-        order: 3;
-      }
-
-      // La barra de búsqueda va debajo del selector
+      .lang-selector { order: 3; }
       .search-box {
         order: 2;
         width: 90%;
         margin: 20px auto;
       }
     }
+  }
+
+  // --- Tabs bar: oculta en móvil (usamos acordeón) ---
+  .dropdown-tabs-bar {
+    display: none;
   }
 
   // --- Dropdown en móvil: flujo normal (no flotante) ---
@@ -226,39 +301,75 @@
       display: block;
     }
 
+    .dropdown-panels {
+      // sin padding extra en móvil; el acordeón ocupa el ancho completo
+      padding: 0;
+    }
+
+    // --- Acordeón por categoría ---
     .dropdown-column {
+      display: block; // siempre visible en móvil (el acordeón controla el ul)
+      border-bottom: 1px solid var(--border);
+
       h3 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
         background: var(--input-bg);
         color: var(--text);
-        padding: 15px;
+        padding: 14px 18px;
         margin: 0;
-        border-bottom: 1px solid var(--border);
         cursor: pointer;
-        text-align: center;
+        font-size: 0.95rem;
+        font-weight: 600;
+
+        .cat-icon  { font-size: 1rem; }
+        .cat-label { flex: 1; text-align: left; }
+
+        .cat-arrow {
+          font-size: 0.7rem;
+          opacity: 0.5;
+          transition: transform 0.2s ease;
+          display: inline-block;
+        }
       }
 
       ul {
         display: none;
-        list-style: none;
-        padding: 0;
+        flex-direction: column;
+        padding: 4px 0;
+        background: var(--bg-nav);
 
         li a {
           display: block;
-          background: var(--bg-nav);
+          padding: 13px 24px;
           color: var(--primary);
-          padding: 15px;
+          font-size: 0.95rem;
+          font-weight: 400;
+          text-decoration: none;
           border-bottom: 1px solid var(--border);
+
+          &:last-child { border-bottom: none; }
+
+          &:hover {
+            background: var(--input-bg);
+          }
         }
       }
 
-      // El JS añade/quita .column-active al hacer clic en el H3
+      // Estado abierto del acordeón
       &.column-active {
-        ul {
-          display: block;
-        }
-
         h3 {
           background: var(--border);
+
+          .cat-arrow {
+            transform: rotate(180deg);
+          }
+        }
+
+        ul {
+          display: flex;
         }
       }
     }

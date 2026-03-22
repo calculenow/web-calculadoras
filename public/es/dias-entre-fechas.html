@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calculadora de Días entre Fechas",
+      "url": "https://calculenow.com/es/calculadora-fechas",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "description": "Calcula los días entre dos fechas, suma o resta días a una fecha y descubre cuántos días faltan para cualquier evento."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cómo se calculan los días entre dos fechas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Se resta la fecha de inicio a la fecha de fin en milisegundos y se convierte el resultado a días dividiendo entre 86.400.000 (milisegundos en un día). Nuestra calculadora hace esto automáticamente y te muestra además el desglose en años, meses y días."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Los años bisiestos afectan al cálculo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Un año bisiesto tiene 366 días en lugar de 365. Nuestra calculadora los tiene en cuenta automáticamente para darte siempre un resultado exacto."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo calcular cuántos días faltan para una fecha futura?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. En la pestaña 'Días hasta una fecha' introduce la fecha del evento y verás exactamente cuántos días, semanas y meses quedan."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué pasa si sumo días y caigo en fin de semana o festivo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La calculadora muestra la fecha exacta resultante de sumar o restar días naturales, sin excluir fines de semana ni festivos. Si necesitas solo días laborables, tenlo en cuenta manualmente."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <title>Calculadora de Días entre Fechas — Cuenta Atrás y Suma de Días | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/es/dias-entre-fechas" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/dias-entre-fechas" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/dias-entre-fechas" />
+
+    <meta name="description" content="Calcula cuántos días hay entre dos fechas, suma o resta días y descubre cuánto falta para tu próximo evento. Gratis y sin registro." />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/es/calculadora-fechas" />
+    <meta property="og:title" content="Calculadora de Días entre Fechas — Cuenta Atrás y Suma de Días | Calculenow" />
+    <meta property="og:description" content="Calcula cuántos días hay entre dos fechas, suma o resta días y descubre cuánto falta para tu próximo evento." />
+    <meta property="og:image" content="https://calculenow.com/images/og-es.jpg" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Calculadora de Días entre Fechas — Cuenta Atrás y Suma de Días" />
+    <meta name="twitter:description" content="Calcula cuántos días hay entre dos fechas o cuánto falta para tu próximo evento. Gratis." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-es.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
+    <header></header>
+
+    <main>
+      <div class="card fechas-card">
+        <h1>Calculadora de Días entre Fechas</h1>
+        <p>Calcula días entre dos fechas, suma o resta días, o descubre cuánto falta para un evento.</p>
+
+        <!-- Pestañas de modo -->
+        <div class="fechas-tabs">
+          <button class="fechas-tab active" data-mode="entre" type="button">Entre dos fechas</button>
+          <button class="fechas-tab" data-mode="sumar" type="button">Sumar / restar días</button>
+          <button class="fechas-tab" data-mode="hasta" type="button">Días hasta un evento</button>
+        </div>
+
+        <!-- MODO 1: Entre dos fechas -->
+        <div class="fechas-panel" id="panel-entre">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fecha-inicio">Fecha de inicio</label>
+              <input id="fecha-inicio" class="field" type="date" />
+            </div>
+            <div class="form-group">
+              <label for="fecha-fin">Fecha de fin</label>
+              <input id="fecha-fin" class="field" type="date" />
+            </div>
+          </div>
+          <button class="btn btn-fechas" id="btn-entre" type="button">Calcular días</button>
+          <div class="result fechas-result" id="result-entre"></div>
+        </div>
+
+        <!-- MODO 2: Sumar / restar días -->
+        <div class="fechas-panel" id="panel-sumar" style="display:none">
+          <div class="form-group">
+            <label for="fecha-base">Fecha de partida</label>
+            <input id="fecha-base" class="field" type="date" />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="num-dias">Número de días</label>
+              <input id="num-dias" class="field" type="number" placeholder="Ej: 30" min="0" />
+            </div>
+            <div class="form-group">
+              <label for="operacion">Operación</label>
+              <select id="operacion" class="field">
+                <option value="sumar">Sumar días</option>
+                <option value="restar">Restar días</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn btn-fechas" id="btn-sumar" type="button">Calcular fecha</button>
+          <div class="result fechas-result" id="result-sumar"></div>
+        </div>
+
+        <!-- MODO 3: Días hasta un evento -->
+        <div class="fechas-panel" id="panel-hasta" style="display:none">
+          <div class="form-group">
+            <label for="fecha-evento">Fecha del evento</label>
+            <input id="fecha-evento" class="field" type="date" />
+          </div>
+          <div class="form-group">
+            <label for="nombre-evento">Nombre del evento (opcional)</label>
+            <input id="nombre-evento" class="field" type="text" placeholder="Ej: Mi cumpleaños, Navidad..." maxlength="50" />
+          </div>
+          <button class="btn btn-fechas" id="btn-hasta" type="button">¿Cuánto falta?</button>
+          <div class="result fechas-result" id="result-hasta"></div>
+        </div>
+
+        <!-- Accesos rápidos modo "hasta" -->
+        <div class="perfiles-interes" id="accesos-rapidos">
+          <button class="btn-mini" data-evento="Navidad" type="button">🎄 Navidad</button>
+          <button class="btn-mini" data-evento="Año Nuevo" type="button">🎆 Año Nuevo</button>
+          <button class="btn-mini" data-evento="Verano" type="button">☀️ Verano</button>
+          <button class="btn-mini" data-evento="Halloween" type="button">🎃 Halloween</button>
+        </div>
+
+        <div class="related-tools">
+          <p><strong>Otras herramientas útiles:</strong></p>
+          <ul>
+            <li>
+              <a href="/es/calculadora-conversion">
+                ➔ <strong>Conversor de Unidades:</strong> Convierte longitud, peso, temperatura y más.
+              </a>
+            </li>
+            <li>
+              <a href="/es/calculadora-porcentajes">
+                ➔ <strong>Calculadora de Porcentajes:</strong> Cálculos rápidos de proporción y variación.
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="legal-content">
+        <h2>¿Para qué sirve una calculadora de fechas?</h2>
+        <p>Calcular días entre fechas es mucho más útil de lo que parece. Desde saber cuántos días llevas en un nuevo trabajo hasta planificar cuánto tiempo queda para un evento importante. Aquí tienes algunos de los usos más habituales:</p>
+
+        <div class="info-grid">
+          <div class="card info-box">
+            <h3>📅 Planificación personal</h3>
+            <p>Cuenta los días hasta tus vacaciones, tu boda, un examen o cualquier fecha que marques en el calendario.</p>
+          </div>
+          <div class="card info-box">
+            <h3>💼 Uso profesional</h3>
+            <p>Calcula plazos de entrega, periodos de prueba, vencimientos de contratos o antigüedad laboral con precisión.</p>
+          </div>
+          <div class="card info-box">
+            <h3>⚖️ Trámites legales</h3>
+            <p>Muchos plazos legales se miden en días naturales. Suma exactamente los días indicados en una notificación o resolución.</p>
+          </div>
+          <div class="card info-box">
+            <h3>🏥 Seguimiento de salud</h3>
+            <p>Lleva la cuenta de días desde una operación, el inicio de un tratamiento o el último chequeo médico.</p>
+          </div>
+        </div>
+
+        <h2>Días naturales vs días hábiles</h2>
+        <p>Es importante distinguir entre los dos tipos de días que se usan habitualmente:</p>
+        <ul>
+          <li><strong>Días naturales:</strong> todos los días del calendario, incluyendo sábados, domingos y festivos. Son los que usa esta calculadora.</li>
+          <li><strong>Días hábiles:</strong> solo los días laborables (normalmente lunes a viernes), excluyendo fines de semana y festivos oficiales. Se usan mucho en trámites administrativos y judiciales.</li>
+        </ul>
+
+        <h2>¿Cómo se calcula la diferencia entre dos fechas?</h2>
+        <p>El cálculo se basa en restar los valores numéricos de ambas fechas. JavaScript representa cada fecha como el número de milisegundos transcurridos desde el 1 de enero de 1970. Al restar ambas y dividir entre 86.400.000 (los milisegundos de un día), obtenemos la diferencia exacta. Para el desglose en años, meses y días se tiene en cuenta la duración real de cada mes y los años bisiestos.</p>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Período</th>
+                <th>Días aproximados</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1 semana</td><td>7 días</td></tr>
+              <tr><td>1 mes (media)</td><td>30,44 días</td></tr>
+              <tr><td>1 trimestre</td><td>91 días</td></tr>
+              <tr><td>1 año normal</td><td>365 días</td></tr>
+              <tr><td>1 año bisiesto</td><td>366 días</td></tr>
+              <tr><td>1 década</td><td>3.652 días</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <div class="faq-section">
+        <h3>Preguntas frecuentes sobre cálculo de fechas</h3>
+
+        <details>
+          <summary>¿Cómo se calculan los días entre dos fechas?</summary>
+          <div class="faq-content">
+            <p>Se resta la fecha de inicio a la fecha de fin en milisegundos y se convierte el resultado a días dividiendo entre 86.400.000 (milisegundos en un día). Nuestra calculadora hace esto automáticamente y te muestra además el desglose en años, meses y días.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Los años bisiestos afectan al cálculo?</summary>
+          <div class="faq-content">
+            <p>Sí. Un año bisiesto tiene 366 días en lugar de 365. Nuestra calculadora los tiene en cuenta automáticamente para darte siempre un resultado exacto.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Puedo calcular cuántos días faltan para una fecha futura?</summary>
+          <div class="faq-content">
+            <p>Sí. En la pestaña <strong>Días hasta un evento</strong> introduce la fecha del evento y verás exactamente cuántos días, semanas y meses quedan.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Qué pasa si sumo días y caigo en fin de semana o festivo?</summary>
+          <div class="faq-content">
+            <p>La calculadora muestra la fecha exacta resultante de sumar o restar días naturales, sin excluir fines de semana ni festivos. Si necesitas solo días laborables, tenlo en cuenta manualmente.</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>Utilizamos cookies para mejorar tu experiencia. <a href="/es/cookies">Más información</a></p>
+        <div class="cookie-buttons">
+          <button id="btn-accept-all">Aceptar todas</button>
+          <button id="btn-reject-all">Rechazar</button>
+          <button id="btn-open-settings">Configurar</button>
+        </div>
+      </div>
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Configuración de cookies</strong></p>
+        <label><input type="checkbox" id="check-analytics" /> Analíticas</label>
+        <label><input type="checkbox" id="check-marketing" /> Marketing</label>
+        <div class="cookie-buttons">
+          <button id="btn-back">← Volver</button>
+          <button id="btn-save-settings">Guardar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/fechas.js" defer></script>
+  </body>
+</html>

@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { nombre: "Porcentajes", url: "/es/calculadora-porcentajes", tags: ["matematicas", "proporcion", "regla de tres", "calculo"] },
             { nombre: "Descuentos", url: "/es/calculadora-descuentos", tags: ["rebajas", "ofertas", "ahorro", "compras", "precio final"] },
             { nombre: "Conversión de Unidades", url: "/es/calculadora-conversion", tags: ["medidas", "metros", "pulgadas", "kilos", "temperatura", "convertir"] },
+            { nombre: "Días entre fechas", url: "/es/dias-entre-fechas", tags: ["fecha", "dias", "calendario", "cuenta atras", "cuanto falta", "diferencia fechas"] },
         ],
         en: [
             { nombre: "VAT", url: "/en/vat-calculator", tags: ["tax", "invoice", "hmrc", "freelance", "business"] },
