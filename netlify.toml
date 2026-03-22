@@ -1,6 +1,7 @@
 [dev]
   publish = "public"
   framework = "#static"
+  port = 5000
 
 # -----------------------------------------------------------
 # REDIRECCIONES: RAÍZ AL IDIOMA PRINCIPAL
