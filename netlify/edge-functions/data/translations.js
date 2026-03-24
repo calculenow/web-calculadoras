@@ -70,9 +70,9 @@ export const i18n = {
       ],
       utils: [
         { id: "conv",      url: "/es/calculadora-conversion",         name: "📐 Conversor de unidades" },
-        { id: "dates",  url: "/es/dias-entre-fechas",  name: "📅 Días entre fechas" },
+        { id: "dates",  url: "/es/dias-entre-fechas",                 name: "📅 Días entre fechas" },
+        { id: "age",    url: "/es/calculadora-edad",                  name: "🎂 Edad exacta" },
         // Próximamente:
-        // { id: "age",    url: "/es/calculadora-edad",               name: "🎂 Edad exacta" },
         // { id: "elec",   url: "/es/calculadora-consumo-electrico",  name: "⚡ Consumo eléctrico" },
         // { id: "fuel",   url: "/es/calculadora-coste-viaje",        name: "⛽ Coste de viaje" },
       ],
@@ -156,7 +156,7 @@ export const i18n = {
       utils: [
         { id: "conv",      url: "/en/unit-converter",                   name: "📐 Unit converter" },
         // Próximamente:
-        // { id: "dates",  url: "/en/date-calculator",                  name: "📅 Date difference" },
+        //{ id: "dates",  url: "/en/date-calculator",                  name: "📅 Date difference" },
         // { id: "age",    url: "/en/age-calculator",                   name: "🎂 Age calculator" },
         // { id: "fuel",   url: "/en/fuel-cost-calculator",             name: "⛽ Fuel cost" },
       ],

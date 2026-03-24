@@ -210,14 +210,21 @@
   <url>
     <loc>https://calculenow.com/es/calculadora-irpf</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-irpf"/>
-    <lastmod>2026-03-22</lastmod>
+    <lastmod>2026-03-24</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://calculenow.com/es/calculadora-irpf-foral</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-irpf-foral"/>
-    <lastmod>2026-03-22</lastmod>
+    <lastmod>2026-03-24</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://calculenow.com/es/calculadora-edad</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-edad"/>
+    <lastmod>2026-03-24</lastmod>
     <priority>0.8</priority>
   </url>
 

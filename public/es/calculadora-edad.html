@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calculadora de Edad Exacta",
+      "url": "https://calculenow.com/es/calculadora-edad",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "description": "Calcula tu edad exacta en años, meses y días, y descubre cuántos días, semanas y horas llevas vivo."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cómo se calcula la edad exacta?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Se calcula restando la fecha de nacimiento a la fecha actual, teniendo en cuenta la duración real de cada mes y los años bisiestos. El resultado se expresa en años, meses y días completos transcurridos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Los años bisiestos afectan al cálculo de la edad?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Los años bisiestos tienen 366 días en lugar de 365, lo que afecta al cálculo total de días vividos. Nuestra calculadora los tiene en cuenta automáticamente."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuántos días tiene un año de media?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un año tiene 365 días, o 366 si es bisiesto. De media, considerando el ciclo de años bisiestos cada 4 años, un año tiene 365,25 días."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo calcular la edad de otra persona o de una fecha histórica?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. La calculadora acepta cualquier fecha de nacimiento, tanto para calcular tu propia edad como la de otra persona, un animal o incluso la antigüedad de un objeto o evento histórico."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <title>Calculadora de Edad Exacta — Años, Meses, Días y Horas Vividas | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/es/calculadora-edad" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-edad" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/calculadora-edad" />
+
+    <meta name="description" content="Calcula tu edad exacta en años, meses y días. Descubre también cuántos días, semanas y horas llevas vivo. Gratis y sin registro." />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/es/calculadora-edad" />
+    <meta property="og:title" content="Calculadora de Edad Exacta — Años, Meses, Días y Horas Vividas | Calculenow" />
+    <meta property="og:description" content="Calcula tu edad exacta en años, meses y días. Descubre cuántos días, semanas y horas llevas vivo." />
+    <meta property="og:image" content="https://calculenow.com/images/og-es.jpg" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Calculadora de Edad Exacta — Años, Meses, Días y Horas Vividas" />
+    <meta name="twitter:description" content="Calcula tu edad exacta y descubre cuántos días, semanas y horas llevas vivo. Gratis." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-es.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
+    <header></header>
+
+    <main>
+      <div class="card edad-card">
+        <h1>Calculadora de Edad Exacta</h1>
+        <p>Introduce tu fecha de nacimiento y descubre tu edad exacta en años, meses y días, además de cuánto tiempo llevas en este mundo.</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fecha-nacimiento">Fecha de nacimiento</label>
+            <input id="fecha-nacimiento" class="field" type="date" />
+          </div>
+          <div class="form-group">
+            <label for="fecha-calculo">Calcular en esta fecha</label>
+            <input id="fecha-calculo" class="field" type="date" />
+          </div>
+        </div>
+
+        <button class="btn btn-edad" id="btn-calcular" type="button">Calcular edad</button>
+
+        <div class="result edad-result" id="edad-result"></div>
+
+        <div class="related-tools">
+          <p><strong>Otras herramientas de fechas:</strong></p>
+          <ul>
+            <li>
+              <a href="/es/dias-entre-fechas">
+                ➔ <strong>Días entre fechas:</strong> Calcula cuántos días hay entre dos fechas o cuánto falta para un evento.
+              </a>
+            </li>
+            <li>
+              <a href="/es/calculadora-conversion">
+                ➔ <strong>Conversor de unidades:</strong> Convierte longitud, peso, temperatura y más.
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="legal-content">
+        <h2>¿Para qué sirve calcular la edad exacta?</h2>
+        <p>Conocer la edad exacta va más allá de saber cuántos años tienes. Hay muchas situaciones en las que necesitas saber con precisión los años, meses y días:</p>
+
+        <div class="info-grid">
+          <div class="card info-box">
+            <h3>🏥 Uso médico</h3>
+            <p>Muchos cálculos de dosis, vacunas y seguimientos pediátricos requieren la edad exacta en meses, no solo en años.</p>
+          </div>
+          <div class="card info-box">
+            <h3>⚖️ Trámites legales</h3>
+            <p>Contratos, herencias, acceso a prestaciones y jubilaciones pueden depender de la edad exacta en una fecha concreta.</p>
+          </div>
+          <div class="card info-box">
+            <h3>🐾 Mascotas</h3>
+            <p>La edad de perros y gatos en meses es clave para su alimentación, vacunas y cuidados veterinarios.</p>
+          </div>
+          <div class="card info-box">
+            <h3>📚 Curiosidad personal</h3>
+            <p>Saber exactamente cuántos días llevas vivo o cuántas semanas tienes es un dato sorprendente que pocos conocen.</p>
+          </div>
+        </div>
+
+        <h2>¿Cómo se calcula la edad exacta?</h2>
+        <p>El cálculo tiene en cuenta la duración real de cada mes y los años bisiestos. No es tan simple como restar el año de nacimiento al año actual, porque hay que considerar si ya ha pasado o no el cumpleaños en el año en curso.</p>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Unidad</th>
+                <th>Equivalencia aproximada</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1 año</td><td>365 días (366 si es bisiesto)</td></tr>
+              <tr><td>1 mes</td><td>28 a 31 días según el mes</td></tr>
+              <tr><td>1 semana</td><td>7 días</td></tr>
+              <tr><td>1 día</td><td>24 horas = 1.440 minutos</td></tr>
+              <tr><td>10 años</td><td>≈ 3.652 días</td></tr>
+              <tr><td>18 años</td><td>≈ 6.574 días</td></tr>
+              <tr><td>65 años</td><td>≈ 23.741 días</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>El dato de los días vividos</h2>
+        <p>La mayoría de personas se sorprenden al ver cuántos días llevan vivos. Alguien de 30 años ha vivido más de <strong>10.900 días</strong>. A los 18 años ya se superan los <strong>6.500 días</strong>. Este dato puede ser una forma motivadora de ver el tiempo de manera diferente.</p>
+      </section>
+
+      <div class="faq-section">
+        <h3>Preguntas frecuentes sobre el cálculo de edad</h3>
+
+        <details>
+          <summary>¿Cómo se calcula la edad exacta?</summary>
+          <div class="faq-content">
+            <p>Se calcula restando la fecha de nacimiento a la fecha actual, teniendo en cuenta la duración real de cada mes y los años bisiestos. El resultado se expresa en años, meses y días completos transcurridos.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Los años bisiestos afectan al cálculo?</summary>
+          <div class="faq-content">
+            <p>Sí. Los años bisiestos tienen 366 días en lugar de 365, lo que afecta al cálculo total de días vividos. Nuestra calculadora los tiene en cuenta automáticamente.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Puedo calcular la edad de otra persona o de una fecha histórica?</summary>
+          <div class="faq-content">
+            <p>Sí. La calculadora acepta cualquier fecha de nacimiento. Puedes calcular la edad de otra persona, de una mascota, o incluso la antigüedad de un objeto o evento histórico cambiando la fecha de cálculo.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Cuántos días tiene un año de media?</summary>
+          <div class="faq-content">
+            <p>Un año normal tiene 365 días y un año bisiesto tiene 366. Considerando el ciclo de bisiestos, la media es de 365,25 días por año.</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>Utilizamos cookies para mejorar tu experiencia. <a href="/es/cookies">Más información</a></p>
+        <div class="cookie-buttons">
+          <button id="btn-accept-all">Aceptar todas</button>
+          <button id="btn-reject-all">Rechazar</button>
+          <button id="btn-open-settings">Configurar</button>
+        </div>
+      </div>
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Configuración de cookies</strong></p>
+        <label><input type="checkbox" id="check-analytics" /> Analíticas</label>
+        <label><input type="checkbox" id="check-marketing" /> Marketing</label>
+        <div class="cookie-buttons">
+          <button id="btn-back">← Volver</button>
+          <button id="btn-save-settings">Guardar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/edad.js" defer></script>
+  </body>
+</html>
