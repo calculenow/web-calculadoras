@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ── DESKTOP: TABS ──────────────────────────────────────────────────────────
   const firstTab = header.querySelector('.dropdown-tab');
-if (firstTab && window.innerWidth >= 993) activateTab(firstTab.dataset.tab);
+  if (firstTab && window.innerWidth >= 993) activateTab(firstTab.dataset.tab);
 
   header.querySelectorAll('.dropdown-tab').forEach(tab => {
     tab.addEventListener('click', () => activateTab(tab.dataset.tab));
@@ -97,17 +97,52 @@ if (firstTab && window.innerWidth >= 993) activateTab(firstTab.dataset.tab);
 
   // ── SELECTOR DE IDIOMA ─────────────────────────────────────────────────────
   const langSwitcher = document.getElementById('lang-switcher');
-  langSwitcher?.addEventListener('change', (e) => {
-    const target = e.target.value;
-    const currentPath = window.location.pathname;
-    const currentLang = currentPath.startsWith('/en') ? 'en' : 'es';
-    const targetLang  = target.startsWith('/en') ? 'en' : 'es';
+  const langModal    = document.getElementById('lang-modal');
+  const langModalConfirm = document.getElementById('lang-modal-confirm');
+  const langModalCancel  = document.getElementById('lang-modal-cancel');
 
-    if (currentLang !== targetLang) {
-      const translated = currentPath.replace(`/${currentLang}/`, `/${targetLang}/`);
-      window.location.href = translated === target ? target : translated;
-    }
-  });
+  if (langSwitcher) {
+    let currentValue = langSwitcher.value;
+    let pendingDest  = null;
+
+    const closeLangModal = () => {
+      langModal?.classList.remove('modal-visible');
+      pendingDest = null;
+    };
+
+    langSwitcher.addEventListener('change', (e) => {
+      const dest = e.target.value;
+
+      if (dest.includes('alert=not-found')) {
+        pendingDest = dest.split('?')[0]; // home del idioma destino
+        langModal?.classList.add('modal-visible');
+        // Restaurar visualmente el selector al idioma actual
+        e.target.value = currentValue;
+      } else {
+        currentValue = dest;
+        window.location.href = dest;
+      }
+    });
+
+    // Confirmar → ir al home del idioma destino
+    langModalConfirm?.addEventListener('click', () => {
+      if (pendingDest) window.location.href = pendingDest;
+      closeLangModal();
+    });
+
+    // Cancelar → cerrar modal, quedarse en la página actual
+    langModalCancel?.addEventListener('click', closeLangModal);
+
+    // Cerrar al clicar el overlay fuera de la modal
+    langModal?.addEventListener('click', (e) => {
+      if (e.target === langModal) closeLangModal();
+    });
+
+    // Cerrar con Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLangModal();
+    });
+  }
 
   // ── COOKIES ────────────────────────────────────────────────────────────────
   const banner       = document.getElementById('cookie-banner');

@@ -860,6 +860,31 @@ table tr:last-child td {
   margin-bottom: 0.75rem;
 }
 
+@media (max-width: 480px) {
+  .resumen-calculo {
+    padding: 1rem;
+  }
+  .resumen-calculo li {
+    flex-direction: column;
+    gap: 2px;
+    align-items: flex-start;
+  }
+  .resumen-calculo li span:last-child {
+    font-weight: 700;
+    color: var(--primary);
+  }
+  .resumen-calculo li.total-destacado {
+    font-size: 1rem;
+  }
+  .btn-copy {
+    width: 100%;
+    justify-content: center;
+  }
+  .irpf-card .form-row,
+  .fechas-card .form-row {
+    flex-direction: column;
+  }
+}
 .imc-bar {
   width: 100%;
   height: 12px;

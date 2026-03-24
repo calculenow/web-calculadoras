@@ -87,6 +87,8 @@ export const i18n = {
     },
 
     alertMsg: "Esta herramienta aún no está disponible en el idioma seleccionado. ¿Quieres ir a la página de inicio?",
+    modalCancel:  "Quedarme aquí",
+    modalConfirm: "Ir al inicio",
 
     footer: {
       links: [
@@ -161,6 +163,8 @@ export const i18n = {
     },
 
     alertMsg: "This tool is not yet available in the selected language. Do you want to go to the Home page?",
+    modalCancel:  "Stay here",
+    modalConfirm: "Go to home",
 
     footer: {
       links: [

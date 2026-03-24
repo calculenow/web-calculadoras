@@ -15,14 +15,49 @@ export default async (request, context) => {
   const lang = currentPath.startsWith("/en") ? "en" : "es";
   const t = i18n[lang];
 
-  const langOptions = [
-    { code: "es", name: t.langEs, url: "/es/" },
-    { code: "en", name: t.langEn, url: "/en/" },
-  ];
+  // ── REDIRECCIÓN INTELIGENTE POR ID ────────────────────────────────────────
+  // Busca la página actual en los links por id y la mapea al equivalente
+  // en el idioma destino. Si no existe, redirige al home del idioma destino.
+  const getTargetUrl = (targetLangCode) => {
+    const targetI18n = i18n[targetLangCode];
 
-  // Renderiza cada categoría como columna del dropdown.
-  // En desktop se usa como panel de tabs; en móvil como acordeón.
-  // data-cat se usa para que el JS asocie el botón tab con su panel.
+    // Todos los links del idioma actual (nav + footer + home + contacto)
+    const currentAllLinks = [
+      ...Object.values(t.links).flat(),
+      ...t.footer.links,
+      { id: "home",    url: t.homeUrl },
+      { id: "contact", url: t.contactUrl },
+    ];
+
+    // Buscar la página actual por URL
+    const currentItem = currentAllLinks.find(l => l.url === currentPath);
+    if (!currentItem) return targetI18n.homeUrl;
+
+    // Buscar el equivalente en el idioma destino por el mismo id
+    const targetAllLinks = [
+      ...Object.values(targetI18n.links).flat(),
+      ...targetI18n.footer.links,
+      { id: "home",    url: targetI18n.homeUrl },
+      { id: "contact", url: targetI18n.contactUrl },
+    ];
+
+    const match = targetAllLinks.find(l => l.id === currentItem.id);
+    return match ? match.url : `${targetI18n.homeUrl}?alert=not-found`;
+  };
+
+  // Opciones del selector de idioma con URLs inteligentes
+  const langOptions = Object.keys(i18n).map(code => {
+    const labelKey = `lang${code.charAt(0).toUpperCase() + code.slice(1)}`;
+    return {
+      code,
+      name: t[labelKey] || code.toUpperCase(),
+      url: getTargetUrl(code),
+    };
+  });
+
+  // ── RENDER NAV ────────────────────────────────────────────────────────────
+
+  // Renderiza cada categoría como panel de tabs (desktop) / acordeón (móvil)
   const renderColumn = (catKey) => {
     const cat = t.categories[catKey];
     const items = t.links[catKey] || [];
@@ -36,9 +71,7 @@ export default async (request, context) => {
           <span class="cat-arrow">▼</span>
         </h3>
         <ul>
-          ${items.map(link => `
-            <li><a href="${link.url}">${link.name}</a></li>
-          `).join("")}
+          ${items.map(link => `<li><a href="${link.url}">${link.name}</a></li>`).join("")}
         </ul>
       </div>
     `;
@@ -50,13 +83,27 @@ export default async (request, context) => {
       .filter(key => t.links[key] && t.links[key].length > 0)
       .map((key, idx) => {
         const cat = t.categories[key];
-        const isFirst = idx === 0;
-        return `<button class="dropdown-tab${isFirst ? " active" : ""}" data-tab="${key}" type="button">
+        return `<button class="dropdown-tab${idx === 0 ? " active" : ""}" data-tab="${key}" type="button">
           <span class="tab-icon">${cat.icon}</span>
           <span class="tab-label">${cat.label}</span>
         </button>`;
       }).join("");
   };
+
+  const modalHTML = `
+  <div class="modal-overlay" id="lang-modal">
+    <div class="modal">
+      <div class="modal-body">
+        <span class="modal-icon">🌐</span>
+        <p class="modal-title">${t.alertMsg}</p>
+      </div>
+      <div class="modal-actions">
+        <button class="btn-modal-cancel" id="lang-modal-cancel">${t.modalCancel}</button>
+        <button class="btn-modal-confirm" id="lang-modal-confirm">${t.modalConfirm}</button>
+      </div>
+    </div>
+  </div>
+`;
 
   const navHTML = `
     <button class="menu-toggle">Menu</button>
@@ -112,7 +159,8 @@ export default async (request, context) => {
 
   const nuevoHtml = html
     .replace(/<header>([\s\S]*?)<\/header>/i, `<header>${navHTML}</header>`)
-    .replace(/<footer>([\s\S]*?)<\/footer>/i, `<footer>${footerHTML}</footer>`);
+    .replace(/<footer>([\s\S]*?)<\/footer>/i, `<footer>${footerHTML}</footer>`)
+    .replace(/<\/body>/i, `${modalHTML}</body>`);
 
   return new Response(nuevoHtml, response);
 };

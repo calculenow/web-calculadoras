@@ -149,3 +149,36 @@
   padding-bottom: 5px;
   margin-bottom: 0.75rem;
 }
+
+// --- Responsive móvil del resumen (afecta a todas las calculadoras) ---
+@media (max-width: 480px) {
+  .resumen-calculo {
+    padding: 1rem;
+
+    li {
+      flex-direction: column;
+      gap: 2px;
+      align-items: flex-start;
+
+      span:last-child {
+        font-weight: 700;
+        color: var(--primary);
+      }
+
+      &.total-destacado {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .btn-copy {
+    width: 100%;
+    justify-content: center;
+  }
+
+  // --- Formularios IRPF y calculadoras con form-row ---
+  .irpf-card .form-row,
+  .fechas-card .form-row {
+    flex-direction: column;
+  }
+}

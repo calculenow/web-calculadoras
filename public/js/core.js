@@ -158,35 +158,6 @@ function validarNumeros(inputs) {
   });
 }
 
-// ==================== SELECTOR DE IDIOMA ====================
-
-document.addEventListener('DOMContentLoaded', () => {
-  const sw = document.getElementById('lang-switcher');
-  if (sw) {
-    let currentUrl = window.location.pathname;
-
-    const selectedOpt = sw.querySelector('option[selected]');
-    if (selectedOpt) sw.value = selectedOpt.value;
-
-    sw.addEventListener('change', function (e) {
-      const dest = this.value;
-
-      if (dest.includes('alert=not-found')) {
-        const msg = this.getAttribute('data-alert') || 'Tool not available';
-
-        if (confirm(msg)) {
-          window.location.href = dest;
-        } else {
-          e.preventDefault();
-          this.value = currentUrl;
-          return false;
-        }
-      } else {
-        window.location.href = dest;
-      }
-    });
-  }
-});
 
 // ==================== ADBLOCK DETECTOR ====================
 // Descomenta este bloque cuando actives Google AdSense

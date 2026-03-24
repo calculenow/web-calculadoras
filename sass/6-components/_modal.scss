@@ -1,0 +1,117 @@
+// 6-components/_modal.scss
+// Modal genérica reutilizable.
+// Se controla añadiendo/quitando la clase .modal-visible en .modal-overlay.
+//
+// Estructura esperada:
+//   .modal-overlay
+//     .modal
+//       .modal-body
+//         p.modal-message
+//       .modal-actions
+//         button.btn-modal-cancel
+//         button.btn-modal-confirm
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99999;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+
+  &.modal-visible {
+    display: flex;
+    animation: fadeIn 0.15s ease;
+  }
+}
+
+.modal {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.2s ease;
+
+  .dark & {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.modal-body {
+  margin-bottom: 1.25rem;
+
+  .modal-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .modal-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+  }
+
+  .modal-message {
+    font-size: 0.9rem;
+    color: var(--text);
+    opacity: 0.8;
+    line-height: 1.5;
+    margin: 0;
+  }
+}
+
+.modal-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+
+  button {
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    border: none;
+    transition: filter 0.15s ease, transform 0.15s ease;
+
+    &:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  .btn-modal-cancel {
+    background: var(--input-bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+
+  .btn-modal-confirm {
+    background: var(--primary);
+    color: white;
+  }
+}
+
+// Responsive
+@media (max-width: 480px) {
+  .modal-actions {
+    flex-direction: column-reverse;
+
+    button {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
