@@ -39,15 +39,28 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- CARGA INTELIGENTE GTM (PageSpeed Boost) ---
+  // Usa requestIdleCallback si está disponible (espera a que el navegador esté libre),
+  // con fallback a setTimeout. Los eventos de interacción lo disparan antes si el
+  // usuario ya está interactuando con la página.
   if (savedConsent && savedConsent.analytics) {
     const triggerEvents = ['touchstart', 'scroll', 'mouseover', 'keydown'];
-    const idleTimer = setTimeout(loadGTM, 3500);
+    let idleHandle;
+
+    const doLoad = () => {
+      if ('requestIdleCallback' in window) {
+        cancelIdleCallback(idleHandle);
+      } else {
+        clearTimeout(idleHandle);
+      }
+      loadGTM();
+    };
+
+    idleHandle = 'requestIdleCallback' in window
+      ? requestIdleCallback(doLoad, { timeout: 3500 })
+      : setTimeout(loadGTM, 3500);
 
     triggerEvents.forEach(event => {
-      window.addEventListener(event, () => {
-        clearTimeout(idleTimer);
-        loadGTM();
-      }, { once: true, passive: true });
+      window.addEventListener(event, doLoad, { once: true, passive: true });
     });
   }
 
