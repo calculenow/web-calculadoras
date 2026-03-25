@@ -64,8 +64,8 @@ export const i18n = {
       math: [
         { id: "perc",      url: "/es/calculadora-porcentajes",        name: "📊 Porcentajes" },
         { id: "ratio",     url: "/es/regla-de-tres",      name: "✖️ Regla de tres" },
+        { id: "avg",    url: "/es/calculadora-media-mediana",      name: "📉 Media y mediana" },
         // Próximamente:
-        // { id: "avg",    url: "/es/calculadora-media-mediana",      name: "📉 Media y mediana" },
         // { id: "grade",  url: "/es/calculadora-notas",              name: "🎓 Notas" },
       ],
       utils: [

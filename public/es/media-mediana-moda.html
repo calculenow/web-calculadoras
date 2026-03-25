@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calculadora de Media, Mediana, Moda y Rango",
+      "url": "https://calculenow.com/es/media-mediana-moda",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "description": "Calcula la media aritmética, mediana, moda y rango de cualquier conjunto de números al instante. Ideal para estadística, notas y análisis de datos."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué diferencia hay entre media, mediana y moda?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La media es el promedio aritmético (suma dividida entre la cantidad de números). La mediana es el valor central cuando los datos están ordenados. La moda es el valor que más veces se repite. Cada una describe el conjunto de datos desde un ángulo diferente."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuándo es mejor usar la mediana que la media?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La mediana es más representativa cuando hay valores extremos (outliers) que distorsionan la media. Por ejemplo, en salarios, unos pocos sueldos muy altos elevan la media pero la mediana refleja mejor el sueldo típico."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puede haber más de una moda?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Si dos o más valores se repiten el mismo número de veces y más que el resto, todos son modas. Se llama distribución bimodal (dos modas) o multimodal (más de dos)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué es el rango en estadística?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El rango es la diferencia entre el valor máximo y el mínimo de un conjunto de datos. Indica la dispersión total del conjunto: cuanto mayor es el rango, más dispersos están los datos."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <title>Calculadora de Media, Mediana, Moda y Rango — Estadística Básica | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/es/media-mediana-moda" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/media-mediana-moda" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/media-mediana-moda" />
+
+    <meta name="description" content="Calcula la media, mediana, moda y rango de cualquier lista de números. Introduce los datos y obtén todos los estadísticos básicos al instante. Gratis." />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/es/media-mediana-moda" />
+    <meta property="og:title" content="Calculadora de Media, Mediana, Moda y Rango — Estadística Básica | Calculenow" />
+    <meta property="og:description" content="Calcula la media, mediana, moda y rango de cualquier lista de números al instante. Gratis y sin registro." />
+    <meta property="og:image" content="https://calculenow.com/images/og-es.jpg" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Calculadora de Media, Mediana, Moda y Rango" />
+    <meta name="twitter:description" content="Calcula media, mediana, moda y rango de cualquier lista de números. Gratis." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-es.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
+    <header></header>
+
+    <main>
+      <div class="card estadistica-card">
+        <h1>Calculadora de Media, Mediana, Moda y Rango</h1>
+        <p>Introduce una lista de números separados por comas o espacios y calcula todos los estadísticos básicos al instante.</p>
+
+        <div class="form-group">
+          <label for="numeros">Lista de números</label>
+          <input id="numeros" class="field" type="text"
+            placeholder="Ej: 4, 8, 6, 5, 3, 2, 8, 9, 2, 5"
+            autocomplete="off" />
+          <p class="estadistica-hint">Separa los números con comas, espacios o ambos. Se aceptan decimales con punto o coma.</p>
+        </div>
+
+        <button class="btn btn-estadistica" id="btn-calcular" type="button">Calcular estadísticos</button>
+
+        <div class="result estadistica-result" id="estadistica-result"></div>
+
+        <div class="related-tools">
+          <p><strong>Otras herramientas matemáticas:</strong></p>
+          <ul>
+            <li>
+              <a href="/es/calculadora-porcentajes">
+                ➔ <strong>Calculadora de porcentajes:</strong> Calcula proporciones e incrementos.
+              </a>
+            </li>
+            <li>
+              <a href="/es/regla-de-tres">
+                ➔ <strong>Regla de tres:</strong> Resuelve proporciones directas e inversas.
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="legal-content">
+        <h2>¿Qué son la media, mediana, moda y rango?</h2>
+        <p>Son las cuatro medidas básicas de la estadística descriptiva. Cada una describe el conjunto de datos desde un ángulo diferente y juntas dan una imagen completa de cómo se distribuyen los valores.</p>
+
+        <div class="info-grid">
+          <div class="card info-box">
+            <h3>📊 Media aritmética</h3>
+            <p>El promedio. Se calcula sumando todos los valores y dividiendo entre la cantidad de datos. Es la más usada pero sensible a valores extremos.</p>
+          </div>
+          <div class="card info-box">
+            <h3>📍 Mediana</h3>
+            <p>El valor central cuando los datos están ordenados. Si hay un número par de datos, es la media de los dos centrales. No se ve afectada por valores extremos.</p>
+          </div>
+          <div class="card info-box">
+            <h3>🔁 Moda</h3>
+            <p>El valor que más veces aparece. Puede haber más de una moda o ninguna si todos los valores son distintos.</p>
+          </div>
+          <div class="card info-box">
+            <h3>↔️ Rango</h3>
+            <p>La diferencia entre el valor máximo y el mínimo. Mide la dispersión total del conjunto de datos.</p>
+          </div>
+        </div>
+
+        <h2>¿Cuándo usar cada medida?</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>Situación</th><th>Medida recomendada</th><th>Por qué</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Notas de un examen sin valores extremos</td><td>Media</td><td>Refleja el rendimiento general</td></tr>
+              <tr><td>Salarios en una empresa</td><td>Mediana</td><td>Los sueldos altos distorsionan la media</td></tr>
+              <tr><td>Talla más vendida en una tienda</td><td>Moda</td><td>Interesa el valor más frecuente</td></tr>
+              <tr><td>Temperaturas de una semana</td><td>Rango + Media</td><td>Muestra variación y promedio</td></tr>
+              <tr><td>Precios de viviendas en una ciudad</td><td>Mediana</td><td>Evita distorsión por precios extremos</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Fórmulas</h2>
+        <div class="formule">Media = Σx / n</div>
+        <p>Donde Σx es la suma de todos los valores y n es la cantidad de datos.</p>
+        <div class="formule">Rango = Valor máximo − Valor mínimo</div>
+      </section>
+
+      <div class="faq-section">
+        <h3>Preguntas frecuentes sobre estadística básica</h3>
+
+        <details>
+          <summary>¿Qué diferencia hay entre media, mediana y moda?</summary>
+          <div class="faq-content">
+            <p>La media es el promedio aritmético. La mediana es el valor central cuando los datos están ordenados. La moda es el valor que más se repite. Cada una describe el conjunto de datos desde un ángulo diferente.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Cuándo es mejor usar la mediana que la media?</summary>
+          <div class="faq-content">
+            <p>Cuando hay valores extremos que distorsionan la media. Por ejemplo, en salarios, unos pocos sueldos muy altos elevan la media pero la mediana refleja mejor el sueldo típico.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Puede haber más de una moda?</summary>
+          <div class="faq-content">
+            <p>Sí. Si dos o más valores se repiten el mismo número de veces y más que el resto, todos son modas. Se llama distribución bimodal o multimodal.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Qué es el rango en estadística?</summary>
+          <div class="faq-content">
+            <p>La diferencia entre el valor máximo y el mínimo. Indica la dispersión total: cuanto mayor es el rango, más dispersos están los datos.</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>Utilizamos cookies para mejorar tu experiencia. <a href="/es/cookies">Más información</a></p>
+        <div class="cookie-buttons">
+          <button id="btn-accept-all">Aceptar todas</button>
+          <button id="btn-reject-all">Rechazar</button>
+          <button id="btn-open-settings">Configurar</button>
+        </div>
+      </div>
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Configuración de cookies</strong></p>
+        <label><input type="checkbox" id="check-analytics" /> Analíticas</label>
+        <label><input type="checkbox" id="check-marketing" /> Marketing</label>
+        <div class="cookie-buttons">
+          <button id="btn-back">← Volver</button>
+          <button id="btn-save-settings">Guardar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/estadistica.js" defer></script>
+  </body>
+</html>

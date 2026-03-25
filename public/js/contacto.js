@@ -1,14 +1,16 @@
 // ==================== FORMULARIO DE CONTACTO ====================
 
-const isEn = window.location.pathname.includes('/en/');
+document.addEventListener("DOMContentLoaded", () => {
+  const isEn = window.location.pathname.includes('/en/');
 
-(function () {
+  // Init EmailJS aquí dentro para garantizar que la librería ya está cargada
   if (typeof emailjs !== 'undefined') {
     emailjs.init({ publicKey: "ZaG9iF5eQ1j7txAUR" });
+  } else {
+    console.error('EmailJS no está disponible.');
+    return;
   }
-})();
 
-document.addEventListener("DOMContentLoaded", () => {
   const contactForm = document.getElementById('contact-form');
   const formStatus = document.getElementById('form-status');
 
@@ -16,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const btnEnviar = contactForm.querySelector('button[type="submit"]');
 
-  const validarFormulario = (campos) => {
+  const validarCampos = (campos) => {
     return campos.every(campo => campo && campo.value.trim() !== '');
   };
 
@@ -26,16 +28,27 @@ document.addEventListener("DOMContentLoaded", () => {
     formStatus.textContent = '';
     formStatus.className = 'form-status';
 
+    // Validar campos de texto
     const campos = [
       document.getElementById('nombre'),
       document.getElementById('email'),
       document.getElementById('mensaje')
     ];
 
-    if (!validarFormulario(campos)) {
+    if (!validarCampos(campos)) {
       formStatus.textContent = isEn
         ? 'Please fill in all fields correctly.'
         : 'Por favor, rellena los campos correctamente.';
+      formStatus.classList.add('error-text');
+      return;
+    }
+
+    // Validar checkbox de privacidad
+    const privacyCheck = document.getElementById('privacy-check');
+    if (!privacyCheck || !privacyCheck.checked) {
+      formStatus.textContent = isEn
+        ? 'You must accept the privacy policy.'
+        : 'Debes aceptar la política de privacidad.';
       formStatus.classList.add('error-text');
       return;
     }
