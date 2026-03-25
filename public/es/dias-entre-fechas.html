@@ -18,7 +18,7 @@
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "Calculadora de Días entre Fechas",
-      "url": "https://calculenow.com/es/calculadora-fechas",
+      "url": "https://calculenow.com/es/dias-entre-fechas",
       "applicationCategory": "UtilitiesApplication",
       "operatingSystem": "Web",
       "inLanguage": "es",
@@ -115,14 +115,14 @@
         <p>Calcula días entre dos fechas, suma o resta días, o descubre cuánto falta para un evento.</p>
 
         <!-- Pestañas de modo -->
-        <div class="fechas-tabs">
-          <button class="fechas-tab active" data-mode="entre" type="button">Entre dos fechas</button>
-          <button class="fechas-tab" data-mode="sumar" type="button">Sumar / restar días</button>
-          <button class="fechas-tab" data-mode="hasta" type="button">Días hasta un evento</button>
+        <div class="calc-tabs">
+          <button class="calc-tab active" data-mode="entre" type="button">Entre dos fechas</button>
+          <button class="calc-tab" data-mode="sumar" type="button">Sumar / restar días</button>
+          <button class="calc-tab" data-mode="hasta" type="button">Días hasta un evento</button>
         </div>
 
         <!-- MODO 1: Entre dos fechas -->
-        <div class="fechas-panel" id="panel-entre">
+        <div class="calc-panel" id="panel-entre">
           <div class="form-row">
             <div class="form-group">
               <label for="fecha-inicio">Fecha de inicio</label>
@@ -138,7 +138,7 @@
         </div>
 
         <!-- MODO 2: Sumar / restar días -->
-        <div class="fechas-panel" id="panel-sumar" style="display:none">
+        <div class="calc-panel" id="panel-sumar" style="display:none">
           <div class="form-group">
             <label for="fecha-base">Fecha de partida</label>
             <input id="fecha-base" class="field" type="date" />
@@ -161,7 +161,7 @@
         </div>
 
         <!-- MODO 3: Días hasta un evento -->
-        <div class="fechas-panel" id="panel-hasta" style="display:none">
+        <div class="calc-panel" id="panel-hasta" style="display:none">
           <div class="form-group">
             <label for="fecha-evento">Fecha del evento</label>
             <input id="fecha-evento" class="field" type="date" />

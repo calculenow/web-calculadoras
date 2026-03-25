@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calculadora de Coste de Viaje en Coche",
+      "url": "https://calculenow.com/es/calculadora-coste-viaje",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "description": "Calcula el coste de combustible de tu viaje en coche. Introduce la distancia, el consumo y el precio de la gasolina o diésel para saber cuánto te costará el trayecto."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cómo se calcula el coste de combustible de un viaje?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La fórmula es: (distancia en km × consumo en L/100km / 100) × precio por litro. Por ejemplo, un viaje de 500 km con un coche que consume 6 L/100km y gasolina a 1,70 €/litro costaría 51 €."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuál es el consumo medio de un coche en España?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El consumo medio de un turismo en España ronda los 6-7 L/100km en carretera y 8-10 L/100km en ciudad. Los SUV y vehículos más grandes pueden superar los 10 L/100km, mientras que los híbridos se sitúan entre 4-6 L/100km."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Merece la pena ir en coche o en tren?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Depende de la distancia, el número de personas y el precio del combustible. Para trayectos cortos con varias personas el coche suele ser más económico. Para distancias largas o viajando solo, el tren o el autobús pueden ser más baratos y cómodos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿El precio del combustible incluye impuestos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. El precio en surtidor que introduces en la calculadora ya incluye todos los impuestos (IVA e Impuesto Especial sobre Hidrocarburos), por lo que el resultado refleja el coste real que pagarás."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <title>Calculadora de Coste de Viaje en Coche — Gasolina y Diésel | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/es/calculadora-coste-viaje" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-coste-viaje" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/calculadora-coste-viaje" />
+
+    <meta name="description" content="Calcula cuánto te costará el combustible de tu viaje en coche. Introduce distancia, consumo y precio de gasolina o diésel. Gratis y sin registro." />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/es/calculadora-coste-viaje" />
+    <meta property="og:title" content="Calculadora de Coste de Viaje en Coche — Gasolina y Diésel | Calculenow" />
+    <meta property="og:description" content="Calcula cuánto te costará el combustible de tu viaje. Distancia, consumo y precio del combustible en segundos." />
+    <meta property="og:image" content="https://calculenow.com/images/og-es.jpg" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Calculadora de Coste de Viaje en Coche — Gasolina y Diésel" />
+    <meta name="twitter:description" content="Calcula el coste de combustible de tu viaje en coche. Gratis y sin registro." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-es.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
+    <header></header>
+
+    <main>
+      <div class="card viaje-card">
+        <h1>Calculadora de Coste de Viaje en Coche</h1>
+        <p>Introduce los datos de tu trayecto y calcula cuánto gastarás en combustible, con o sin peajes y dividido entre los ocupantes.</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="distancia">Distancia (km)</label>
+            <input id="distancia" class="field" type="number" placeholder="Ej: 500" min="0" step="1" />
+          </div>
+          <div class="form-group">
+            <label for="ida-vuelta">Tipo de trayecto</label>
+            <select id="ida-vuelta" class="field">
+              <option value="1">Solo ida</option>
+              <option value="2">Ida y vuelta</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="consumo">Consumo del coche (L/100km)</label>
+            <input id="consumo" class="field" type="number" placeholder="Ej: 6.5" min="0" step="0.1" />
+          </div>
+          <div class="form-group">
+            <label for="precio-combustible">Precio combustible (€/litro)</label>
+            <input id="precio-combustible" class="field" type="number" placeholder="Ej: 1.75" min="0" step="0.001" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="peajes">Peajes estimados (€, opcional)</label>
+            <input id="peajes" class="field" type="number" placeholder="Ej: 12.50" min="0" step="0.01" />
+          </div>
+          <div class="form-group">
+            <label for="ocupantes">Número de ocupantes</label>
+            <input id="ocupantes" class="field" type="number" placeholder="Ej: 2" min="1" max="9" step="1" value="1" />
+          </div>
+        </div>
+
+        <!-- Perfiles rápidos de consumo -->
+        <div class="perfiles-interes">
+          <button class="btn-mini" data-consumo="5" type="button">⚡ Híbrido ~5L</button>
+          <button class="btn-mini" data-consumo="6.5" type="button">🚗 Turismo ~6.5L</button>
+          <button class="btn-mini" data-consumo="8" type="button">🚙 SUV ~8L</button>
+          <button class="btn-mini" data-consumo="10" type="button">🚐 Furgoneta ~10L</button>
+        </div>
+
+        <button class="btn btn-viaje" id="btn-calcular" type="button">Calcular coste</button>
+
+        <div class="result viaje-result" id="viaje-result"></div>
+
+        <p class="disclaimer-text">
+          * El cálculo es orientativo y solo incluye el coste de combustible y los peajes introducidos. No se tienen en cuenta desgaste, seguro, amortización ni otros gastos del vehículo.
+        </p>
+
+        <div class="related-tools">
+          <p><strong>Otras herramientas útiles:</strong></p>
+          <ul>
+            <li>
+              <a href="/es/calculadora-conversion">
+                ➔ <strong>Conversor de unidades:</strong> Convierte millas a kilómetros, galones a litros y más.
+              </a>
+            </li>
+            <li>
+              <a href="/es/calculadora-porcentajes">
+                ➔ <strong>Calculadora de porcentajes:</strong> Calcula cuánto supone el combustible de tu presupuesto de viaje.
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="legal-content">
+        <h2>¿Cómo calcular el coste de combustible de un viaje?</h2>
+        <p>La fórmula es sencilla:</p>
+        <div class="formule">
+          Coste = (Distancia × Consumo / 100) × Precio por litro
+        </div>
+        <p>Por ejemplo, un viaje de <strong>500 km</strong> con un coche que consume <strong>6,5 L/100km</strong> y gasolina a <strong>1,75 €/litro</strong> costaría:</p>
+        <div class="formule">
+          (500 × 6,5 / 100) × 1,75 = 32,5 litros × 1,75 = <strong>56,88 €</strong>
+        </div>
+
+        <h2>Consumo medio según tipo de vehículo</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>Tipo de vehículo</th><th>Consumo carretera</th><th>Consumo ciudad</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Híbrido / microhíbrido</td><td>4 – 5 L/100km</td><td>4 – 6 L/100km</td></tr>
+              <tr><td>Turismo pequeño (gasolina)</td><td>5 – 6 L/100km</td><td>7 – 9 L/100km</td></tr>
+              <tr><td>Turismo mediano (gasolina)</td><td>6 – 7 L/100km</td><td>8 – 11 L/100km</td></tr>
+              <tr><td>Turismo diésel</td><td>5 – 6 L/100km</td><td>6 – 8 L/100km</td></tr>
+              <tr><td>SUV / 4x4</td><td>7 – 9 L/100km</td><td>9 – 13 L/100km</td></tr>
+              <tr><td>Furgoneta / monovolumen</td><td>8 – 11 L/100km</td><td>10 – 14 L/100km</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Consejos para reducir el consumo en carretera</h2>
+        <ul>
+          <li><strong>Mantén una velocidad constante:</strong> entre 90 y 110 km/h es el rango más eficiente para la mayoría de coches.</li>
+          <li><strong>Infla bien los neumáticos:</strong> unos neumáticos bajos de presión pueden aumentar el consumo hasta un 3%.</li>
+          <li><strong>Evita el arranque en frío agresivo:</strong> los primeros kilómetros son los que más consumen.</li>
+          <li><strong>Reduce el peso:</strong> cada 100 kg extra suponen aproximadamente un 5% más de consumo.</li>
+          <li><strong>Usa el aire acondicionado con moderación:</strong> puede aumentar el consumo entre un 10% y un 20%.</li>
+        </ul>
+      </section>
+
+      <div class="faq-section">
+        <h3>Preguntas frecuentes sobre el coste de viaje</h3>
+
+        <details>
+          <summary>¿Cómo se calcula el coste de combustible de un viaje?</summary>
+          <div class="faq-content">
+            <p>La fórmula es: (distancia en km × consumo en L/100km / 100) × precio por litro. Nuestra calculadora lo hace automáticamente y además divide el resultado entre los ocupantes.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Cuál es el consumo medio de un coche en España?</summary>
+          <div class="faq-content">
+            <p>El consumo medio de un turismo ronda los 6-7 L/100km en carretera y 8-10 L/100km en ciudad. Los híbridos se sitúan entre 4-6 L/100km y los SUV pueden superar los 10 L/100km.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿El precio del combustible incluye impuestos?</summary>
+          <div class="faq-content">
+            <p>Sí. El precio en surtidor ya incluye el IVA y el Impuesto Especial sobre Hidrocarburos, por lo que el resultado refleja el coste real que pagarás en la gasolinera.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Merece la pena ir en coche o en tren?</summary>
+          <div class="faq-content">
+            <p>Depende de la distancia, el número de personas y el precio del combustible. Para trayectos cortos con varias personas el coche suele ser más económico. Para distancias largas viajando solo, el tren o el autobús pueden ser más baratos.</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>Utilizamos cookies para mejorar tu experiencia. <a href="/es/cookies">Más información</a></p>
+        <div class="cookie-buttons">
+          <button id="btn-accept-all">Aceptar todas</button>
+          <button id="btn-reject-all">Rechazar</button>
+          <button id="btn-open-settings">Configurar</button>
+        </div>
+      </div>
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Configuración de cookies</strong></p>
+        <label><input type="checkbox" id="check-analytics" /> Analíticas</label>
+        <label><input type="checkbox" id="check-marketing" /> Marketing</label>
+        <div class="cookie-buttons">
+          <button id="btn-back">← Volver</button>
+          <button id="btn-save-settings">Guardar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/viaje.js" defer></script>
+  </body>
+</html>

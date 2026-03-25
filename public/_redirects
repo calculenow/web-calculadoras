@@ -1,5 +1,6 @@
 # --- IDIOMA ESPAÑOL (/es/) ---
 /es/calculadora-porcentajes    /es/calculadora-porcentajes.html    200
+/es/regla-de-tres              /es/regla-de-tres.html              200
 /es/calculadora-imc            /es/calculadora-imc.html            200
 /es/calculadora-iva            /es/calculadora-iva.html            200
 /es/calculadora-descuentos     /es/calculadora-descuentos.html     200
@@ -14,6 +15,7 @@
 /es/calculadora-irpf           /es/calculadora-irpf.html           200
 /es/calculadora-irpf-foral     /es/calculadora-irpf-foral.html     200
 /es/calculadora-edad           /es/calculadora-edad.html           200
+/es/calculadora-coste-viaje    /es/calculadora-coste-viaje.html    200
 
 # Legales ES
 /es/aviso-legal                /es/aviso-legal.html                200

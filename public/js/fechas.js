@@ -9,8 +9,8 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   // ── TABS DE MODO ────────────────────────────────────────────────────────────
-  const tabs   = document.querySelectorAll('.fechas-tab');
-  const panels = document.querySelectorAll('.fechas-panel');
+  const tabs    = document.querySelectorAll('.calc-tab');
+  const panels  = document.querySelectorAll('.calc-panel');
   const accesos = document.getElementById('accesos-rapidos');
 
   tabs.forEach(tab => {
@@ -35,18 +35,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── HELPERS ─────────────────────────────────────────────────────────────────
 
-  // Hoy a medianoche local (sin hora para evitar desfases UTC)
   function hoy() {
     const d = new Date();
     return new Date(d.getFullYear(), d.getMonth(), d.getDate());
   }
 
-  // Diferencia exacta en días entre dos objetos Date
   function diffDias(desde, hasta) {
     return Math.round((hasta - desde) / 86400000);
   }
 
-  // Desglose legible: "2 años, 3 meses y 5 días"
   function desglose(desde, hasta) {
     let d1 = new Date(desde), d2 = new Date(hasta);
     if (d1 > d2) [d1, d2] = [d2, d1];
@@ -75,14 +72,12 @@ document.addEventListener('DOMContentLoaded', () => {
       : partes.slice(0, -1).join(', ') + ' y ' + partes.at(-1);
   }
 
-  // Formatea una fecha a texto legible en español
   function formatFecha(date) {
     return date.toLocaleDateString('es-ES', {
       weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
     });
   }
 
-  // Inyecta HTML de resultado + botón copiar (dentro del resumen-calculo, igual que el resto de calculadoras)
   function mostrarResultado(contenedor, html, textoCopiar) {
     contenedor.innerHTML = `
       <div class="resumen-calculo">
@@ -172,9 +167,9 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    const evento  = new Date(fechaStr + 'T00:00:00');
-    const ahora   = hoy();
-    const dias    = diffDias(ahora, evento);
+    const evento   = new Date(fechaStr + 'T00:00:00');
+    const ahora    = hoy();
+    const dias     = diffDias(ahora, evento);
     const etiqueta = nombre || 'el evento';
 
     let mensaje, icono;
@@ -219,16 +214,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.btn-mini[data-evento]').forEach(btn => {
     btn.addEventListener('click', () => {
-      // Activar la pestaña "hasta" si no está activa
-      const tabHasta = document.querySelector('.fechas-tab[data-mode="hasta"]');
+      const tabHasta = document.querySelector('.calc-tab[data-mode="hasta"]');
       if (!tabHasta.classList.contains('active')) tabHasta.click();
 
       const nombre   = btn.dataset.evento;
       const fechaStr = eventosRapidos[nombre]?.();
       if (!fechaStr) return;
 
-      document.getElementById('fecha-evento').value    = fechaStr;
-      document.getElementById('nombre-evento').value   = nombre;
+      document.getElementById('fecha-evento').value  = fechaStr;
+      document.getElementById('nombre-evento').value = nombre;
       calcularHasta(fechaStr, nombre);
     });
   });
@@ -237,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.fechas-card input').forEach(input => {
     input.addEventListener('keydown', e => {
       if (e.key !== 'Enter') return;
-      const panel = input.closest('.fechas-panel');
+      const panel = input.closest('.calc-panel');
       panel?.querySelector('.btn-fechas')?.click();
     });
   });

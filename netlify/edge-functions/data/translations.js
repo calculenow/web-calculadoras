@@ -63,18 +63,18 @@ export const i18n = {
       ],
       math: [
         { id: "perc",      url: "/es/calculadora-porcentajes",        name: "📊 Porcentajes" },
+        { id: "ratio",     url: "/es/regla-de-tres",      name: "✖️ Regla de tres" },
         // Próximamente:
         // { id: "avg",    url: "/es/calculadora-media-mediana",      name: "📉 Media y mediana" },
-        // { id: "ratio",  url: "/es/calculadora-regla-de-tres",      name: "✖️ Regla de tres" },
         // { id: "grade",  url: "/es/calculadora-notas",              name: "🎓 Notas" },
       ],
       utils: [
         { id: "conv",      url: "/es/calculadora-conversion",         name: "📐 Conversor de unidades" },
         { id: "dates",  url: "/es/dias-entre-fechas",                 name: "📅 Días entre fechas" },
         { id: "age",    url: "/es/calculadora-edad",                  name: "🎂 Edad exacta" },
+        { id: "fuel",   url: "/es/calculadora-coste-viaje",        name: "⛽ Coste de viaje" },
         // Próximamente:
         // { id: "elec",   url: "/es/calculadora-consumo-electrico",  name: "⚡ Consumo eléctrico" },
-        // { id: "fuel",   url: "/es/calculadora-coste-viaje",        name: "⛽ Coste de viaje" },
       ],
       admin: [
         { id: "dni",       url: "/es/validador-dni",                  name: "🪪 Validador DNI" },

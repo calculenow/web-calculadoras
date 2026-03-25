@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calculadora de Regla de Tres — Simple y Compuesta",
+      "url": "https://calculenow.com/es/regla-de-tres",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "description": "Calcula la regla de tres simple directa, simple inversa y compuesta de forma rápida. Ideal para recetas, mapas, escalas y problemas matemáticos."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es la regla de tres?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La regla de tres es un método matemático para encontrar el cuarto término de una proporción cuando se conocen los otros tres. Se usa para resolver problemas de proporcionalidad directa o inversa entre dos magnitudes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuándo se usa la regla de tres directa y cuándo la inversa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Se usa la regla de tres directa cuando al aumentar una magnitud la otra también aumenta (ej: más kilómetros = más combustible). Se usa la inversa cuando al aumentar una magnitud la otra disminuye (ej: más trabajadores = menos días para terminar)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué es la regla de tres compuesta?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La regla de tres compuesta interviene cuando hay más de dos magnitudes relacionadas. Por ejemplo: si 3 obreros tardan 4 días trabajando 8 horas, ¿cuántos días tardarán 5 obreros trabajando 6 horas?"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Para qué sirve la regla de tres en la vida cotidiana?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sirve para adaptar recetas de cocina, calcular escalas en mapas y planos, convertir monedas, calcular descuentos, estimar tiempos de trabajo y resolver cualquier problema de proporcionalidad."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <title>Regla de Tres — Calculadora Simple Directa, Inversa y Compuesta | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/es/regla-de-tres" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/regla-de-tres" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/regla-de-tres" />
+
+    <meta name="description" content="Calcula la regla de tres simple directa, inversa y compuesta al instante. Introduce los valores conocidos y obtén el resultado con su explicación. Gratis." />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/es/regla-de-tres" />
+    <meta property="og:title" content="Regla de Tres — Calculadora Simple Directa, Inversa y Compuesta | Calculenow" />
+    <meta property="og:description" content="Calcula la regla de tres simple directa, inversa y compuesta al instante. Gratis y sin registro." />
+    <meta property="og:image" content="https://calculenow.com/images/og-es.jpg" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Regla de Tres — Simple Directa, Inversa y Compuesta" />
+    <meta name="twitter:description" content="Calcula la regla de tres simple y compuesta al instante. Gratis." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-es.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
+    <header></header>
+
+    <main>
+      <div class="card regla-card">
+        <h1>Calculadora de Regla de Tres</h1>
+        <p>Resuelve proporciones directas, inversas y compuestas de forma inmediata.</p>
+
+        <!-- Tabs -->
+        <div class="calc-tabs">
+          <button class="calc-tab active" data-mode="directa" type="button">Simple directa</button>
+          <button class="calc-tab" data-mode="inversa" type="button">Simple inversa</button>
+          <button class="calc-tab" data-mode="compuesta" type="button">Compuesta</button>
+        </div>
+
+        <!-- MODO 1: Simple directa -->
+        <div class="calc-panel" id="panel-directa">
+          <p class="regla-hint">Si <strong>A</strong> corresponde a <strong>B</strong>, ¿a qué corresponde <strong>C</strong>?</p>
+          <div class="formule">A → B<br>C → X</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="d-a">A</label>
+              <input id="d-a" class="field" type="number" placeholder="Ej: 5" step="any" />
+            </div>
+            <div class="form-group">
+              <label for="d-b">B</label>
+              <input id="d-b" class="field" type="number" placeholder="Ej: 10" step="any" />
+            </div>
+            <div class="form-group">
+              <label for="d-c">C</label>
+              <input id="d-c" class="field" type="number" placeholder="Ej: 8" step="any" />
+            </div>
+          </div>
+          <button class="btn btn-regla" id="btn-directa" type="button">Calcular X</button>
+          <div class="result regla-result" id="result-directa"></div>
+        </div>
+
+        <!-- MODO 2: Simple inversa -->
+        <div class="calc-panel" id="panel-inversa" style="display:none">
+          <p class="regla-hint">Si <strong>A</strong> corresponde inversamente a <strong>B</strong>, ¿a qué corresponde <strong>C</strong>?</p>
+          <div class="formule">A × B = C × X</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="i-a">A</label>
+              <input id="i-a" class="field" type="number" placeholder="Ej: 3" step="any" />
+            </div>
+            <div class="form-group">
+              <label for="i-b">B</label>
+              <input id="i-b" class="field" type="number" placeholder="Ej: 12" step="any" />
+            </div>
+            <div class="form-group">
+              <label for="i-c">C</label>
+              <input id="i-c" class="field" type="number" placeholder="Ej: 6" step="any" />
+            </div>
+          </div>
+          <button class="btn btn-regla" id="btn-inversa" type="button">Calcular X</button>
+          <div class="result regla-result" id="result-inversa"></div>
+        </div>
+
+        <!-- MODO 3: Compuesta -->
+        <div class="calc-panel" id="panel-compuesta" style="display:none">
+          <p class="regla-hint">Tres magnitudes relacionadas. Indica si cada relación es <strong>directa</strong> o <strong>inversa</strong>.</p>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="c-a1">Magnitud 1 (valor conocido)</label>
+              <input id="c-a1" class="field" type="number" placeholder="Ej: 3" step="any" />
+            </div>
+            <div class="form-group">
+              <label for="c-a2">Magnitud 1 (valor buscado)</label>
+              <input id="c-a2" class="field" type="number" placeholder="Ej: 5" step="any" />
+            </div>
+            <div class="form-group">
+              <label for="c-tipo1">Relación con el resultado</label>
+              <select id="c-tipo1" class="field">
+                <option value="directa">Directa</option>
+                <option value="inversa">Inversa</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="c-b1">Magnitud 2 (valor conocido)</label>
+              <input id="c-b1" class="field" type="number" placeholder="Ej: 4" step="any" />
+            </div>
+            <div class="form-group">
+              <label for="c-b2">Magnitud 2 (valor buscado)</label>
+              <input id="c-b2" class="field" type="number" placeholder="Ej: 6" step="any" />
+            </div>
+            <div class="form-group">
+              <label for="c-tipo2">Relación con el resultado</label>
+              <select id="c-tipo2" class="field">
+                <option value="directa">Directa</option>
+                <option value="inversa">Inversa</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="c-resultado">Resultado conocido</label>
+            <input id="c-resultado" class="field" type="number" placeholder="Ej: 8" step="any" />
+          </div>
+          <button class="btn btn-regla" id="btn-compuesta" type="button">Calcular X</button>
+          <div class="result regla-result" id="result-compuesta"></div>
+        </div>
+
+        <div class="related-tools">
+          <p><strong>Otras herramientas matemáticas:</strong></p>
+          <ul>
+            <li>
+              <a href="/es/calculadora-porcentajes">
+                ➔ <strong>Calculadora de porcentajes:</strong> Calcula proporciones, incrementos y variaciones.
+              </a>
+            </li>
+            <li>
+              <a href="/es/calculadora-conversion">
+                ➔ <strong>Conversor de unidades:</strong> Convierte entre sistemas de medida.
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="legal-content">
+        <h2>¿Qué es la regla de tres?</h2>
+        <p>La regla de tres es uno de los métodos matemáticos más utilizados en el día a día. Permite encontrar un valor desconocido a partir de tres valores conocidos que guardan una relación de proporcionalidad.</p>
+
+        <h2>Regla de tres directa</h2>
+        <p>Se usa cuando las dos magnitudes son <strong>directamente proporcionales</strong>: si una aumenta, la otra también aumenta en la misma proporción.</p>
+        <div class="formule">X = (C × B) / A</div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>Ejemplo</th><th>Planteamiento</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Recetas de cocina</td><td>Si 4 personas necesitan 200g de harina, ¿cuánto necesitan 6?</td></tr>
+              <tr><td>Velocidad y distancia</td><td>Si en 2 horas recorro 120 km, ¿cuánto recorro en 5 horas?</td></tr>
+              <tr><td>Escalas en mapas</td><td>Si 1 cm en el mapa = 50 km reales, ¿qué distancia real son 3,5 cm?</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Regla de tres inversa</h2>
+        <p>Se usa cuando las magnitudes son <strong>inversamente proporcionales</strong>: si una aumenta, la otra disminuye.</p>
+        <div class="formule">X = (A × B) / C</div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>Ejemplo</th><th>Planteamiento</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Trabajadores y tiempo</td><td>Si 4 obreros tardan 6 días, ¿cuánto tardarán 8 obreros?</td></tr>
+              <tr><td>Velocidad y tiempo</td><td>Si a 60 km/h tardo 3 horas, ¿cuánto tardo a 90 km/h?</td></tr>
+              <tr><td>Tuberías y llenado</td><td>Si 2 tuberías llenan un depósito en 4 horas, ¿cuánto tardan 5?</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Regla de tres compuesta</h2>
+        <p>Se usa cuando intervienen <strong>tres o más magnitudes</strong> relacionadas con el resultado. Cada magnitud puede ser directa o inversa respecto al resultado buscado.</p>
+        <div class="formule">X = Resultado × (A2/A1)^±1 × (B2/B1)^±1</div>
+        <p>El exponente es +1 si la relación es directa y -1 si es inversa.</p>
+      </section>
+
+      <div class="faq-section">
+        <h3>Preguntas frecuentes sobre la regla de tres</h3>
+
+        <details>
+          <summary>¿Cuándo se usa la regla de tres directa y cuándo la inversa?</summary>
+          <div class="faq-content">
+            <p>Usa la directa cuando al aumentar una magnitud la otra también aumenta (más kilómetros = más combustible). Usa la inversa cuando al aumentar una disminuye la otra (más trabajadores = menos días).</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Qué es la regla de tres compuesta?</summary>
+          <div class="faq-content">
+            <p>Es la que interviene cuando hay más de dos magnitudes relacionadas con el resultado. Cada magnitud puede tener una relación directa o inversa con el valor que buscamos.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Para qué sirve la regla de tres en la vida cotidiana?</summary>
+          <div class="faq-content">
+            <p>Para adaptar recetas, calcular escalas en mapas y planos, convertir monedas, estimar tiempos de trabajo, calcular descuentos y resolver cualquier problema de proporcionalidad.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Cuál es la fórmula de la regla de tres directa?</summary>
+          <div class="faq-content">
+            <p>Si A → B y C → X, entonces X = (C × B) / A. Es decir, multiplicas los extremos y divides por el término conocido del mismo lado.</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>Utilizamos cookies para mejorar tu experiencia. <a href="/es/cookies">Más información</a></p>
+        <div class="cookie-buttons">
+          <button id="btn-accept-all">Aceptar todas</button>
+          <button id="btn-reject-all">Rechazar</button>
+          <button id="btn-open-settings">Configurar</button>
+        </div>
+      </div>
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Configuración de cookies</strong></p>
+        <label><input type="checkbox" id="check-analytics" /> Analíticas</label>
+        <label><input type="checkbox" id="check-marketing" /> Marketing</label>
+        <div class="cookie-buttons">
+          <button id="btn-back">← Volver</button>
+          <button id="btn-save-settings">Guardar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/regla-de-tres.js" defer></script>
+  </body>
+</html>
