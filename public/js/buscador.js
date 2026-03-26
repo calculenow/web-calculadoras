@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { nombre: "Porcentajes", url: "/es/calculadora-porcentajes", tags: ["matematicas", "proporcion", "calculo"] },
             { nombre: "Regla de tres", url: "/es/regla-de-tres", tags: ["proporciones", "directa", "inversa", "compuesta", "matematicas", "regla de 3"] },
             { nombre: "Media, mediana y moda", url: "/es/media-mediana-moda", tags: ["estadistica", "promedio", "media aritmetica", "mediana", "moda", "rango"] },
+            { nombre: "Calculadora de notas", url: "/es/calculadora-notas", tags: ["notas", "media", "ponderada", "creditos", "universidad", "aprobado", "suspenso"] },
             { nombre: "Conversión de Unidades", url: "/es/calculadora-conversion", tags: ["medidas", "metros", "pulgadas", "kilos", "temperatura", "convertir"] },
             { nombre: "Días entre fechas", url: "/es/dias-entre-fechas", tags: ["fecha", "dias", "calendario", "cuenta atras", "cuanto falta", "diferencia fechas"] },
             { nombre: "Edad exacta", url: "/es/calculadora-edad", tags: ["edad", "años", "cumpleaños", "dias vividos", "cuantos años tengo"] },

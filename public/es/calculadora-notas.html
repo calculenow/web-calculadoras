@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calculadora de Notas — Media Simple y Ponderada",
+      "url": "https://calculenow.com/es/calculadora-notas",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "description": "Calcula tu media de notas simple o ponderada por créditos o porcentaje. Saber si apruebas nunca fue tan fácil."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cómo se calcula la media de notas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La media simple se calcula sumando todas las notas y dividiendo entre el número de asignaturas. La media ponderada multiplica cada nota por su peso (créditos o porcentaje), suma los resultados y divide entre la suma total de pesos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuál es la nota mínima para aprobar en España?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En el sistema educativo español, la nota mínima para aprobar es un 5 sobre 10. En la universidad, una asignatura se considera aprobada con una calificación igual o superior a 5."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué diferencia hay entre media simple y media ponderada?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En la media simple todas las asignaturas cuentan igual. En la ponderada, cada asignatura tiene un peso diferente (por ejemplo, los créditos ECTS en la universidad), de modo que las asignaturas con más créditos influyen más en la nota final."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué nota necesito para subir mi media?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Depende de cuántas asignaturas tienes y sus pesos. Nuestra calculadora te muestra la media actual y puedes añadir o modificar asignaturas para simular diferentes escenarios."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <title>Calculadora de Notas — Media Simple y Ponderada | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/es/calculadora-notas" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-notas" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/calculadora-notas" />
+
+    <meta name="description" content="Calcula tu media de notas simple o ponderada por créditos. Añade tus asignaturas y descubre si apruebas. Gratis y sin registro." />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/es/calculadora-notas" />
+    <meta property="og:title" content="Calculadora de Notas — Media Simple y Ponderada | Calculenow" />
+    <meta property="og:description" content="Calcula tu media de notas simple o ponderada. Añade tus asignaturas y descubre si apruebas." />
+    <meta property="og:image" content="https://calculenow.com/images/og-es.jpg" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Calculadora de Notas — Media Simple y Ponderada" />
+    <meta name="twitter:description" content="Calcula tu media de notas simple o ponderada. Gratis." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-es.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
+    <header></header>
+
+    <main>
+      <div class="card notas-card">
+        <h1>Calculadora de Notas</h1>
+        <p>Añade tus asignaturas con su nota y, opcionalmente, su peso en créditos o porcentaje para calcular tu media.</p>
+
+        <!-- Tipo de media -->
+        <div class="form-group">
+          <label for="tipo-media">Tipo de cálculo</label>
+          <select id="tipo-media" class="field">
+            <option value="simple">Media simple (todas las asignaturas pesan igual)</option>
+            <option value="ponderada">Media ponderada (por créditos o porcentaje)</option>
+          </select>
+        </div>
+
+        <!-- Lista de asignaturas -->
+        <div id="asignaturas-lista">
+          <!-- Las filas se generan dinámicamente por JS -->
+        </div>
+
+        <button class="btn-mini notas-btn-añadir" id="btn-añadir" type="button">+ Añadir asignatura</button>
+
+        <div class="notas-acciones">
+          <button class="btn btn-notas" id="btn-calcular" type="button">Calcular media</button>
+          <button class="btn btn-notas btn-notas-limpiar" id="btn-limpiar" type="button">Limpiar todo</button>
+        </div>
+
+        <div class="result notas-result" id="notas-result"></div>
+
+        <div class="related-tools">
+          <p><strong>Otras herramientas matemáticas:</strong></p>
+          <ul>
+            <li>
+              <a href="/es/media-mediana-moda">
+                ➔ <strong>Media, mediana y moda:</strong> Calcula estadísticos básicos de cualquier lista de números.
+              </a>
+            </li>
+            <li>
+              <a href="/es/calculadora-porcentajes">
+                ➔ <strong>Calculadora de porcentajes:</strong> Calcula proporciones e incrementos.
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="legal-content">
+        <h2>¿Media simple o media ponderada?</h2>
+        <p>La diferencia es importante dependiendo del nivel educativo:</p>
+        <ul>
+          <li><strong>Media simple:</strong> todas las asignaturas cuentan igual. Habitual en bachillerato y secundaria.</li>
+          <li><strong>Media ponderada:</strong> cada asignatura tiene un peso diferente según sus créditos ECTS o el porcentaje que representa. Habitual en la universidad.</li>
+        </ul>
+
+        <div class="formule">Media simple = Σ notas / n</div>
+        <div class="formule">Media ponderada = Σ (nota × peso) / Σ pesos</div>
+
+        <h2>Escala de calificaciones en España</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>Nota numérica</th><th>Calificación</th><th>Resultado</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>0 – 4,9</td><td>Suspenso</td><td>❌ No supera</td></tr>
+              <tr class="highlight-green"><td>5,0 – 6,9</td><td>Aprobado</td><td>✅ Supera</td></tr>
+              <tr class="highlight-green"><td>7,0 – 8,9</td><td>Notable</td><td>✅ Supera</td></tr>
+              <tr class="highlight-green"><td>9,0 – 10</td><td>Sobresaliente / Matrícula</td><td>✅ Supera</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>¿Qué son los créditos ECTS?</h2>
+        <p>El sistema ECTS (European Credit Transfer System) es el estándar universitario europeo. Cada crédito equivale a entre 25 y 30 horas de trabajo del estudiante. Una asignatura de 6 créditos tiene más peso en la media que una de 3 créditos.</p>
+      </section>
+
+      <div class="faq-section">
+        <h3>Preguntas frecuentes sobre el cálculo de notas</h3>
+
+        <details>
+          <summary>¿Cómo se calcula la media de notas?</summary>
+          <div class="faq-content">
+            <p>La media simple suma todas las notas y divide entre el número de asignaturas. La media ponderada multiplica cada nota por su peso, suma los resultados y divide entre la suma total de pesos.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Cuál es la nota mínima para aprobar en España?</summary>
+          <div class="faq-content">
+            <p>En el sistema educativo español la nota mínima para aprobar es un 5 sobre 10.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Qué diferencia hay entre media simple y media ponderada?</summary>
+          <div class="faq-content">
+            <p>En la media simple todas las asignaturas cuentan igual. En la ponderada, las asignaturas con más créditos o mayor porcentaje influyen más en la nota final.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Qué nota necesito para subir mi media?</summary>
+          <div class="faq-content">
+            <p>Depende de cuántas asignaturas tienes y sus pesos. Puedes simularlo añadiendo la asignatura pendiente con diferentes notas y viendo cómo cambia tu media.</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>Utilizamos cookies para mejorar tu experiencia. <a href="/es/cookies">Más información</a></p>
+        <div class="cookie-buttons">
+          <button id="btn-accept-all">Aceptar todas</button>
+          <button id="btn-reject-all">Rechazar</button>
+          <button id="btn-open-settings">Configurar</button>
+        </div>
+      </div>
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Configuración de cookies</strong></p>
+        <label><input type="checkbox" id="check-analytics" /> Analíticas</label>
+        <label><input type="checkbox" id="check-marketing" /> Marketing</label>
+        <div class="cookie-buttons">
+          <button id="btn-back">← Volver</button>
+          <button id="btn-save-settings">Guardar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/notas.js" defer></script>
+  </body>
+</html>
