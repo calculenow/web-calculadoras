@@ -72,7 +72,8 @@ export const i18n = {
         { id: "conv",      url: "/es/calculadora-conversion",         name: "📐 Conversor de unidades" },
         { id: "dates",  url: "/es/dias-entre-fechas",                 name: "📅 Días entre fechas" },
         { id: "age",    url: "/es/calculadora-edad",                  name: "🎂 Edad exacta" },
-        { id: "fuel",   url: "/es/calculadora-coste-viaje",        name: "⛽ Coste de viaje" },
+        { id: "fuel",   url: "/es/calculadora-coste-viaje",           name: "⛽ Coste de viaje" },
+        { id: "gold",   url: "/es/calculadora-oro",                   name: "🥇 Valor del oro" },
         // Próximamente:
         // { id: "elec",   url: "/es/calculadora-consumo-electrico",  name: "⚡ Consumo eléctrico" },
       ],

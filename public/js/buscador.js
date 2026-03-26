@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { nombre: "Días entre fechas", url: "/es/dias-entre-fechas", tags: ["fecha", "dias", "calendario", "cuenta atras", "cuanto falta", "diferencia fechas"] },
             { nombre: "Edad exacta", url: "/es/calculadora-edad", tags: ["edad", "años", "cumpleaños", "dias vividos", "cuantos años tengo"] },
             { nombre: "Coste de viaje", url: "/es/calculadora-coste-viaje", tags: ["gasolina", "diesel", "viaje", "coche", "combustible", "carretera", "litros"] },
+            { nombre: "Valor del oro", url: "/es/calculadora-oro", tags: ["oro", "gramo", "precio oro", "joyeria", "quilates", "18k", "24k", "vender oro"] },
         ],
         en: [
             { nombre: "VAT", url: "/en/vat-calculator", tags: ["tax", "invoice", "hmrc", "freelance", "business"] },

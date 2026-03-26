@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "¿Cuánto Vale mi Oro? Calculadora por Quilates, Gramos y Pureza",
+      "url": "https://calculenow.com/es/calculadora-oro",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "description": "Calcula cuánto vale tu oro en euros según los quilates y el peso. Introduce gramos, pureza y precio actual del oro para obtener el resultado al instante."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cómo se calcula el valor del oro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El valor del oro se calcula multiplicando el peso en gramos por el precio actual del oro por gramo (oro puro 24K). Si el oro no es puro, se multiplica por el factor de pureza: 18K es 75% puro, 14K es 58,3% puro y 9K es 37,5% puro."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué significa 18K, 14K y 24K en el oro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Los quilates indican la pureza del oro. 24K es oro puro (99,9%). 18K significa que 18 de cada 24 partes son oro, es decir, un 75% de pureza. 14K equivale al 58,3% y 9K al 37,5%. En joyería, el oro más habitual es el de 18K."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Dónde puedo ver el precio actual del oro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La forma más rápida es buscar 'precio del oro hoy por gramo euros' en Google. Aparece directamente en los resultados sin necesidad de entrar en ninguna web."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué el precio que me dan en la joyería es menor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Los compradores de oro (joyerías, casas de empeño) aplican un descuento sobre el precio de mercado para cubrir sus costes y obtener beneficio. Normalmente pagan entre el 70% y el 90% del valor de mercado del metal."
+          }
+        },
+        {
+        "@type": "Question",
+        "name": "¿Cuánto vale un gramo de oro 18K hoy?",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El precio del oro 18K se calcula multiplicando el precio actual del oro puro (24K) por 0,75. Si el oro puro está a 142 €/gramo, el oro 18K vale aproximadamente 106,50 €/gramo. El precio varía cada día según la cotización internacional del mercado."
+        }
+        }
+      ]
+    }
+    </script>
+
+    <title>¿Cuánto Vale mi Oro? Calculadora por Quilates, Gramos y Pureza | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/es/calculadora-oro" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-oro" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/calculadora-oro" />
+
+    <meta name="description" content="Descubre cuánto vale tu oro en euros según los quilates y el peso. Introduce los gramos, la pureza y el precio actual y obtén el resultado al instante. Gratis." />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/es/calculadora-oro" />
+    <meta property="og:title" content="¿Cuánto Vale mi Oro? Calculadora por Quilates, Gramos y Pureza | Calculenow" />
+    <meta property="og:description" content="Calcula el valor de tu oro en euros según el precio actual del mercado. Gratis y sin registro." />
+    <meta property="og:image" content="https://calculenow.com/images/og-es.jpg" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="¿Cuánto Vale mi Oro? Calculadora por Quilates y Gramos" />
+    <meta name="twitter:description" content="Calcula el valor de tu oro en euros según el precio actual. Gratis." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-es.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
+    <header></header>
+
+    <main>
+      <div class="card oro-card">
+        <h1>¿Cuánto Vale mi Oro? — Calculadora por Quilates y Gramos</h1>
+        <p>Introduce el peso, la pureza y el precio actual del oro para calcular su valor en euros al instante.</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="peso-oro">Peso del oro (gramos)</label>
+            <input id="peso-oro" class="field" type="number" placeholder="Ej: 10" min="0" step="0.1" />
+          </div>
+          <div class="form-group">
+            <label for="pureza">Pureza</label>
+            <select id="pureza" class="field">
+              <option value="1">24K — Oro puro (99,9%)</option>
+              <option value="0.916">22K (91,6%)</option>
+              <option value="0.75" selected>18K (75%) — Joyería habitual</option>
+              <option value="0.585">14K (58,5%)</option>
+              <option value="0.375">9K (37,5%)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+  <label for="precio-oro">Precio del oro 24K (€/gramo)</label>
+  <input id="precio-oro" class="field" type="number"
+    placeholder="Ej: 142" min="0" step="0.01" value="142" />
+  <p class="oro-hint">
+    ⚠️ El precio del oro cambia cada día. Busca <strong>"precio del oro hoy por gramo euros"</strong> en Google para obtener el valor actualizado antes de calcular.
+    <a href="https://www.google.com/search?q=precio+del+oro+hoy+por+gramo+euros" target="_blank" rel="noopener" class="oro-precio-link">
+      → Ver precio actual
+    </a>
+  </p>
+</div>
+
+        <button class="btn btn-oro" id="btn-calcular" type="button">Calcular valor</button>
+
+        <div class="result oro-result" id="oro-result"></div>
+
+        <p class="disclaimer-text">
+          * El cálculo se basa en el precio de mercado que tú introduces. El precio real de compraventa en joyerías o casas de empeño puede diferir. Esta calculadora es orientativa.
+        </p>
+
+        <div class="related-tools">
+          <p><strong>Otras herramientas útiles:</strong></p>
+          <ul>
+            <li>
+              <a href="/es/calculadora-divisas">
+                ➔ <strong>Calculadora de divisas:</strong> Convierte entre más de 30 monedas con tipos actualizados.
+              </a>
+            </li>
+            <li>
+              <a href="/es/calculadora-interes-compuesto">
+                ➔ <strong>Interés compuesto:</strong> Simula el crecimiento de tus inversiones a largo plazo.
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="legal-content">
+        <h2>¿Cómo se calcula el valor del oro?</h2>
+        <p>El precio internacional del oro se expresa en <strong>dólares por onza troy</strong> (31,1 gramos). Para obtener el precio por gramo en euros hay que dividir entre 31,1 y convertir la divisa. Una vez tienes el precio por gramo de oro puro (24K), el valor de tu pieza depende de su pureza:</p>
+
+        <div class="formule">Valor = Peso (g) × Precio 24K (€/g) × Factor de pureza</div>
+
+        <h2>Tabla de purezas del oro</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>Quilates</th><th>Pureza</th><th>Uso habitual</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>24K</td><td>99,9%</td><td>Lingotes de inversión, monedas</td></tr>
+              <tr><td>22K</td><td>91,6%</td><td>Monedas, joyería de alta gama</td></tr>
+              <tr><td>18K</td><td>75,0%</td><td>Joyería estándar en España y Europa</td></tr>
+              <tr><td>14K</td><td>58,5%</td><td>Joyería en EE.UU. y Europa del Este</td></tr>
+              <tr><td>9K</td><td>37,5%</td><td>Joyería económica, Reino Unido</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>¿Por qué el precio en la joyería es menor?</h2>
+        <p>Los compradores de oro aplican un descuento sobre el precio de mercado para cubrir sus costes operativos y obtener beneficio. Habitualmente pagan entre el 70% y el 90% del valor de mercado. Además, hay que tener en cuenta que el peso real de una joya incluye otros metales de aleación, engastes y piedras que no tienen valor como oro.</p>
+      </section>
+
+      <div class="faq-section">
+        <h3>Preguntas frecuentes sobre el valor del oro</h3>
+
+        <details>
+          <summary>¿Cómo se calcula el valor del oro?</summary>
+          <div class="faq-content">
+            <p>Se multiplica el peso en gramos por el precio actual del oro puro (24K) y por el factor de pureza de la pieza. Por ejemplo, 10 gramos de oro 18K con el oro a 142 €/g valdría: 10 × 142 × 0,75 = 1.065 €.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Qué significa 18K, 14K y 24K en el oro?</summary>
+          <div class="faq-content">
+            <p>Los quilates indican la pureza. 24K es oro puro. 18K significa que 18 de cada 24 partes son oro (75% de pureza). 14K equivale al 58,5% y 9K al 37,5%.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Dónde puedo ver el precio actual del oro?</summary>
+          <div class="faq-content">
+            <p>La forma más rápida es buscar <strong>"precio del oro hoy por gramo euros"</strong> en Google. Aparece directamente en los resultados sin necesidad de entrar en ninguna web.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Por qué el precio que me dan en la joyería es menor?</summary>
+          <div class="faq-content">
+            <p>Los compradores aplican un descuento sobre el precio de mercado para cubrir costes y obtener beneficio. Normalmente pagan entre el 70% y el 90% del valor real del metal.</p>
+          </div>
+        </details>
+
+        <details>
+            <summary>¿Cuánto vale un gramo de oro 18K hoy?</summary>
+            <div class="faq-content">
+                <p>El precio del oro 18K se calcula multiplicando el precio actual del oro puro (24K) por 0,75. Si el oro puro está a 142 €/gramo, el oro 18K vale aproximadamente 106,50 €/gramo. Consulta el precio actualizado buscando <a href="https://www.google.com/search?q=precio+del+oro+hoy+por+gramo+euros" target="_blank" rel="noopener">"precio del oro hoy"</a> en Google.</p>
+            </div>
+        </details>
+
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>Utilizamos cookies para mejorar tu experiencia. <a href="/es/cookies">Más información</a></p>
+        <div class="cookie-buttons">
+          <button id="btn-accept-all">Aceptar todas</button>
+          <button id="btn-reject-all">Rechazar</button>
+          <button id="btn-open-settings">Configurar</button>
+        </div>
+      </div>
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Configuración de cookies</strong></p>
+        <label><input type="checkbox" id="check-analytics" /> Analíticas</label>
+        <label><input type="checkbox" id="check-marketing" /> Marketing</label>
+        <div class="cookie-buttons">
+          <button id="btn-back">← Volver</button>
+          <button id="btn-save-settings">Guardar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/oro.js" defer></script>
+  </body>
+</html>
