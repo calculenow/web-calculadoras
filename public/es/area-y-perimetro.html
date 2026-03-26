@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calculadora de Área y Perímetro de Figuras Geométricas",
+      "url": "https://calculenow.com/es/area-y-perimetro",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "description": "Calcula el área y perímetro de cuadrados, rectángulos, triángulos, círculos, trapecios, rombos, elipses y polígonos regulares al instante."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuál es la fórmula del área de un círculo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El área de un círculo es π × r², donde r es el radio. El perímetro (circunferencia) es 2 × π × r."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo se calcula el área de un triángulo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El área de un triángulo es (base × altura) / 2. La altura debe ser perpendicular a la base."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué diferencia hay entre área y perímetro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El perímetro es la longitud total del contorno de una figura (se mide en unidades lineales como metros). El área es la superficie que ocupa la figura (se mide en unidades cuadradas como metros cuadrados)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo se calcula el área de un trapecio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El área de un trapecio es ((base mayor + base menor) × altura) / 2."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <title>Calculadora de Área y Perímetro — Figuras Geométricas | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/es/area-y-perimetro" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/area-y-perimetro" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/area-y-perimetro" />
+
+    <meta name="description" content="Calcula el área y perímetro de cualquier figura geométrica: cuadrado, rectángulo, triángulo, círculo, trapecio, rombo, elipse y más. Gratis." />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/es/area-y-perimetro" />
+    <meta property="og:title" content="Calculadora de Área y Perímetro — Figuras Geométricas | Calculenow" />
+    <meta property="og:description" content="Calcula el área y perímetro de cuadrados, rectángulos, triángulos, círculos y más figuras geométricas al instante." />
+    <meta property="og:image" content="https://calculenow.com/images/og-es.jpg" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Calculadora de Área y Perímetro — Figuras Geométricas" />
+    <meta name="twitter:description" content="Calcula el área y perímetro de cualquier figura geométrica al instante. Gratis." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-es.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
+    <header></header>
+
+    <main>
+      <div class="card geometria-card">
+        <h1>Calculadora de Área y Perímetro</h1>
+        <p>Selecciona una figura, introduce sus medidas y calcula el área y el perímetro al instante.</p>
+
+        <div class="form-group">
+          <label for="figura">Figura geométrica</label>
+          <select id="figura" class="field">
+            <option value="cuadrado">Cuadrado</option>
+            <option value="rectangulo">Rectángulo</option>
+            <option value="triangulo">Triángulo</option>
+            <option value="circulo">Círculo</option>
+            <option value="trapecio">Trapecio</option>
+            <option value="rombo">Rombo</option>
+            <option value="elipse">Elipse</option>
+            <option value="pentagono">Pentágono regular</option>
+            <option value="hexagono">Hexágono regular</option>
+          </select>
+        </div>
+
+        <!-- Inputs dinámicos -->
+        <div id="geometria-inputs"></div>
+
+        <!-- Fórmula visual -->
+        <div class="formule" id="geometria-formula"></div>
+
+        <button class="btn btn-geometria" id="btn-calcular" type="button">Calcular</button>
+
+        <div class="result geometria-result" id="geometria-result"></div>
+
+        <div class="related-tools">
+          <p><strong>Otras herramientas matemáticas:</strong></p>
+          <ul>
+            <li>
+              <a href="/es/calculadora-porcentajes">
+                ➔ <strong>Calculadora de porcentajes:</strong> Calcula proporciones e incrementos.
+              </a>
+            </li>
+            <li>
+              <a href="/es/regla-de-tres">
+                ➔ <strong>Regla de tres:</strong> Resuelve proporciones directas e inversas.
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="legal-content">
+        <h2>Fórmulas de área y perímetro</h2>
+        <p>Estas son las fórmulas utilizadas para cada figura:</p>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>Figura</th><th>Área</th><th>Perímetro</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Cuadrado</td><td>l²</td><td>4 × l</td></tr>
+              <tr><td>Rectángulo</td><td>b × h</td><td>2 × (b + h)</td></tr>
+              <tr><td>Triángulo</td><td>(b × h) / 2</td><td>a + b + c</td></tr>
+              <tr><td>Círculo</td><td>π × r²</td><td>2 × π × r</td></tr>
+              <tr><td>Trapecio</td><td>((B + b) × h) / 2</td><td>B + b + l₁ + l₂</td></tr>
+              <tr><td>Rombo</td><td>(d₁ × d₂) / 2</td><td>4 × l</td></tr>
+              <tr><td>Elipse</td><td>π × a × b</td><td>≈ π × (3(a+b) − √((3a+b)(a+3b)))</td></tr>
+              <tr><td>Pentágono regular</td><td>(P × a) / 2</td><td>5 × l</td></tr>
+              <tr><td>Hexágono regular</td><td>(3√3 / 2) × l²</td><td>6 × l</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>¿Para qué sirve calcular el área y el perímetro?</h2>
+        <div class="info-grid">
+          <div class="card info-box">
+            <h3>🏠 Reformas y construcción</h3>
+            <p>Calcular metros cuadrados de suelo, pintura, azulejos o césped para presupuestar materiales con precisión.</p>
+          </div>
+          <div class="card info-box">
+            <h3>🌱 Jardinería y parcelas</h3>
+            <p>Conocer el área de un jardín o terreno para plantar, vallar o calcular el riego necesario.</p>
+          </div>
+          <div class="card info-box">
+            <h3>📐 Diseño y planos</h3>
+            <p>Verificar superficies en planos de arquitectura, diseño de interiores o proyectos de ingeniería.</p>
+          </div>
+          <div class="card info-box">
+            <h3>📚 Estudios y exámenes</h3>
+            <p>Resolver ejercicios de geometría de secundaria, bachillerato y universidad de forma rápida.</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="faq-section">
+        <h3>Preguntas frecuentes sobre área y perímetro</h3>
+
+        <details>
+          <summary>¿Qué diferencia hay entre área y perímetro?</summary>
+          <div class="faq-content">
+            <p>El perímetro es la longitud total del contorno (metros, cm...). El área es la superficie que ocupa la figura (metros cuadrados, cm²...).</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Cuál es la fórmula del área de un círculo?</summary>
+          <div class="faq-content">
+            <p>Área = π × r². El perímetro (circunferencia) es 2 × π × r.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Cómo se calcula el área de un triángulo?</summary>
+          <div class="faq-content">
+            <p>Área = (base × altura) / 2. La altura debe ser perpendicular a la base.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Cómo se calcula el área de un trapecio?</summary>
+          <div class="faq-content">
+            <p>Área = ((base mayor + base menor) × altura) / 2.</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>Utilizamos cookies para mejorar tu experiencia. <a href="/es/cookies">Más información</a></p>
+        <div class="cookie-buttons">
+          <button id="btn-accept-all">Aceptar todas</button>
+          <button id="btn-reject-all">Rechazar</button>
+          <button id="btn-open-settings">Configurar</button>
+        </div>
+      </div>
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Configuración de cookies</strong></p>
+        <label><input type="checkbox" id="check-analytics" /> Analíticas</label>
+        <label><input type="checkbox" id="check-marketing" /> Marketing</label>
+        <div class="cookie-buttons">
+          <button id="btn-back">← Volver</button>
+          <button id="btn-save-settings">Guardar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/geometria.js" defer></script>
+  </body>
+</html>

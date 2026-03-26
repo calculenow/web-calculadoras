@@ -63,9 +63,10 @@ export const i18n = {
       ],
       math: [
         { id: "perc",      url: "/es/calculadora-porcentajes",        name: "📊 Porcentajes" },
-        { id: "ratio",     url: "/es/regla-de-tres",      name: "✖️ Regla de tres" },
-        { id: "avg",    url: "/es/calculadora-media-mediana",      name: "📉 Media y mediana" },
-        { id: "grade",  url: "/es/calculadora-notas",              name: "🎓 Notas" },
+        { id: "ratio",     url: "/es/regla-de-tres",                  name: "✖️ Regla de tres" },
+        { id: "avg",       url: "/es/calculadora-media-mediana",      name: "📉 Media y mediana" },
+        { id: "grade",     url: "/es/calculadora-notas",              name: "🎓 Notas" },
+        { id: "geometry",  url: "/es/area-y-perimetro",               name: "📐 Área y perímetro" },
       ],
       utils: [
         { id: "conv",      url: "/es/calculadora-conversion",         name: "📐 Conversor de unidades" },
@@ -83,6 +84,11 @@ export const i18n = {
         // { id: "iban",   url: "/es/validador-iban",                  name: "🏛️ Validador IBAN" },
         // { id: "niw",    url: "/es/validador-niw",                   name: "🏢 NIW empresa" },
       ],
+      //curiosity: [
+       // Próximamente:
+        // { id: "iban",   url: "/es/validador-iban",                  name: "🏛️ Validador IBAN" },
+        // { id: "niw",    url: "/es/validador-niw",                   name: "🏢 NIW empresa" },
+      //],
     },
 
     alertMsg: "Esta herramienta aún no está disponible en el idioma seleccionado. ¿Quieres ir a la página de inicio?",
