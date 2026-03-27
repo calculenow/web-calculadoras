@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Validador de NIF de Empresa (CIF)",
+      "url": "https://calculenow.com/es/validador-nif-empresa",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "description": "Valida el NIF de cualquier empresa española al instante. Comprueba el formato, el tipo de sociedad y el dígito de control. Antiguo CIF."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es el NIF de empresa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El NIF de empresa (antes llamado CIF) es el número de identificación fiscal de las personas jurídicas en España. Está compuesto por una letra que indica el tipo de sociedad, siete dígitos y un carácter de control (letra o número según el tipo de entidad)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuál es la diferencia entre NIF y CIF?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Desde 2008, el CIF (Código de Identificación Fiscal) pasó a denominarse NIF (Número de Identificación Fiscal) para empresas. Son el mismo documento con diferente nombre. El formato no cambió."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué significa la letra inicial del NIF de empresa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La letra inicial indica el tipo de sociedad: A (Sociedad Anónima), B (Sociedad Limitada), C (Sociedad Colectiva), D (Sociedad Comanditaria), E (Comunidad de bienes), F (Cooperativa), G (Asociación), H (Comunidad de propietarios), J (Sociedad Civil), N (Entidad extranjera), P (Corporación Local), Q (Organismo público), R (Congregación religiosa), S (Órgano de la Administración), U (UTE) y W (Establecimiento permanente)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo se calcula el dígito de control del NIF de empresa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Se aplica un algoritmo sobre los 7 dígitos centrales: se suman los dígitos en posición par directamente y los dígitos en posición impar se multiplican por 2 (sumando las cifras si el resultado es mayor que 9). La suma total se resta de la siguiente decena y el resultado determina el carácter de control."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <title>Validador de NIF de Empresa (CIF) — Comprueba si es Correcto | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/es/validador-nif-empresa" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/validador-nif-empresa" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/validador-nif-empresa" />
+
+    <meta name="description" content="Valida el NIF de cualquier empresa española (antiguo CIF) al instante. Comprueba el formato, tipo de sociedad y dígito de control. Gratis y sin registro." />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/es/validador-nif-empresa" />
+    <meta property="og:title" content="Validador de NIF de Empresa (CIF) — Comprueba si es Correcto | Calculenow" />
+    <meta property="og:description" content="Valida el NIF de empresa español al instante. Tipo de sociedad, formato y dígito de control. Gratis." />
+    <meta property="og:image" content="https://calculenow.com/images/og-es.jpg" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Validador de NIF de Empresa (CIF)" />
+    <meta name="twitter:description" content="Valida el NIF de empresa español al instante. Gratis." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-es.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
+    <header></header>
+
+    <main>
+      <div class="card nif-card">
+        <h1>Validador de NIF de Empresa</h1>
+        <p>Introduce el NIF (antiguo CIF) de una empresa española para comprobar si es válido y conocer el tipo de sociedad.</p>
+
+        <div class="form-group">
+          <label for="nif-input">NIF de empresa</label>
+          <input id="nif-input" class="field nif-field" type="text"
+            placeholder="Ej: B12345674"
+            maxlength="9" autocomplete="off" spellcheck="false" />
+          <p class="nif-hint">Formato: 1 letra + 7 dígitos + 1 carácter de control (letra o número).</p>
+        </div>
+
+        <button class="btn btn-nif" id="btn-validar" type="button">Validar NIF</button>
+
+        <div class="result nif-result" id="nif-result"></div>
+
+        <div class="related-tools">
+          <p><strong>Otras herramientas administrativas:</strong></p>
+          <ul>
+            <li>
+              <a href="/es/validador-dni">
+                ➔ <strong>Validador DNI/NIE:</strong> Verifica la letra de cualquier DNI o NIE.
+              </a>
+            </li>
+            <li>
+              <a href="/es/validador-iban">
+                ➔ <strong>Validador IBAN:</strong> Comprueba si un número IBAN es correcto.
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="legal-content">
+        <h2>¿Qué es el NIF de empresa?</h2>
+        <p>El NIF (Número de Identificación Fiscal) de empresa, anteriormente conocido como CIF (Código de Identificación Fiscal), es el identificador fiscal obligatorio para todas las personas jurídicas en España. Lo asigna la Agencia Tributaria y es necesario para cualquier operación económica, facturación o trámite con la Administración.</p>
+
+        <h2>Tipos de sociedad según la letra inicial</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>Letra</th><th>Tipo de entidad</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>A</td><td>Sociedad Anónima (S.A.)</td></tr>
+              <tr><td>B</td><td>Sociedad de Responsabilidad Limitada (S.L. / S.R.L.)</td></tr>
+              <tr><td>C</td><td>Sociedad Colectiva</td></tr>
+              <tr><td>D</td><td>Sociedad Comanditaria</td></tr>
+              <tr><td>E</td><td>Comunidad de Bienes y Herencias yacentes</td></tr>
+              <tr><td>F</td><td>Sociedad Cooperativa</td></tr>
+              <tr><td>G</td><td>Asociación o Fundación</td></tr>
+              <tr><td>H</td><td>Comunidad de Propietarios</td></tr>
+              <tr><td>J</td><td>Sociedad Civil</td></tr>
+              <tr><td>N</td><td>Entidad extranjera</td></tr>
+              <tr><td>P</td><td>Corporación Local</td></tr>
+              <tr><td>Q</td><td>Organismo público</td></tr>
+              <tr><td>R</td><td>Congregación o institución religiosa</td></tr>
+              <tr><td>S</td><td>Órgano de la Administración del Estado</td></tr>
+              <tr><td>U</td><td>Unión Temporal de Empresas (UTE)</td></tr>
+              <tr><td>V</td><td>Fondo de pensiones u otras entidades</td></tr>
+              <tr><td>W</td><td>Establecimiento permanente de entidad no residente</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>¿Cuándo el dígito de control es letra y cuándo número?</h2>
+        <p>Depende de la letra inicial del NIF. Para las letidades <strong>P, Q, R, S, W</strong> el carácter de control es siempre una letra. Para <strong>A, B, E, H</strong> es siempre un número. Para el resto puede ser cualquiera de los dos, y se usa el que resulte del algoritmo.</p>
+      </section>
+
+      <div class="faq-section">
+        <h3>Preguntas frecuentes sobre el NIF de empresa</h3>
+
+        <details>
+          <summary>¿Qué es el NIF de empresa?</summary>
+          <div class="faq-content">
+            <p>El identificador fiscal de las personas jurídicas en España (antes llamado CIF). Está compuesto por una letra de tipo de sociedad, siete dígitos y un carácter de control.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Cuál es la diferencia entre NIF y CIF?</summary>
+          <div class="faq-content">
+            <p>Son el mismo documento. Desde 2008, el CIF pasó a llamarse NIF para empresas. El formato no cambió.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Qué significa la letra inicial del NIF de empresa?</summary>
+          <div class="faq-content">
+            <p>Indica el tipo de sociedad: A (S.A.), B (S.L.), F (Cooperativa), G (Asociación), P (Corporación Local), Q (Organismo público), entre otros.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Cómo se calcula el dígito de control?</summary>
+          <div class="faq-content">
+            <p>Se aplica un algoritmo sobre los 7 dígitos centrales sumando los pares directamente y multiplicando los impares por 2. El resultado determina el carácter de control, que puede ser letra o número según el tipo de entidad.</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>Utilizamos cookies para mejorar tu experiencia. <a href="/es/cookies">Más información</a></p>
+        <div class="cookie-buttons">
+          <button id="btn-accept-all">Aceptar todas</button>
+          <button id="btn-reject-all">Rechazar</button>
+          <button id="btn-open-settings">Configurar</button>
+        </div>
+      </div>
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Configuración de cookies</strong></p>
+        <label><input type="checkbox" id="check-analytics" /> Analíticas</label>
+        <label><input type="checkbox" id="check-marketing" /> Marketing</label>
+        <div class="cookie-buttons">
+          <button id="btn-back">← Volver</button>
+          <button id="btn-save-settings">Guardar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/nif-empresa.js" defer></script>
+  </body>
+</html>

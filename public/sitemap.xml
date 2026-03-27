@@ -273,7 +273,28 @@
   <url>
     <loc>https://calculenow.com/es/calculadora-macros</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-macros"/>
-    <lastmod>2026-03-26</lastmod>
+    <lastmod>2026-03-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://calculenow.com/es/calculadora-frecuencia-cardiaca</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-frecuencia-cardiaca"/>
+    <lastmod>2026-03-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://calculenow.com/es/validador-iban</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/validador-iban"/>
+    <lastmod>2026-03-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://calculenow.com/es/validador-nif</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/validador-nif"/>
+    <lastmod>2026-03-27</lastmod>
     <priority>0.8</priority>
   </url>
 

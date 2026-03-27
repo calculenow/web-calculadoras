@@ -1449,6 +1449,121 @@ table tr:last-child td {
   opacity: 0.75;
 }
 
+.cardiaca-card .cardiaca-hint-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 400;
+  opacity: 0.6;
+  margin-top: 2px;
+}
+
+.cardiaca-meta {
+  margin-bottom: 1rem;
+}
+.cardiaca-meta li {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  font-size: 0.88rem;
+  border-bottom: 1px dashed var(--border);
+}
+.cardiaca-meta li:last-child {
+  border-bottom: none;
+}
+
+.cardiaca-zonas-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cardiaca-zona {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--input-bg);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+.cardiaca-zona .cardiaca-zona-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.cardiaca-zona .cardiaca-zona-info {
+  flex: 1;
+  min-width: 0;
+}
+.cardiaca-zona .cardiaca-zona-info .cardiaca-zona-nombre {
+  display: block;
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+.cardiaca-zona .cardiaca-zona-info .cardiaca-zona-desc {
+  display: block;
+  font-size: 0.78rem;
+  opacity: 0.65;
+  margin-top: 2px;
+}
+.cardiaca-zona .cardiaca-zona-rango {
+  font-weight: 700;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  color: var(--primary);
+}
+
+@media (max-width: 480px) {
+  .cardiaca-zona {
+    flex-wrap: wrap;
+  }
+  .cardiaca-zona .cardiaca-zona-rango {
+    width: 100%;
+    text-align: right;
+  }
+}
+.iban-card .iban-field {
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.iban-card .iban-hint {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  margin-top: 6px;
+}
+
+.iban-formateado {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+}
+
+.iban-valido {
+  border-left-color: var(--success) !important;
+}
+.iban-valido .resumen-titulo {
+  color: var(--success);
+}
+
+.iban-invalido {
+  border-left-color: var(--danger) !important;
+}
+.iban-invalido .resumen-titulo {
+  color: var(--danger);
+}
+
+.iban-error-hint {
+  font-size: 0.82rem;
+  opacity: 0.7;
+  margin-top: 0.75rem;
+  font-style: italic;
+}
+
 /* ==========================================================================
    DESKTOP: Barra de búsqueda expandible
    ========================================================================== */

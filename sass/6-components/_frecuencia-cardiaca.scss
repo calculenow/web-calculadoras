@@ -1,0 +1,91 @@
+// 6-components/_frecuencia-cardiaca.scss
+// Estilos propios de la calculadora de frecuencia cardíaca.
+
+.cardiaca-card {
+  .cardiaca-hint-label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 400;
+    opacity: 0.6;
+    margin-top: 2px;
+  }
+}
+
+// Metadatos del resultado (FCM, método...)
+.cardiaca-meta {
+  margin-bottom: 1rem;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    font-size: 0.88rem;
+    border-bottom: 1px dashed var(--border);
+
+    &:last-child { border-bottom: none; }
+  }
+}
+
+// Lista de zonas
+.cardiaca-zonas-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cardiaca-zona {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--input-bg);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+
+  .cardiaca-zona-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .cardiaca-zona-info {
+    flex: 1;
+    min-width: 0;
+
+    .cardiaca-zona-nombre {
+      display: block;
+      font-weight: 600;
+      font-size: 0.88rem;
+    }
+
+    .cardiaca-zona-desc {
+      display: block;
+      font-size: 0.78rem;
+      opacity: 0.65;
+      margin-top: 2px;
+    }
+  }
+
+  .cardiaca-zona-rango {
+    font-weight: 700;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    color: var(--primary);
+  }
+}
+
+// Responsive móvil
+@media (max-width: 480px) {
+  .cardiaca-zona {
+    flex-wrap: wrap;
+
+    .cardiaca-zona-rango {
+      width: 100%;
+      text-align: right;
+    }
+  }
+}

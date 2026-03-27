@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calculadora de Frecuencia Cardíaca — Zonas de Entrenamiento",
+      "url": "https://calculenow.com/es/calculadora-frecuencia-cardiaca",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "description": "Calcula tu frecuencia cardíaca máxima y tus zonas de entrenamiento según tu edad y frecuencia en reposo. Incluye las fórmulas de Tanaka y Karvonen."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cómo se calcula la frecuencia cardíaca máxima?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La fórmula clásica es FCM = 220 − edad. La fórmula de Tanaka, más precisa para adultos, es FCM = 208 − (0,7 × edad). Ambas son estimaciones: la frecuencia cardíaca máxima real solo se puede medir con una prueba de esfuerzo máximo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué son las zonas de entrenamiento?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Las zonas de entrenamiento son rangos de frecuencia cardíaca que corresponden a diferentes intensidades de ejercicio. Zona 1 (50-60% FCM) es recuperación activa; Zona 2 (60-70%) quema de grasas; Zona 3 (70-80%) aeróbica; Zona 4 (80-90%) anaeróbica; Zona 5 (90-100%) esfuerzo máximo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué es la fórmula de Karvonen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La fórmula de Karvonen calcula las zonas de entrenamiento usando la reserva cardíaca (diferencia entre FCM y FC en reposo), lo que la hace más precisa que usar solo la FCM. La fórmula es: FC objetivo = FC reposo + (% intensidad × (FCM − FC reposo))."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuál es una frecuencia cardíaca en reposo normal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Para un adulto sano, la frecuencia cardíaca en reposo normal está entre 60 y 100 pulsaciones por minuto. Los deportistas bien entrenados pueden tener FC en reposo de 40-50 ppm, lo que indica una mayor eficiencia cardíaca."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <title>Calculadora de Frecuencia Cardíaca — Zonas de Entrenamiento y FC Máxima | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/es/calculadora-frecuencia-cardiaca" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-frecuencia-cardiaca" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/calculadora-frecuencia-cardiaca" />
+
+    <meta name="description" content="Calcula tu frecuencia cardíaca máxima y tus 5 zonas de entrenamiento según tu edad. Incluye la fórmula de Karvonen con FC en reposo para mayor precisión. Gratis." />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/es/calculadora-frecuencia-cardiaca" />
+    <meta property="og:title" content="Calculadora de Frecuencia Cardíaca — Zonas de Entrenamiento | Calculenow" />
+    <meta property="og:description" content="Calcula tu FC máxima y tus zonas de entrenamiento. Fórmulas de Tanaka y Karvonen. Gratis." />
+    <meta property="og:image" content="https://calculenow.com/images/og-es.jpg" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Calculadora de Frecuencia Cardíaca — Zonas de Entrenamiento" />
+    <meta name="twitter:description" content="Calcula tu FC máxima y zonas de entrenamiento. Gratis." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-es.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
+    <header></header>
+
+    <main>
+      <div class="card cardiaca-card">
+        <h1>Calculadora de Frecuencia Cardíaca</h1>
+        <p>Calcula tu frecuencia cardíaca máxima y tus zonas de entrenamiento según tu edad y condición física.</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="edad">Edad</label>
+            <input id="edad" class="field" type="number" placeholder="Ej: 35" min="10" max="100" />
+          </div>
+          <div class="form-group">
+            <label for="formula">Fórmula FCM</label>
+            <select id="formula" class="field">
+              <option value="clasica">Clásica (220 − edad)</option>
+              <option value="tanaka" selected>Tanaka (más precisa para adultos)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="fc-reposo">
+            FC en reposo (ppm) — opcional
+            <span class="cardiaca-hint-label">Para zonas más precisas con Karvonen</span>
+          </label>
+          <input id="fc-reposo" class="field" type="number"
+            placeholder="Ej: 60 (mídela al despertar antes de levantarte)" min="30" max="120" />
+        </div>
+
+        <button class="btn btn-cardiaca" id="btn-calcular" type="button">Calcular zonas</button>
+
+        <div class="result cardiaca-result" id="cardiaca-result"></div>
+
+        <p class="disclaimer-text">
+          * Las fórmulas son estimaciones estadísticas. La FC máxima real solo se puede medir con una prueba de esfuerzo controlada. Consulta con un médico antes de iniciar un programa de entrenamiento de alta intensidad.
+        </p>
+
+        <div class="related-tools">
+          <p><strong>Otras herramientas de salud:</strong></p>
+          <ul>
+            <li>
+              <a href="/es/calculadora-calorias">
+                ➔ <strong>Calculadora de calorías (TMB):</strong> Calcula cuántas calorías quemas al día.
+              </a>
+            </li>
+            <li>
+              <a href="/es/calculadora-macros">
+                ➔ <strong>Calculadora de macros:</strong> Distribuye tus proteínas, carbos y grasas según tu objetivo.
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="legal-content">
+        <h2>¿Cómo se calcula la frecuencia cardíaca máxima?</h2>
+        <p>Existen dos fórmulas principales para estimar la FCM:</p>
+
+        <div class="formule">Clásica: FCM = 220 − edad</div>
+        <div class="formule">Tanaka: FCM = 208 − (0,7 × edad)</div>
+
+        <p>La fórmula de Tanaka, publicada en el Journal of the American College of Cardiology, es más precisa para adultos porque tiene en cuenta que la FCM no disminuye de forma lineal con la edad.</p>
+
+        <h2>Las 5 zonas de entrenamiento</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>Zona</th><th>% FCM</th><th>Intensidad</th><th>Beneficio principal</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Zona 1</td><td>50–60%</td><td>Muy ligera</td><td>Recuperación activa, calentamiento</td></tr>
+              <tr><td>Zona 2</td><td>60–70%</td><td>Ligera</td><td>Quema de grasas, resistencia base</td></tr>
+              <tr><td>Zona 3</td><td>70–80%</td><td>Moderada</td><td>Capacidad aeróbica, rendimiento</td></tr>
+              <tr><td>Zona 4</td><td>80–90%</td><td>Alta</td><td>Umbral anaeróbico, velocidad</td></tr>
+              <tr><td>Zona 5</td><td>90–100%</td><td>Máxima</td><td>Potencia, velocidad punta</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>¿Qué es la fórmula de Karvonen?</h2>
+        <p>La fórmula de Karvonen usa la <strong>reserva cardíaca</strong> (diferencia entre FCM y FC en reposo) para calcular zonas más personalizadas:</p>
+        <div class="formule">FC objetivo = FC reposo + (% × (FCM − FC reposo))</div>
+        <p>Es más precisa que usar solo el porcentaje de la FCM porque tiene en cuenta tu condición cardiovascular actual. Una FC en reposo baja indica mejor forma física.</p>
+      </section>
+
+      <div class="faq-section">
+        <h3>Preguntas frecuentes sobre frecuencia cardíaca</h3>
+
+        <details>
+          <summary>¿Cómo se calcula la frecuencia cardíaca máxima?</summary>
+          <div class="faq-content">
+            <p>La fórmula clásica es FCM = 220 − edad. La fórmula de Tanaka, más precisa, es FCM = 208 − (0,7 × edad). Solo una prueba de esfuerzo real puede dar tu FCM exacta.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Qué son las zonas de entrenamiento?</summary>
+          <div class="faq-content">
+            <p>Rangos de FC que corresponden a diferentes intensidades: Zona 1 (recuperación), Zona 2 (quema de grasas), Zona 3 (aeróbica), Zona 4 (anaeróbica) y Zona 5 (máxima). Entrenar en cada zona produce adaptaciones diferentes.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Qué es la fórmula de Karvonen?</summary>
+          <div class="faq-content">
+            <p>Calcula las zonas usando la reserva cardíaca (FCM − FC reposo), lo que la hace más precisa. La fórmula es: FC objetivo = FC reposo + (% intensidad × (FCM − FC reposo)).</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Cuál es una frecuencia cardíaca en reposo normal?</summary>
+          <div class="faq-content">
+            <p>Entre 60 y 100 ppm para un adulto sano. Los deportistas bien entrenados pueden tener 40-50 ppm, lo que indica mayor eficiencia cardíaca. Mídela al despertar, antes de levantarte.</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>Utilizamos cookies para mejorar tu experiencia. <a href="/es/cookies">Más información</a></p>
+        <div class="cookie-buttons">
+          <button id="btn-accept-all">Aceptar todas</button>
+          <button id="btn-reject-all">Rechazar</button>
+          <button id="btn-open-settings">Configurar</button>
+        </div>
+      </div>
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Configuración de cookies</strong></p>
+        <label><input type="checkbox" id="check-analytics" /> Analíticas</label>
+        <label><input type="checkbox" id="check-marketing" /> Marketing</label>
+        <div class="cookie-buttons">
+          <button id="btn-back">← Volver</button>
+          <button id="btn-save-settings">Guardar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/frecuencia-cardiaca.js" defer></script>
+  </body>
+</html> 

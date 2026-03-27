@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Validador de IBAN",
+      "url": "https://calculenow.com/es/validador-iban",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "description": "Valida cualquier número IBAN al instante. Comprueba si el formato es correcto y obtén el desglose del país, dígitos de control y número de cuenta."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es el IBAN?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El IBAN (International Bank Account Number) es un código estándar internacional que identifica de forma única una cuenta bancaria. Está compuesto por el código de país (2 letras), dos dígitos de control y el número de cuenta específico de cada país."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo se valida un IBAN?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La validación se realiza mediante el algoritmo MOD-97: se reordena el IBAN moviendo los 4 primeros caracteres al final, se convierten las letras a números (A=10, B=11...) y se comprueba que el resultado de dividir el número entre 97 dé resto 1."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuántos dígitos tiene un IBAN español?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un IBAN español tiene 24 caracteres: ES + 2 dígitos de control + 20 dígitos de cuenta (4 del banco, 4 de la sucursal, 2 de dígito de control interno y 10 del número de cuenta)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿El IBAN es lo mismo que el número de cuenta?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. El número de cuenta es la parte nacional de la cuenta bancaria. El IBAN añade el código de país y los dígitos de control para permitir transferencias internacionales estandarizadas."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <title>Validador de IBAN — Comprueba si tu IBAN es Correcto | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/es/validador-iban" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/validador-iban" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/validador-iban" />
+
+    <meta name="description" content="Valida cualquier IBAN al instante. Comprueba si el formato es correcto y obtén el desglose del país y número de cuenta. Gratis y sin registro." />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/es/validador-iban" />
+    <meta property="og:title" content="Validador de IBAN — Comprueba si tu IBAN es Correcto | Calculenow" />
+    <meta property="og:description" content="Valida cualquier IBAN al instante. Comprueba formato, país y dígitos de control. Gratis." />
+    <meta property="og:image" content="https://calculenow.com/images/og-es.jpg" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Validador de IBAN — Comprueba si tu IBAN es Correcto" />
+    <meta name="twitter:description" content="Valida cualquier IBAN al instante. Gratis." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-es.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
+    <header></header>
+
+    <main>
+      <div class="card iban-card">
+        <h1>Validador de IBAN</h1>
+        <p>Introduce un número IBAN para comprobar si es válido y obtener su desglose.</p>
+
+        <div class="form-group">
+          <label for="iban-input">Número IBAN</label>
+          <input id="iban-input" class="field iban-field" type="text"
+            placeholder="Ej: ES91 2100 0418 4502 0005 1332"
+            maxlength="42" autocomplete="off" spellcheck="false" />
+          <p class="iban-hint">Los espacios se ignoran automáticamente. Puedes pegarlo con o sin espacios.</p>
+        </div>
+
+        <button class="btn btn-iban" id="btn-validar" type="button">Validar IBAN</button>
+
+        <div class="result iban-result" id="iban-result"></div>
+
+        <div class="related-tools">
+          <p><strong>Otras herramientas administrativas:</strong></p>
+          <ul>
+            <li>
+              <a href="/es/validador-dni">
+                ➔ <strong>Validador DNI/NIE:</strong> Verifica la letra de cualquier DNI o NIE.
+              </a>
+            </li>
+            <li>
+              <a href="/es/calculadora-irpf">
+                ➔ <strong>Calculadora IRPF:</strong> Estima tu cuota según tu comunidad autónoma.
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="legal-content">
+        <h2>¿Qué es el IBAN y cómo funciona?</h2>
+        <p>El IBAN (<em>International Bank Account Number</em>) es un estándar internacional para identificar cuentas bancarias, definido por la norma ISO 13616. Permite realizar transferencias entre países de forma estandarizada y con menor riesgo de errores.</p>
+
+        <h2>Estructura del IBAN</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>Parte</th><th>Longitud</th><th>Ejemplo (ES)</th><th>Descripción</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Código de país</td><td>2 letras</td><td>ES</td><td>Código ISO del país</td></tr>
+              <tr><td>Dígitos de control</td><td>2 números</td><td>91</td><td>Verifican que el IBAN es válido</td></tr>
+              <tr><td>BBAN</td><td>Variable</td><td>2100 0418 4502 0005 1332</td><td>Número de cuenta nacional</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Longitud del IBAN según país</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>País</th><th>Código</th><th>Longitud</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>España</td><td>ES</td><td>24</td></tr>
+              <tr><td>Alemania</td><td>DE</td><td>22</td></tr>
+              <tr><td>Francia</td><td>FR</td><td>27</td></tr>
+              <tr><td>Italia</td><td>IT</td><td>27</td></tr>
+              <tr><td>Portugal</td><td>PT</td><td>25</td></tr>
+              <tr><td>Países Bajos</td><td>NL</td><td>18</td></tr>
+              <tr><td>Reino Unido</td><td>GB</td><td>22</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>¿Cómo se valida un IBAN?</h2>
+        <p>El algoritmo de validación MOD-97 funciona así:</p>
+        <ol>
+          <li>Se mueven los 4 primeros caracteres al final del IBAN.</li>
+          <li>Se convierten todas las letras a números (A=10, B=11, ... Z=35).</li>
+          <li>Se divide el número resultante entre 97.</li>
+          <li>Si el resto es 1, el IBAN es válido.</li>
+        </ol>
+      </section>
+
+      <div class="faq-section">
+        <h3>Preguntas frecuentes sobre el IBAN</h3>
+
+        <details>
+          <summary>¿Qué es el IBAN?</summary>
+          <div class="faq-content">
+            <p>El IBAN es un código estándar internacional que identifica de forma única una cuenta bancaria. Está compuesto por el código de país, dos dígitos de control y el número de cuenta nacional.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Cuántos dígitos tiene un IBAN español?</summary>
+          <div class="faq-content">
+            <p>24 caracteres: ES + 2 dígitos de control + 20 dígitos de cuenta (4 banco + 4 sucursal + 2 control interno + 10 número de cuenta).</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Cómo se valida un IBAN?</summary>
+          <div class="faq-content">
+            <p>Mediante el algoritmo MOD-97: se reordena el IBAN, se convierten las letras a números y se comprueba que el resultado módulo 97 sea igual a 1.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿El IBAN es lo mismo que el número de cuenta?</summary>
+          <div class="faq-content">
+            <p>No. El número de cuenta es la parte nacional. El IBAN añade el código de país y los dígitos de control para permitir transferencias internacionales estandarizadas.</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>Utilizamos cookies para mejorar tu experiencia. <a href="/es/cookies">Más información</a></p>
+        <div class="cookie-buttons">
+          <button id="btn-accept-all">Aceptar todas</button>
+          <button id="btn-reject-all">Rechazar</button>
+          <button id="btn-open-settings">Configurar</button>
+        </div>
+      </div>
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Configuración de cookies</strong></p>
+        <label><input type="checkbox" id="check-analytics" /> Analíticas</label>
+        <label><input type="checkbox" id="check-marketing" /> Marketing</label>
+        <div class="cookie-buttons">
+          <button id="btn-back">← Volver</button>
+          <button id="btn-save-settings">Guardar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/iban.js" defer></script>
+  </body>
+</html>

@@ -35,13 +35,14 @@ export const i18n = {
       math:     { label: "Matemáticas",   icon: "📐" },
       utils:    { label: "Utilidades",    icon: "🔧" },
       admin:    { label: "Administración", icon: "🪪" },
+      //curiosity:    { label: "Curiosidades", icon: "🪪" },
     },
 
     // Enlace del nav por categoría.
     // Campos: id (único), url (ruta absoluta), name (texto visible con emoji).
     links: {
       finance: [
-        { id: "iva",       url: "/es/calculadora-iva",               name: "💶 IVA" },
+        { id: "iva",       url: "/es/calculadora-iva",                name: "💶 IVA" },
         { id: "desc",      url: "/es/calculadora-descuentos",         name: "🏷️ Descuentos" },
         { id: "tip",       url: "/es/calculadora-propinas",           name: "☕ Propinas" },
         { id: "loan",      url: "/es/calculadora-prestamos",          name: "🏦 Préstamos" },
@@ -56,9 +57,9 @@ export const i18n = {
         { id: "bmi",       url: "/es/calculadora-imc",                name: "⚖️ IMC" },
         { id: "cal",       url: "/es/calculadora-calorias",           name: "🔥 Calorías (TMB)" },
         { id: "hyd",       url: "/es/calculadora-hidratacion",        name: "💧 Hidratación" },
-        { id: "macro",  url: "/es/calculadora-macros",             name: "🥩 Macros" },
+        { id: "macro",     url: "/es/calculadora-macros",             name: "🥩 Macros" },
+        { id: "heart",     url: "/es/calculadora-frecuencia-cardiaca",name: "❤️ Frec. cardíaca" },
         // Próximamente:
-        // { id: "heart",  url: "/es/calculadora-frecuencia-cardiaca",name: "❤️ Frec. cardíaca" },
         // { id: "sleep",  url: "/es/calculadora-sueno",              name: "😴 Sueño" },
       ],
       math: [
@@ -81,9 +82,8 @@ export const i18n = {
         { id: "dni",       url: "/es/validador-dni",                  name: "🪪 Validador DNI" },
         { id: "irpf",      url: "/es/calculadora-irpf",               name: "📄 IRPF" },
         { id: "irpf-foral", url: "/es/calculadora-irpf-foral",        name: "🏛️ IRPF Foral (Navarra/PV)" },
-        // Próximamente:
-        // { id: "iban",   url: "/es/validador-iban",                  name: "🏛️ Validador IBAN" },
-        // { id: "niw",    url: "/es/validador-niw",                   name: "🏢 NIW empresa" },
+        { id: "iban",      url: "/es/validador-iban",                 name: "🏛️ Validador IBAN" },
+        { id: "nif",       url: "/es/validador-nif-empresa",          name: "🏢 Validador NIF empresa" },
       ],
       //curiosity: [
        // Próximamente:
