@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { nombre: "IMC", url: "/es/calculadora-imc", tags: ["peso", "salud", "grasa", "adelgazar"] },
             { nombre: "Calorías (TMB)", url: "/es/calculadora-calorias", tags: ["dieta", "comida", "gym", "metabolismo"] },
             { nombre: "Hidratación", url: "/es/calculadora-hidratacion", tags: ["agua", "beber", "sed", "salud", "deporte"] },
+            { nombre: "Calculadora de macros", url: "/es/calculadora-macros", tags: ["proteinas", "carbohidratos", "grasas", "macronutrientes", "dieta", "nutricion", "tdee"] },
             { nombre: "Interés Compuesto", url: "/es/calculadora-interes-compuesto", tags: ["bolsa", "inversion", "ahorro", "dinero", "rentabilidad"] },
             { nombre: "Divisas", url: "/es/calculadora-divisas", tags: ["moneda", "euro", "dolar", "cambio", "forex"] },
             { nombre: "Préstamos", url: "/es/calculadora-prestamos", tags: ["banco", "hipoteca", "credito", "deuda", "cuota"] },

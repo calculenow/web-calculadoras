@@ -1,0 +1,61 @@
+// 6-components/_macros.scss
+// Estilos propios de la calculadora de macronutrientes.
+
+// Colores de macros
+$color-prot:  #3b82f6; // azul
+$color-carbs: #f59e0b; // ámbar
+$color-gras:  #10b981; // verde
+
+// Barra visual de distribución
+.macros-barra {
+  display: flex;
+  height: 10px;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 1rem 0 0.5rem;
+
+  .macros-barra-prot  { background: $color-prot; }
+  .macros-barra-carbs { background: $color-carbs; }
+  .macros-barra-gras  { background: $color-gras; }
+}
+
+.macros-barra-legend {
+  display: flex;
+  gap: 12px;
+  font-size: 0.78rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+
+  .macros-dot-prot  { color: $color-prot; }
+  .macros-dot-carbs { color: $color-carbs; }
+  .macros-dot-gras  { color: $color-gras; }
+}
+
+// Colores de filas en el resumen
+.macros-proteinas span:last-child { color: $color-prot !important; }
+.macros-carbos    span:last-child { color: $color-carbs !important; }
+.macros-grasas    span:last-child { color: $color-gras !important; }
+
+// Texto pequeño dentro de los valores
+.resumen-calculo small {
+  font-size: 0.75rem;
+  opacity: 0.65;
+  font-weight: 400;
+  margin-left: 4px;
+}
+
+// Desglose TMB/TDEE
+.macros-desglose {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--border);
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    font-size: 0.85rem;
+    border-bottom: none !important;
+    opacity: 0.75;
+  }
+}

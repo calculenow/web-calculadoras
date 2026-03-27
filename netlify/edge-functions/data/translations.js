@@ -56,8 +56,8 @@ export const i18n = {
         { id: "bmi",       url: "/es/calculadora-imc",                name: "⚖️ IMC" },
         { id: "cal",       url: "/es/calculadora-calorias",           name: "🔥 Calorías (TMB)" },
         { id: "hyd",       url: "/es/calculadora-hidratacion",        name: "💧 Hidratación" },
+        { id: "macro",  url: "/es/calculadora-macros",             name: "🥩 Macros" },
         // Próximamente:
-        // { id: "macro",  url: "/es/calculadora-macros",             name: "🥩 Macros" },
         // { id: "heart",  url: "/es/calculadora-frecuencia-cardiaca",name: "❤️ Frec. cardíaca" },
         // { id: "sleep",  url: "/es/calculadora-sueno",              name: "😴 Sueño" },
       ],

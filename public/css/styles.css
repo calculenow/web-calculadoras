@@ -1382,6 +1382,73 @@ table tr:last-child td {
   font-style: italic;
 }
 
+.macros-barra {
+  display: flex;
+  height: 10px;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 1rem 0 0.5rem;
+}
+.macros-barra .macros-barra-prot {
+  background: #3b82f6;
+}
+.macros-barra .macros-barra-carbs {
+  background: #f59e0b;
+}
+.macros-barra .macros-barra-gras {
+  background: #10b981;
+}
+
+.macros-barra-legend {
+  display: flex;
+  gap: 12px;
+  font-size: 0.78rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+.macros-barra-legend .macros-dot-prot {
+  color: #3b82f6;
+}
+.macros-barra-legend .macros-dot-carbs {
+  color: #f59e0b;
+}
+.macros-barra-legend .macros-dot-gras {
+  color: #10b981;
+}
+
+.macros-proteinas span:last-child {
+  color: #3b82f6 !important;
+}
+
+.macros-carbos span:last-child {
+  color: #f59e0b !important;
+}
+
+.macros-grasas span:last-child {
+  color: #10b981 !important;
+}
+
+.resumen-calculo small {
+  font-size: 0.75rem;
+  opacity: 0.65;
+  font-weight: 400;
+  margin-left: 4px;
+}
+
+.macros-desglose {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--border);
+}
+.macros-desglose li {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  font-size: 0.85rem;
+  border-bottom: none !important;
+  opacity: 0.75;
+}
+
 /* ==========================================================================
    DESKTOP: Barra de búsqueda expandible
    ========================================================================== */
