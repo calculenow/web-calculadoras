@@ -118,6 +118,11 @@
   function = "inyectar-nav"
   path = "/*"
 
+# Inyecta las cards de calculadoras en index y páginas de categoría
+[[edge_functions]]
+  function = "inyectar-cards"
+  path = "/*"
+
 # Detecta el idioma del usuario y redirige a /es/ o /en/
 [[edge_functions]]
   function = "languageredirect"

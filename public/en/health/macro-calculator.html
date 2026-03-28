@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Macro Calculator — Protein, Carbohydrates and Fat",
+      "url": "https://calculenow.com/en/health/macro-calculator",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Calculate your daily macronutrients (protein, carbohydrates and fat) based on your weight, height, age, activity level and goal: fat loss, maintenance or muscle gain."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What are macronutrients?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Macronutrients are the three main nutrient groups that provide energy: protein (4 kcal/g), carbohydrates (4 kcal/g) and fat (9 kcal/g). Each has specific functions: protein builds muscle, carbohydrates provide energy and fat regulates hormones and absorbs vitamins."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much protein do I need per day?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The general recommendation is between 1.6 and 2.2 g of protein per kilogram of body weight for active individuals. For fat loss, the higher end of the range is recommended to preserve muscle mass."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between a caloric deficit and a surplus?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A caloric deficit means consuming fewer calories than you burn, leading to weight loss. A caloric surplus means consuming more, which supports muscle gain. Maintenance balances the two."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do carbohydrates make you fat?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Carbohydrates do not cause weight gain on their own. What produces weight gain is a total caloric surplus, regardless of the macronutrient. Carbohydrates are the main energy source for the brain and muscles."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many calories does each macronutrient have?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Protein provides 4 kcal per gram, carbohydrates also 4 kcal per gram, and fat provides 9 kcal per gram. Knowing this lets you calculate exactly how many calories each macro contributes to your diet."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <title>Macro Calculator — Daily Protein, Carbs and Fat | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/en/health/macro-calculator" />
+    <link rel="alternate" hreflang="en" href="https://calculenow.com/en/health/macro-calculator" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/salud/calculadora-macros" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/salud/calculadora-macros" />
+
+    <meta name="description" content="Calculate your daily macros: protein, carbohydrates and fat based on your weight, height, activity level and goal. Fat loss, maintenance or muscle gain. Free." />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/en/health/macro-calculator" />
+    <meta property="og:title" content="Macro Calculator — Daily Protein, Carbs and Fat | Calculenow" />
+    <meta property="og:description" content="Calculate your daily macronutrients based on your weight, height, activity and goal. Free, no registration." />
+    <meta property="og:image" content="https://calculenow.com/images/og-en.jpg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Macro Calculator — Daily Protein, Carbs and Fat" />
+    <meta name="twitter:description" content="Calculate your daily macros based on your goal: fat loss, maintenance or muscle gain. Free." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-en.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
+    <header></header>
+
+    <main>
+      <div class="card macros-card">
+        <h1>Macro Calculator</h1>
+        <p>Calculate your daily protein, carbohydrates and fat based on your body and goal.</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="sexo">Biological sex</label>
+            <select id="sexo" class="field">
+              <option value="hombre">Male</option>
+              <option value="mujer">Female</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="edad">Age</label>
+            <input id="edad" class="field" type="number" placeholder="E.g. 30" min="15" max="100" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="peso">Weight (kg)</label>
+            <input id="peso" class="field" type="number" placeholder="E.g. 75" min="30" max="300" step="0.5" />
+          </div>
+          <div class="form-group">
+            <label for="altura">Height (cm)</label>
+            <input id="altura" class="field" type="number" placeholder="E.g. 175" min="100" max="250" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="actividad">Activity level</label>
+          <select id="actividad" class="field">
+            <option value="1.2">Sedentary (no exercise or desk job)</option>
+            <option value="1.375">Light (exercise 1–3 days/week)</option>
+            <option value="1.55" selected>Moderate (exercise 3–5 days/week)</option>
+            <option value="1.725">Active (exercise 6–7 days/week)</option>
+            <option value="1.9">Very active (intense physical work + daily exercise)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="objetivo">Goal</label>
+          <select id="objetivo" class="field">
+            <option value="deficit">Fat loss (caloric deficit −20%)</option>
+            <option value="mantenimiento" selected>Maintenance</option>
+            <option value="superavit">Muscle gain (caloric surplus +10%)</option>
+          </select>
+        </div>
+
+        <button class="btn btn-macros" id="btn-calcular" type="button">Calculate macros</button>
+
+        <div class="result macros-result" id="macros-result"
+          data-ms-error="Please fill in all fields correctly."
+          data-val-male="hombre"
+          data-label-deficit="Fat loss"
+          data-label-mant="Maintenance"
+          data-label-superavit="Muscle gain"
+          data-label-goal="Goal"
+          data-label-total-kcal="Target calories"
+          data-label-day="day"
+          data-icon-prot="🥩"
+          data-label-prot="Protein"
+          data-icon-carbs="🍞"
+          data-label-carbs="Carbohydrates"
+          data-icon-fat="🥑"
+          data-label-fat="Fat"
+          data-label-tmb="BMR (basal metabolic rate)"
+          data-label-tdee="TDEE (total daily energy expenditure)"
+          data-btn-copy="Copy result">
+        </div>
+
+        <p class="disclaimer-text">
+          * Calculation based on the Mifflin-St Jeor formula, considered the most accurate for estimating basal metabolism. Values are indicative — consult a nutritionist for a personalised plan.
+        </p>
+
+        <div class="related-tools">
+          <p><strong>Other health tools:</strong></p>
+          <ul>
+            <li>
+              <a href="/en/health/calorie-calculator">
+                ➔ <strong>Calorie calculator (BMR):</strong> Find out how many calories your body burns per day.
+              </a>
+            </li>
+            <li>
+              <a href="/en/health/bmi-calculator">
+                ➔ <strong>BMI calculator:</strong> Check your body mass index.
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="legal-content">
+        <h2>What are macronutrients and what are they for?</h2>
+        <p>Macronutrients are the three pillars of nutrition. Unlike micronutrients (vitamins and minerals), macros provide energy directly to the body:</p>
+
+        <div class="info-grid">
+          <div class="card info-box">
+            <h3>🥩 Protein — 4 kcal/g</h3>
+            <p>Builds and repairs muscle, produces enzymes and hormones, and promotes satiety. Especially important during fat loss to preserve muscle mass.</p>
+          </div>
+          <div class="card info-box">
+            <h3>🍞 Carbohydrates — 4 kcal/g</h3>
+            <p>The body and brain's main energy source. Complex carbohydrates (oats, brown rice) digest slowly and stabilise blood sugar.</p>
+          </div>
+          <div class="card info-box">
+            <h3>🥑 Fat — 9 kcal/g</h3>
+            <p>Regulates hormones, absorbs fat-soluble vitamins (A, D, E, K) and protects organs. Healthy fats (avocado, olive oil, nuts) are essential.</p>
+          </div>
+        </div>
+
+        <h2>Macro distribution by goal</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>Goal</th><th>Protein</th><th>Carbohydrates</th><th>Fat</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Fat loss</td><td>30–35%</td><td>35–40%</td><td>25–30%</td></tr>
+              <tr><td>Maintenance</td><td>25–30%</td><td>40–50%</td><td>25–30%</td></tr>
+              <tr><td>Muscle gain</td><td>25–30%</td><td>45–55%</td><td>20–25%</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>How is basal metabolic rate calculated?</h2>
+        <p>The calculator uses the <strong>Mifflin-St Jeor formula</strong>, the most accurate according to current scientific evidence:</p>
+        <div class="formule">Men: BMR = 10 × weight(kg) + 6.25 × height(cm) − 5 × age + 5</div>
+        <div class="formule">Women: BMR = 10 × weight(kg) + 6.25 × height(cm) − 5 × age − 161</div>
+        <p>The result is multiplied by the activity factor to obtain TDEE (total daily energy expenditure). Depending on the goal, a deficit or surplus is applied to that value.</p>
+      </section>
+
+      <div class="faq-section">
+        <h3>Frequently asked questions about macros</h3>
+
+        <details>
+          <summary>What are macronutrients?</summary>
+          <div class="faq-content">
+            <p>The three main energy nutrient groups: protein (4 kcal/g), carbohydrates (4 kcal/g) and fat (9 kcal/g). Each has specific functions in the body.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>How much protein do I need per day?</summary>
+          <div class="faq-content">
+            <p>Between 1.6 and 2.2 g per kilogram of body weight for active individuals. During fat loss, the higher end of the range is recommended to preserve muscle mass.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Do carbohydrates make you fat?</summary>
+          <div class="faq-content">
+            <p>Not on their own. What causes weight gain is a total caloric surplus. Carbohydrates are the main energy source for the brain and muscles.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>How many calories does each macronutrient have?</summary>
+          <div class="faq-content">
+            <p>Protein: 4 kcal/g. Carbohydrates: 4 kcal/g. Fat: 9 kcal/g. Fat provides more than twice the energy per gram compared to the other two macros.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>What is the difference between a caloric deficit and a surplus?</summary>
+          <div class="faq-content">
+            <p>A caloric deficit (consuming less than you burn) leads to weight loss. A surplus (consuming more) supports muscle gain. Maintenance balances both.</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>We use cookies to improve your experience. <a href="/en/cookies">View cookie policy</a></p>
+        <div class="cookie-buttons">
+          <button class="accept-cookies" id="btn-accept-all">Accept all</button>
+          <button class="reject-cookies" id="btn-reject-all">Reject all</button>
+          <button class="settings-cookies" id="btn-open-settings">Settings</button>
+        </div>
+      </div>
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Customize your preferences:</strong></p>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-necessary" checked disabled />
+          <label>Necessary (Required)</label>
+        </div>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-analytics" />
+          <label>Analytics (Google Analytics)</label>
+        </div>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-marketing" />
+          <label>Marketing (Ad pixels)</label>
+        </div>
+        <div class="cookie-buttons" style="margin-top:15px">
+          <button class="accept-cookies" id="btn-save-settings">Save settings</button>
+          <button class="settings-cookies" id="btn-back">Back</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/ads.js" async defer></script>
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/buscador.js" defer></script>
+    <script src="/js/core.js" defer></script>
+    <script src="/js/salud/macros.js" defer></script>
+  </body>
+</html>

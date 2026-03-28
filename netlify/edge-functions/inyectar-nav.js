@@ -68,8 +68,13 @@ export default async (request, context) => {
         <h3>
           <span class="cat-icon">${cat.icon}</span>
           <span class="cat-label">${cat.label}</span>
+          <a class="cat-view-all" href="${cat.indexUrl}">${t.viewAll}</a>
           <span class="cat-arrow">▼</span>
         </h3>
+        <div class="dropdown-panel-header">
+          <span class="dropdown-panel-title">${cat.icon} ${cat.label}</span>
+          <a class="dropdown-panel-view-all" href="${cat.indexUrl}">${t.viewAll}</a>
+        </div>
         <ul>
           ${items.map(link => `<li><a href="${link.url}">${link.name}</a></li>`).join("")}
         </ul>

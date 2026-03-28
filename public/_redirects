@@ -99,6 +99,20 @@
 /es/curiosidades/edad-perro                   /es/curiosidades/edad-perro.html                   200
 /es/curiosidades/edad-en-otros-planetas       /es/curiosidades/edad-en-otros-planetas.html       200
 
+# Índices de categoría ES
+/es/finanzas                                  /es/finanzas/index.html                            200
+/es/finanzas/                                 /es/finanzas/index.html                            200
+/es/salud                                     /es/salud/index.html                               200
+/es/salud/                                    /es/salud/index.html                               200
+/es/matematicas                               /es/matematicas/index.html                         200
+/es/matematicas/                              /es/matematicas/index.html                         200
+/es/utilidades                                /es/utilidades/index.html                          200
+/es/utilidades/                               /es/utilidades/index.html                          200
+/es/administracion                            /es/administracion/index.html                      200
+/es/administracion/                           /es/administracion/index.html                      200
+/es/curiosidades                              /es/curiosidades/index.html                        200
+/es/curiosidades/                             /es/curiosidades/index.html                        200
+
 # Legales ES
 /es/aviso-legal                               /es/aviso-legal.html                               200
 /es/privacidad                                /es/privacidad.html                                200
@@ -109,6 +123,16 @@
 # =============================================================================
 # 200s EN — URLs limpias → archivos HTML
 # =============================================================================
+
+# Índices de categoría EN
+/en/finance                                   /en/finance/index.html                             200
+/en/finance/                                  /en/finance/index.html                             200
+/en/health                                    /en/health/index.html                              200
+/en/health/                                   /en/health/index.html                              200
+/en/math                                      /en/math/index.html                                200
+/en/math/                                     /en/math/index.html                                200
+/en/utils                                     /en/utils/index.html                               200
+/en/utils/                                    /en/utils/index.html                               200
 
 # Finance
 /en/finance/vat-calculator                    /en/finance/vat-calculator.html                    200
@@ -122,6 +146,8 @@
 /en/health/bmi-calculator                     /en/health/bmi-calculator.html                     200
 /en/health/calorie-calculator                 /en/health/calorie-calculator.html                 200
 /en/health/hydration-calculator               /en/health/hydration-calculator.html               200
+/en/health/macro-calculator                   /en/health/macro-calculator.html                   200
+/en/health/heart-rate-calculator              /en/health/heart-rate-calculator.html              200
 
 # Math
 /en/math/percentage-calculator                /en/math/percentage-calculator.html                200

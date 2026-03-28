@@ -2,6 +2,7 @@
  * frecuencia-cardiaca.js
  * Calculadora de frecuencia cardíaca máxima y zonas de entrenamiento.
  * Fórmulas: Tanaka (FCM), Karvonen (zonas con FC reposo)
+ * Todos los textos visibles se leen desde data-* del div#cardiaca-result (i18n via HTML).
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,14 +10,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const btn       = document.getElementById('btn-calcular');
   const resultDiv = document.getElementById('cardiaca-result');
 
-  // ── ZONAS ──────────────────────────────────────────────────────────────────
-  const zonas = [
-    { num: 1, nombre: 'Recuperación activa', min: 0.50, max: 0.60, color: '#6ee7b7', desc: 'Calentamiento, enfriamiento, días de descanso activo.' },
-    { num: 2, nombre: 'Quema de grasas',     min: 0.60, max: 0.70, color: '#34d399', desc: 'Resistencia base, quema de grasa, ideal para rodajes largos.' },
-    { num: 3, nombre: 'Aeróbica',            min: 0.70, max: 0.80, color: '#fbbf24', desc: 'Mejora cardiovascular, aumenta el VO₂ máx.' },
-    { num: 4, nombre: 'Anaeróbica',          min: 0.80, max: 0.90, color: '#f97316', desc: 'Umbral de lactato, mejora velocidad y rendimiento.' },
-    { num: 5, nombre: 'Esfuerzo máximo',     min: 0.90, max: 1.00, color: '#ef4444', desc: 'Potencia máxima, intervalos cortos, solo deportistas entrenados.' },
-  ];
+  if (!btn || !resultDiv) return;
+
+  const d = resultDiv.dataset;
+
+  // ── ZONAS — textos desde data-* ────────────────────────────────────────────
+  // El HTML provee: data-zone-N-name, data-zone-N-desc para N = 1..5
+  const zonas = [1, 2, 3, 4, 5].map(n => ({
+    num:    n,
+    nombre: d[`zone${n}Name`],
+    desc:   d[`zone${n}Desc`],
+    min:    [0.50, 0.60, 0.70, 0.80, 0.90][n - 1],
+    max:    [0.60, 0.70, 0.80, 0.90, 1.00][n - 1],
+    color:  ['#6ee7b7', '#34d399', '#fbbf24', '#f97316', '#ef4444'][n - 1],
+  }));
 
   // ── HELPERS ────────────────────────────────────────────────────────────────
   function calcZona(fcm, fcr, zona, usarKarvonen) {
@@ -34,13 +41,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ── CALCULAR ───────────────────────────────────────────────────────────────
-  btn?.addEventListener('click', () => {
-    const edad    = parseFloat(document.getElementById('edad').value);
+  btn.addEventListener('click', () => {
+    const edad   = parseFloat(document.getElementById('edad').value);
     const formula = document.getElementById('formula').value;
     const fcrVal  = parseFloat(document.getElementById('fc-reposo').value);
 
     if (isNaN(edad) || edad <= 0) {
-      resultDiv.innerHTML = '<p class="error-msg">⚠️ Introduce tu edad.</p>';
+      resultDiv.innerHTML = `<p class="error-msg">⚠️ ${d.msError}</p>`;
       return;
     }
 
@@ -50,8 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const usarKarvonen = !isNaN(fcrVal) && fcrVal > 0 && fcrVal < fcm;
     const fcr          = usarKarvonen ? fcrVal : 0;
-    const formulaLabel = formula === 'tanaka' ? 'Tanaka' : 'Clásica (220 − edad)';
-    const metodoZonas  = usarKarvonen ? 'Karvonen (con FC reposo)' : '% FCM';
+    const formulaLabel = formula === 'tanaka' ? d.labelTanaka : d.labelClassic;
+    const metodoZonas  = usarKarvonen ? d.labelKarvonen : d.labelPctFcm;
 
     const zonasHTML = zonas.map(z => {
       const { min, max } = calcZona(fcm, fcr, z, usarKarvonen);
@@ -59,37 +66,37 @@ document.addEventListener('DOMContentLoaded', () => {
         <li class="cardiaca-zona">
           <div class="cardiaca-zona-dot" style="background:${z.color}"></div>
           <div class="cardiaca-zona-info">
-            <span class="cardiaca-zona-nombre">Zona ${z.num} — ${z.nombre}</span>
+            <span class="cardiaca-zona-nombre">${d.labelZone} ${z.num} — ${z.nombre}</span>
             <span class="cardiaca-zona-desc">${z.desc}</span>
           </div>
-          <span class="cardiaca-zona-rango">${min}–${max} ppm</span>
+          <span class="cardiaca-zona-rango">${min}–${max} ${d.labelBpm}</span>
         </li>
       `;
     }).join('');
 
     const textoCopiar = [
-      `FC Máxima (${formulaLabel}): ${fcm} ppm`,
-      usarKarvonen ? `FC Reposo: ${fcr} ppm` : '',
-      `Método zonas: ${metodoZonas}`,
+      `${d.labelFcmax} (${formulaLabel}): ${fcm} ${d.labelBpm}`,
+      usarKarvonen ? `${d.labelFcrest}: ${fcr} ${d.labelBpm}` : '',
+      `${d.labelZoneMethod}: ${metodoZonas}`,
       '',
       ...zonas.map(z => {
         const { min, max } = calcZona(fcm, fcr, z, usarKarvonen);
-        return `Zona ${z.num} (${z.nombre}): ${min}–${max} ppm`;
+        return `${d.labelZone} ${z.num} (${z.nombre}): ${min}–${max} ${d.labelBpm}`;
       }),
     ].filter(Boolean).join('\n');
 
     resultDiv.innerHTML = `
       <div class="resumen-calculo">
-        <p class="resumen-titulo">FC Máxima estimada: ${fcm} ppm</p>
+        <p class="resumen-titulo">${d.labelFcmax}: ${fcm} ${d.labelBpm}</p>
         <ul class="cardiaca-meta">
-          <li><span>Fórmula FCM</span><span>${formulaLabel}</span></li>
-          ${usarKarvonen ? `<li><span>FC en reposo</span><span>${fcr} ppm</span></li>` : ''}
-          <li><span>Método zonas</span><span>${metodoZonas}</span></li>
+          <li><span>${d.labelFormulaFcm}</span><span>${formulaLabel}</span></li>
+          ${usarKarvonen ? `<li><span>${d.labelFcrest}</span><span>${fcr} ${d.labelBpm}</span></li>` : ''}
+          <li><span>${d.labelZoneMethod}</span><span>${metodoZonas}</span></li>
         </ul>
         <ul class="cardiaca-zonas-lista">
           ${zonasHTML}
         </ul>
-        <button class="btn-copy" data-copy-text="${textoCopiar}">📋 Copiar resultado</button>
+        <button class="btn-copy" data-copy-text="${textoCopiar}">📋 ${d.btnCopy}</button>
       </div>
     `;
 
@@ -103,11 +110,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Soporte Enter
   document.querySelectorAll('.cardiaca-card input').forEach(input => {
-    input.addEventListener('keydown', e => {
-      if (e.key === 'Enter') btn?.click();
-    });
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') btn.click(); });
   });
 
 });

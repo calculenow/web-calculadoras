@@ -53,6 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
             { nombre: "BMI",               url: "/en/health/bmi-calculator",                tags: ["weight", "health", "fat", "lose weight"] },
             { nombre: "Calories (BMR)",    url: "/en/health/calorie-calculator",             tags: ["diet", "food", "gym", "metabolism"] },
             { nombre: "Hydration",         url: "/en/health/hydration-calculator",           tags: ["water", "drink", "thirst", "health", "sport"] },
+            { nombre: "Macros",            url: "/en/health/macro-calculator",               tags: ["protein", "carbs", "fat", "macronutrients", "diet", "nutrition", "tdee"] },
+            { nombre: "Heart rate",        url: "/en/health/heart-rate-calculator",          tags: ["heart rate", "max hr", "training zones", "karvonen", "tanaka", "cardio", "sport"] },
             // Math
             { nombre: "Percentages",       url: "/en/math/percentage-calculator",            tags: ["math", "proportion", "ratio", "calculation"] },
             // Utils

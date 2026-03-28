@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Heart Rate Calculator — Training Zones",
+      "url": "https://calculenow.com/en/health/heart-rate-calculator",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Calculate your maximum heart rate and training zones based on your age and resting heart rate. Includes Tanaka and Karvonen formulas."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How is maximum heart rate calculated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The classic formula is MHR = 220 − age. The Tanaka formula, more accurate for adults, is MHR = 208 − (0.7 × age). Both are estimates — your actual maximum heart rate can only be measured with a maximal exercise test."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are training zones?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Training zones are heart rate ranges corresponding to different exercise intensities. Zone 1 (50-60% MHR) is active recovery; Zone 2 (60-70%) fat burning; Zone 3 (70-80%) aerobic; Zone 4 (80-90%) anaerobic; Zone 5 (90-100%) maximum effort."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the Karvonen formula?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Karvonen formula calculates training zones using heart rate reserve (the difference between MHR and resting HR), making it more accurate than using MHR alone. The formula is: Target HR = Resting HR + (% intensity × (MHR − Resting HR))."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a normal resting heart rate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For a healthy adult, normal resting heart rate is between 60 and 100 beats per minute. Well-trained athletes may have resting HR of 40-50 bpm, indicating greater cardiac efficiency."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <title>Heart Rate Calculator — Training Zones & Max HR | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/en/health/heart-rate-calculator" />
+    <link rel="alternate" hreflang="en" href="https://calculenow.com/en/health/heart-rate-calculator" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/salud/calculadora-frecuencia-cardiaca" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/salud/calculadora-frecuencia-cardiaca" />
+
+    <meta name="description" content="Calculate your maximum heart rate and 5 training zones based on your age. Includes the Karvonen formula with resting heart rate for greater accuracy. Free." />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/en/health/heart-rate-calculator" />
+    <meta property="og:title" content="Heart Rate Calculator — Training Zones | Calculenow" />
+    <meta property="og:description" content="Calculate your max HR and training zones. Tanaka and Karvonen formulas. Free." />
+    <meta property="og:image" content="https://calculenow.com/images/og-en.jpg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Heart Rate Calculator — Training Zones" />
+    <meta name="twitter:description" content="Calculate your max HR and training zones. Free." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-en.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
+    <header></header>
+
+    <main>
+      <div class="card cardiaca-card">
+        <h1>Heart Rate Calculator</h1>
+        <p>Calculate your maximum heart rate and training zones based on your age and fitness level.</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="edad">Age</label>
+            <input id="edad" class="field" type="number" placeholder="E.g. 35" min="10" max="100" />
+          </div>
+          <div class="form-group">
+            <label for="formula">Max HR formula</label>
+            <select id="formula" class="field">
+              <option value="clasica">Classic (220 − age)</option>
+              <option value="tanaka" selected>Tanaka (more accurate for adults)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="fc-reposo">
+            Resting HR (bpm) — optional
+            <span class="cardiaca-hint-label">For more accurate zones with Karvonen</span>
+          </label>
+          <input id="fc-reposo" class="field" type="number"
+            placeholder="E.g. 60 (measure it when you wake up before getting up)" min="30" max="120" />
+        </div>
+
+        <button class="btn btn-cardiaca" id="btn-calcular" type="button">Calculate zones</button>
+
+        <div class="result cardiaca-result" id="cardiaca-result"
+          data-ms-error="Please enter your age."
+          data-label-fcmax="Estimated max HR"
+          data-label-fcrest="Resting HR"
+          data-label-bpm="bpm"
+          data-label-formula-fcm="Max HR formula"
+          data-label-classic="Classic (220 − age)"
+          data-label-tanaka="Tanaka"
+          data-label-karvonen="Karvonen (with resting HR)"
+          data-label-pct-fcm="% Max HR"
+          data-label-zone="Zone"
+          data-label-zone-method="Zone method"
+          data-btn-copy="Copy result"
+          data-zone1-name="Active recovery"
+          data-zone1-desc="Warm-up, cool-down, active rest days."
+          data-zone2-name="Fat burn"
+          data-zone2-desc="Base endurance, fat burning, ideal for long runs."
+          data-zone3-name="Aerobic"
+          data-zone3-desc="Cardiovascular improvement, increases VO₂ max."
+          data-zone4-name="Anaerobic"
+          data-zone4-desc="Lactate threshold, improves speed and performance."
+          data-zone5-name="Maximum effort"
+          data-zone5-desc="Peak power, short intervals, trained athletes only.">
+        </div>
+
+        <p class="disclaimer-text">
+          * Formulas are statistical estimates. Your actual maximum heart rate can only be measured with a controlled exercise test. Consult a doctor before starting a high-intensity training programme.
+        </p>
+
+        <div class="related-tools">
+          <p><strong>Other health tools:</strong></p>
+          <ul>
+            <li>
+              <a href="/en/health/calorie-calculator">
+                ➔ <strong>Calorie calculator (BMR):</strong> Find out how many calories you burn per day.
+              </a>
+            </li>
+            <li>
+              <a href="/en/health/bmi-calculator">
+                ➔ <strong>BMI calculator:</strong> Check your body mass index.
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="legal-content">
+        <h2>How is maximum heart rate calculated?</h2>
+        <p>There are two main formulas for estimating MHR:</p>
+
+        <div class="formule">Classic: MHR = 220 − age</div>
+        <div class="formule">Tanaka: MHR = 208 − (0.7 × age)</div>
+
+        <p>The Tanaka formula, published in the Journal of the American College of Cardiology, is more accurate for adults because it accounts for the fact that MHR does not decline linearly with age.</p>
+
+        <h2>The 5 training zones</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>Zone</th><th>% MHR</th><th>Intensity</th><th>Main benefit</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Zone 1</td><td>50–60%</td><td>Very light</td><td>Active recovery, warm-up</td></tr>
+              <tr><td>Zone 2</td><td>60–70%</td><td>Light</td><td>Fat burning, base endurance</td></tr>
+              <tr><td>Zone 3</td><td>70–80%</td><td>Moderate</td><td>Aerobic capacity, performance</td></tr>
+              <tr><td>Zone 4</td><td>80–90%</td><td>High</td><td>Anaerobic threshold, speed</td></tr>
+              <tr><td>Zone 5</td><td>90–100%</td><td>Maximum</td><td>Power, peak speed</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>What is the Karvonen formula?</h2>
+        <p>The Karvonen formula uses <strong>heart rate reserve</strong> (the difference between MHR and resting HR) to calculate more personalised zones:</p>
+        <div class="formule">Target HR = Resting HR + (% × (MHR − Resting HR))</div>
+        <p>It is more accurate than using a percentage of MHR alone because it takes your current cardiovascular fitness into account. A low resting HR indicates better physical condition.</p>
+      </section>
+
+      <div class="faq-section">
+        <h3>Frequently asked questions about heart rate</h3>
+
+        <details>
+          <summary>How is maximum heart rate calculated?</summary>
+          <div class="faq-content">
+            <p>The classic formula is MHR = 220 − age. The more accurate Tanaka formula is MHR = 208 − (0.7 × age). Only a real maximal exercise test can give you your exact MHR.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>What are training zones?</summary>
+          <div class="faq-content">
+            <p>HR ranges corresponding to different intensities: Zone 1 (recovery), Zone 2 (fat burn), Zone 3 (aerobic), Zone 4 (anaerobic) and Zone 5 (maximum). Training in each zone produces different adaptations.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>What is the Karvonen formula?</summary>
+          <div class="faq-content">
+            <p>It calculates zones using heart rate reserve (MHR − resting HR), making it more accurate. The formula is: Target HR = Resting HR + (% intensity × (MHR − Resting HR)).</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>What is a normal resting heart rate?</summary>
+          <div class="faq-content">
+            <p>Between 60 and 100 bpm for a healthy adult. Well-trained athletes may have 40–50 bpm, indicating greater cardiac efficiency. Measure it when you wake up, before getting up.</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>We use cookies to improve your experience. <a href="/en/cookies">View cookie policy</a></p>
+        <div class="cookie-buttons">
+          <button class="accept-cookies" id="btn-accept-all">Accept all</button>
+          <button class="reject-cookies" id="btn-reject-all">Reject all</button>
+          <button class="settings-cookies" id="btn-open-settings">Settings</button>
+        </div>
+      </div>
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Customize your preferences:</strong></p>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-necessary" checked disabled />
+          <label>Necessary (Required)</label>
+        </div>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-analytics" />
+          <label>Analytics (Google Analytics)</label>
+        </div>
+        <div class="cookie-option">
+          <input type="checkbox" id="check-marketing" />
+          <label>Marketing (Ad pixels)</label>
+        </div>
+        <div class="cookie-buttons" style="margin-top:15px">
+          <button class="accept-cookies" id="btn-save-settings">Save settings</button>
+          <button class="settings-cookies" id="btn-back">Back</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/ads.js" async defer></script>
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/buscador.js" defer></script>
+    <script src="/js/core.js" defer></script>
+    <script src="/js/salud/frecuencia-cardiaca.js" defer></script>
+  </body>
+</html>
