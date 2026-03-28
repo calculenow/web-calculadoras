@@ -35,7 +35,7 @@ export const i18n = {
       math:     { label: "Matemáticas",   icon: "📐" },
       utils:    { label: "Utilidades",    icon: "🔧" },
       admin:    { label: "Administración", icon: "🪪" },
-      //curiosity:    { label: "Curiosidades", icon: "🪪" },
+      curiosity:    { label: "Curiosidades", icon: "🔮" },
     },
 
     // Enlace del nav por categoría.
@@ -65,7 +65,7 @@ export const i18n = {
       math: [
         { id: "perc",      url: "/es/calculadora-porcentajes",        name: "📊 Porcentajes" },
         { id: "ratio",     url: "/es/regla-de-tres",                  name: "✖️ Regla de tres" },
-        { id: "avg",       url: "/es/calculadora-media-mediana",      name: "📉 Media y mediana" },
+        { id: "avg",       url: "/es/media-mediana-moda",      name: "📉 Media y mediana" },
         { id: "grade",     url: "/es/calculadora-notas",              name: "🎓 Notas" },
         { id: "geometry",  url: "/es/area-y-perimetro",               name: "📐 Área y perímetro" },
       ],
@@ -85,11 +85,14 @@ export const i18n = {
         { id: "iban",      url: "/es/validador-iban",                 name: "🏛️ Validador IBAN" },
         { id: "nif",       url: "/es/validador-nif-empresa",          name: "🏢 Validador NIF empresa" },
       ],
-      //curiosity: [
-       // Próximamente:
-        // { id: "iban",   url: "/es/validador-iban",                  name: "🏛️ Validador IBAN" },
-        // { id: "niw",    url: "/es/validador-niw",                   name: "🏢 NIW empresa" },
-      //],
+      curiosity: [
+  { id: "heartbeats", url: "/es/latidos-en-tu-vida",                  name: "❤️ Latidos en tu vida" },
+  { id: "breaths",    url: "/es/respiraciones-en-tu-vida",            name: "🌬️ Respiraciones" },
+  { id: "steps",      url: "/es/pasos-en-tu-vida",                    name: "👣 Pasos en tu vida" },
+  { id: "sleep",      url: "/es/veces-que-has-dormido",               name: "😴 Veces que has dormido" },
+  { id: "dog",        url: "/es/edad-perro",                          name: "🐶 Edad de tu perro" },
+  { id: "planets",    url: "/es/edad-en-otros-planetas",              name: "🪐 Tu edad en planetas" },
+],
     },
 
     alertMsg: "Esta herramienta aún no está disponible en el idioma seleccionado. ¿Quieres ir a la página de inicio?",

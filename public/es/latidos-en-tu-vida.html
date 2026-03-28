@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "¿Cuántos Latidos Ha Dado tu Corazón?",
+      "url": "https://calculenow.com/es/latidos-en-tu-vida",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "es",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+      "description": "Descubre cuántos latidos ha dado tu corazón desde que naciste. Solo introduce tu edad."
+    }
+    </script>
+
+    <title>¿Cuántos Latidos Ha Dado tu Corazón? — Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/es/latidos-en-tu-vida" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/latidos-en-tu-vida" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/latidos-en-tu-vida" />
+
+    <meta name="description" content="Descubre cuántos latidos ha dado tu corazón desde que naciste. Solo introduce tu edad. ¡El resultado te sorprenderá!" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/es/latidos-en-tu-vida" />
+    <meta property="og:title" content="¿Cuántos Latidos Ha Dado tu Corazón? — Calculenow" />
+    <meta property="og:description" content="Descubre cuántos latidos ha dado tu corazón desde que naciste. ¡El resultado te sorprenderá!" />
+    <meta property="og:image" content="https://calculenow.com/images/og-es.jpg" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="¿Cuántos Latidos Ha Dado tu Corazón?" />
+    <meta name="twitter:description" content="Descubre cuántos latidos ha dado tu corazón desde que naciste." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-es.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
+    <header></header>
+
+    <main>
+      <div class="card curiosidad-card">
+        <div class="curiosidad-emoji">❤️</div>
+        <h1>¿Cuántos Latidos Ha Dado tu Corazón?</h1>
+        <p>Introduce tu edad y descubre el increíble número de veces que tu corazón ha latido desde que naciste.</p>
+
+        <div class="form-group">
+          <label for="edad">Tu edad (años)</label>
+          <input id="edad" class="field" type="number" placeholder="Ej: 30" min="1" max="120" />
+        </div>
+
+        <button class="btn btn-curiosidad" id="btn-calcular" type="button">Calcular mis latidos ❤️</button>
+
+        <div class="result curiosidad-result" id="resultado"></div>
+
+        <div class="related-tools">
+          <p><strong>Más curiosidades:</strong></p>
+          <ul>
+            <li><a href="/es/respiraciones-en-tu-vida">🌬️ ¿Cuántas veces has respirado?</a></li>
+            <li><a href="/es/pasos-en-tu-vida">👣 ¿Cuántos pasos has dado?</a></li>
+            <li><a href="/es/veces-que-has-dormido">😴 ¿Cuántas veces has dormido?</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="legal-content">
+        <h2>¿A qué velocidad late el corazón?</h2>
+        <p>El corazón de un adulto sano late entre <strong>60 y 100 veces por minuto</strong> en reposo. La media mundial se sitúa en torno a las <strong>70 pulsaciones por minuto</strong>, que es el valor que usamos en este cálculo.</p>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>Edad</th><th>Latidos acumulados (aprox.)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1 año</td><td>~37 millones</td></tr>
+              <tr><td>10 años</td><td>~368 millones</td></tr>
+              <tr><td>18 años</td><td>~662 millones</td></tr>
+              <tr><td>30 años</td><td>~1.100 millones</td></tr>
+              <tr><td>50 años</td><td>~1.840 millones</td></tr>
+              <tr><td>80 años</td><td>~2.940 millones</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>¿Tiene el corazón un límite de latidos?</h2>
+        <p>Existe una teoría popular que dice que cada animal tiene un número fijo de latidos de por vida (aproximadamente 1.000 millones). Sin embargo, la ciencia moderna ha desmentido este mito: los humanos superamos con creces ese número gracias a la medicina y el estilo de vida.</p>
+      </section>
+    </main>
+
+    <footer></footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>Utilizamos cookies para mejorar tu experiencia. <a href="/es/cookies">Más información</a></p>
+        <div class="cookie-buttons">
+          <button id="btn-accept-all">Aceptar todas</button>
+          <button id="btn-reject-all">Rechazar</button>
+          <button id="btn-open-settings">Configurar</button>
+        </div>
+      </div>
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Configuración de cookies</strong></p>
+        <label><input type="checkbox" id="check-analytics" /> Analíticas</label>
+        <label><input type="checkbox" id="check-marketing" /> Marketing</label>
+        <div class="cookie-buttons">
+          <button id="btn-back">← Volver</button>
+          <button id="btn-save-settings">Guardar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/latidos.js" defer></script>
+  </body>
+</html>

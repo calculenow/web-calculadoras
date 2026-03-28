@@ -28,6 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
             { nombre: "Edad exacta", url: "/es/calculadora-edad", tags: ["edad", "años", "cumpleaños", "dias vividos", "cuantos años tengo"] },
             { nombre: "Coste de viaje", url: "/es/calculadora-coste-viaje", tags: ["gasolina", "diesel", "viaje", "coche", "combustible", "carretera", "litros"] },
             { nombre: "Valor del oro", url: "/es/calculadora-oro", tags: ["oro", "gramo", "precio oro", "joyeria", "quilates", "18k", "24k", "vender oro"] },
+            { nombre: "Latidos en tu vida", url: "/es/latidos-en-tu-vida", tags: ["latidos", "corazon", "pulsaciones", "cuantos latidos", "curiosidad"] },
+            { nombre: "Respiraciones en tu vida", url: "/es/respiraciones-en-tu-vida", tags: ["respiraciones", "pulmones", "cuantas veces has respirado", "curiosidad"] },
+            { nombre: "Pasos en tu vida", url: "/es/pasos-en-tu-vida", tags: ["pasos", "caminar", "cuantos pasos", "kilometros", "curiosidad"] },
+            { nombre: "Veces que has dormido", url: "/es/veces-que-has-dormido", tags: ["dormir", "noches", "horas dormidas", "cuanto has dormido", "curiosidad"] },
+            { nombre: "Edad de tu perro en años humanos", url: "/es/edad-perro", tags: ["perro", "años humanos", "edad perro", "multiplicar por 7", "mascota"] },
+            { nombre: "Tu edad en otros planetas", url: "/es/edad-en-otros-planetas", tags: ["planetas", "mercurio", "marte", "neptuno", "edad planetas", "sistema solar", "curiosidad"] },
         ],
         en: [
             { nombre: "VAT", url: "/en/vat-calculator", tags: ["tax", "invoice", "hmrc", "freelance", "business"] },

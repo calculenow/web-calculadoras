@@ -927,6 +927,75 @@ table tr:last-child td {
     flex-direction: column;
   }
 }
+.curiosidad-card {
+  text-align: center;
+}
+.curiosidad-card .curiosidad-emoji {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.curiosidad-card h1 {
+  margin-bottom: 0.5rem;
+}
+.curiosidad-card p {
+  margin-bottom: 1.5rem;
+}
+.curiosidad-card .form-row {
+  text-align: left;
+}
+.curiosidad-card .form-group {
+  text-align: left;
+}
+
+.curiosidad-resumen {
+  text-align: center;
+}
+.curiosidad-resumen .curiosidad-numero {
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 900;
+  color: var(--primary);
+  margin: 0.5rem 0 0.25rem;
+  line-height: 1.1;
+}
+.curiosidad-resumen .curiosidad-subtitulo {
+  font-size: 1rem;
+  opacity: 0.7;
+  margin-bottom: 1.25rem;
+}
+.curiosidad-resumen ul {
+  text-align: left;
+  margin-bottom: 1.25rem;
+}
+
+.curiosidad-acciones {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+.curiosidad-acciones .btn-share {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-family: inherit;
+  font-weight: 600;
+  transition: filter 0.2s ease;
+}
+.curiosidad-acciones .btn-share:hover {
+  filter: brightness(1.1);
+}
+
+.btn-curiosidad {
+  width: 100%;
+  margin-bottom: 0;
+}
+
 .imc-bar {
   width: 100%;
   height: 12px;

@@ -250,8 +250,8 @@
   </url>
 
   <url>
-    <loc>https://calculenow.com/es/notas</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/notas"/>
+    <loc>https://calculenow.com/es/calculadra-notas</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-notas"/>
     <lastmod>2026-03-26</lastmod>
     <priority>0.8</priority>
   </url>
