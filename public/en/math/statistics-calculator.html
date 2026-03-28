@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Statistics Calculator — Mean, Median, Mode and Range",
+      "url": "https://calculenow.com/en/math/statistics-calculator",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Calculate the mean, median, mode and range of any set of numbers instantly. Ideal for statistics, grades and data analysis."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the difference between mean, median and mode?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The mean is the arithmetic average (sum divided by the count). The median is the central value when data are sorted. The mode is the value that appears most often. Each one describes the data set from a different angle."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When is it better to use the median instead of the mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The median is more representative when there are extreme values (outliers) that distort the mean. For example, with salaries, a few very high wages raise the mean but the median better reflects the typical salary."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can there be more than one mode?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. If two or more values appear the same number of times and more than the rest, all of them are modes. This is called a bimodal (two modes) or multimodal (more than two) distribution."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the range in statistics?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The range is the difference between the maximum and minimum values in a data set. It indicates the total spread of the data: the larger the range, the more dispersed the values."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <title>Statistics Calculator — Mean, Median, Mode and Range | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/en/math/statistics-calculator" />
+    <link rel="alternate" hreflang="en" href="https://calculenow.com/en/math/statistics-calculator" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/matematicas/media-mediana-moda" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/matematicas/media-mediana-moda" />
+
+    <meta name="description" content="Calculate the mean, median, mode and range of any list of numbers. Enter your data and get all basic statistics instantly. Free." />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/en/math/statistics-calculator" />
+    <meta property="og:title" content="Statistics Calculator — Mean, Median, Mode and Range | Calculenow" />
+    <meta property="og:description" content="Calculate mean, median, mode and range of any list of numbers instantly. Free, no registration." />
+    <meta property="og:image" content="https://calculenow.com/images/og-en.jpg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Statistics Calculator — Mean, Median, Mode and Range" />
+    <meta name="twitter:description" content="Calculate mean, median, mode and range of any list of numbers. Free." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-en.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
+    <header></header>
+
+    <main>
+      <div class="card estadistica-card">
+        <h1>Statistics Calculator — Mean, Median, Mode and Range</h1>
+        <p>Enter a list of numbers separated by commas or spaces and calculate all basic statistics instantly.</p>
+
+        <div class="form-group">
+          <label for="numeros">List of numbers</label>
+          <input id="numeros" class="field" type="text"
+            placeholder="E.g. 4, 8, 6, 5, 3, 2, 8, 9, 2, 5"
+            autocomplete="off" />
+          <p class="estadistica-hint">Separate numbers with commas, spaces or both. Decimals with a dot or comma are accepted.</p>
+        </div>
+
+        <button class="btn btn-estadistica" id="btn-calcular" type="button">Calculate statistics</button>
+
+        <div class="result estadistica-result" id="estadistica-result"
+          data-locale="en-GB"
+          data-ms-error-empty="Please enter at least one number."
+          data-ms-error-invalid="No valid numbers found. Use a dot or comma as decimal separator."
+          data-ms-error-min="Please enter at least 2 numbers to calculate statistics."
+          data-label-title="Basic statistics"
+          data-label-count="Data count"
+          data-label-mean="Mean"
+          data-label-median="Median"
+          data-label-mode="Mode"
+          data-label-min="Minimum"
+          data-label-max="Maximum"
+          data-label-range="Range"
+          data-label-sorted="Sorted data"
+          data-label-no-mode="No mode (all values are different)"
+          data-label-appears="appears"
+          data-singular-time="time"
+          data-plural-time="times"
+          data-singular-datum="value"
+          data-plural-data="values"
+          data-btn-copy="Copy result">
+        </div>
+
+        <div class="related-tools">
+          <p><strong>Other math tools:</strong></p>
+          <ul>
+            <li>
+              <a href="/en/math/percentage-calculator">
+                ➔ <strong>Percentage calculator:</strong> Calculate proportions and increments.
+              </a>
+            </li>
+            <li>
+              <a href="/en/math/rule-of-three">
+                ➔ <strong>Rule of three:</strong> Solve direct and inverse proportions.
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="legal-content">
+        <h2>What are mean, median, mode and range?</h2>
+        <p>They are the four basic measures of descriptive statistics. Each one describes the data set from a different angle and together they give a complete picture of how the values are distributed.</p>
+
+        <div class="info-grid">
+          <div class="card info-box">
+            <h3>📊 Arithmetic mean</h3>
+            <p>The average. Calculated by summing all values and dividing by the count. The most commonly used measure but sensitive to extreme values.</p>
+          </div>
+          <div class="card info-box">
+            <h3>📍 Median</h3>
+            <p>The central value when data are sorted. If there is an even number of values, it is the mean of the two central ones. Not affected by extreme values.</p>
+          </div>
+          <div class="card info-box">
+            <h3>🔁 Mode</h3>
+            <p>The value that appears most often. There can be more than one mode, or none if all values are different.</p>
+          </div>
+          <div class="card info-box">
+            <h3>↔️ Range</h3>
+            <p>The difference between the maximum and minimum value. Measures the total spread of the data set.</p>
+          </div>
+        </div>
+
+        <h2>When to use each measure</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>Situation</th><th>Recommended measure</th><th>Why</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Exam grades without extreme values</td><td>Mean</td><td>Reflects overall performance</td></tr>
+              <tr><td>Salaries in a company</td><td>Median</td><td>High salaries distort the mean</td></tr>
+              <tr><td>Best-selling size in a shop</td><td>Mode</td><td>The most frequent value matters</td></tr>
+              <tr><td>Temperatures over a week</td><td>Range + Mean</td><td>Shows variation and average</td></tr>
+              <tr><td>House prices in a city</td><td>Median</td><td>Avoids distortion from extreme prices</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Formulas</h2>
+        <div class="formule">Mean = Σx / n</div>
+        <p>Where Σx is the sum of all values and n is the count of data points.</p>
+        <div class="formule">Range = Maximum value − Minimum value</div>
+      </section>
+
+      <div class="faq-section">
+        <h3>Frequently asked questions about basic statistics</h3>
+
+        <details>
+          <summary>What is the difference between mean, median and mode?</summary>
+          <div class="faq-content">
+            <p>The mean is the arithmetic average. The median is the central value when data are sorted. The mode is the most frequent value. Each one describes the data set from a different angle.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>When is it better to use the median instead of the mean?</summary>
+          <div class="faq-content">
+            <p>When there are extreme values that distort the mean. With salaries, for example, a few very high wages raise the mean but the median better reflects the typical salary.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Can there be more than one mode?</summary>
+          <div class="faq-content">
+            <p>Yes. If two or more values appear the same number of times and more than the rest, all of them are modes. This is called a bimodal or multimodal distribution.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>What is the range in statistics?</summary>
+          <div class="faq-content">
+            <p>The difference between the maximum and minimum values. It indicates the total spread: the larger the range, the more dispersed the data.</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>We use cookies to improve your experience. <a href="/en/cookies">View cookie policy</a></p>
+        <div class="cookie-buttons">
+          <button class="accept-cookies" id="btn-accept-all">Accept all</button>
+          <button class="reject-cookies" id="btn-reject-all">Reject all</button>
+          <button class="settings-cookies" id="btn-open-settings">Settings</button>
+        </div>
+      </div>
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Customize your preferences:</strong></p>
+        <div class="cookie-option"><input type="checkbox" id="check-necessary" checked disabled /><label>Necessary (Required)</label></div>
+        <div class="cookie-option"><input type="checkbox" id="check-analytics" /><label>Analytics (Google Analytics)</label></div>
+        <div class="cookie-option"><input type="checkbox" id="check-marketing" /><label>Marketing (Ad pixels)</label></div>
+        <div class="cookie-buttons" style="margin-top:15px">
+          <button class="accept-cookies" id="btn-save-settings">Save settings</button>
+          <button class="settings-cookies" id="btn-back">Back</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/ads.js" async defer></script>
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/buscador.js" defer></script>
+    <script src="/js/core.js" defer></script>
+    <script src="/js/matematicas/estadistica.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Area and Perimeter Calculator — Geometric Shapes",
+      "url": "https://calculenow.com/en/math/area-perimeter-calculator",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Calculate the area and perimeter of squares, rectangles, triangles, circles, trapezoids, rhombuses, ellipses and regular polygons instantly."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the formula for the area of a circle?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The area of a circle is π × r², where r is the radius. The perimeter (circumference) is 2 × π × r."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is the area of a triangle calculated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The area of a triangle is (base × height) / 2. The height must be perpendicular to the base."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between area and perimeter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The perimeter is the total length of the outline of a shape (measured in linear units such as metres). The area is the surface that the shape occupies (measured in square units such as square metres)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is the area of a trapezoid calculated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The area of a trapezoid is ((major base + minor base) × height) / 2."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <title>Area and Perimeter Calculator — Geometric Shapes | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/en/math/area-perimeter-calculator" />
+    <link rel="alternate" hreflang="en" href="https://calculenow.com/en/math/area-perimeter-calculator" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/matematicas/area-y-perimetro" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/matematicas/area-y-perimetro" />
+
+    <meta name="description" content="Calculate the area and perimeter of any geometric shape: square, rectangle, triangle, circle, trapezoid, rhombus, ellipse and more. Free." />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/en/math/area-perimeter-calculator" />
+    <meta property="og:title" content="Area and Perimeter Calculator — Geometric Shapes | Calculenow" />
+    <meta property="og:description" content="Calculate the area and perimeter of squares, rectangles, triangles, circles and more geometric shapes instantly." />
+    <meta property="og:image" content="https://calculenow.com/images/og-en.jpg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Area and Perimeter Calculator — Geometric Shapes" />
+    <meta name="twitter:description" content="Calculate the area and perimeter of any geometric shape instantly. Free." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-en.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
+    <header></header>
+
+    <main>
+      <div class="card geometria-card">
+        <h1>Area and Perimeter Calculator</h1>
+        <p>Select a shape, enter its measurements and calculate the area and perimeter instantly.</p>
+
+        <div class="form-group">
+          <label for="figura">Geometric shape</label>
+          <select id="figura" class="field">
+            <option value="cuadrado">Square</option>
+            <option value="rectangulo">Rectangle</option>
+            <option value="triangulo">Triangle</option>
+            <option value="circulo">Circle</option>
+            <option value="trapecio">Trapezoid</option>
+            <option value="rombo">Rhombus</option>
+            <option value="elipse">Ellipse</option>
+            <option value="pentagono">Regular pentagon</option>
+            <option value="hexagono">Regular hexagon</option>
+          </select>
+        </div>
+
+        <div id="geometria-inputs"></div>
+        <div class="formule" id="geometria-formula"></div>
+
+        <button class="btn btn-geometria" id="btn-calcular" type="button">Calculate</button>
+
+        <div class="result geometria-result" id="geometria-result"></div>
+
+        <div id="geometria-i18n" style="display:none"
+          data-locale="en-GB"
+          data-ms-error="Please enter valid values greater than 0 in all fields."
+          data-label-area="Area"
+          data-label-perimeter="Perimeter"
+          data-btn-copy="Copy result"
+
+          data-cuadrado-label="Square"
+          data-cuadrado-formula="Area = l²   |   Perimeter = 4 × l"
+          data-cuadrado-inputs='[{"id":"lado","label":"Side (l)"}]'
+
+          data-rectangulo-label="Rectangle"
+          data-rectangulo-formula="Area = b × h   |   Perimeter = 2 × (b + h)"
+          data-rectangulo-inputs='[{"id":"base","label":"Base (b)"},{"id":"altura","label":"Height (h)"}]'
+
+          data-triangulo-label="Triangle"
+          data-triangulo-formula="Area = (b × h) / 2   |   Perimeter = a + b + c"
+          data-triangulo-inputs='[{"id":"base","label":"Base (b)"},{"id":"altura","label":"Height (h)"},{"id":"lado1","label":"Side 1 (a)"},{"id":"lado2","label":"Side 2 (b)"},{"id":"lado3","label":"Side 3 (c)"}]'
+
+          data-circulo-label="Circle"
+          data-circulo-formula="Area = π × r²   |   Perimeter = 2 × π × r"
+          data-circulo-inputs='[{"id":"radio","label":"Radius (r)"}]'
+
+          data-trapecio-label="Trapezoid"
+          data-trapecio-formula="Area = ((B + b) × h) / 2   |   Perimeter = B + b + l₁ + l₂"
+          data-trapecio-inputs='[{"id":"baseMayor","label":"Major base (B)"},{"id":"baseMenor","label":"Minor base (b)"},{"id":"altura","label":"Height (h)"},{"id":"lado1","label":"Oblique side 1"},{"id":"lado2","label":"Oblique side 2"}]'
+
+          data-rombo-label="Rhombus"
+          data-rombo-formula="Area = (d₁ × d₂) / 2   |   Perimeter = 4 × √((d₁/2)² + (d₂/2)²)"
+          data-rombo-inputs='[{"id":"diag1","label":"Major diagonal (d₁)"},{"id":"diag2","label":"Minor diagonal (d₂)"}]'
+
+          data-elipse-label="Ellipse"
+          data-elipse-formula="Area = π × a × b   |   Perimeter ≈ π × (3(a+b) − √((3a+b)(a+3b)))"
+          data-elipse-inputs='[{"id":"semieje_a","label":"Semi-major axis (a)"},{"id":"semieje_b","label":"Semi-minor axis (b)"}]'
+
+          data-pentagono-label="Regular pentagon"
+          data-pentagono-formula="Area = (l² × √(25 + 10√5)) / 4   |   Perimeter = 5 × l"
+          data-pentagono-inputs='[{"id":"lado","label":"Side (l)"}]'
+
+          data-hexagono-label="Regular hexagon"
+          data-hexagono-formula="Area = (3√3 / 2) × l²   |   Perimeter = 6 × l"
+          data-hexagono-inputs='[{"id":"lado","label":"Side (l)"}]'>
+        </div>
+
+        <div class="related-tools">
+          <p><strong>Other math tools:</strong></p>
+          <ul>
+            <li>
+              <a href="/en/math/percentage-calculator">
+                ➔ <strong>Percentage calculator:</strong> Calculate proportions and increments.
+              </a>
+            </li>
+            <li>
+              <a href="/en/math/rule-of-three">
+                ➔ <strong>Rule of three:</strong> Solve direct and inverse proportions.
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="legal-content">
+        <h2>Area and perimeter formulas</h2>
+        <p>These are the formulas used for each shape:</p>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>Shape</th><th>Area</th><th>Perimeter</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Square</td><td>l²</td><td>4 × l</td></tr>
+              <tr><td>Rectangle</td><td>b × h</td><td>2 × (b + h)</td></tr>
+              <tr><td>Triangle</td><td>(b × h) / 2</td><td>a + b + c</td></tr>
+              <tr><td>Circle</td><td>π × r²</td><td>2 × π × r</td></tr>
+              <tr><td>Trapezoid</td><td>((B + b) × h) / 2</td><td>B + b + l₁ + l₂</td></tr>
+              <tr><td>Rhombus</td><td>(d₁ × d₂) / 2</td><td>4 × l</td></tr>
+              <tr><td>Ellipse</td><td>π × a × b</td><td>≈ π × (3(a+b) − √((3a+b)(a+3b)))</td></tr>
+              <tr><td>Regular pentagon</td><td>(P × a) / 2</td><td>5 × l</td></tr>
+              <tr><td>Regular hexagon</td><td>(3√3 / 2) × l²</td><td>6 × l</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>What is area and perimeter used for?</h2>
+        <div class="info-grid">
+          <div class="card info-box">
+            <h3>🏠 Home renovation</h3>
+            <p>Calculate square metres of flooring, paint, tiles or lawn to budget materials accurately.</p>
+          </div>
+          <div class="card info-box">
+            <h3>🌱 Gardening and land</h3>
+            <p>Know the area of a garden or plot for planting, fencing or calculating irrigation needs.</p>
+          </div>
+          <div class="card info-box">
+            <h3>📐 Design and plans</h3>
+            <p>Verify surfaces in architectural plans, interior design or engineering projects.</p>
+          </div>
+          <div class="card info-box">
+            <h3>📚 Study and exams</h3>
+            <p>Solve geometry exercises from secondary school, sixth form and university quickly.</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="faq-section">
+        <h3>Frequently asked questions about area and perimeter</h3>
+
+        <details>
+          <summary>What is the difference between area and perimeter?</summary>
+          <div class="faq-content">
+            <p>The perimeter is the total length of the outline (metres, cm...). The area is the surface the shape occupies (square metres, cm²...).</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>What is the formula for the area of a circle?</summary>
+          <div class="faq-content">
+            <p>Area = π × r². The perimeter (circumference) is 2 × π × r.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>How is the area of a triangle calculated?</summary>
+          <div class="faq-content">
+            <p>Area = (base × height) / 2. The height must be perpendicular to the base.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>How is the area of a trapezoid calculated?</summary>
+          <div class="faq-content">
+            <p>Area = ((major base + minor base) × height) / 2.</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>We use cookies to improve your experience. <a href="/en/cookies">View cookie policy</a></p>
+        <div class="cookie-buttons">
+          <button class="accept-cookies" id="btn-accept-all">Accept all</button>
+          <button class="reject-cookies" id="btn-reject-all">Reject all</button>
+          <button class="settings-cookies" id="btn-open-settings">Settings</button>
+        </div>
+      </div>
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Customize your preferences:</strong></p>
+        <div class="cookie-option"><input type="checkbox" id="check-necessary" checked disabled /><label>Necessary (Required)</label></div>
+        <div class="cookie-option"><input type="checkbox" id="check-analytics" /><label>Analytics (Google Analytics)</label></div>
+        <div class="cookie-option"><input type="checkbox" id="check-marketing" /><label>Marketing (Ad pixels)</label></div>
+        <div class="cookie-buttons" style="margin-top:15px">
+          <button class="accept-cookies" id="btn-save-settings">Save settings</button>
+          <button class="settings-cookies" id="btn-back">Back</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/ads.js" async defer></script>
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/buscador.js" defer></script>
+    <script src="/js/core.js" defer></script>
+    <script src="/js/matematicas/geometria.js" defer></script>
+  </body>
+</html>

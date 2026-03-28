@@ -154,11 +154,11 @@ export const i18n = {
         // { id: "sleep", url: "/en/health/sleep-calculator",      name: "😴 Sleep",        description: "" },
       ],
       math: [
-        { id: "perc", url: "/en/math/percentage-calculator", name: "📊 Percentages",   description: "Calculate proportions, increases, and variations quickly." },
-        // Próximamente:
-        // { id: "avg",   url: "/en/math/mean-median-calculator", name: "📉 Mean & median",          description: "" },
-        // { id: "ratio", url: "/en/math/ratio-calculator",       name: "✖️ Ratio / rule of three",  description: "" },
-        // { id: "grade", url: "/en/math/grade-calculator",       name: "🎓 Grade calculator",        description: "" },
+        { id: "perc",  url: "/en/math/percentage-calculator",    name: "📊 Percentages",        description: "Calculate proportions, increases, and variations quickly." },
+        { id: "ratio", url: "/en/math/rule-of-three",            name: "✖️ Rule of three",      description: "Solve direct, inverse and compound proportions instantly.",                              date: "2026-03-28" },
+        { id: "stats", url: "/en/math/statistics-calculator",    name: "📉 Mean & median",      description: "Calculate mean, median, mode and range of any list of numbers instantly.",              date: "2026-03-28" },
+        { id: "grade", url: "/en/math/grade-calculator",         name: "🎓 Grade calculator",   description: "Calculate your simple or weighted grade average by credits or percentage.",             date: "2026-03-28" },
+        { id: "geo",   url: "/en/math/area-perimeter-calculator", name: "📐 Area & perimeter",  description: "Calculate the area and perimeter of squares, triangles, circles and more shapes.",     date: "2026-03-28" },
       ],
       utils: [
         { id: "conv",  url: "/en/utils/unit-converter",       name: "📐 Unit converter", description: "Convert kilometers to miles, pounds to kilograms, and more.",                                            date: "2026-02-19" },

@@ -56,7 +56,11 @@ document.addEventListener('DOMContentLoaded', () => {
             { nombre: "Macros",            url: "/en/health/macro-calculator",               tags: ["protein", "carbs", "fat", "macronutrients", "diet", "nutrition", "tdee"] },
             { nombre: "Heart rate",        url: "/en/health/heart-rate-calculator",          tags: ["heart rate", "max hr", "training zones", "karvonen", "tanaka", "cardio", "sport"] },
             // Math
-            { nombre: "Percentages",       url: "/en/math/percentage-calculator",            tags: ["math", "proportion", "ratio", "calculation"] },
+            { nombre: "Percentages",       url: "/en/math/percentage-calculator",    tags: ["percent", "proportion", "increase", "decrease", "ratio"] },
+            { nombre: "Rule of three",     url: "/en/math/rule-of-three",            tags: ["rule of three", "proportion", "direct", "inverse", "compound"] },
+            { nombre: "Mean & Median",     url: "/en/math/statistics-calculator",    tags: ["mean", "median", "mode", "range", "statistics", "average"] },
+            { nombre: "Grade calculator",  url: "/en/math/grade-calculator",         tags: ["grades", "average", "weighted", "credits", "pass", "fail"] },
+            { nombre: "Area & Perimeter",  url: "/en/math/area-perimeter-calculator", tags: ["area", "perimeter", "circle", "square", "triangle", "geometry"] },
             // Utils
             { nombre: "Unit Converter",    url: "/en/utils/unit-converter",       tags: ["measurements", "meters", "inches", "kilograms", "temperature", "convert"] },
             { nombre: "Date Calculator",   url: "/en/utils/date-calculator",      tags: ["days between dates", "countdown", "add days", "date difference", "calendar"] },

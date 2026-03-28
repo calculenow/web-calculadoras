@@ -75,6 +75,7 @@
     <title>Calculadora de Notas — Media Simple y Ponderada | Calculenow</title>
     <link rel="canonical" href="https://calculenow.com/es/matematicas/calculadora-notas" />
     <link rel="alternate" hreflang="es" href="https://calculenow.com/es/matematicas/calculadora-notas" />
+    <link rel="alternate" hreflang="en" href="https://calculenow.com/en/math/grade-calculator" />
     <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/matematicas/calculadora-notas" />
 
     <meta name="description" content="Calcula tu media de notas simple o ponderada por créditos. Añade tus asignaturas y descubre si apruebas. Gratis y sin registro." />
@@ -135,7 +136,30 @@
           <button class="btn btn-notas btn-notas-limpiar" id="btn-limpiar" type="button">Limpiar todo</button>
         </div>
 
-        <div class="result notas-result" id="notas-result"></div>
+        <div class="result notas-result" id="notas-result"
+          data-locale="es-ES"
+          data-ms-error-range="Las notas deben estar entre 0 y 10."
+          data-ms-error-empty="Introduce al menos una nota."
+          data-label-subject="Asignatura"
+          data-placeholder-subject="Ej: Matemáticas"
+          data-label-grade="Nota (0–10)"
+          data-placeholder-grade="Ej: 7.5"
+          data-label-credits="Créditos / %"
+          data-placeholder-credits="Ej: 6"
+          data-label-delete="Eliminar"
+          data-label-result="Resultado"
+          data-label-mean="Media"
+          data-label-simple="Media simple"
+          data-label-weighted="Media ponderada"
+          data-label-subjects="Asignaturas"
+          data-label-total-credits="Total créditos"
+          data-label-cr="cr."
+          data-label-distinction="Sobresaliente"
+          data-label-meritorious="Notable"
+          data-label-pass="Aprobado"
+          data-label-fail="Suspenso"
+          data-btn-copy="Copiar resultado">
+        </div>
 
         <div class="related-tools">
           <p><strong>Otras herramientas matemáticas:</strong></p>

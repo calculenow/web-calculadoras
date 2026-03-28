@@ -4,9 +4,14 @@
  *   - Simple directa:  X = (C × B) / A
  *   - Simple inversa:  X = (A × B) / C
  *   - Compuesta:       X = R × producto de factores directos/inversos
+ * Todos los textos visibles se leen desde data-* de div#regla-i18n (i18n via HTML).
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+
+  const i18n = document.getElementById('regla-i18n');
+  if (!i18n) return;
+  const d = i18n.dataset;
 
   // ── TABS ───────────────────────────────────────────────────────────────────
   const tabs   = document.querySelectorAll('.calc-tab');
@@ -25,19 +30,19 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── HELPERS ────────────────────────────────────────────────────────────────
   function fmt(n) {
     return Number.isInteger(n)
-      ? n.toLocaleString('es-ES')
-      : parseFloat(n.toPrecision(6)).toLocaleString('es-ES');
+      ? n.toLocaleString(d.locale)
+      : parseFloat(n.toPrecision(6)).toLocaleString(d.locale);
   }
 
   function mostrarResultado(contenedor, filas, textoCopiar) {
     contenedor.innerHTML = `
       <div class="resumen-calculo">
         <ul>
-          ${filas.map(([label, valor]) => `
-            <li><span>${label}</span><span>${valor}</span></li>
+          ${filas.map(([label, valor, destacado]) => `
+            <li${destacado ? ' class="total-destacado"' : ''}><span>${label}</span><span>${valor}</span></li>
           `).join('')}
         </ul>
-        <button class="btn-copy" data-copy-text="${textoCopiar}">📋 Copiar resultado</button>
+        <button class="btn-copy" data-copy-text="${textoCopiar}">📋 ${d.btnCopy}</button>
       </div>
     `;
     contenedor.querySelector('.btn-copy').addEventListener('click', function () {
@@ -58,19 +63,23 @@ document.addEventListener('DOMContentLoaded', () => {
     return vals.every(v => !isNaN(v) && isFinite(v));
   }
 
+  function labelRelacion(tipo) {
+    return tipo === 'directa' ? d.labelDirect : d.labelInverse;
+  }
+
   // ── DIRECTA ────────────────────────────────────────────────────────────────
   document.getElementById('btn-directa')?.addEventListener('click', () => {
     const res = document.getElementById('result-directa');
     const a = getVal('d-a'), b = getVal('d-b'), c = getVal('d-c');
 
-    if (!esValido(a, b, c)) { res.innerHTML = '<p class="error-msg">⚠️ Introduce los tres valores.</p>'; return; }
-    if (a === 0) { res.innerHTML = '<p class="error-msg">⚠️ El valor A no puede ser 0.</p>'; return; }
+    if (!esValido(a, b, c)) { res.innerHTML = `<p class="error-msg">⚠️ ${d.msErrorThree}</p>`; return; }
+    if (a === 0)             { res.innerHTML = `<p class="error-msg">⚠️ ${d.msErrorZeroA}</p>`; return; }
 
     const x = (c * b) / a;
     mostrarResultado(res, [
-      ['Fórmula', `X = (${fmt(c)} × ${fmt(b)}) / ${fmt(a)}`],
-      ['Resultado X', `<strong>${fmt(x)}</strong>`],
-    ], `Regla de tres directa\n${fmt(a)} → ${fmt(b)}\n${fmt(c)} → X = ${fmt(x)}`);
+      [d.labelFormula, `X = (${fmt(c)} × ${fmt(b)}) / ${fmt(a)}`],
+      [d.labelResultX, `<strong>${fmt(x)}</strong>`, true],
+    ], `${d.labelDirect}\n${fmt(a)} → ${fmt(b)}\n${fmt(c)} → X = ${fmt(x)}`);
   });
 
   // ── INVERSA ────────────────────────────────────────────────────────────────
@@ -78,14 +87,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const res = document.getElementById('result-inversa');
     const a = getVal('i-a'), b = getVal('i-b'), c = getVal('i-c');
 
-    if (!esValido(a, b, c)) { res.innerHTML = '<p class="error-msg">⚠️ Introduce los tres valores.</p>'; return; }
-    if (c === 0) { res.innerHTML = '<p class="error-msg">⚠️ El valor C no puede ser 0.</p>'; return; }
+    if (!esValido(a, b, c)) { res.innerHTML = `<p class="error-msg">⚠️ ${d.msErrorThree}</p>`; return; }
+    if (c === 0)             { res.innerHTML = `<p class="error-msg">⚠️ ${d.msErrorZeroC}</p>`; return; }
 
     const x = (a * b) / c;
     mostrarResultado(res, [
-      ['Fórmula', `X = (${fmt(a)} × ${fmt(b)}) / ${fmt(c)}`],
-      ['Resultado X', `<strong>${fmt(x)}</strong>`],
-    ], `Regla de tres inversa\n${fmt(a)} × ${fmt(b)} = ${fmt(c)} × X\nX = ${fmt(x)}`);
+      [d.labelFormula, `X = (${fmt(a)} × ${fmt(b)}) / ${fmt(c)}`],
+      [d.labelResultX, `<strong>${fmt(x)}</strong>`, true],
+    ], `${d.labelInverse}\n${fmt(a)} × ${fmt(b)} = ${fmt(c)} × X\nX = ${fmt(x)}`);
   });
 
   // ── COMPUESTA ──────────────────────────────────────────────────────────────
@@ -98,11 +107,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const tipo2 = document.getElementById('c-tipo2').value;
 
     if (!esValido(a1, a2, b1, b2, resultado)) {
-      res.innerHTML = '<p class="error-msg">⚠️ Introduce todos los valores.</p>';
+      res.innerHTML = `<p class="error-msg">⚠️ ${d.msErrorAll}</p>`;
       return;
     }
     if (a1 === 0 || b1 === 0) {
-      res.innerHTML = '<p class="error-msg">⚠️ Los valores conocidos no pueden ser 0.</p>';
+      res.innerHTML = `<p class="error-msg">⚠️ ${d.msErrorZeroKnown}</p>`;
       return;
     }
 
@@ -111,10 +120,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const x = resultado * factorA * factorB;
 
     mostrarResultado(res, [
-      ['Factor magnitud 1', `${fmt(tipo1 === 'directa' ? a2 : a1)} / ${fmt(tipo1 === 'directa' ? a1 : a2)} = ${fmt(factorA)} (${tipo1})`],
-      ['Factor magnitud 2', `${fmt(tipo2 === 'directa' ? b2 : b1)} / ${fmt(tipo2 === 'directa' ? b1 : b2)} = ${fmt(factorB)} (${tipo2})`],
-      ['Resultado X', `<strong>${fmt(x)}</strong>`],
-    ], `Regla de tres compuesta\nX = ${fmt(resultado)} × ${fmt(factorA)} × ${fmt(factorB)} = ${fmt(x)}`);
+      [d.labelFactor1, `${fmt(tipo1 === 'directa' ? a2 : a1)} / ${fmt(tipo1 === 'directa' ? a1 : a2)} = ${fmt(factorA)} (${labelRelacion(tipo1)})`],
+      [d.labelFactor2, `${fmt(tipo2 === 'directa' ? b2 : b1)} / ${fmt(tipo2 === 'directa' ? b1 : b2)} = ${fmt(factorB)} (${labelRelacion(tipo2)})`],
+      [d.labelResultX, `<strong>${fmt(x)}</strong>`, true],
+    ], `${d.labelCompound}\nX = ${fmt(resultado)} × ${fmt(factorA)} × ${fmt(factorB)} = ${fmt(x)}`);
   });
 
   // ── SOPORTE ENTER ──────────────────────────────────────────────────────────

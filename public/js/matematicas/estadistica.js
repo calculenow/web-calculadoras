@@ -2,19 +2,23 @@
  * estadistica.js
  * Calculadora de estadística básica:
  * media aritmética, mediana, moda y rango.
+ * Todos los textos visibles se leen desde data-* de div#estadistica-result (i18n via HTML).
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+
   const btn       = document.getElementById('btn-calcular');
   const input     = document.getElementById('numeros');
   const resultDiv = document.getElementById('estadistica-result');
 
+  if (!btn || !resultDiv) return;
+
+  const d = resultDiv.dataset;
+
   // ── PARSEAR ENTRADA ────────────────────────────────────────────────────────
-  // Acepta números separados por comas, espacios o punto y coma
-  // y decimales con punto o coma
   function parsearNumeros(texto) {
     return texto
-      .replace(/,(?=\s*[^\d\s])/g, '.') // coma decimal → punto (ej: "3,5")
+      .replace(/,(?=\s*[^\d\s])/g, '.')
       .split(/[\s,;]+/)
       .map(s => s.replace(',', '.').trim())
       .filter(s => s !== '')
@@ -39,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const freq = {};
     nums.forEach(n => { freq[n] = (freq[n] || 0) + 1; });
     const maxFreq = Math.max(...Object.values(freq));
-    if (maxFreq === 1) return { modas: [], freq: 1 }; // sin moda
+    if (maxFreq === 1) return { modas: [], freq: 1 };
     const modas = Object.keys(freq)
       .filter(k => freq[k] === maxFreq)
       .map(Number)
@@ -49,65 +53,66 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── FORMATO ────────────────────────────────────────────────────────────────
   function fmt(n) {
-    return parseFloat(n.toPrecision(8)).toLocaleString('es-ES');
+    return parseFloat(n.toPrecision(8)).toLocaleString(d.locale);
   }
 
   // ── CALCULAR ───────────────────────────────────────────────────────────────
   const calcular = () => {
     const texto = input.value.trim();
+
     if (!texto) {
-      resultDiv.innerHTML = '<p class="error-msg">⚠️ Introduce al menos un número.</p>';
+      resultDiv.innerHTML = `<p class="error-msg">⚠️ ${d.msErrorEmpty}</p>`;
       return;
     }
 
     const nums = parsearNumeros(texto);
 
     if (nums.length === 0) {
-      resultDiv.innerHTML = '<p class="error-msg">⚠️ No se han encontrado números válidos. Usa punto o coma como decimal.</p>';
+      resultDiv.innerHTML = `<p class="error-msg">⚠️ ${d.msErrorInvalid}</p>`;
       return;
     }
 
     if (nums.length < 2) {
-      resultDiv.innerHTML = '<p class="error-msg">⚠️ Introduce al menos 2 números para calcular estadísticos.</p>';
+      resultDiv.innerHTML = `<p class="error-msg">⚠️ ${d.msErrorMin}</p>`;
       return;
     }
 
     const media   = calcularMedia(nums);
     const mediana = calcularMediana(nums);
     const { modas, freq: freqModa } = calcularModa(nums);
-    const min     = Math.min(...nums);
-    const max     = Math.max(...nums);
-    const rango   = max - min;
+    const min   = Math.min(...nums);
+    const max   = Math.max(...nums);
+    const rango = max - min;
 
     const modaTexto = modas.length === 0
-      ? 'Sin moda (todos los valores son distintos)'
-      : modas.map(fmt).join(', ') + ` (aparece ${freqModa} veces)`;
+      ? d.labelNoMode
+      : modas.map(fmt).join(', ') + ` (${d.labelAppears} ${freqModa} ${freqModa === 1 ? d.singularTime : d.pluralTime})`;
 
     const sorted = [...nums].sort((a, b) => a - b).map(fmt).join(', ');
 
     const textoCopiar = [
-      `Cantidad de datos: ${nums.length}`,
-      `Media: ${fmt(media)}`,
-      `Mediana: ${fmt(mediana)}`,
-      `Moda: ${modaTexto}`,
-      `Mínimo: ${fmt(min)}`,
-      `Máximo: ${fmt(max)}`,
-      `Rango: ${fmt(rango)}`,
+      `${d.labelCount}: ${nums.length}`,
+      `${d.labelMean}: ${fmt(media)}`,
+      `${d.labelMedian}: ${fmt(mediana)}`,
+      `${d.labelMode}: ${modaTexto}`,
+      `${d.labelMin}: ${fmt(min)}`,
+      `${d.labelMax}: ${fmt(max)}`,
+      `${d.labelRange}: ${fmt(rango)}`,
     ].join('\n');
 
     resultDiv.innerHTML = `
       <div class="resumen-calculo">
-        <p class="resumen-titulo">Estadísticos básicos (${nums.length} datos)</p>
+        <p class="resumen-titulo">${d.labelTitle} (${nums.length} ${nums.length === 1 ? d.singularDatum : d.pluralData})</p>
         <ul>
-          <li class="total-destacado"><span>Media</span><span>${fmt(media)}</span></li>
-          <li><span>Mediana</span><span>${fmt(mediana)}</span></li>
-          <li><span>Moda</span><span>${modaTexto}</span></li>
-          <li><span>Mínimo</span><span>${fmt(min)}</span></li>
-          <li><span>Máximo</span><span>${fmt(max)}</span></li>
-          <li><span>Rango</span><span>${fmt(rango)}</span></li>
-          <li><span>Datos ordenados</span><span class="estadistica-sorted">${sorted}</span></li>
+          <li class="total-destacado"><span>${d.labelMean}</span><span>${fmt(media)}</span></li>
+          <li><span>${d.labelMedian}</span><span>${fmt(mediana)}</span></li>
+          <li><span>${d.labelMode}</span><span>${modaTexto}</span></li>
+          <li><span>${d.labelMin}</span><span>${fmt(min)}</span></li>
+          <li><span>${d.labelMax}</span><span>${fmt(max)}</span></li>
+          <li><span>${d.labelRange}</span><span>${fmt(rango)}</span></li>
+          <li><span>${d.labelSorted}</span><span class="estadistica-sorted">${sorted}</span></li>
         </ul>
-        <button class="btn-copy" data-copy-text="${textoCopiar}">📋 Copiar resultado</button>
+        <button class="btn-copy" data-copy-text="${textoCopiar}">📋 ${d.btnCopy}</button>
       </div>
     `;
 
@@ -116,17 +121,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const original = this.innerText;
         this.innerText = '✅';
         this.classList.add('copied');
-        setTimeout(() => {
-          this.innerText = original;
-          this.classList.remove('copied');
-        }, 2000);
+        setTimeout(() => { this.innerText = original; this.classList.remove('copied'); }, 2000);
       });
     });
   };
 
-  btn?.addEventListener('click', calcular);
+  btn.addEventListener('click', calcular);
+  input?.addEventListener('keydown', e => { if (e.key === 'Enter') calcular(); });
 
-  input?.addEventListener('keydown', e => {
-    if (e.key === 'Enter') calcular();
-  });
 });

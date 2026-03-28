@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Rule of Three Calculator — Direct, Inverse and Compound",
+      "url": "https://calculenow.com/en/math/rule-of-three",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Calculate the direct, inverse and compound rule of three quickly. Ideal for recipes, maps, scales and maths problems."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the rule of three?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The rule of three is a mathematical method for finding the fourth term of a proportion when the other three are known. It is used to solve problems of direct or inverse proportionality between two quantities."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When do you use the direct rule of three and when the inverse?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use the direct rule when increasing one quantity also increases the other (e.g. more kilometres = more fuel). Use the inverse rule when increasing one quantity decreases the other (e.g. more workers = fewer days to finish)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the compound rule of three?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The compound rule of three applies when more than two quantities are involved. For example: if 3 workers take 4 days working 8 hours, how many days will 5 workers take working 6 hours?"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the rule of three used for in everyday life?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is used to scale recipes, calculate distances on maps and plans, convert currencies, calculate discounts, estimate working times and solve any proportionality problem."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <title>Rule of Three Calculator — Direct, Inverse and Compound | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/en/math/rule-of-three" />
+    <link rel="alternate" hreflang="en" href="https://calculenow.com/en/math/rule-of-three" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/matematicas/regla-de-tres" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/matematicas/regla-de-tres" />
+
+    <meta name="description" content="Calculate the direct, inverse and compound rule of three instantly. Enter the known values and get the result with an explanation. Free." />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/en/math/rule-of-three" />
+    <meta property="og:title" content="Rule of Three Calculator — Direct, Inverse and Compound | Calculenow" />
+    <meta property="og:description" content="Calculate the direct, inverse and compound rule of three instantly. Free, no registration." />
+    <meta property="og:image" content="https://calculenow.com/images/og-en.jpg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Rule of Three — Direct, Inverse and Compound" />
+    <meta name="twitter:description" content="Calculate the direct, inverse and compound rule of three instantly. Free." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-en.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
+    <header></header>
+
+    <main>
+      <div class="card regla-card">
+        <h1>Rule of Three Calculator</h1>
+        <p>Solve direct, inverse and compound proportions instantly.</p>
+
+        <div class="calc-tabs">
+          <button class="calc-tab active" data-mode="directa" type="button">Direct</button>
+          <button class="calc-tab" data-mode="inversa" type="button">Inverse</button>
+          <button class="calc-tab" data-mode="compuesta" type="button">Compound</button>
+        </div>
+
+        <!-- MODE 1: Direct -->
+        <div class="calc-panel" id="panel-directa">
+          <p class="regla-hint">If <strong>A</strong> corresponds to <strong>B</strong>, what does <strong>C</strong> correspond to?</p>
+          <div class="formule">A → B<br>C → X</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="d-a">A</label>
+              <input id="d-a" class="field" type="number" placeholder="E.g. 5" step="any" />
+            </div>
+            <div class="form-group">
+              <label for="d-b">B</label>
+              <input id="d-b" class="field" type="number" placeholder="E.g. 10" step="any" />
+            </div>
+            <div class="form-group">
+              <label for="d-c">C</label>
+              <input id="d-c" class="field" type="number" placeholder="E.g. 8" step="any" />
+            </div>
+          </div>
+          <button class="btn btn-regla" id="btn-directa" type="button">Calculate X</button>
+          <div class="result regla-result" id="result-directa"></div>
+        </div>
+
+        <!-- MODE 2: Inverse -->
+        <div class="calc-panel" id="panel-inversa" style="display:none">
+          <p class="regla-hint">If <strong>A</strong> corresponds inversely to <strong>B</strong>, what does <strong>C</strong> correspond to?</p>
+          <div class="formule">A × B = C × X</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="i-a">A</label>
+              <input id="i-a" class="field" type="number" placeholder="E.g. 3" step="any" />
+            </div>
+            <div class="form-group">
+              <label for="i-b">B</label>
+              <input id="i-b" class="field" type="number" placeholder="E.g. 12" step="any" />
+            </div>
+            <div class="form-group">
+              <label for="i-c">C</label>
+              <input id="i-c" class="field" type="number" placeholder="E.g. 6" step="any" />
+            </div>
+          </div>
+          <button class="btn btn-regla" id="btn-inversa" type="button">Calculate X</button>
+          <div class="result regla-result" id="result-inversa"></div>
+        </div>
+
+        <!-- MODE 3: Compound -->
+        <div class="calc-panel" id="panel-compuesta" style="display:none">
+          <p class="regla-hint">Three related quantities. Indicate whether each relationship is <strong>direct</strong> or <strong>inverse</strong>.</p>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="c-a1">Quantity 1 (known value)</label>
+              <input id="c-a1" class="field" type="number" placeholder="E.g. 3" step="any" />
+            </div>
+            <div class="form-group">
+              <label for="c-a2">Quantity 1 (target value)</label>
+              <input id="c-a2" class="field" type="number" placeholder="E.g. 5" step="any" />
+            </div>
+            <div class="form-group">
+              <label for="c-tipo1">Relationship with result</label>
+              <select id="c-tipo1" class="field">
+                <option value="directa">Direct</option>
+                <option value="inversa">Inverse</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="c-b1">Quantity 2 (known value)</label>
+              <input id="c-b1" class="field" type="number" placeholder="E.g. 4" step="any" />
+            </div>
+            <div class="form-group">
+              <label for="c-b2">Quantity 2 (target value)</label>
+              <input id="c-b2" class="field" type="number" placeholder="E.g. 6" step="any" />
+            </div>
+            <div class="form-group">
+              <label for="c-tipo2">Relationship with result</label>
+              <select id="c-tipo2" class="field">
+                <option value="directa">Direct</option>
+                <option value="inversa">Inverse</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="c-resultado">Known result</label>
+            <input id="c-resultado" class="field" type="number" placeholder="E.g. 8" step="any" />
+          </div>
+          <button class="btn btn-regla" id="btn-compuesta" type="button">Calculate X</button>
+          <div class="result regla-result" id="result-compuesta"></div>
+        </div>
+
+        <div id="regla-i18n" style="display:none"
+          data-locale="en-GB"
+          data-ms-error-three="Please enter all three values."
+          data-ms-error-zero-a="Value A cannot be 0."
+          data-ms-error-zero-c="Value C cannot be 0."
+          data-ms-error-all="Please enter all values."
+          data-ms-error-zero-known="Known values cannot be 0."
+          data-label-formula="Formula"
+          data-label-result-x="Result X"
+          data-label-factor1="Factor 1"
+          data-label-factor2="Factor 2"
+          data-label-direct="Direct"
+          data-label-inverse="Inverse"
+          data-label-compound="Compound rule of three"
+          data-btn-copy="Copy result">
+        </div>
+
+        <div class="related-tools">
+          <p><strong>Other math tools:</strong></p>
+          <ul>
+            <li>
+              <a href="/en/math/percentage-calculator">
+                ➔ <strong>Percentage calculator:</strong> Calculate proportions, increments and variations.
+              </a>
+            </li>
+            <li>
+              <a href="/en/utils/unit-converter">
+                ➔ <strong>Unit converter:</strong> Convert between measurement systems.
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="legal-content">
+        <h2>What is the rule of three?</h2>
+        <p>The rule of three is one of the most widely used mathematical methods in everyday life. It allows you to find an unknown value from three known values that share a proportional relationship.</p>
+
+        <h2>Direct rule of three</h2>
+        <p>Used when the two quantities are <strong>directly proportional</strong>: if one increases, the other increases in the same proportion.</p>
+        <div class="formule">X = (C × B) / A</div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>Example</th><th>Problem</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Recipes</td><td>If 4 people need 200g of flour, how much do 6 people need?</td></tr>
+              <tr><td>Speed and distance</td><td>If I cover 120 km in 2 hours, how far do I cover in 5 hours?</td></tr>
+              <tr><td>Map scales</td><td>If 1 cm on the map = 50 km in reality, what real distance is 3.5 cm?</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Inverse rule of three</h2>
+        <p>Used when the quantities are <strong>inversely proportional</strong>: if one increases, the other decreases.</p>
+        <div class="formule">X = (A × B) / C</div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>Example</th><th>Problem</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Workers and time</td><td>If 4 workers take 6 days, how long will 8 workers take?</td></tr>
+              <tr><td>Speed and time</td><td>If I take 3 hours at 60 km/h, how long at 90 km/h?</td></tr>
+              <tr><td>Pipes and filling</td><td>If 2 pipes fill a tank in 4 hours, how long do 5 pipes take?</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Compound rule of three</h2>
+        <p>Used when <strong>three or more quantities</strong> are related to the result. Each quantity can be direct or inverse with respect to the value being sought.</p>
+        <div class="formule">X = Result × (A2/A1)^±1 × (B2/B1)^±1</div>
+        <p>The exponent is +1 for a direct relationship and -1 for an inverse one.</p>
+      </section>
+
+      <div class="faq-section">
+        <h3>Frequently asked questions about the rule of three</h3>
+
+        <details>
+          <summary>When do you use the direct rule of three and when the inverse?</summary>
+          <div class="faq-content">
+            <p>Use the direct rule when increasing one quantity also increases the other (more kilometres = more fuel). Use the inverse rule when increasing one decreases the other (more workers = fewer days).</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>What is the compound rule of three?</summary>
+          <div class="faq-content">
+            <p>It applies when more than two quantities are related to the result. Each quantity can have a direct or inverse relationship with the value being sought.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>What is the rule of three used for in everyday life?</summary>
+          <div class="faq-content">
+            <p>For scaling recipes, calculating distances on maps and plans, converting currencies, estimating working times, calculating discounts and solving any proportionality problem.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>What is the formula for the direct rule of three?</summary>
+          <div class="faq-content">
+            <p>If A → B and C → X, then X = (C × B) / A. Multiply the extremes and divide by the known term on the same side.</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>We use cookies to improve your experience. <a href="/en/cookies">View cookie policy</a></p>
+        <div class="cookie-buttons">
+          <button class="accept-cookies" id="btn-accept-all">Accept all</button>
+          <button class="reject-cookies" id="btn-reject-all">Reject all</button>
+          <button class="settings-cookies" id="btn-open-settings">Settings</button>
+        </div>
+      </div>
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Customize your preferences:</strong></p>
+        <div class="cookie-option"><input type="checkbox" id="check-necessary" checked disabled /><label>Necessary (Required)</label></div>
+        <div class="cookie-option"><input type="checkbox" id="check-analytics" /><label>Analytics (Google Analytics)</label></div>
+        <div class="cookie-option"><input type="checkbox" id="check-marketing" /><label>Marketing (Ad pixels)</label></div>
+        <div class="cookie-buttons" style="margin-top:15px">
+          <button class="accept-cookies" id="btn-save-settings">Save settings</button>
+          <button class="settings-cookies" id="btn-back">Back</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/ads.js" async defer></script>
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/buscador.js" defer></script>
+    <script src="/js/core.js" defer></script>
+    <script src="/js/matematicas/regla-de-tres.js" defer></script>
+  </body>
+</html>

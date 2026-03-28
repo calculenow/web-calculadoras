@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Grade Calculator — Simple and Weighted Average",
+      "url": "https://calculenow.com/en/math/grade-calculator",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Calculate your simple or weighted grade average by credits or percentage. Finding out whether you pass has never been easier."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How is a grade average calculated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A simple average is calculated by adding all grades and dividing by the number of subjects. A weighted average multiplies each grade by its weight (credits or percentage), sums the results and divides by the total sum of weights."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between a simple and a weighted average?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In a simple average all subjects count equally. In a weighted average each subject has a different weight (for example ECTS credits at university), so subjects with more credits have more influence on the final grade."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What grade do I need to raise my average?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on how many subjects you have and their weights. Our calculator shows your current average and you can add or modify subjects to simulate different scenarios."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <title>Grade Calculator — Simple and Weighted Average | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/en/math/grade-calculator" />
+    <link rel="alternate" hreflang="en" href="https://calculenow.com/en/math/grade-calculator" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/matematicas/calculadora-notas" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/matematicas/calculadora-notas" />
+
+    <meta name="description" content="Calculate your simple or weighted grade average by credits. Add your subjects and find out if you pass. Free, no registration." />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/en/math/grade-calculator" />
+    <meta property="og:title" content="Grade Calculator — Simple and Weighted Average | Calculenow" />
+    <meta property="og:description" content="Calculate your simple or weighted grade average. Add your subjects and find out if you pass." />
+    <meta property="og:image" content="https://calculenow.com/images/og-en.jpg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Grade Calculator — Simple and Weighted Average" />
+    <meta name="twitter:description" content="Calculate your simple or weighted grade average. Free." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-en.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
+    <header></header>
+
+    <main>
+      <div class="card notas-card">
+        <h1>Grade Calculator</h1>
+        <p>Add your subjects with their grade and, optionally, their weight in credits or percentage to calculate your average.</p>
+
+        <div class="form-group">
+          <label for="tipo-media">Calculation type</label>
+          <select id="tipo-media" class="field">
+            <option value="simple">Simple average (all subjects count equally)</option>
+            <option value="ponderada">Weighted average (by credits or percentage)</option>
+          </select>
+        </div>
+
+        <div id="asignaturas-lista"></div>
+
+        <button class="btn-mini notas-btn-añadir" id="btn-añadir" type="button">+ Add subject</button>
+
+        <div class="notas-acciones">
+          <button class="btn btn-notas" id="btn-calcular" type="button">Calculate average</button>
+          <button class="btn btn-notas btn-notas-limpiar" id="btn-limpiar" type="button">Clear all</button>
+        </div>
+
+        <div class="result notas-result" id="notas-result"
+          data-locale="en-GB"
+          data-ms-error-range="Grades must be between 0 and 10."
+          data-ms-error-empty="Please enter at least one grade."
+          data-label-subject="Subject"
+          data-placeholder-subject="E.g. Mathematics"
+          data-label-grade="Grade (0–10)"
+          data-placeholder-grade="E.g. 7.5"
+          data-label-credits="Credits / %"
+          data-placeholder-credits="E.g. 6"
+          data-label-delete="Delete"
+          data-label-result="Result"
+          data-label-mean="Average"
+          data-label-simple="Simple average"
+          data-label-weighted="Weighted average"
+          data-label-subjects="Subjects"
+          data-label-total-credits="Total credits"
+          data-label-cr="cr."
+          data-label-distinction="Distinction"
+          data-label-meritorious="Merit"
+          data-label-pass="Pass"
+          data-label-fail="Fail"
+          data-btn-copy="Copy result">
+        </div>
+
+        <div class="related-tools">
+          <p><strong>Other math tools:</strong></p>
+          <ul>
+            <li>
+              <a href="/en/math/statistics-calculator">
+                ➔ <strong>Statistics calculator:</strong> Calculate mean, median, mode and range of any list of numbers.
+              </a>
+            </li>
+            <li>
+              <a href="/en/math/percentage-calculator">
+                ➔ <strong>Percentage calculator:</strong> Calculate proportions and increments.
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="legal-content">
+        <h2>Simple average or weighted average?</h2>
+        <p>The difference matters depending on your level of education:</p>
+        <ul>
+          <li><strong>Simple average:</strong> all subjects count equally. Common in secondary school and sixth form.</li>
+          <li><strong>Weighted average:</strong> each subject has a different weight according to its ECTS credits or the percentage it represents. Common at university.</li>
+        </ul>
+
+        <div class="formule">Simple average = Σ grades / n</div>
+        <div class="formule">Weighted average = Σ (grade × weight) / Σ weights</div>
+
+        <h2>Grade scale</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>Numeric grade</th><th>Classification</th><th>Result</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>0 – 4.9</td><td>Fail</td><td>❌ Does not pass</td></tr>
+              <tr class="highlight-green"><td>5.0 – 6.9</td><td>Pass</td><td>✅ Passes</td></tr>
+              <tr class="highlight-green"><td>7.0 – 8.9</td><td>Merit</td><td>✅ Passes</td></tr>
+              <tr class="highlight-green"><td>9.0 – 10</td><td>Distinction</td><td>✅ Passes</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>What are ECTS credits?</h2>
+        <p>The ECTS (European Credit Transfer System) is the European university standard. Each credit is equivalent to between 25 and 30 hours of student work. A 6-credit subject carries more weight in the average than a 3-credit subject.</p>
+      </section>
+
+      <div class="faq-section">
+        <h3>Frequently asked questions about grade calculation</h3>
+
+        <details>
+          <summary>How is a grade average calculated?</summary>
+          <div class="faq-content">
+            <p>A simple average adds all grades and divides by the number of subjects. A weighted average multiplies each grade by its weight, sums the results and divides by the total sum of weights.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>What is the difference between a simple and a weighted average?</summary>
+          <div class="faq-content">
+            <p>In a simple average all subjects count equally. In a weighted average, subjects with more credits or a higher percentage have more influence on the final grade.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>What grade do I need to raise my average?</summary>
+          <div class="faq-content">
+            <p>It depends on how many subjects you have and their weights. You can simulate it by adding the pending subject with different grades and seeing how your average changes.</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>We use cookies to improve your experience. <a href="/en/cookies">View cookie policy</a></p>
+        <div class="cookie-buttons">
+          <button class="accept-cookies" id="btn-accept-all">Accept all</button>
+          <button class="reject-cookies" id="btn-reject-all">Reject all</button>
+          <button class="settings-cookies" id="btn-open-settings">Settings</button>
+        </div>
+      </div>
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Customize your preferences:</strong></p>
+        <div class="cookie-option"><input type="checkbox" id="check-necessary" checked disabled /><label>Necessary (Required)</label></div>
+        <div class="cookie-option"><input type="checkbox" id="check-analytics" /><label>Analytics (Google Analytics)</label></div>
+        <div class="cookie-option"><input type="checkbox" id="check-marketing" /><label>Marketing (Ad pixels)</label></div>
+        <div class="cookie-buttons" style="margin-top:15px">
+          <button class="accept-cookies" id="btn-save-settings">Save settings</button>
+          <button class="settings-cookies" id="btn-back">Back</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/ads.js" async defer></script>
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/buscador.js" defer></script>
+    <script src="/js/core.js" defer></script>
+    <script src="/js/matematicas/notas.js" defer></script>
+  </body>
+</html>
