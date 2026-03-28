@@ -51,7 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
         <ul>
           <li><span>${d.labelPeso}</span><span>${peso} ${d.labelGrams}</span></li>
           <li><span>${d.labelPureza}</span><span>${purLabel}</span></li>
-          <li><span>${d.labelPrice24k}</span><span>${fmtCurrency(precioEur)}/${d.labelGrams}</span></li>
           <li class="total-destacado"><span>${d.labelValue}</span><span>${fmtCurrency(valor)}</span></li>
         </ul>
         <button class="btn-copy" data-copy-text="${textoCopiar}">📋 ${d.btnCopy}</button>

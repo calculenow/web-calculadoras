@@ -3,16 +3,17 @@
  * Calculadora de días entre fechas — tres modos:
  *   1. Entre dos fechas  → diferencia en días + desglose
  *   2. Sumar / restar    → fecha resultante
- *   3. Días hasta evento → cuenta atrás con nombre opcional
+ *   3. Días hasta evento → cuenta atrás con nombre opcional + fechas guardadas
  * Todos los textos visibles se leen desde data-* de div#fechas-i18n (i18n via HTML).
  */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // El div de i18n es independiente de los result divs para no interferir con el HTML
   const i18n = document.getElementById('fechas-i18n');
   if (!i18n) return;
   const d = i18n.dataset;
+
+  const STORAGE_KEY = 'fechas_guardadas';
 
   // ── TABS DE MODO ────────────────────────────────────────────────────────────
   const tabs    = document.querySelectorAll('.calc-tab');
@@ -37,8 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── HELPERS ─────────────────────────────────────────────────────────────────
   function hoy() {
-    const d = new Date();
-    return new Date(d.getFullYear(), d.getMonth(), d.getDate());
+    const dt = new Date();
+    return new Date(dt.getFullYear(), dt.getMonth(), dt.getDate());
   }
 
   function diffDias(desde, hasta) {
@@ -80,6 +81,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  function formatFechaCorta(date) {
+    return date.toLocaleDateString(d.locale, {
+      year: 'numeric', month: 'long', day: 'numeric'
+    });
+  }
+
   function mostrarResultado(contenedor, html, textoCopiar) {
     contenedor.innerHTML = `
       <div class="resumen-calculo">
@@ -94,6 +101,122 @@ document.addEventListener('DOMContentLoaded', () => {
         this.innerText = '✅';
         this.classList.add('copied');
         setTimeout(() => { this.innerText = original; this.classList.remove('copied'); }, 2000);
+      });
+    });
+  }
+
+  // ── LOCALSTORAGE ────────────────────────────────────────────────────────────
+  function getFechasGuardadas() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
+    catch { return []; }
+  }
+
+  function guardarFecha(nombre, fechaStr) {
+    const fechas = getFechasGuardadas();
+    if (fechas.some(f => f.fecha === fechaStr && f.nombre === nombre)) return;
+    fechas.push({ nombre, fecha: fechaStr, id: Date.now() });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(fechas));
+  }
+
+  function eliminarFecha(id) {
+    const fechas = getFechasGuardadas().filter(f => f.id !== id);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(fechas));
+  }
+
+  // ── BOTÓN MIS FECHAS ────────────────────────────────────────────────────────
+  function crearBotonMisFechas() {
+    if (document.getElementById('btn-mis-fechas')) return;
+    const btn = document.createElement('button');
+    btn.id = 'btn-mis-fechas';
+    btn.className = 'btn-mini';
+    btn.type = 'button';
+    btn.textContent = `📅 ${d.labelMyDates}`;
+    btn.addEventListener('click', abrirModalFechas);
+    accesos?.appendChild(btn);
+  }
+
+  function actualizarBotonMisFechas() {
+    const fechas = getFechasGuardadas();
+    const btn = document.getElementById('btn-mis-fechas');
+    if (fechas.length > 0) {
+      crearBotonMisFechas();
+    } else if (btn) {
+      btn.remove();
+    }
+  }
+
+  // ── MODAL FECHAS GUARDADAS ───────────────────────────────────────────────────
+  function abrirModalFechas() {
+    document.getElementById('modal-fechas')?.remove();
+
+    const fechas  = getFechasGuardadas();
+    const ahora   = hoy();
+
+    const filas = fechas.length === 0
+      ? `<p style="text-align:center; opacity:0.6; padding:1rem 0;">${d.labelNoSaved}</p>`
+      : fechas.map(f => {
+          const evento = new Date(f.fecha + 'T00:00:00');
+          const dias   = diffDias(ahora, evento);
+          const abs    = Math.abs(dias);
+
+          let badge, badgeColor;
+          if (dias === 0) {
+            badge = `🎉 ${d.labelTodayIs.replace('¡', '')}`;
+            badgeColor = '#22c55e';
+          } else if (dias > 0) {
+            badge = `⏳ ${abs} ${d.pluralDay}`;
+            badgeColor = 'var(--primary)';
+          } else {
+            badge = `📆 ${d.labelAgo2} ${abs} ${d.pluralDay}`;
+            badgeColor = 'var(--text)';
+          }
+
+          return `
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 0; border-bottom:1px solid var(--border);">
+              <div style="min-width:0;">
+                <div style="font-weight:600; font-size:0.95rem; margin-bottom:2px;">${f.nombre}</div>
+                <div style="font-size:0.8rem; opacity:0.6;">${formatFechaCorta(evento)}</div>
+              </div>
+              <div style="display:flex; align-items:center; gap:8px; flex-shrink:0;">
+                <span style="font-size:0.82rem; font-weight:600; color:${badgeColor};">${badge}</span>
+                <button
+                  class="btn-eliminar-fecha"
+                  data-id="${f.id}"
+                  type="button"
+                  title="${d.labelDelete}"
+                  style="background:none; border:1px solid var(--border); border-radius:6px; color:var(--danger); cursor:pointer; padding:2px 8px; font-size:0.8rem; flex-shrink:0;">
+                  ✕
+                </button>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+    const modal = document.createElement('div');
+    modal.id = 'modal-fechas';
+    modal.style.cssText = 'position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:99999; display:flex; align-items:center; justify-content:center; padding:1rem;';
+    modal.innerHTML = `
+      <div style="background:var(--card); border:1px solid var(--border); border-radius:12px; padding:1.5rem; width:100%; max-width:480px; max-height:80vh; display:flex; flex-direction:column; box-shadow:0 20px 40px rgba(0,0,0,0.2);">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem;">
+          <h3 style="margin:0; font-size:1.1rem;">📅 ${d.labelMyDates}</h3>
+          <button id="btn-cerrar-modal-fechas" type="button" style="background:none; border:none; font-size:1.2rem; cursor:pointer; color:var(--text); opacity:0.6; padding:4px 8px;">✕</button>
+        </div>
+        <div style="overflow-y:auto; flex:1;">
+          ${filas}
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    modal.querySelector('#btn-cerrar-modal-fechas').addEventListener('click', () => modal.remove());
+    modal.addEventListener('click', e => { if (e.target === modal) modal.remove(); });
+
+    modal.querySelectorAll('.btn-eliminar-fecha').forEach(btn => {
+      btn.addEventListener('click', () => {
+        eliminarFecha(Number(btn.dataset.id));
+        actualizarBotonMisFechas();
+        abrirModalFechas();
       });
     });
   }
@@ -116,14 +239,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const desc = desglose(d1, d2);
     const dir  = dias < 0 ? d.labelBefore : dias > 0 ? d.labelAfter : '';
     const semanas = Math.floor(abs / 7);
-    const textoCopiar = `${abs} ${d.pluralDay} (${desc}) ${d.labelBetween} ${formatFecha(d1)} ${d.labelAnd} ${formatFecha(d2)}`;
+    const textoCopiar = `${abs} ${d.pluralDay} ${d.labelBetween} ${formatFecha(d1)} ${d.labelAnd} ${formatFecha(d2)}`;
 
     mostrarResultado(res, `
       <ul>
         <li class="total-destacado"><span>${d.labelTotal}</span><span>${abs} ${d.pluralDay}</span></li>
         <li><span>${d.labelBreakdown}</span><span>${desc}</span></li>
         <li><span>${d.labelFullWeeks}</span><span>${semanas}</span></li>
-        ${dias !== 0 ? `<li><span>${d.labelDirection}</span><span>${formatFecha(d2)} ${d.labelIs} ${abs} ${d.pluralDay} ${dir} ${d.labelOf} ${formatFecha(d1)}</span></li>` : ''}
+        ${dias !== 0 ? `<li style="flex-direction:column; gap:2px;"><span style="opacity:0.6; font-size:0.85rem;">${d.labelDirection}</span><span>${formatFecha(d2)} ${d.labelIs} ${abs} ${d.pluralDay} ${dir} ${d.labelOf} ${formatFecha(d1)}</span></li>` : ''}
       </ul>
     `, textoCopiar);
   });
@@ -144,7 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultado = new Date(dt);
     resultado.setDate(resultado.getDate() + (operacion === 'sumar' ? numDias : -numDias));
 
-    const accion = operacion === 'sumar' ? d.labelAdding : d.labelSubtracting;
+    const accion  = operacion === 'sumar' ? d.labelAdding : d.labelSubtracting;
     const labelOp = operacion === 'sumar' ? d.labelDaysAdded : d.labelDaysSubtracted;
     const textoCopiar = `${accion} ${numDias} ${d.pluralDay} ${d.labelTo} ${formatFecha(dt)} → ${formatFecha(resultado)}`;
 
@@ -194,7 +317,30 @@ document.addEventListener('DOMContentLoaded', () => {
         ${dias !== 0 ? `<li><span>${d.labelWeeks}</span><span>${semanas}</span></li>` : ''}
         <li><span>${d.labelDate}</span><span>${formatFecha(evento)}</span></li>
       </ul>
-    `, textoCopiar);
+      <div class="calc-actions">
+        <button class="btn-copy" data-copy-text="${textoCopiar}">📋 ${d.btnCopy}</button>
+        <button class="btn-guardar" id="btn-guardar-fecha" type="button">💾 ${d.labelSave}</button>
+      </div>
+    `, null);
+
+    res.querySelector('.btn-copy')?.addEventListener('click', function () {
+      navigator.clipboard.writeText(this.dataset.copyText).then(() => {
+        const original = this.innerText;
+        this.innerText = '✅';
+        this.classList.add('copied');
+        setTimeout(() => { this.innerText = original; this.classList.remove('copied'); }, 2000);
+      });
+    });
+
+    document.getElementById('btn-guardar-fecha')?.addEventListener('click', () => {
+      guardarFecha(etiqueta, fechaStr);
+      actualizarBotonMisFechas();
+      const btnGuardar = document.getElementById('btn-guardar-fecha');
+      if (btnGuardar) {
+        btnGuardar.textContent = `✅ ${d.labelSaved}`;
+        btnGuardar.disabled = true;
+      }
+    });
   }
 
   document.getElementById('btn-hasta')?.addEventListener('click', () => {
@@ -204,7 +350,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ── ACCESOS RÁPIDOS ─────────────────────────────────────────────────────────
-  // Las fechas se calculan dinámicamente; los nombres vienen del HTML via data-evento
   const eventosRapidos = {
     christmas: () => { const dt = new Date(); return `${dt.getMonth() >= 11 ? dt.getFullYear() + 1 : dt.getFullYear()}-12-25`; },
     newyear:   () => { const dt = new Date(); return `${dt.getFullYear() + 1}-01-01`; },
@@ -227,6 +372,9 @@ document.addEventListener('DOMContentLoaded', () => {
       calcularHasta(fechaStr, nombre);
     });
   });
+
+  // Mostrar botón "Mis fechas" si hay fechas guardadas al cargar
+  actualizarBotonMisFechas();
 
   // ── SOPORTE ENTER ───────────────────────────────────────────────────────────
   document.querySelectorAll('.fechas-card input').forEach(input => {

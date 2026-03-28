@@ -970,6 +970,37 @@ table tr:last-child td {
   display: block;
 }
 
+.calc-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn-guardar {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--success);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-family: inherit;
+  font-weight: 600;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+.btn-guardar:hover {
+  opacity: 1;
+}
+.btn-guardar:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
 @media (max-width: 480px) {
   .calc-tabs {
     flex-direction: column;
