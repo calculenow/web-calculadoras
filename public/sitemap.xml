@@ -121,13 +121,13 @@
   <url>
     <loc>https://calculenow.com/es/calculadora-imc</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-imc"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/bmi-calculator"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/health/bmi-calculator"/>
     <lastmod>2026-03-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://calculenow.com/en/bmi-calculator</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/bmi-calculator"/>
+    <loc>https://calculenow.com/en/health/bmi-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/health/bmi-calculator"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-imc"/>
     <lastmod>2026-03-22</lastmod>
     <priority>0.8</priority>
@@ -136,13 +136,13 @@
   <url>
     <loc>https://calculenow.com/es/calculadora-calorias</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-calorias"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/calorie-calculator"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/health/calorie-calculator"/>
     <lastmod>2026-03-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://calculenow.com/en/calorie-calculator</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/calorie-calculator"/>
+    <loc>https://calculenow.com/en/health/calorie-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/health/calorie-calculator"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-calorias"/>
     <lastmod>2026-03-22</lastmod>
     <priority>0.8</priority>
@@ -151,13 +151,13 @@
   <url>
     <loc>https://calculenow.com/es/calculadora-hidratacion</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-hidratacion"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/hydration-calculator"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/health/hydration-calculator"/>
     <lastmod>2026-03-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://calculenow.com/en/hydration-calculator</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/hydration-calculator"/>
+    <loc>https://calculenow.com/en/health/hydration-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/health/hydration-calculator"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-hidratacion"/>
     <lastmod>2026-03-22</lastmod>
     <priority>0.8</priority>
