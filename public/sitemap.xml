@@ -181,13 +181,13 @@
   <url>
     <loc>https://calculenow.com/es/calculadora-conversion</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-conversion"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/unit-converter"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/utility/unit-converter"/>
     <lastmod>2026-03-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://calculenow.com/en/unit-converter</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/unit-converter"/>
+    <loc>https://calculenow.com/en/utility/unit-converter</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/utility/unit-converter"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-conversion"/>
     <lastmod>2026-03-22</lastmod>
     <priority>0.8</priority>
