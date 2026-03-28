@@ -29,8 +29,8 @@
   </url>
 
   <url>
-    <loc>https://calculenow.com/es/calculadora-iva</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-iva"/>
+    <loc>https://calculenow.com/es/finanzas/calculadora-iva</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/finanzas/calculadora-iva"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/vat-calculator"/>
     <lastmod>2026-03-22</lastmod>
     <priority>0.8</priority>
@@ -38,14 +38,14 @@
   <url>
     <loc>https://calculenow.com/en/vat-calculator</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/vat-calculator"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-iva"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/finanzas/calculadora-iva"/>
     <lastmod>2026-03-22</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://calculenow.com/es/calculadora-prestamos</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-prestamos"/>
+    <loc>https://calculenow.com/es/finanzas/calculadora-prestamos</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/finanzas/calculadora-prestamos"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/loan-calculator"/>
     <lastmod>2026-03-22</lastmod>
     <priority>0.8</priority>
@@ -53,14 +53,14 @@
   <url>
     <loc>https://calculenow.com/en/loan-calculator</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/loan-calculator"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-prestamos"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/finanzas/calculadora-prestamos"/>
     <lastmod>2026-03-22</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://calculenow.com/es/calculadora-interes-compuesto</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-interes-compuesto"/>
+    <loc>https://calculenow.com/es/finanzas/calculadora-interes-compuesto</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/finanzas/calculadora-interes-compuesto"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/compound-interest-calculator"/>
     <lastmod>2026-03-22</lastmod>
     <priority>0.8</priority>
@@ -68,14 +68,14 @@
   <url>
     <loc>https://calculenow.com/en/compound-interest-calculator</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/compound-interest-calculator"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-interes-compuesto"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/finanzas/calculadora-interes-compuesto"/>
     <lastmod>2026-03-22</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://calculenow.com/es/calculadora-divisas</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-divisas"/>
+    <loc>https://calculenow.com/es/finanzas/calculadora-divisas</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/finanzas/calculadora-divisas"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/currency-converter"/>
     <lastmod>2026-03-22</lastmod>
     <priority>0.8</priority>
@@ -83,14 +83,14 @@
   <url>
     <loc>https://calculenow.com/en/currency-converter</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/currency-converter"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-divisas"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/finanzas/calculadora-divisas"/>
     <lastmod>2026-03-22</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://calculenow.com/es/calculadora-descuentos</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-descuentos"/>
+    <loc>https://calculenow.com/es/finanzas/calculadora-descuentos</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/finanzas/calculadora-descuentos"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/discount-calculator"/>
     <lastmod>2026-03-22</lastmod>
     <priority>0.8</priority>
@@ -98,14 +98,14 @@
   <url>
     <loc>https://calculenow.com/en/discount-calculator</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/discount-calculator"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-descuentos"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/finanzas/calculadora-descuentos"/>
     <lastmod>2026-03-22</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://calculenow.com/es/calculadora-propinas</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-propinas"/>
+    <loc>https://calculenow.com/es/finanzas/calculadora-propinas</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/finanzas/calculadora-propinas"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/tip-calculator"/>
     <lastmod>2026-03-22</lastmod>
     <priority>0.8</priority>
@@ -113,7 +113,7 @@
   <url>
     <loc>https://calculenow.com/en/tip-calculator</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/tip-calculator"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-propinas"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/finanzas/calculadora-propinas"/>
     <lastmod>2026-03-22</lastmod>
     <priority>0.8</priority>
   </url>
