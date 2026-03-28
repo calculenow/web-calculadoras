@@ -58,7 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
             // Math
             { nombre: "Percentages",       url: "/en/math/percentage-calculator",            tags: ["math", "proportion", "ratio", "calculation"] },
             // Utils
-            { nombre: "Unit Converter",    url: "/en/utils/unit-converter",                  tags: ["measurements", "meters", "inches", "kilograms", "temperature", "convert"] },
+            { nombre: "Unit Converter",    url: "/en/utils/unit-converter",       tags: ["measurements", "meters", "inches", "kilograms", "temperature", "convert"] },
+            { nombre: "Date Calculator",   url: "/en/utils/date-calculator",      tags: ["days between dates", "countdown", "add days", "date difference", "calendar"] },
+            { nombre: "Age Calculator",    url: "/en/utils/age-calculator",       tags: ["age", "years", "birthday", "days lived", "how old am i"] },
+            { nombre: "Fuel Cost",         url: "/en/utils/fuel-cost-calculator", tags: ["fuel", "petrol", "diesel", "road trip", "car", "consumption", "litres"] },
+            { nombre: "Gold Value",        url: "/en/utils/gold-calculator",      tags: ["gold", "grams", "karats", "18k", "24k", "gold price", "jewellery", "sell gold"] },
         ]
     };
 

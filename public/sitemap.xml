@@ -390,36 +390,72 @@
   </url>
 
   <url>
-    <loc>https://calculenow.com/es/utilidades/dias-entre-fechas</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/utilidades/dias-entre-fechas"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/utilidades/dias-entre-fechas"/>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.8</priority>
-  </url>
+  <loc>https://calculenow.com/es/utilidades/dias-entre-fechas</loc>
+  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/utilidades/dias-entre-fechas"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/utils/date-calculator"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/utilidades/dias-entre-fechas"/>
+  <lastmod>2026-03-22</lastmod>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://calculenow.com/en/utils/date-calculator</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/utils/date-calculator"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/utilidades/dias-entre-fechas"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/utilidades/dias-entre-fechas"/>
+  <lastmod>2026-03-28</lastmod>
+  <priority>0.8</priority>
+</url>
 
-  <url>
-    <loc>https://calculenow.com/es/utilidades/calculadora-edad</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/utilidades/calculadora-edad"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/utilidades/calculadora-edad"/>
-    <lastmod>2026-03-24</lastmod>
-    <priority>0.8</priority>
-  </url>
+<url>
+  <loc>https://calculenow.com/es/utilidades/calculadora-edad</loc>
+  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/utilidades/calculadora-edad"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/utils/age-calculator"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/utilidades/calculadora-edad"/>
+  <lastmod>2026-03-24</lastmod>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://calculenow.com/en/utils/age-calculator</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/utils/age-calculator"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/utilidades/calculadora-edad"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/utilidades/calculadora-edad"/>
+  <lastmod>2026-03-28</lastmod>
+  <priority>0.8</priority>
+</url>
 
-  <url>
-    <loc>https://calculenow.com/es/utilidades/calculadora-coste-viaje</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/utilidades/calculadora-coste-viaje"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/utilidades/calculadora-coste-viaje"/>
-    <lastmod>2026-03-24</lastmod>
-    <priority>0.8</priority>
-  </url>
+<url>
+  <loc>https://calculenow.com/es/utilidades/calculadora-coste-viaje</loc>
+  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/utilidades/calculadora-coste-viaje"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/utils/fuel-cost-calculator"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/utilidades/calculadora-coste-viaje"/>
+  <lastmod>2026-03-24</lastmod>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://calculenow.com/en/utils/fuel-cost-calculator</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/utils/fuel-cost-calculator"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/utilidades/calculadora-coste-viaje"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/utilidades/calculadora-coste-viaje"/>
+  <lastmod>2026-03-28</lastmod>
+  <priority>0.8</priority>
+</url>
 
-  <url>
-    <loc>https://calculenow.com/es/utilidades/calculadora-oro</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/utilidades/calculadora-oro"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/utilidades/calculadora-oro"/>
-    <lastmod>2026-03-26</lastmod>
-    <priority>0.8</priority>
-  </url>
+<url>
+  <loc>https://calculenow.com/es/utilidades/calculadora-oro</loc>
+  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/utilidades/calculadora-oro"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/utils/gold-calculator"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/utilidades/calculadora-oro"/>
+  <lastmod>2026-03-26</lastmod>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://calculenow.com/en/utils/gold-calculator</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/utils/gold-calculator"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/utilidades/calculadora-oro"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/utilidades/calculadora-oro"/>
+  <lastmod>2026-03-28</lastmod>
+  <priority>0.8</priority>
+</url>
 
   <!-- ═══════════════════════════════════════════════════════════════════════
        ADMINISTRACIÓN

@@ -161,11 +161,11 @@ export const i18n = {
         // { id: "grade", url: "/en/math/grade-calculator",       name: "🎓 Grade calculator",        description: "" },
       ],
       utils: [
-        { id: "conv", url: "/en/utils/unit-converter", name: "📐 Unit converter", description: "Convert kilometers to miles, pounds to kilograms, and more.", date: "2026-02-19" },
-        // Próximamente:
-        // { id: "dates", url: "/en/utils/date-calculator",      name: "📅 Date difference", description: "" },
-        // { id: "age",   url: "/en/utils/age-calculator",       name: "🎂 Age calculator",   description: "" },
-        // { id: "fuel",  url: "/en/utils/fuel-cost-calculator", name: "⛽ Fuel cost",         description: "" },
+        { id: "conv",  url: "/en/utils/unit-converter",       name: "📐 Unit converter", description: "Convert kilometers to miles, pounds to kilograms, and more.",                                            date: "2026-02-19" },
+        { id: "dates", url: "/en/utils/date-calculator",      name: "📅 Date calculator", description: "Calculate days between two dates, add days or find out how long until your next event.",               date: "2026-03-28" },
+        { id: "age",   url: "/en/utils/age-calculator",       name: "🎂 Age calculator",  description: "Calculate your exact age in years, months and days, and find out how many days you have been alive.",  date: "2026-03-28" },
+        { id: "fuel",  url: "/en/utils/fuel-cost-calculator", name: "⛽ Fuel cost",        description: "Calculate how much your road trip will cost in fuel, including tolls and split between passengers.",   date: "2026-03-28" },
+        { id: "gold",  url: "/en/utils/gold-calculator",      name: "🥇 Gold value",       description: "Calculate how much your gold is worth based on karats and weight at the current market price.",       date: "2026-03-28" },
       ],
     },
 

@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Gold Value Calculator — By Karats and Grams",
+      "url": "https://calculenow.com/en/utils/gold-calculator",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Calculate how much your gold is worth based on karats and weight. Enter the grams, purity and current gold price to get an instant result."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How is the value of gold calculated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The value of gold is calculated by multiplying the weight in grams by the current gold price per gram (pure 24K gold). If the gold is not pure, multiply by the purity factor: 18K is 75% pure, 14K is 58.3% pure and 9K is 37.5% pure."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What do 18K, 14K and 24K mean in gold?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Karats indicate the purity of gold. 24K is pure gold (99.9%). 18K means that 18 out of every 24 parts are gold, i.e. 75% purity. 14K equals 58.3% and 9K equals 37.5%. In jewellery, 18K gold is the most common."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where can I find the current gold price?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The quickest way is to search 'gold price today per gram' on Google. It appears directly in the results without needing to visit any website."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does the jeweller offer me less than the market value?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Gold buyers (jewellers, pawn shops) apply a discount on the market price to cover their costs and make a profit. They typically pay between 70% and 90% of the metal's market value."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <title>Gold Value Calculator — By Karats, Grams and Purity | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/en/utils/gold-calculator" />
+    <link rel="alternate" hreflang="en" href="https://calculenow.com/en/utils/gold-calculator" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/utilidades/calculadora-oro" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/utilidades/calculadora-oro" />
+
+    <meta name="description" content="Find out how much your gold is worth based on karats and weight. Enter the grams, purity and current price and get an instant result. Free." />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/en/utils/gold-calculator" />
+    <meta property="og:title" content="Gold Value Calculator — By Karats, Grams and Purity | Calculenow" />
+    <meta property="og:description" content="Calculate the value of your gold based on the current market price. Free, no registration." />
+    <meta property="og:image" content="https://calculenow.com/images/og-en.jpg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Gold Value Calculator — Karats and Grams" />
+    <meta name="twitter:description" content="Calculate the value of your gold based on the current price. Free." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-en.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
+    <header></header>
+
+    <main>
+      <div class="card oro-card">
+        <h1>Gold Value Calculator — By Karats and Grams</h1>
+        <p>Enter the weight, purity and current gold price to calculate its value instantly.</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="peso-oro">Gold weight (grams)</label>
+            <input id="peso-oro" class="field" type="number" placeholder="E.g. 10" min="0" step="0.1" />
+          </div>
+          <div class="form-group">
+            <label for="pureza">Purity</label>
+            <select id="pureza" class="field">
+              <option value="1">24K — Pure gold (99.9%)</option>
+              <option value="0.916">22K (91.6%)</option>
+              <option value="0.75" selected>18K (75%) — Standard jewellery</option>
+              <option value="0.585">14K (58.5%)</option>
+              <option value="0.375">9K (37.5%)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="precio-oro">24K gold price (€/gram)</label>
+          <input id="precio-oro" class="field" type="number"
+            placeholder="E.g. 142" min="0" step="0.01" value="142" />
+          <p class="oro-hint">
+            ⚠️ The gold price changes every day. Search <strong>"gold price today per gram"</strong> on Google to get the updated value before calculating.
+            <a href="https://www.google.com/search?q=gold+price+today+per+gram" target="_blank" rel="noopener" class="oro-precio-link">
+              → See current price
+            </a>
+          </p>
+        </div>
+
+        <button class="btn btn-oro" id="btn-calcular" type="button">Calculate value</button>
+
+        <div class="result oro-result" id="oro-result"
+          data-locale="en-GB"
+          data-currency="EUR"
+          data-ms-error-peso="Please enter a valid weight in grams."
+          data-ms-error-precio="Please enter the current gold price."
+          data-label-peso="Weight"
+          data-label-pureza="Purity"
+          data-label-price-24k="24K price"
+          data-label-grams="grams"
+          data-label-value="Value in euros"
+          data-btn-copy="Copy result">
+        </div>
+
+        <p class="disclaimer-text">
+          * The calculation is based on the market price you enter. The actual buying price at jewellers or pawn shops may differ. This calculator is for guidance only.
+        </p>
+
+        <div class="related-tools">
+          <p><strong>Other useful tools:</strong></p>
+          <ul>
+            <li>
+              <a href="/en/finance/currency-converter">
+                ➔ <strong>Currency converter:</strong> Convert between more than 30 currencies with updated rates.
+              </a>
+            </li>
+            <li>
+              <a href="/en/finance/compound-interest-calculator">
+                ➔ <strong>Compound interest:</strong> Simulate the growth of your investments over time.
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="legal-content">
+        <h2>How is the value of gold calculated?</h2>
+        <p>The international gold price is expressed in <strong>US dollars per troy ounce</strong> (31.1 grams). To get the price per gram in euros, divide by 31.1 and convert the currency. Once you have the price per gram of pure gold (24K), the value of your piece depends on its purity:</p>
+
+        <div class="formule">Value = Weight (g) × 24K Price (€/g) × Purity factor</div>
+
+        <h2>Gold purity table</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>Karats</th><th>Purity</th><th>Common use</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>24K</td><td>99.9%</td><td>Investment bars, coins</td></tr>
+              <tr><td>22K</td><td>91.6%</td><td>Coins, high-end jewellery</td></tr>
+              <tr><td>18K</td><td>75.0%</td><td>Standard jewellery in Europe</td></tr>
+              <tr><td>14K</td><td>58.5%</td><td>Jewellery in the US and Eastern Europe</td></tr>
+              <tr><td>9K</td><td>37.5%</td><td>Budget jewellery, UK</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Why does the jeweller offer less than the market value?</h2>
+        <p>Gold buyers apply a discount on the market price to cover their operating costs and make a profit. They typically pay between 70% and 90% of the market value. It is also worth noting that the actual weight of a piece of jewellery includes other alloy metals, settings and stones that have no value as gold.</p>
+      </section>
+
+      <div class="faq-section">
+        <h3>Frequently asked questions about gold value</h3>
+
+        <details>
+          <summary>How is the value of gold calculated?</summary>
+          <div class="faq-content">
+            <p>Multiply the weight in grams by the current pure gold price (24K) and by the purity factor of the piece. For example, 10 grams of 18K gold with gold at €142/g would be worth: 10 × 142 × 0.75 = €1,065.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>What do 18K, 14K and 24K mean in gold?</summary>
+          <div class="faq-content">
+            <p>Karats indicate purity. 24K is pure gold. 18K means 18 out of every 24 parts are gold (75% purity). 14K equals 58.5% and 9K equals 37.5%.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Where can I find the current gold price?</summary>
+          <div class="faq-content">
+            <p>The quickest way is to search <strong>"gold price today per gram"</strong> on Google. It appears directly in the results without needing to visit any website.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Why does the jeweller offer me less than the market value?</summary>
+          <div class="faq-content">
+            <p>Buyers apply a discount on the market price to cover costs and make a profit. They typically pay between 70% and 90% of the actual metal value.</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>We use cookies to improve your experience. <a href="/en/cookies">View cookie policy</a></p>
+        <div class="cookie-buttons">
+          <button class="accept-cookies" id="btn-accept-all">Accept all</button>
+          <button class="reject-cookies" id="btn-reject-all">Reject all</button>
+          <button class="settings-cookies" id="btn-open-settings">Settings</button>
+        </div>
+      </div>
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Customize your preferences:</strong></p>
+        <div class="cookie-option"><input type="checkbox" id="check-necessary" checked disabled /><label>Necessary (Required)</label></div>
+        <div class="cookie-option"><input type="checkbox" id="check-analytics" /><label>Analytics (Google Analytics)</label></div>
+        <div class="cookie-option"><input type="checkbox" id="check-marketing" /><label>Marketing (Ad pixels)</label></div>
+        <div class="cookie-buttons" style="margin-top:15px">
+          <button class="accept-cookies" id="btn-save-settings">Save settings</button>
+          <button class="settings-cookies" id="btn-back">Back</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/ads.js" async defer></script>
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/buscador.js" defer></script>
+    <script src="/js/core.js" defer></script>
+    <script src="/js/utilidades/oro.js" defer></script>
+  </body>
+</html>

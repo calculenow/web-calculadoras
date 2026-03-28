@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Fuel Cost Calculator",
+      "url": "https://calculenow.com/en/utils/fuel-cost-calculator",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Calculate the fuel cost of your road trip. Enter the distance, fuel consumption and price per litre to find out how much your journey will cost."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do you calculate the fuel cost of a trip?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The formula is: (distance in km × consumption in L/100km / 100) × price per litre. For example, a 500 km trip with a car consuming 6 L/100km and fuel at £1.60/litre would cost £48."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the average fuel consumption of a car?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The average consumption of a passenger car is around 6-7 L/100km on motorways and 8-10 L/100km in the city. SUVs and larger vehicles can exceed 10 L/100km, while hybrids are typically 4-6 L/100km."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it cheaper to drive or take the train?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on the distance, the number of passengers and the fuel price. For short trips with several people, driving is usually cheaper. For long distances travelling alone, the train or bus may be more affordable."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the fuel price include taxes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The pump price you enter in the calculator already includes all taxes, so the result reflects the actual cost you will pay."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <title>Fuel Cost Calculator — Petrol & Diesel Road Trip | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/en/utils/fuel-cost-calculator" />
+    <link rel="alternate" hreflang="en" href="https://calculenow.com/en/utils/fuel-cost-calculator" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/utilidades/calculadora-coste-viaje" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/utilidades/calculadora-coste-viaje" />
+
+    <meta name="description" content="Calculate how much your road trip will cost in fuel. Enter distance, consumption and petrol or diesel price. Free, no registration." />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/en/utils/fuel-cost-calculator" />
+    <meta property="og:title" content="Fuel Cost Calculator — Petrol & Diesel Road Trip | Calculenow" />
+    <meta property="og:description" content="Calculate your road trip fuel cost. Distance, consumption and fuel price in seconds." />
+    <meta property="og:image" content="https://calculenow.com/images/og-en.jpg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Fuel Cost Calculator — Petrol & Diesel Road Trip" />
+    <meta name="twitter:description" content="Calculate your road trip fuel cost. Free, no registration." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-en.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
+    <header></header>
+
+    <main>
+      <div class="card viaje-card">
+        <h1>Fuel Cost Calculator</h1>
+        <p>Enter your trip details and calculate how much you will spend on fuel, including tolls and split between passengers.</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="distancia">Distance (km)</label>
+            <input id="distancia" class="field" type="number" placeholder="E.g. 500" min="0" step="1" />
+          </div>
+          <div class="form-group">
+            <label for="ida-vuelta">Trip type</label>
+            <select id="ida-vuelta" class="field">
+              <option value="1">One way</option>
+              <option value="2">Return trip</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="consumo">Fuel consumption (L/100km)</label>
+            <input id="consumo" class="field" type="number" placeholder="E.g. 6.5" min="0" step="0.1" />
+          </div>
+          <div class="form-group">
+            <label for="precio-combustible">Fuel price (€/litre)</label>
+            <input id="precio-combustible" class="field" type="number" placeholder="E.g. 1.75" min="0" step="0.001" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="peajes">Estimated tolls (€, optional)</label>
+            <input id="peajes" class="field" type="number" placeholder="E.g. 12.50" min="0" step="0.01" />
+          </div>
+          <div class="form-group">
+            <label for="ocupantes">Number of passengers</label>
+            <input id="ocupantes" class="field" type="number" placeholder="E.g. 2" min="1" max="9" step="1" value="1" />
+          </div>
+        </div>
+
+        <div class="perfiles-interes">
+          <button class="btn-mini" data-consumo="5" type="button">⚡ Hybrid ~5L</button>
+          <button class="btn-mini" data-consumo="6.5" type="button">🚗 Saloon ~6.5L</button>
+          <button class="btn-mini" data-consumo="8" type="button">🚙 SUV ~8L</button>
+          <button class="btn-mini" data-consumo="10" type="button">🚐 Van ~10L</button>
+        </div>
+
+        <button class="btn btn-viaje" id="btn-calcular" type="button">Calculate cost</button>
+
+        <div class="result viaje-result" id="viaje-result"
+          data-locale="en-GB"
+          data-currency="EUR"
+          data-ms-error-dist="Please enter a valid distance."
+          data-ms-error-consumo="Please enter your car's fuel consumption."
+          data-ms-error-precio="Please enter the fuel price."
+          data-label-title="Trip cost"
+          data-label-trip="Trip"
+          data-label-total-dist="Total distance"
+          data-label-litres="L"
+          data-label-litres-needed="Litres needed"
+          data-label-fuel-cost="Fuel cost"
+          data-label-tolls="Tolls"
+          data-label-total="Total cost"
+          data-label-per-person="Per person"
+          data-label-round-trip="return trip"
+          data-label-one-way="one way"
+          data-btn-copy="Copy result">
+        </div>
+
+        <p class="disclaimer-text">
+          * The calculation is indicative and only includes fuel cost and the tolls you enter. Wear and tear, insurance, depreciation and other vehicle costs are not included.
+        </p>
+
+        <div class="related-tools">
+          <p><strong>Other useful tools:</strong></p>
+          <ul>
+            <li>
+              <a href="/en/utils/unit-converter">
+                ➔ <strong>Unit converter:</strong> Convert miles to kilometres, gallons to litres and more.
+              </a>
+            </li>
+            <li>
+              <a href="/en/math/percentage-calculator">
+                ➔ <strong>Percentage calculator:</strong> Calculate what share fuel represents in your travel budget.
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="legal-content">
+        <h2>How to calculate the fuel cost of a trip</h2>
+        <p>The formula is straightforward:</p>
+        <div class="formule">Cost = (Distance × Consumption / 100) × Price per litre</div>
+        <p>For example, a <strong>500 km</strong> trip with a car consuming <strong>6.5 L/100km</strong> and fuel at <strong>€1.75/litre</strong> would cost:</p>
+        <div class="formule">(500 × 6.5 / 100) × 1.75 = 32.5 litres × 1.75 = <strong>€56.88</strong></div>
+
+        <h2>Average consumption by vehicle type</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>Vehicle type</th><th>Motorway consumption</th><th>City consumption</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Hybrid / mild hybrid</td><td>4 – 5 L/100km</td><td>4 – 6 L/100km</td></tr>
+              <tr><td>Small petrol car</td><td>5 – 6 L/100km</td><td>7 – 9 L/100km</td></tr>
+              <tr><td>Medium petrol car</td><td>6 – 7 L/100km</td><td>8 – 11 L/100km</td></tr>
+              <tr><td>Diesel car</td><td>5 – 6 L/100km</td><td>6 – 8 L/100km</td></tr>
+              <tr><td>SUV / 4x4</td><td>7 – 9 L/100km</td><td>9 – 13 L/100km</td></tr>
+              <tr><td>Van / MPV</td><td>8 – 11 L/100km</td><td>10 – 14 L/100km</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Tips to reduce fuel consumption on the road</h2>
+        <ul>
+          <li><strong>Maintain a steady speed:</strong> between 90 and 110 km/h is the most efficient range for most cars.</li>
+          <li><strong>Keep tyres properly inflated:</strong> under-inflated tyres can increase consumption by up to 3%.</li>
+          <li><strong>Avoid aggressive cold starts:</strong> the first few kilometres use the most fuel.</li>
+          <li><strong>Reduce weight:</strong> every extra 100 kg adds approximately 5% to fuel consumption.</li>
+          <li><strong>Use air conditioning sparingly:</strong> it can increase consumption by 10% to 20%.</li>
+        </ul>
+      </section>
+
+      <div class="faq-section">
+        <h3>Frequently asked questions about trip cost</h3>
+
+        <details>
+          <summary>How do you calculate the fuel cost of a trip?</summary>
+          <div class="faq-content">
+            <p>The formula is: (distance in km × consumption in L/100km / 100) × price per litre. Our calculator does this automatically and also splits the result between passengers.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>What is the average fuel consumption of a car?</summary>
+          <div class="faq-content">
+            <p>The average for a passenger car is around 6–7 L/100km on motorways and 8–10 L/100km in the city. Hybrids are typically 4–6 L/100km and SUVs can exceed 10 L/100km.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Does the fuel price include taxes?</summary>
+          <div class="faq-content">
+            <p>Yes. The pump price already includes all applicable taxes, so the result reflects the actual cost you will pay at the fuel station.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Is it cheaper to drive or take the train?</summary>
+          <div class="faq-content">
+            <p>It depends on the distance, the number of passengers and the fuel price. For short trips with several people, driving is usually cheaper. For long distances travelling alone, the train or bus may be more affordable.</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>We use cookies to improve your experience. <a href="/en/cookies">View cookie policy</a></p>
+        <div class="cookie-buttons">
+          <button class="accept-cookies" id="btn-accept-all">Accept all</button>
+          <button class="reject-cookies" id="btn-reject-all">Reject all</button>
+          <button class="settings-cookies" id="btn-open-settings">Settings</button>
+        </div>
+      </div>
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Customize your preferences:</strong></p>
+        <div class="cookie-option"><input type="checkbox" id="check-necessary" checked disabled /><label>Necessary (Required)</label></div>
+        <div class="cookie-option"><input type="checkbox" id="check-analytics" /><label>Analytics (Google Analytics)</label></div>
+        <div class="cookie-option"><input type="checkbox" id="check-marketing" /><label>Marketing (Ad pixels)</label></div>
+        <div class="cookie-buttons" style="margin-top:15px">
+          <button class="accept-cookies" id="btn-save-settings">Save settings</button>
+          <button class="settings-cookies" id="btn-back">Back</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/ads.js" async defer></script>
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/buscador.js" defer></script>
+    <script src="/js/core.js" defer></script>
+    <script src="/js/utilidades/viaje.js" defer></script>
+  </body>
+</html>

@@ -154,6 +154,10 @@
 
 # Utils
 /en/utils/unit-converter                      /en/utils/unit-converter.html                      200
+/en/utils/date-calculator                     /en/utils/date-calculator.html                     200
+/en/utils/age-calculator                      /en/utils/age-calculator.html                      200
+/en/utils/fuel-cost-calculator                /en/utils/fuel-cost-calculator.html                200
+/en/utils/gold-calculator                     /en/utils/gold-calculator.html                     200
 
 # Legales EN
 /en/legal-notice                              /en/legal-notice.html                              200

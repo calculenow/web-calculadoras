@@ -153,7 +153,18 @@
 
         <button class="btn btn-oro" id="btn-calcular" type="button">Calcular valor</button>
 
-        <div class="result oro-result" id="oro-result"></div>
+        <div class="result oro-result" id="oro-result"
+          data-locale="es-ES"
+          data-currency="EUR"
+          data-ms-error-peso="Introduce un peso válido en gramos."
+          data-ms-error-precio="Introduce el precio actual del oro."
+          data-label-peso="Peso"
+          data-label-pureza="Pureza"
+          data-label-price-24k="Precio 24K"
+          data-label-grams="gramos"
+          data-label-value="Valor en euros"
+          data-btn-copy="Copiar resultado">
+        </div>
 
         <p class="disclaimer-text">
           * El cálculo se basa en el precio de mercado que tú introduces. El precio real de compraventa en joyerías o casas de empeño puede diferir. Esta calculadora es orientativa.
@@ -269,6 +280,6 @@
     <script src="/js/layout.js" defer></script>
     <script src="/js/buscador.js" defer></script>
     <script src="/js/core.js" defer></script>
-    <script src="/js/oro.js" defer></script>
+    <script src="/js/utilidades/oro.js" defer></script>
   </body>
 </html>

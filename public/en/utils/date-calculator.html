@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Date Calculator",
+      "url": "https://calculenow.com/en/utils/date-calculator",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Calculate the days between two dates, add or subtract days from a date, and find out how many days are left until any event."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How are days between two dates calculated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The start date is subtracted from the end date in milliseconds and the result is converted to days by dividing by 86,400,000 (milliseconds in a day). Our calculator does this automatically and also shows the breakdown in years, months and days."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do leap years affect the calculation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. A leap year has 366 days instead of 365. Our calculator accounts for them automatically to always give an exact result."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I calculate how many days are left until a future date?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. In the 'Days until an event' tab, enter the event date and you will see exactly how many days, weeks and months are left."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if I add days and land on a weekend or holiday?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The calculator shows the exact date resulting from adding or subtracting calendar days, without excluding weekends or holidays. If you need working days only, please account for this manually."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <title>Date Calculator — Days Between Dates, Countdown & Add Days | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/en/utils/date-calculator" />
+    <link rel="alternate" hreflang="en" href="https://calculenow.com/en/utils/date-calculator" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/utilidades/dias-entre-fechas" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/utilidades/dias-entre-fechas" />
+
+    <meta name="description" content="Calculate how many days there are between two dates, add or subtract days, and find out how long until your next event. Free, no registration." />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/en/utils/date-calculator" />
+    <meta property="og:title" content="Date Calculator — Days Between Dates, Countdown & Add Days | Calculenow" />
+    <meta property="og:description" content="Calculate days between two dates, add or subtract days, and find out how long until your next event." />
+    <meta property="og:image" content="https://calculenow.com/images/og-en.jpg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Date Calculator — Days Between Dates, Countdown & Add Days" />
+    <meta name="twitter:description" content="Calculate days between dates or how long until your next event. Free." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-en.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
+    <header></header>
+
+    <main>
+      <div class="card fechas-card">
+        <h1>Date Calculator</h1>
+        <p>Calculate days between two dates, add or subtract days, or find out how long until an event.</p>
+
+        <div class="calc-tabs">
+          <button class="calc-tab active" data-mode="entre" type="button">Between two dates</button>
+          <button class="calc-tab" data-mode="sumar" type="button">Add / subtract days</button>
+          <button class="calc-tab" data-mode="hasta" type="button">Days until an event</button>
+        </div>
+
+        <!-- MODE 1: Between two dates -->
+        <div class="calc-panel" id="panel-entre">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fecha-inicio">Start date</label>
+              <input id="fecha-inicio" class="field" type="date" />
+            </div>
+            <div class="form-group">
+              <label for="fecha-fin">End date</label>
+              <input id="fecha-fin" class="field" type="date" />
+            </div>
+          </div>
+          <button class="btn btn-fechas" id="btn-entre" type="button">Calculate days</button>
+          <div class="result fechas-result" id="result-entre"></div>
+        </div>
+
+        <!-- MODE 2: Add / subtract days -->
+        <div class="calc-panel" id="panel-sumar" style="display:none">
+          <div class="form-group">
+            <label for="fecha-base">Start date</label>
+            <input id="fecha-base" class="field" type="date" />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="num-dias">Number of days</label>
+              <input id="num-dias" class="field" type="number" placeholder="E.g. 30" min="0" />
+            </div>
+            <div class="form-group">
+              <label for="operacion">Operation</label>
+              <select id="operacion" class="field">
+                <option value="sumar">Add days</option>
+                <option value="restar">Subtract days</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn btn-fechas" id="btn-sumar" type="button">Calculate date</button>
+          <div class="result fechas-result" id="result-sumar"></div>
+        </div>
+
+        <!-- MODE 3: Days until an event -->
+        <div class="calc-panel" id="panel-hasta" style="display:none">
+          <div class="form-group">
+            <label for="fecha-evento">Event date</label>
+            <input id="fecha-evento" class="field" type="date" />
+          </div>
+          <div class="form-group">
+            <label for="nombre-evento">Event name (optional)</label>
+            <input id="nombre-evento" class="field" type="text" placeholder="E.g. My birthday, Christmas..." maxlength="50" />
+          </div>
+          <button class="btn btn-fechas" id="btn-hasta" type="button">How long until?</button>
+          <div class="result fechas-result" id="result-hasta"></div>
+        </div>
+
+        <div class="perfiles-interes" id="accesos-rapidos">
+          <button class="btn-mini" data-evento="christmas" data-label="Christmas" type="button">🎄 Christmas</button>
+          <button class="btn-mini" data-evento="newyear"   data-label="New Year"  type="button">🎆 New Year</button>
+          <button class="btn-mini" data-evento="summer"    data-label="Summer"    type="button">☀️ Summer</button>
+          <button class="btn-mini" data-evento="halloween" data-label="Halloween" type="button">🎃 Halloween</button>
+        </div>
+
+        <div id="fechas-i18n" style="display:none"
+          data-locale="en-GB"
+          data-ms-error-both-dates="Please select both dates."
+          data-ms-error-days-date="Please enter a valid date and number of days."
+          data-ms-error-event-date="Please select the event date."
+          data-label-total="Total"
+          data-label-breakdown="Breakdown"
+          data-label-full-weeks="Full weeks"
+          data-label-direction="Direction"
+          data-label-weeks="Weeks"
+          data-label-date="Date"
+          data-label-start-date="Start date"
+          data-label-days-added="➕ Days added"
+          data-label-days-subtracted="➖ Days subtracted"
+          data-label-result-date="Result date"
+          data-label-adding="adding"
+          data-label-subtracting="subtracting"
+          data-label-to="to"
+          data-label-before="before"
+          data-label-after="after"
+          data-label-between="between"
+          data-label-of="of"
+          data-label-is="is"
+          data-label-and="and"
+          data-label-same-day="the same day"
+          data-label-today-is="Today is"
+          data-label-remaining="There are"
+          data-label-until="days until"
+          data-label-was="was"
+          data-label-ago="days ago"
+          data-label-since="since"
+          data-label-event="the event"
+          data-singular-year="year"
+          data-plural-year="years"
+          data-singular-month="month"
+          data-plural-month="months"
+          data-singular-day="day"
+          data-plural-day="days"
+          data-btn-copy="Copy result">
+        </div>
+
+        <div class="related-tools">
+          <p><strong>Other useful tools:</strong></p>
+          <ul>
+            <li>
+              <a href="/en/utils/unit-converter">
+                ➔ <strong>Unit converter:</strong> Convert length, weight, temperature and more.
+              </a>
+            </li>
+            <li>
+              <a href="/en/math/percentage-calculator">
+                ➔ <strong>Percentage calculator:</strong> Quick proportion and variation calculations.
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="legal-content">
+        <h2>What is a date calculator used for?</h2>
+        <p>Calculating days between dates is more useful than it might seem — from knowing how many days you have been in a new job to planning how much time is left before an important event:</p>
+
+        <div class="info-grid">
+          <div class="card info-box">
+            <h3>📅 Personal planning</h3>
+            <p>Count the days until your holiday, wedding, an exam or any date you mark on the calendar.</p>
+          </div>
+          <div class="card info-box">
+            <h3>💼 Professional use</h3>
+            <p>Calculate delivery deadlines, probationary periods, contract expiry dates or seniority with precision.</p>
+          </div>
+          <div class="card info-box">
+            <h3>⚖️ Legal matters</h3>
+            <p>Many legal deadlines are measured in calendar days. Add exactly the number of days indicated in a notice or resolution.</p>
+          </div>
+          <div class="card info-box">
+            <h3>🏥 Health tracking</h3>
+            <p>Keep track of days since an operation, the start of a treatment, or your last medical check-up.</p>
+          </div>
+        </div>
+
+        <h2>Calendar days vs working days</h2>
+        <p>It is important to distinguish between the two types of days commonly used:</p>
+        <ul>
+          <li><strong>Calendar days:</strong> all days including Saturdays, Sundays and public holidays. These are the days this calculator uses.</li>
+          <li><strong>Working days:</strong> only business days (usually Monday to Friday), excluding weekends and official holidays. These are commonly used in administrative and legal procedures.</li>
+        </ul>
+
+        <h2>How is the difference between two dates calculated?</h2>
+        <p>The calculation is based on subtracting the numeric values of both dates. JavaScript represents each date as the number of milliseconds elapsed since 1 January 1970. By subtracting both and dividing by 86,400,000 (the milliseconds in a day), we obtain the exact difference. For the breakdown into years, months and days, the actual length of each month and leap years are taken into account.</p>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>Period</th><th>Approximate days</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1 week</td><td>7 days</td></tr>
+              <tr><td>1 month (average)</td><td>30.44 days</td></tr>
+              <tr><td>1 quarter</td><td>91 days</td></tr>
+              <tr><td>1 normal year</td><td>365 days</td></tr>
+              <tr><td>1 leap year</td><td>366 days</td></tr>
+              <tr><td>1 decade</td><td>3,652 days</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <div class="faq-section">
+        <h3>Frequently asked questions about date calculation</h3>
+
+        <details>
+          <summary>How are days between two dates calculated?</summary>
+          <div class="faq-content">
+            <p>The start date is subtracted from the end date in milliseconds and the result is converted to days by dividing by 86,400,000. Our calculator does this automatically and also shows the breakdown in years, months and days.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Do leap years affect the calculation?</summary>
+          <div class="faq-content">
+            <p>Yes. A leap year has 366 days instead of 365. Our calculator accounts for them automatically to always give an exact result.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Can I calculate how many days are left until a future date?</summary>
+          <div class="faq-content">
+            <p>Yes. In the <strong>Days until an event</strong> tab, enter the event date and you will see exactly how many days, weeks and months are left.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>What if I add days and land on a weekend or holiday?</summary>
+          <div class="faq-content">
+            <p>The calculator shows the exact date resulting from adding or subtracting calendar days, without excluding weekends or holidays. If you need working days only, please account for this manually.</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>We use cookies to improve your experience. <a href="/en/cookies">View cookie policy</a></p>
+        <div class="cookie-buttons">
+          <button class="accept-cookies" id="btn-accept-all">Accept all</button>
+          <button class="reject-cookies" id="btn-reject-all">Reject all</button>
+          <button class="settings-cookies" id="btn-open-settings">Settings</button>
+        </div>
+      </div>
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Customize your preferences:</strong></p>
+        <div class="cookie-option"><input type="checkbox" id="check-necessary" checked disabled /><label>Necessary (Required)</label></div>
+        <div class="cookie-option"><input type="checkbox" id="check-analytics" /><label>Analytics (Google Analytics)</label></div>
+        <div class="cookie-option"><input type="checkbox" id="check-marketing" /><label>Marketing (Ad pixels)</label></div>
+        <div class="cookie-buttons" style="margin-top:15px">
+          <button class="accept-cookies" id="btn-save-settings">Save settings</button>
+          <button class="settings-cookies" id="btn-back">Back</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/ads.js" async defer></script>
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/buscador.js" defer></script>
+    <script src="/js/core.js" defer></script>
+    <script src="/js/utilidades/fechas.js" defer></script>
+  </body>
+</html>

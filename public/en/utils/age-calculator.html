@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Age Calculator",
+      "url": "https://calculenow.com/en/utils/age-calculator",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Calculate your exact age in years, months and days, and find out how many days, weeks and hours you have been alive."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How is exact age calculated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is calculated by subtracting the date of birth from the current date, taking into account the actual length of each month and leap years. The result is expressed in complete years, months and days elapsed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do leap years affect the age calculation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Leap years have 366 days instead of 365, which affects the total number of days lived. Our calculator accounts for them automatically."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many days are in a year on average?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A year has 365 days, or 366 if it is a leap year. On average, considering the leap year cycle every 4 years, a year has 365.25 days."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I calculate the age of another person or a historical date?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The calculator accepts any date of birth — you can use it to calculate your own age, someone else's, a pet's, or even the age of an object or historical event."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <title>Age Calculator — Exact Age in Years, Months, Days and Hours | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/en/utils/age-calculator" />
+    <link rel="alternate" hreflang="en" href="https://calculenow.com/en/utils/age-calculator" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/utilidades/calculadora-edad" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/utilidades/calculadora-edad" />
+
+    <meta name="description" content="Calculate your exact age in years, months and days. Find out how many days, weeks and hours you have been alive. Free, no registration." />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/en/utils/age-calculator" />
+    <meta property="og:title" content="Age Calculator — Exact Age in Years, Months, Days and Hours | Calculenow" />
+    <meta property="og:description" content="Calculate your exact age in years, months and days. Find out how many days, weeks and hours you have been alive." />
+    <meta property="og:image" content="https://calculenow.com/images/og-en.jpg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Age Calculator — Exact Age in Years, Months, Days and Hours" />
+    <meta name="twitter:description" content="Calculate your exact age and find out how many days, weeks and hours you have been alive. Free." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-en.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
+    <header></header>
+
+    <main>
+      <div class="card edad-card">
+        <h1>Age Calculator</h1>
+        <p>Enter your date of birth and find out your exact age in years, months and days, plus how long you have been in this world.</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fecha-nacimiento">Date of birth</label>
+            <input id="fecha-nacimiento" class="field" type="date" />
+          </div>
+          <div class="form-group">
+            <label for="fecha-calculo">Calculate on this date</label>
+            <input id="fecha-calculo" class="field" type="date" />
+          </div>
+        </div>
+
+        <button class="btn btn-edad" id="btn-calcular" type="button">Calculate age</button>
+
+        <div class="result edad-result" id="edad-result"
+          data-locale="en-GB"
+          data-ms-error-empty="Please enter both dates."
+          data-ms-error-order="The date of birth must be earlier than the calculation date."
+          data-label-title="Your exact age"
+          data-label-age="Age"
+          data-label-total-days="Days lived"
+          data-label-total-weeks="Weeks lived"
+          data-label-total-months="Total months"
+          data-label-total-hours="Hours lived"
+          data-singular-year="year"
+          data-plural-year="years"
+          data-singular-month="month"
+          data-plural-month="months"
+          data-singular-day="day"
+          data-plural-day="days"
+          data-singular-week="week"
+          data-plural-week="weeks"
+          data-btn-copy="Copy result">
+        </div>
+
+        <div class="related-tools">
+          <p><strong>Other date tools:</strong></p>
+          <ul>
+            <li>
+              <a href="/en/utils/date-calculator">
+                ➔ <strong>Date calculator:</strong> Find out how many days there are between two dates or how long until an event.
+              </a>
+            </li>
+            <li>
+              <a href="/en/utils/unit-converter">
+                ➔ <strong>Unit converter:</strong> Convert length, weight, temperature and more.
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="legal-content">
+        <h2>What is exact age used for?</h2>
+        <p>Knowing your exact age goes beyond knowing how many years you are. There are many situations where you need to know the precise years, months and days:</p>
+
+        <div class="info-grid">
+          <div class="card info-box">
+            <h3>🏥 Medical use</h3>
+            <p>Many dosage calculations, vaccines and paediatric follow-ups require exact age in months, not just years.</p>
+          </div>
+          <div class="card info-box">
+            <h3>⚖️ Legal matters</h3>
+            <p>Contracts, inheritances, access to benefits and retirement may depend on exact age on a specific date.</p>
+          </div>
+          <div class="card info-box">
+            <h3>🐾 Pets</h3>
+            <p>The age of dogs and cats in months is key for their diet, vaccinations and veterinary care.</p>
+          </div>
+          <div class="card info-box">
+            <h3>📚 Personal curiosity</h3>
+            <p>Knowing exactly how many days you have been alive or how many weeks old you are is a surprising fact that few people know.</p>
+          </div>
+        </div>
+
+        <h2>How is exact age calculated?</h2>
+        <p>The calculation takes into account the actual length of each month and leap years. It is not as simple as subtracting the birth year from the current year, because you also need to consider whether the birthday has already passed in the current year.</p>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>Unit</th><th>Approximate equivalent</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1 year</td><td>365 days (366 in a leap year)</td></tr>
+              <tr><td>1 month</td><td>28 to 31 days depending on the month</td></tr>
+              <tr><td>1 week</td><td>7 days</td></tr>
+              <tr><td>1 day</td><td>24 hours = 1,440 minutes</td></tr>
+              <tr><td>10 years</td><td>≈ 3,652 days</td></tr>
+              <tr><td>18 years</td><td>≈ 6,574 days</td></tr>
+              <tr><td>65 years</td><td>≈ 23,741 days</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>The days lived figure</h2>
+        <p>Most people are surprised when they see how many days they have been alive. Someone aged 30 has lived more than <strong>10,900 days</strong>. By the age of 18, you have already passed <strong>6,500 days</strong>. This figure can be a motivating way to look at time differently.</p>
+      </section>
+
+      <div class="faq-section">
+        <h3>Frequently asked questions about age calculation</h3>
+
+        <details>
+          <summary>How is exact age calculated?</summary>
+          <div class="faq-content">
+            <p>It is calculated by subtracting the date of birth from the current date, taking into account the actual length of each month and leap years. The result is expressed in complete years, months and days elapsed.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Do leap years affect the calculation?</summary>
+          <div class="faq-content">
+            <p>Yes. Leap years have 366 days instead of 365, which affects the total number of days lived. Our calculator accounts for them automatically.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Can I calculate the age of another person or a historical date?</summary>
+          <div class="faq-content">
+            <p>Yes. The calculator accepts any date of birth. You can calculate the age of another person, a pet, or even the age of an object or historical event by changing the calculation date.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>How many days are in a year on average?</summary>
+          <div class="faq-content">
+            <p>A normal year has 365 days and a leap year has 366. Considering the leap year cycle, the average is 365.25 days per year.</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>We use cookies to improve your experience. <a href="/en/cookies">View cookie policy</a></p>
+        <div class="cookie-buttons">
+          <button class="accept-cookies" id="btn-accept-all">Accept all</button>
+          <button class="reject-cookies" id="btn-reject-all">Reject all</button>
+          <button class="settings-cookies" id="btn-open-settings">Settings</button>
+        </div>
+      </div>
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Customize your preferences:</strong></p>
+        <div class="cookie-option"><input type="checkbox" id="check-necessary" checked disabled /><label>Necessary (Required)</label></div>
+        <div class="cookie-option"><input type="checkbox" id="check-analytics" /><label>Analytics (Google Analytics)</label></div>
+        <div class="cookie-option"><input type="checkbox" id="check-marketing" /><label>Marketing (Ad pixels)</label></div>
+        <div class="cookie-buttons" style="margin-top:15px">
+          <button class="accept-cookies" id="btn-save-settings">Save settings</button>
+          <button class="settings-cookies" id="btn-back">Back</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/ads.js" async defer></script>
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/buscador.js" defer></script>
+    <script src="/js/core.js" defer></script>
+    <script src="/js/utilidades/edad.js" defer></script>
+  </body>
+</html>
