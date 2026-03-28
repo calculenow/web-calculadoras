@@ -194,8 +194,8 @@
   </url>
 
   <url>
-    <loc>https://calculenow.com/es/validador-dni</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/validador-dni"/>
+    <loc>https://calculenow.com/es/administracion/validador-dni</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/administracion/validador-dni"/>
     <lastmod>2026-03-22</lastmod>
     <priority>0.8</priority>
   </url>
@@ -208,15 +208,15 @@
   </url>
 
   <url>
-    <loc>https://calculenow.com/es/calculadora-irpf</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-irpf"/>
+    <loc>https://calculenow.com/es/administracion/calculadora-irpf</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/administracion/calculadora-irpf"/>
     <lastmod>2026-03-24</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://calculenow.com/es/calculadora-irpf-foral</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-irpf-foral"/>
+    <loc>https://calculenow.com/es/administracion/calculadora-irpf-foral</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/administracion/calculadora-irpf-foral"/>
     <lastmod>2026-03-24</lastmod>
     <priority>0.8</priority>
   </url>
@@ -285,8 +285,8 @@
   </url>
 
   <url>
-    <loc>https://calculenow.com/es/validador-iban</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/validador-iban"/>
+    <loc>https://calculenow.com/es/administracion/validador-iban</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/administracion/validador-iban"/>
     <lastmod>2026-03-27</lastmod>
     <priority>0.8</priority>
   </url>
