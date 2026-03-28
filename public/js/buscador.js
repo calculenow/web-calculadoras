@@ -2,51 +2,61 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. BASE DE DATOS MULTILINGÜE
     const db = {
         es: [
-            { nombre: "IVA", url: "/es/calculadora-iva", tags: ["impuestos", "factura", "hacienda", "autónomo"] },
-            { nombre: "IMC", url: "/es/calculadora-imc", tags: ["peso", "salud", "grasa", "adelgazar"] },
-            { nombre: "Calorías (TMB)", url: "/es/calculadora-calorias", tags: ["dieta", "comida", "gym", "metabolismo"] },
-            { nombre: "Hidratación", url: "/es/calculadora-hidratacion", tags: ["agua", "beber", "sed", "salud", "deporte"] },
-            { nombre: "Calculadora de macros", url: "/es/calculadora-macros", tags: ["proteinas", "carbohidratos", "grasas", "macronutrientes", "dieta", "nutricion", "tdee"] },
-            { nombre: "Frecuencia cardíaca", url: "/es/calculadora-frecuencia-cardiaca", tags: ["pulsaciones", "fc maxima", "zonas entrenamiento", "karvonen", "tanaka", "cardio", "deporte"] },
-            { nombre: "Interés Compuesto", url: "/es/calculadora-interes-compuesto", tags: ["bolsa", "inversion", "ahorro", "dinero", "rentabilidad"] },
-            { nombre: "Divisas", url: "/es/calculadora-divisas", tags: ["moneda", "euro", "dolar", "cambio", "forex"] },
-            { nombre: "Préstamos", url: "/es/calculadora-prestamos", tags: ["banco", "hipoteca", "credito", "deuda", "cuota"] },
-            { nombre: "DNI", url: "/es/validador-dni", tags: ["nif", "letra", "documento", "identidad"] },
-            { nombre: "IRPF", url: "/es/calculadora-irpf", tags: ["impuestos", "renta", "hacienda", "declaracion", "retencion", "comunidad autonoma"] },
-            { nombre: "IRPF Foral Navarra y País Vasco", url: "/es/calculadora-irpf-foral", tags: ["navarra", "pais vasco", "foral", "irpf", "renta", "euskadi", "hacienda foral"] },
-            { nombre: "Validador IBAN", url: "/es/validador-iban", tags: ["iban", "cuenta bancaria", "transferencia", "validar iban", "banco"] },
-            { nombre: "Validador NIF empresa", url: "/es/validador-nif-empresa", tags: ["nif", "cif", "empresa", "sociedad", "validar cif", "validar nif", "autonomo"] },
-            { nombre: "Propinas", url: "/es/calculadora-propinas", tags: ["restaurante", "camarero", "cuenta", "cenas", "dividir"] },
-            { nombre: "Descuentos", url: "/es/calculadora-descuentos", tags: ["rebajas", "ofertas", "ahorro", "compras", "precio final"] },
-            { nombre: "Porcentajes", url: "/es/calculadora-porcentajes", tags: ["matematicas", "proporcion", "calculo"] },
-            { nombre: "Regla de tres", url: "/es/regla-de-tres", tags: ["proporciones", "directa", "inversa", "compuesta", "matematicas", "regla de 3"] },
-            { nombre: "Media, mediana y moda", url: "/es/media-mediana-moda", tags: ["estadistica", "promedio", "media aritmetica", "mediana", "moda", "rango"] },
-            { nombre: "Calculadora de notas", url: "/es/calculadora-notas", tags: ["notas", "media", "ponderada", "creditos", "universidad", "aprobado", "suspenso"] },
-            { nombre: "Área y perímetro", url: "/es/area-y-perimetro", tags: ["geometria", "area", "perimetro", "figuras", "circulo", "rectangulo", "triangulo", "metros cuadrados"] },
-            { nombre: "Conversión de Unidades", url: "/es/calculadora-conversion", tags: ["medidas", "metros", "pulgadas", "kilos", "temperatura", "convertir"] },
-            { nombre: "Días entre fechas", url: "/es/dias-entre-fechas", tags: ["fecha", "dias", "calendario", "cuenta atras", "cuanto falta", "diferencia fechas"] },
-            { nombre: "Edad exacta", url: "/es/calculadora-edad", tags: ["edad", "años", "cumpleaños", "dias vividos", "cuantos años tengo"] },
-            { nombre: "Coste de viaje", url: "/es/calculadora-coste-viaje", tags: ["gasolina", "diesel", "viaje", "coche", "combustible", "carretera", "litros"] },
-            { nombre: "Valor del oro", url: "/es/calculadora-oro", tags: ["oro", "gramo", "precio oro", "joyeria", "quilates", "18k", "24k", "vender oro"] },
-            { nombre: "Latidos en tu vida", url: "/es/latidos-en-tu-vida", tags: ["latidos", "corazon", "pulsaciones", "cuantos latidos", "curiosidad"] },
-            { nombre: "Respiraciones en tu vida", url: "/es/respiraciones-en-tu-vida", tags: ["respiraciones", "pulmones", "cuantas veces has respirado", "curiosidad"] },
-            { nombre: "Pasos en tu vida", url: "/es/pasos-en-tu-vida", tags: ["pasos", "caminar", "cuantos pasos", "kilometros", "curiosidad"] },
-            { nombre: "Veces que has dormido", url: "/es/veces-que-has-dormido", tags: ["dormir", "noches", "horas dormidas", "cuanto has dormido", "curiosidad"] },
-            { nombre: "Edad de tu perro en años humanos", url: "/es/edad-perro", tags: ["perro", "años humanos", "edad perro", "multiplicar por 7", "mascota"] },
-            { nombre: "Tu edad en otros planetas", url: "/es/edad-en-otros-planetas", tags: ["planetas", "mercurio", "marte", "neptuno", "edad planetas", "sistema solar", "curiosidad"] },
+            // Finanzas
+            { nombre: "IVA",                              url: "/es/finanzas/calculadora-iva",                tags: ["impuestos", "factura", "hacienda", "autónomo"] },
+            { nombre: "Descuentos",                       url: "/es/finanzas/calculadora-descuentos",         tags: ["rebajas", "ofertas", "ahorro", "compras", "precio final"] },
+            { nombre: "Propinas",                         url: "/es/finanzas/calculadora-propinas",           tags: ["restaurante", "camarero", "cuenta", "cenas", "dividir"] },
+            { nombre: "Préstamos",                        url: "/es/finanzas/calculadora-prestamos",          tags: ["banco", "hipoteca", "credito", "deuda", "cuota"] },
+            { nombre: "Divisas",                          url: "/es/finanzas/calculadora-divisas",            tags: ["moneda", "euro", "dolar", "cambio", "forex"] },
+            { nombre: "Interés Compuesto",                url: "/es/finanzas/calculadora-interes-compuesto",  tags: ["bolsa", "inversion", "ahorro", "dinero", "rentabilidad"] },
+            // Salud
+            { nombre: "IMC",                              url: "/es/salud/calculadora-imc",                   tags: ["peso", "salud", "grasa", "adelgazar"] },
+            { nombre: "Calorías (TMB)",                   url: "/es/salud/calculadora-calorias",              tags: ["dieta", "comida", "gym", "metabolismo"] },
+            { nombre: "Hidratación",                      url: "/es/salud/calculadora-hidratacion",           tags: ["agua", "beber", "sed", "salud", "deporte"] },
+            { nombre: "Calculadora de macros",            url: "/es/salud/calculadora-macros",                tags: ["proteinas", "carbohidratos", "grasas", "macronutrientes", "dieta", "nutricion", "tdee"] },
+            { nombre: "Frecuencia cardíaca",              url: "/es/salud/calculadora-frecuencia-cardiaca",   tags: ["pulsaciones", "fc maxima", "zonas entrenamiento", "karvonen", "tanaka", "cardio", "deporte"] },
+            // Matemáticas
+            { nombre: "Porcentajes",                      url: "/es/matematicas/calculadora-porcentajes",     tags: ["matematicas", "proporcion", "calculo"] },
+            { nombre: "Regla de tres",                    url: "/es/matematicas/regla-de-tres",               tags: ["proporciones", "directa", "inversa", "compuesta", "matematicas", "regla de 3"] },
+            { nombre: "Media, mediana y moda",            url: "/es/matematicas/media-mediana-moda",          tags: ["estadistica", "promedio", "media aritmetica", "mediana", "moda", "rango"] },
+            { nombre: "Calculadora de notas",             url: "/es/matematicas/calculadora-notas",           tags: ["notas", "media", "ponderada", "creditos", "universidad", "aprobado", "suspenso"] },
+            { nombre: "Área y perímetro",                 url: "/es/matematicas/area-y-perimetro",            tags: ["geometria", "area", "perimetro", "figuras", "circulo", "rectangulo", "triangulo", "metros cuadrados"] },
+            // Utilidades
+            { nombre: "Conversión de Unidades",           url: "/es/utilidades/calculadora-conversion",       tags: ["medidas", "metros", "pulgadas", "kilos", "temperatura", "convertir"] },
+            { nombre: "Días entre fechas",                url: "/es/utilidades/dias-entre-fechas",            tags: ["fecha", "dias", "calendario", "cuenta atras", "cuanto falta", "diferencia fechas"] },
+            { nombre: "Edad exacta",                      url: "/es/utilidades/calculadora-edad",             tags: ["edad", "años", "cumpleaños", "dias vividos", "cuantos años tengo"] },
+            { nombre: "Coste de viaje",                   url: "/es/utilidades/calculadora-coste-viaje",      tags: ["gasolina", "diesel", "viaje", "coche", "combustible", "carretera", "litros"] },
+            { nombre: "Valor del oro",                    url: "/es/utilidades/calculadora-oro",              tags: ["oro", "gramo", "precio oro", "joyeria", "quilates", "18k", "24k", "vender oro"] },
+            // Administración
+            { nombre: "DNI",                              url: "/es/administracion/validador-dni",            tags: ["nif", "letra", "documento", "identidad"] },
+            { nombre: "IRPF",                             url: "/es/administracion/calculadora-irpf",         tags: ["impuestos", "renta", "hacienda", "declaracion", "retencion", "comunidad autonoma"] },
+            { nombre: "IRPF Foral Navarra y País Vasco",  url: "/es/administracion/calculadora-irpf-foral",   tags: ["navarra", "pais vasco", "foral", "irpf", "renta", "euskadi", "hacienda foral"] },
+            { nombre: "Validador IBAN",                   url: "/es/administracion/validador-iban",           tags: ["iban", "cuenta bancaria", "transferencia", "validar iban", "banco"] },
+            { nombre: "Validador NIF empresa",            url: "/es/administracion/validador-nif-empresa",    tags: ["nif", "cif", "empresa", "sociedad", "validar cif", "validar nif", "autonomo"] },
+            // Curiosidades
+            { nombre: "Latidos en tu vida",               url: "/es/curiosidades/latidos-en-tu-vida",         tags: ["latidos", "corazon", "pulsaciones", "cuantos latidos", "curiosidad"] },
+            { nombre: "Respiraciones en tu vida",         url: "/es/curiosidades/respiraciones-en-tu-vida",   tags: ["respiraciones", "pulmones", "cuantas veces has respirado", "curiosidad"] },
+            { nombre: "Pasos en tu vida",                 url: "/es/curiosidades/pasos-en-tu-vida",           tags: ["pasos", "caminar", "cuantos pasos", "kilometros", "curiosidad"] },
+            { nombre: "Veces que has dormido",            url: "/es/curiosidades/veces-que-has-dormido",      tags: ["dormir", "noches", "horas dormidas", "cuanto has dormido", "curiosidad"] },
+            { nombre: "Edad de tu perro en años humanos", url: "/es/curiosidades/edad-perro",                 tags: ["perro", "años humanos", "edad perro", "multiplicar por 7", "mascota"] },
+            { nombre: "Tu edad en otros planetas",        url: "/es/curiosidades/edad-en-otros-planetas",     tags: ["planetas", "mercurio", "marte", "neptuno", "edad planetas", "sistema solar", "curiosidad"] },
         ],
         en: [
-            { nombre: "VAT", url: "/en/vat-calculator", tags: ["tax", "invoice", "hmrc", "freelance", "business"] },
-            { nombre: "BMI", url: "/en/bmi-calculator", tags: ["weight", "health", "fat", "lose weight"] },
-            { nombre: "Calories (BMR)", url: "/en/calorie-calculator", tags: ["diet", "food", "gym", "metabolism"] },
-            { nombre: "Hydration", url: "/en/hydration-calculator", tags: ["water", "drink", "thirst", "health", "sport"] },
-            { nombre: "Compound Interest", url: "/en/compound-interest-calculator", tags: ["stocks", "investment", "savings", "money", "profit"] },
-            { nombre: "Currency Converter", url: "/en/currency-converter", tags: ["money", "euro", "dollar", "exchange", "forex"] },
-            { nombre: "Loans", url: "/en/loan-calculator", tags: ["bank", "mortgage", "credit", "debt", "payment"] },
-            { nombre: "Tips", url: "/en/tip-calculator", tags: ["restaurant", "waiter", "bill", "dinner", "split"] },
-            { nombre: "Percentages", url: "/en/percentage-calculator", tags: ["math", "proportion", "ratio", "calculation"] },
-            { nombre: "Discounts", url: "/en/discount-calculator", tags: ["sales", "offers", "savings", "shopping", "final price"] },
-            { nombre: "Unit Converter", url: "/en/unit-converter", tags: ["measurements", "meters", "inches", "kilograms", "temperature", "convert"] },
+            // Finance
+            { nombre: "VAT",               url: "/en/finance/vat-calculator",               tags: ["tax", "invoice", "hmrc", "freelance", "business"] },
+            { nombre: "Discounts",         url: "/en/finance/discount-calculator",           tags: ["sales", "offers", "savings", "shopping", "final price"] },
+            { nombre: "Tips",              url: "/en/finance/tip-calculator",                tags: ["restaurant", "waiter", "bill", "dinner", "split"] },
+            { nombre: "Loans",             url: "/en/finance/loan-calculator",               tags: ["bank", "mortgage", "credit", "debt", "payment"] },
+            { nombre: "Currency Converter",url: "/en/finance/currency-converter",            tags: ["money", "euro", "dollar", "exchange", "forex"] },
+            { nombre: "Compound Interest", url: "/en/finance/compound-interest-calculator",  tags: ["stocks", "investment", "savings", "money", "profit"] },
+            // Health
+            { nombre: "BMI",               url: "/en/health/bmi-calculator",                tags: ["weight", "health", "fat", "lose weight"] },
+            { nombre: "Calories (BMR)",    url: "/en/health/calorie-calculator",             tags: ["diet", "food", "gym", "metabolism"] },
+            { nombre: "Hydration",         url: "/en/health/hydration-calculator",           tags: ["water", "drink", "thirst", "health", "sport"] },
+            // Math
+            { nombre: "Percentages",       url: "/en/math/percentage-calculator",            tags: ["math", "proportion", "ratio", "calculation"] },
+            // Utils
+            { nombre: "Unit Converter",    url: "/en/utils/unit-converter",                  tags: ["measurements", "meters", "inches", "kilograms", "temperature", "convert"] },
         ]
     };
 
@@ -94,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const getRecent = () => JSON.parse(localStorage.getItem(storageKey)) || [];
 
-    // --- EVENTOS (Se mantienen igual, ya usan la variable 'calculadoras' filtrada) ---
+    // --- EVENTOS ---
     input.addEventListener('focus', () => {
         if (input.value.trim() === "") {
             const recent = getRecent();
@@ -120,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
         displayResults(filtered);
     });
 
-    // Control teclado (Se mantiene igual)
+    // Control teclado
     input.addEventListener('keydown', (e) => {
         const items = results.querySelectorAll('li:not(.search-title)');
         if (e.key === 'ArrowDown') {

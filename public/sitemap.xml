@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       HOMES
+  ════════════════════════════════════════════════════════════════════════ -->
+
   <url>
     <loc>https://calculenow.com/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/"/>
@@ -28,6 +32,10 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       FINANZAS / FINANCE
+  ════════════════════════════════════════════════════════════════════════ -->
+
   <url>
     <loc>https://calculenow.com/es/finanzas/calculadora-iva</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/finanzas/calculadora-iva"/>
@@ -39,51 +47,6 @@
     <loc>https://calculenow.com/en/finance/vat-calculator</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/finance/vat-calculator"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/finanzas/calculadora-iva"/>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://calculenow.com/es/finanzas/calculadora-prestamos</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/finanzas/calculadora-prestamos"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/finance/loan-calculator"/>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://calculenow.com/en/finance/loan-calculator</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/finance/loan-calculator"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/finanzas/calculadora-prestamos"/>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://calculenow.com/es/finanzas/calculadora-interes-compuesto</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/finanzas/calculadora-interes-compuesto"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/finance/compound-interest-calculator"/>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://calculenow.com/en/finance/compound-interest-calculator</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/finance/compound-interest-calculator"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/finanzas/calculadora-interes-compuesto"/>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://calculenow.com/es/finanzas/calculadora-divisas</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/finanzas/calculadora-divisas"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/finance/currency-converter"/>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://calculenow.com/en/finance/currency-converter</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/finance/currency-converter"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/finanzas/calculadora-divisas"/>
     <lastmod>2026-03-22</lastmod>
     <priority>0.8</priority>
   </url>
@@ -119,8 +82,57 @@
   </url>
 
   <url>
-    <loc>https://calculenow.com/es/calculadora-imc</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-imc"/>
+    <loc>https://calculenow.com/es/finanzas/calculadora-prestamos</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/finanzas/calculadora-prestamos"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/finance/loan-calculator"/>
+    <lastmod>2026-03-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calculenow.com/en/finance/loan-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/finance/loan-calculator"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/finanzas/calculadora-prestamos"/>
+    <lastmod>2026-03-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://calculenow.com/es/finanzas/calculadora-divisas</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/finanzas/calculadora-divisas"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/finance/currency-converter"/>
+    <lastmod>2026-03-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calculenow.com/en/finance/currency-converter</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/finance/currency-converter"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/finanzas/calculadora-divisas"/>
+    <lastmod>2026-03-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://calculenow.com/es/finanzas/calculadora-interes-compuesto</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/finanzas/calculadora-interes-compuesto"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/finance/compound-interest-calculator"/>
+    <lastmod>2026-03-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calculenow.com/en/finance/compound-interest-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/finance/compound-interest-calculator"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/finanzas/calculadora-interes-compuesto"/>
+    <lastmod>2026-03-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       SALUD / HEALTH
+  ════════════════════════════════════════════════════════════════════════ -->
+
+  <url>
+    <loc>https://calculenow.com/es/salud/calculadora-imc</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/salud/calculadora-imc"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/health/bmi-calculator"/>
     <lastmod>2026-03-22</lastmod>
     <priority>0.8</priority>
@@ -128,14 +140,14 @@
   <url>
     <loc>https://calculenow.com/en/health/bmi-calculator</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/health/bmi-calculator"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-imc"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/salud/calculadora-imc"/>
     <lastmod>2026-03-22</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://calculenow.com/es/calculadora-calorias</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-calorias"/>
+    <loc>https://calculenow.com/es/salud/calculadora-calorias</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/salud/calculadora-calorias"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/health/calorie-calculator"/>
     <lastmod>2026-03-22</lastmod>
     <priority>0.8</priority>
@@ -143,14 +155,14 @@
   <url>
     <loc>https://calculenow.com/en/health/calorie-calculator</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/health/calorie-calculator"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-calorias"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/salud/calculadora-calorias"/>
     <lastmod>2026-03-22</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://calculenow.com/es/calculadora-hidratacion</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-hidratacion"/>
+    <loc>https://calculenow.com/es/salud/calculadora-hidratacion</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/salud/calculadora-hidratacion"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/health/hydration-calculator"/>
     <lastmod>2026-03-22</lastmod>
     <priority>0.8</priority>
@@ -158,10 +170,28 @@
   <url>
     <loc>https://calculenow.com/en/health/hydration-calculator</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/health/hydration-calculator"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-hidratacion"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/salud/calculadora-hidratacion"/>
     <lastmod>2026-03-22</lastmod>
     <priority>0.8</priority>
   </url>
+
+  <url>
+    <loc>https://calculenow.com/es/salud/calculadora-macros</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/salud/calculadora-macros"/>
+    <lastmod>2026-03-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://calculenow.com/es/salud/calculadora-frecuencia-cardiaca</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/salud/calculadora-frecuencia-cardiaca"/>
+    <lastmod>2026-03-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MATEMÁTICAS / MATH
+  ════════════════════════════════════════════════════════════════════════ -->
 
   <url>
     <loc>https://calculenow.com/es/matematicas/calculadora-porcentajes</loc>
@@ -179,30 +209,87 @@
   </url>
 
   <url>
-    <loc>https://calculenow.com/es/calculadora-conversion</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-conversion"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/utility/unit-converter"/>
+    <loc>https://calculenow.com/es/matematicas/regla-de-tres</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/matematicas/regla-de-tres"/>
+    <lastmod>2026-03-24</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://calculenow.com/es/matematicas/media-mediana-moda</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/matematicas/media-mediana-moda"/>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://calculenow.com/es/matematicas/calculadora-notas</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/matematicas/calculadora-notas"/>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://calculenow.com/es/matematicas/area-y-perimetro</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/matematicas/area-y-perimetro"/>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       UTILIDADES / UTILS
+  ════════════════════════════════════════════════════════════════════════ -->
+
+  <url>
+    <loc>https://calculenow.com/es/utilidades/calculadora-conversion</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/utilidades/calculadora-conversion"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/utils/unit-converter"/>
     <lastmod>2026-03-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://calculenow.com/en/utility/unit-converter</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/utility/unit-converter"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-conversion"/>
+    <loc>https://calculenow.com/en/utils/unit-converter</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/utils/unit-converter"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/utilidades/calculadora-conversion"/>
     <lastmod>2026-03-22</lastmod>
     <priority>0.8</priority>
   </url>
+
+  <url>
+    <loc>https://calculenow.com/es/utilidades/dias-entre-fechas</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/utilidades/dias-entre-fechas"/>
+    <lastmod>2026-03-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://calculenow.com/es/utilidades/calculadora-edad</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/utilidades/calculadora-edad"/>
+    <lastmod>2026-03-24</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://calculenow.com/es/utilidades/calculadora-coste-viaje</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/utilidades/calculadora-coste-viaje"/>
+    <lastmod>2026-03-24</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://calculenow.com/es/utilidades/calculadora-oro</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/utilidades/calculadora-oro"/>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       ADMINISTRACIÓN
+  ════════════════════════════════════════════════════════════════════════ -->
 
   <url>
     <loc>https://calculenow.com/es/administracion/validador-dni</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/administracion/validador-dni"/>
-    <lastmod>2026-03-22</lastmod>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://calculenow.com/es/dias-entre-fechas</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/dias-entre-fechas"/>
     <lastmod>2026-03-22</lastmod>
     <priority>0.8</priority>
   </url>
@@ -222,69 +309,6 @@
   </url>
 
   <url>
-    <loc>https://calculenow.com/es/calculadora-edad</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-edad"/>
-    <lastmod>2026-03-24</lastmod>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://calculenow.com/es/calculadora-coste-viaje</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-coste-viaje"/>
-    <lastmod>2026-03-24</lastmod>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://calculenow.com/es/matematicas/regla-de-tres</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/matematicas/regla-de-tres"/>
-    <lastmod>2026-03-24</lastmod>
-    <priority>0.8</priority>
-  </url>
-
-   <url>
-    <loc>https://calculenow.com/es/matematicas/media-mediana-moda</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/matematicas/media-mediana-moda"/>
-    <lastmod>2026-03-26</lastmod>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://calculenow.com/es/calculadra-notas</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-notas"/>
-    <lastmod>2026-03-26</lastmod>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://calculenow.com/es/area-y-perimetro</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/area-y-perimetro"/>
-    <lastmod>2026-03-26</lastmod>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://calculenow.com/es/calculadora-oro</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-oro"/>
-    <lastmod>2026-03-26</lastmod>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://calculenow.com/es/calculadora-macros</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-macros"/>
-    <lastmod>2026-03-27</lastmod>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://calculenow.com/es/calculadora-frecuencia-cardiaca</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-frecuencia-cardiaca"/>
-    <lastmod>2026-03-27</lastmod>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
     <loc>https://calculenow.com/es/administracion/validador-iban</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/administracion/validador-iban"/>
     <lastmod>2026-03-27</lastmod>
@@ -292,11 +316,61 @@
   </url>
 
   <url>
-    <loc>https://calculenow.com/es/validador-nif</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/validador-nif"/>
+    <loc>https://calculenow.com/es/administracion/validador-nif-empresa</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/administracion/validador-nif-empresa"/>
     <lastmod>2026-03-27</lastmod>
     <priority>0.8</priority>
   </url>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CURIOSIDADES
+  ════════════════════════════════════════════════════════════════════════ -->
+
+  <url>
+    <loc>https://calculenow.com/es/curiosidades/latidos-en-tu-vida</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/curiosidades/latidos-en-tu-vida"/>
+    <lastmod>2026-03-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://calculenow.com/es/curiosidades/respiraciones-en-tu-vida</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/curiosidades/respiraciones-en-tu-vida"/>
+    <lastmod>2026-03-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://calculenow.com/es/curiosidades/pasos-en-tu-vida</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/curiosidades/pasos-en-tu-vida"/>
+    <lastmod>2026-03-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://calculenow.com/es/curiosidades/veces-que-has-dormido</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/curiosidades/veces-que-has-dormido"/>
+    <lastmod>2026-03-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://calculenow.com/es/curiosidades/edad-perro</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/curiosidades/edad-perro"/>
+    <lastmod>2026-03-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://calculenow.com/es/curiosidades/edad-en-otros-planetas</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/curiosidades/edad-en-otros-planetas"/>
+    <lastmod>2026-03-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PÁGINAS LEGALES Y CONTACTO
+  ════════════════════════════════════════════════════════════════════════ -->
 
   <url>
     <loc>https://calculenow.com/es/contacto</loc>

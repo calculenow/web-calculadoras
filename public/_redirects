@@ -1,59 +1,136 @@
-# --- IDIOMA ESPAÑOL (/es/) ---
-/es/calculadora-porcentajes    /es/calculadora-porcentajes.html    200
-/es/regla-de-tres              /es/regla-de-tres.html              200
-/es/media-mediana-moda         /es/media-mediana-moda.html         200
-/es/calculadora-notas          /es/calculadora-notas.html          200
-/es/area-y-perimetro           /es/area-y-perimetro.html           200
-/es/calculadora-imc            /es/calculadora-imc.html            200
-/es/calculadora-iva            /es/calculadora-iva.html            200
-/es/calculadora-descuentos     /es/calculadora-descuentos.html     200
-/es/calculadora-propinas       /es/calculadora-propinas.html       200
-/es/calculadora-prestamos      /es/calculadora-prestamos.html      200
-/es/calculadora-calorias       /es/calculadora-calorias.html       200
-/es/calculadora-divisas        /es/calculadora-divisas.html        200
-/es/validador-dni              /es/validador-dni.html              200
-/es/calculadora-hidratacion    /es/calculadora-hidratacion.html    200
-/es/calculadora-conversion     /es/calculadora-conversion.html     200
-/es/dias-entre-fechas          /es/dias-entre-fechas.html          200
-/es/calculadora-irpf           /es/calculadora-irpf.html           200
-/es/calculadora-irpf-foral     /es/calculadora-irpf-foral.html     200
-/es/calculadora-edad           /es/calculadora-edad.html           200
-/es/calculadora-coste-viaje    /es/calculadora-coste-viaje.html    200
-/es/calculadora-oro            /es/calculadora-oro.html            200
+# =============================================================================
+# REDIRECTS — calculenow.com
+# Formato Netlify: [origen] [destino] [código]
+# 200 = rewrite (URL limpia sin .html)
+# 301 = redirect permanente (URLs antiguas que estuvieron en producción)
+# =============================================================================
 
 
-/es/calculadora-macros         /es/calculadora-macros.html         200
-/es/calculadora-frecuencia-cardiaca /es/calculadora-frecuencia-cardiaca.html 200
-/es/validador-iban             /es/validador-iban.html             200
-/es/validador-nif-empresa      /es/validador-nif-empresa.html      200
-/es/latidos-en-tu-vida         /es/latidos-en-tu-vida.html         200
-/es/respiraciones-en-tu-vida   /es/respiraciones-en-tu-vida.html   200
-/es/pasos-en-tu-vida           /es/pasos-en-tu-vida.html           200
-/es/veces-que-has-dormido      /es/veces-que-has-dormido.html      200
-/es/edad-perro-en-anos-humanos /es/edad-perro-en-anos-humanos.html 200
-/es/tu-edad-en-otros-planetas  /es/tu-edad-en-otros-planetas.html  200
+# --- 301s ES — URLs antiguas en producción → nueva estructura ---
+/es/calculadora-iva                  /es/finanzas/calculadora-iva                  301
+/es/calculadora-descuentos           /es/finanzas/calculadora-descuentos           301
+/es/calculadora-propinas             /es/finanzas/calculadora-propinas             301
+/es/calculadora-prestamos            /es/finanzas/calculadora-prestamos            301
+/es/calculadora-divisas              /es/finanzas/calculadora-divisas              301
+/es/calculadora-interes-compuesto    /es/finanzas/calculadora-interes-compuesto    301
+
+/es/calculadora-imc                  /es/salud/calculadora-imc                     301
+/es/calculadora-calorias             /es/salud/calculadora-calorias                301
+/es/calculadora-hidratacion          /es/salud/calculadora-hidratacion             301
+
+/es/calculadora-porcentajes          /es/matematicas/calculadora-porcentajes       301
+/es/regla-de-tres                    /es/matematicas/regla-de-tres                 301
+/es/media-mediana-moda               /es/matematicas/media-mediana-moda            301
+/es/calculadora-notas                /es/matematicas/calculadora-notas             301
+/es/area-y-perimetro                 /es/matematicas/area-y-perimetro              301
+
+/es/calculadora-conversion           /es/utilidades/calculadora-conversion         301
+/es/dias-entre-fechas                /es/utilidades/dias-entre-fechas              301
+/es/calculadora-edad                 /es/utilidades/calculadora-edad               301
+/es/calculadora-coste-viaje          /es/utilidades/calculadora-coste-viaje        301
+/es/calculadora-oro                  /es/utilidades/calculadora-oro                301
+
+/es/validador-dni                    /es/administracion/validador-dni              301
+/es/calculadora-irpf                 /es/administracion/calculadora-irpf           301
+/es/calculadora-irpf-foral           /es/administracion/calculadora-irpf-foral     301
+
+# --- 301s EN — URLs antiguas en producción → nueva estructura ---
+/en/vat-calculator                   /en/finance/vat-calculator                    301
+/en/discount-calculator              /en/finance/discount-calculator               301
+/en/tip-calculator                   /en/finance/tip-calculator                    301
+/en/loan-calculator                  /en/finance/loan-calculator                   301
+/en/currency-converter               /en/finance/currency-converter                301
+/en/compound-interest-calculator     /en/finance/compound-interest-calculator      301
+
+/en/bmi-calculator                   /en/health/bmi-calculator                     301
+/en/calorie-calculator               /en/health/calorie-calculator                 301
+/en/hydration-calculator             /en/health/hydration-calculator               301
+
+/en/percentage-calculator            /en/math/percentage-calculator                301
+
+/en/unit-converter                   /en/utils/unit-converter                      301
+
+
+# =============================================================================
+# 200s ES — URLs limpias → archivos HTML
+# =============================================================================
+
+# Finanzas
+/es/finanzas/calculadora-iva                  /es/finanzas/calculadora-iva.html                  200
+/es/finanzas/calculadora-descuentos           /es/finanzas/calculadora-descuentos.html           200
+/es/finanzas/calculadora-propinas             /es/finanzas/calculadora-propinas.html             200
+/es/finanzas/calculadora-prestamos            /es/finanzas/calculadora-prestamos.html            200
+/es/finanzas/calculadora-divisas              /es/finanzas/calculadora-divisas.html              200
+/es/finanzas/calculadora-interes-compuesto    /es/finanzas/calculadora-interes-compuesto.html    200
+
+# Salud
+/es/salud/calculadora-imc                     /es/salud/calculadora-imc.html                     200
+/es/salud/calculadora-calorias                /es/salud/calculadora-calorias.html                200
+/es/salud/calculadora-hidratacion             /es/salud/calculadora-hidratacion.html             200
+/es/salud/calculadora-macros                  /es/salud/calculadora-macros.html                  200
+/es/salud/calculadora-frecuencia-cardiaca     /es/salud/calculadora-frecuencia-cardiaca.html     200
+
+# Matemáticas
+/es/matematicas/calculadora-porcentajes       /es/matematicas/calculadora-porcentajes.html       200
+/es/matematicas/regla-de-tres                 /es/matematicas/regla-de-tres.html                 200
+/es/matematicas/media-mediana-moda            /es/matematicas/media-mediana-moda.html            200
+/es/matematicas/calculadora-notas             /es/matematicas/calculadora-notas.html             200
+/es/matematicas/area-y-perimetro              /es/matematicas/area-y-perimetro.html              200
+
+# Utilidades
+/es/utilidades/calculadora-conversion         /es/utilidades/calculadora-conversion.html         200
+/es/utilidades/dias-entre-fechas              /es/utilidades/dias-entre-fechas.html              200
+/es/utilidades/calculadora-edad               /es/utilidades/calculadora-edad.html               200
+/es/utilidades/calculadora-coste-viaje        /es/utilidades/calculadora-coste-viaje.html        200
+/es/utilidades/calculadora-oro                /es/utilidades/calculadora-oro.html                200
+
+# Administración
+/es/administracion/validador-dni              /es/administracion/validador-dni.html              200
+/es/administracion/calculadora-irpf           /es/administracion/calculadora-irpf.html           200
+/es/administracion/calculadora-irpf-foral     /es/administracion/calculadora-irpf-foral.html     200
+/es/administracion/validador-iban             /es/administracion/validador-iban.html             200
+/es/administracion/validador-nif-empresa      /es/administracion/validador-nif-empresa.html      200
+
+# Curiosidades
+/es/curiosidades/latidos-en-tu-vida           /es/curiosidades/latidos-en-tu-vida.html           200
+/es/curiosidades/respiraciones-en-tu-vida     /es/curiosidades/respiraciones-en-tu-vida.html     200
+/es/curiosidades/pasos-en-tu-vida             /es/curiosidades/pasos-en-tu-vida.html             200
+/es/curiosidades/veces-que-has-dormido        /es/curiosidades/veces-que-has-dormido.html        200
+/es/curiosidades/edad-perro                   /es/curiosidades/edad-perro.html                   200
+/es/curiosidades/edad-en-otros-planetas       /es/curiosidades/edad-en-otros-planetas.html       200
 
 # Legales ES
-/es/aviso-legal                /es/aviso-legal.html                200
-/es/privacidad                 /es/privacidad.html                 200
-/es/cookies                    /es/cookies.html                    200
-/es/contacto                   /es/contacto.html                   200
+/es/aviso-legal                               /es/aviso-legal.html                               200
+/es/privacidad                                /es/privacidad.html                                200
+/es/cookies                                   /es/cookies.html                                   200
+/es/contacto                                  /es/contacto.html                                  200
 
-# --- IDIOMA INGLÉS (/en/) ---
-/en/percentage-calculator      /en/percentage-calculator.html      200
-/en/bmi-calculator             /en/bmi-calculator.html             200
-/en/vat-calculator             /en/vat-calculator.html             200
-/en/discount-calculator        /en/discount-calculator.html        200
-/en/tip-calculator             /en/tip-calculator.html             200
-/en/loan-calculator            /en/loan-calculator.html            200
-/en/calorie-calculator         /en/calorie-calculator.html         200
-/en/currency-converter         /en/currency-converter.html         200
-/en/compound-interest-calculator /en/compound-interest-calculator.html 200
-/en/unit-converter             /en/unit-converter.html             200
+
+# =============================================================================
+# 200s EN — URLs limpias → archivos HTML
+# =============================================================================
+
+# Finance
+/en/finance/vat-calculator                    /en/finance/vat-calculator.html                    200
+/en/finance/discount-calculator               /en/finance/discount-calculator.html               200
+/en/finance/tip-calculator                    /en/finance/tip-calculator.html                    200
+/en/finance/loan-calculator                   /en/finance/loan-calculator.html                   200
+/en/finance/currency-converter                /en/finance/currency-converter.html                200
+/en/finance/compound-interest-calculator      /en/finance/compound-interest-calculator.html      200
+
+# Health
+/en/health/bmi-calculator                     /en/health/bmi-calculator.html                     200
+/en/health/calorie-calculator                 /en/health/calorie-calculator.html                 200
+/en/health/hydration-calculator               /en/health/hydration-calculator.html               200
+
+# Math
+/en/math/percentage-calculator                /en/math/percentage-calculator.html                200
+
+# Utils
+/en/utils/unit-converter                      /en/utils/unit-converter.html                      200
 
 # Legales EN
-/en/legal-notice               /en/legal-notice.html               200
-/en/privacy-policy             /en/privacy-policy.html             200
-/en/cookies                    /en/cookies.html                    200
-/en/contact                    /en/contact.html                    200
-
+/en/legal-notice                              /en/legal-notice.html                              200
+/en/privacy-policy                            /en/privacy-policy.html                            200
+/en/cookies                                   /en/cookies.html                                   200
+/en/contact                                   /en/contact.html                                   200

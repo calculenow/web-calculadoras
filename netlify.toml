@@ -30,61 +30,6 @@
   status = 301
 
 [[redirects]]
-  from = "/calculadora-calorias"
-  to = "/es/calculadora-calorias"
-  status = 301
-
-[[redirects]]
-  from = "/calculadora-conversion"
-  to = "/es/calculadora-conversion"
-  status = 301
-
-[[redirects]]
-  from = "/calculadora-descuentos"
-  to = "/es/calculadora-descuentos"
-  status = 301
-
-[[redirects]]
-  from = "/calculadora-divisas"
-  to = "/es/calculadora-divisas"
-  status = 301
-
-[[redirects]]
-  from = "/calculadora-hidratacion"
-  to = "/es/calculadora-hidratacion"
-  status = 301
-
-[[redirects]]
-  from = "/calculadora-imc"
-  to = "/es/calculadora-imc"
-  status = 301
-
-[[redirects]]
-  from = "/calculadora-interes-compuesto"
-  to = "/es/calculadora-interes-compuesto"
-  status = 301
-
-[[redirects]]
-  from = "/calculadora-iva"
-  to = "/es/calculadora-iva"
-  status = 301
-
-[[redirects]]
-  from = "/calculadora-porcentajes"
-  to = "/es/calculadora-porcentajes"
-  status = 301
-
-[[redirects]]
-  from = "/calculadora-prestamos"
-  to = "/es/calculadora-prestamos"
-  status = 301
-
-[[redirects]]
-  from = "/calculadora-propinas"
-  to = "/es/calculadora-propinas"
-  status = 301
-
-[[redirects]]
   from = "/contacto"
   to = "/es/contacto"
   status = 301
@@ -99,9 +44,69 @@
   to = "/es/privacidad"
   status = 301
 
+# Finanzas
+[[redirects]]
+  from = "/calculadora-iva"
+  to = "/es/finanzas/calculadora-iva"
+  status = 301
+
+[[redirects]]
+  from = "/calculadora-descuentos"
+  to = "/es/finanzas/calculadora-descuentos"
+  status = 301
+
+[[redirects]]
+  from = "/calculadora-propinas"
+  to = "/es/finanzas/calculadora-propinas"
+  status = 301
+
+[[redirects]]
+  from = "/calculadora-prestamos"
+  to = "/es/finanzas/calculadora-prestamos"
+  status = 301
+
+[[redirects]]
+  from = "/calculadora-divisas"
+  to = "/es/finanzas/calculadora-divisas"
+  status = 301
+
+[[redirects]]
+  from = "/calculadora-interes-compuesto"
+  to = "/es/finanzas/calculadora-interes-compuesto"
+  status = 301
+
+# Salud
+[[redirects]]
+  from = "/calculadora-imc"
+  to = "/es/salud/calculadora-imc"
+  status = 301
+
+[[redirects]]
+  from = "/calculadora-calorias"
+  to = "/es/salud/calculadora-calorias"
+  status = 301
+
+[[redirects]]
+  from = "/calculadora-hidratacion"
+  to = "/es/salud/calculadora-hidratacion"
+  status = 301
+
+# Matemáticas
+[[redirects]]
+  from = "/calculadora-porcentajes"
+  to = "/es/matematicas/calculadora-porcentajes"
+  status = 301
+
+# Administración
 [[redirects]]
   from = "/validador-dni"
-  to = "/es/validador-dni"
+  to = "/es/administracion/validador-dni"
+  status = 301
+
+# Utilidades
+[[redirects]]
+  from = "/calculadora-conversion"
+  to = "/es/utilidades/calculadora-conversion"
   status = 301
 
 # -----------------------------------------------------------
@@ -118,7 +123,7 @@
   function = "languageredirect"
   path = "/"
 
-  # -----------------------------------------------------------
+# -----------------------------------------------------------
 # PROCESADO Y OPTIMIZACIÓN
 # -----------------------------------------------------------
 [build.processing]
