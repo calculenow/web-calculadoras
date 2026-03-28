@@ -164,16 +164,16 @@
   </url>
 
   <url>
-    <loc>https://calculenow.com/es/calculadora-porcentajes</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-porcentajes"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/percentage-calculator"/>
+    <loc>https://calculenow.com/es/matematicas/calculadora-porcentajes</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/matematicas/calculadora-porcentajes"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/math/percentage-calculator"/>
     <lastmod>2026-03-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://calculenow.com/en/percentage-calculator</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/percentage-calculator"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/calculadora-porcentajes"/>
+    <loc>https://calculenow.com/en/math/percentage-calculator</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/math/percentage-calculator"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/matematicas/calculadora-porcentajes"/>
     <lastmod>2026-03-22</lastmod>
     <priority>0.8</priority>
   </url>
@@ -236,15 +236,15 @@
   </url>
 
   <url>
-    <loc>https://calculenow.com/es/regla-de-tres</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/regla-de-tres"/>
+    <loc>https://calculenow.com/es/matematicas/regla-de-tres</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/matematicas/regla-de-tres"/>
     <lastmod>2026-03-24</lastmod>
     <priority>0.8</priority>
   </url>
 
    <url>
-    <loc>https://calculenow.com/es/media-mediana-moda</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/media-mediana-moda"/>
+    <loc>https://calculenow.com/es/matematicas/media-mediana-moda</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/matematicas/media-mediana-moda"/>
     <lastmod>2026-03-26</lastmod>
     <priority>0.8</priority>
   </url>
