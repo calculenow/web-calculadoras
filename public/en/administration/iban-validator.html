@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "IBAN Validator",
+      "url": "https://calculenow.com/en/administration/iban-validator",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Validate any IBAN number instantly. Check whether the format is correct and get a breakdown of the country, check digits and account number."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is an IBAN?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An IBAN (International Bank Account Number) is an internationally agreed standard for identifying bank accounts. It consists of a country code (2 letters), two check digits and the domestic account number specific to each country."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is an IBAN validated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Validation uses the MOD-97 algorithm: the first four characters are moved to the end, letters are converted to numbers (A=10, B=11...) and the result is checked to confirm that dividing the number by 97 leaves a remainder of 1."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many digits does a UK IBAN have?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A UK IBAN has 22 characters: GB + 2 check digits + 18 digits (4-digit sort code prefix, 6-digit sort code and 8-digit account number)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is an IBAN the same as an account number?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The account number is the domestic part of the bank account. The IBAN adds the country code and check digits to allow standardised international transfers."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <title>IBAN Validator — Check if Your IBAN is Correct | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/en/administration/iban-validator" />
+    <link rel="alternate" hreflang="en" href="https://calculenow.com/en/administration/iban-validator" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/administracion/validador-iban" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/administracion/validador-iban" />
+
+    <meta name="description" content="Validate any IBAN instantly. Check the format and get a breakdown of the country and account number. Free, no registration." />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/en/administration/iban-validator" />
+    <meta property="og:title" content="IBAN Validator — Check if Your IBAN is Correct | Calculenow" />
+    <meta property="og:description" content="Validate any IBAN instantly. Check format, country and check digits. Free." />
+    <meta property="og:image" content="https://calculenow.com/images/og-en.jpg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="IBAN Validator — Check if Your IBAN is Correct" />
+    <meta name="twitter:description" content="Validate any IBAN instantly. Free." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-en.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
+    <header></header>
+
+    <main>
+      <div class="card iban-card">
+        <h1>IBAN Validator</h1>
+        <p>Enter an IBAN number to check whether it is valid and get a full breakdown.</p>
+
+        <div class="form-group">
+          <label for="iban-input">IBAN number</label>
+          <input id="iban-input" class="field validator-field" type="text"
+            placeholder="E.g. GB29 NWBK 6016 1331 9268 19"
+            maxlength="42" autocomplete="off" spellcheck="false" />
+          <p class="validator-label-hint">Spaces are ignored automatically. You can paste the IBAN with or without spaces.</p>
+        </div>
+
+        <button class="btn btn-validator" id="btn-validar" type="button">Validate IBAN</button>
+
+        <div class="result validator-result" id="validator-result"></div>
+
+        <div id="iban-i18n" style="display:none"
+          data-ms-error-empty="Please enter an IBAN number."
+          data-ms-error-format="Invalid format. The IBAN must start with two country letters followed by two digits."
+          data-ms-error-length="An IBAN from {pais} must have {esperada} characters. This one has {actual}."
+          data-label-valid="Valid IBAN"
+          data-label-invalid="Invalid IBAN"
+          data-label-formatted="Formatted IBAN"
+          data-label-country="Country"
+          data-label-check-digits="Check digits"
+          data-label-bban="BBAN (national account number)"
+          data-label-length="Length"
+          data-label-chars="characters"
+          data-label-reason="Reason"
+          data-label-wrong-check-digits="The check digits are incorrect"
+          data-label-unknown-country="Unknown country"
+          data-hint-error="Check that you have copied the IBAN correctly. A single incorrect digit invalidates the check code."
+          data-btn-copy="Copy IBAN"
+
+          data-country-AD="Andorra"
+          data-country-AT="Austria"
+          data-country-BE="Belgium"
+          data-country-BG="Bulgaria"
+          data-country-CH="Switzerland"
+          data-country-CY="Cyprus"
+          data-country-CZ="Czech Republic"
+          data-country-DE="Germany"
+          data-country-DK="Denmark"
+          data-country-EE="Estonia"
+          data-country-ES="Spain"
+          data-country-FI="Finland"
+          data-country-FR="France"
+          data-country-GB="United Kingdom"
+          data-country-GR="Greece"
+          data-country-HR="Croatia"
+          data-country-HU="Hungary"
+          data-country-IE="Ireland"
+          data-country-IS="Iceland"
+          data-country-IT="Italy"
+          data-country-LI="Liechtenstein"
+          data-country-LT="Lithuania"
+          data-country-LU="Luxembourg"
+          data-country-LV="Latvia"
+          data-country-MC="Monaco"
+          data-country-MT="Malta"
+          data-country-NL="Netherlands"
+          data-country-NO="Norway"
+          data-country-PL="Poland"
+          data-country-PT="Portugal"
+          data-country-RO="Romania"
+          data-country-SE="Sweden"
+          data-country-SI="Slovenia"
+          data-country-SK="Slovakia"
+          data-country-SM="San Marino"
+          data-country-TR="Turkey">
+        </div>
+
+        <div class="related-tools">
+          <p><strong>Other useful tools:</strong></p>
+          <ul>
+            <li>
+              <a href="/en/finance/currency-converter">
+                ➔ <strong>Currency converter:</strong> Convert between more than 30 currencies with updated rates.
+              </a>
+            </li>
+            <li>
+              <a href="/en/finance/loan-calculator">
+                ➔ <strong>Loan calculator:</strong> Calculate your monthly payment and total interest.
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="legal-content">
+        <h2>What is an IBAN and how does it work?</h2>
+        <p>The IBAN (<em>International Bank Account Number</em>) is an international standard for identifying bank accounts, defined by ISO 13616. It allows transfers between countries in a standardised way and with a lower risk of errors.</p>
+
+        <h2>IBAN structure</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>Part</th><th>Length</th><th>Example (GB)</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Country code</td><td>2 letters</td><td>GB</td><td>ISO country code</td></tr>
+              <tr><td>Check digits</td><td>2 numbers</td><td>29</td><td>Verify the IBAN is valid</td></tr>
+              <tr><td>BBAN</td><td>Variable</td><td>NWBK 6016 1331 9268 19</td><td>Domestic account number</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>IBAN length by country</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>Country</th><th>Code</th><th>Length</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>United Kingdom</td><td>GB</td><td>22</td></tr>
+              <tr><td>Germany</td><td>DE</td><td>22</td></tr>
+              <tr><td>France</td><td>FR</td><td>27</td></tr>
+              <tr><td>Spain</td><td>ES</td><td>24</td></tr>
+              <tr><td>Italy</td><td>IT</td><td>27</td></tr>
+              <tr><td>Portugal</td><td>PT</td><td>25</td></tr>
+              <tr><td>Netherlands</td><td>NL</td><td>18</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>How is an IBAN validated?</h2>
+        <p>The MOD-97 validation algorithm works as follows:</p>
+        <ol>
+          <li>The first four characters are moved to the end of the IBAN.</li>
+          <li>All letters are converted to numbers (A=10, B=11, ... Z=35).</li>
+          <li>The resulting number is divided by 97.</li>
+          <li>If the remainder is 1, the IBAN is valid.</li>
+        </ol>
+      </section>
+
+      <div class="faq-section">
+        <h3>Frequently asked questions about IBAN</h3>
+
+        <details>
+          <summary>What is an IBAN?</summary>
+          <div class="faq-content">
+            <p>An internationally agreed standard that uniquely identifies a bank account. It consists of a country code, two check digits and the domestic account number.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>How many digits does a UK IBAN have?</summary>
+          <div class="faq-content">
+            <p>22 characters: GB + 2 check digits + 18 digits (sort code and account number).</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>How is an IBAN validated?</summary>
+          <div class="faq-content">
+            <p>Using the MOD-97 algorithm: the IBAN is rearranged, letters are converted to numbers and the result modulo 97 must equal 1.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Is an IBAN the same as an account number?</summary>
+          <div class="faq-content">
+            <p>No. The account number is the domestic part. The IBAN adds the country code and check digits to allow standardised international transfers.</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>We use cookies to improve your experience. <a href="/en/cookies">View cookie policy</a></p>
+        <div class="cookie-buttons">
+          <button class="accept-cookies" id="btn-accept-all">Accept all</button>
+          <button class="reject-cookies" id="btn-reject-all">Reject all</button>
+          <button class="settings-cookies" id="btn-open-settings">Settings</button>
+        </div>
+      </div>
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Customize your preferences:</strong></p>
+        <div class="cookie-option"><input type="checkbox" id="check-necessary" checked disabled /><label>Necessary (Required)</label></div>
+        <div class="cookie-option"><input type="checkbox" id="check-analytics" /><label>Analytics (Google Analytics)</label></div>
+        <div class="cookie-option"><input type="checkbox" id="check-marketing" /><label>Marketing (Ad pixels)</label></div>
+        <div class="cookie-buttons" style="margin-top:15px">
+          <button class="accept-cookies" id="btn-save-settings">Save settings</button>
+          <button class="settings-cookies" id="btn-back">Back</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/ads.js" async defer></script>
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/buscador.js" defer></script>
+    <script src="/js/core.js" defer></script>
+    <script src="/js/administracion/iban.js" defer></script>
+  </body>
+</html>

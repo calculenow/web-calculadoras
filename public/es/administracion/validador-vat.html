@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Validador de Número VAT/IVA Europeo",
+      "url": "https://calculenow.com/es/administracion/validador-vat",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "description": "Valida el número VAT (IVA) de cualquier empresa europea al instante. Comprueba el formato según el país e identifica si es correcto. Gratis y sin registro."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es el número VAT?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El número VAT (Value Added Tax) es el número de identificación fiscal para el IVA que tienen las empresas registradas en la UE. En España equivale al NIF con el prefijo ES. Se usa en facturas intracomunitarias y en operaciones comerciales entre empresas de distintos países europeos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuál es el VAT number de una empresa española?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El VAT number español es el prefijo ES seguido del NIF de la empresa. Por ejemplo, si el NIF es A12345678, el VAT number es ESA12345678."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Para qué sirve el número VAT?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Se usa en facturas entre empresas de distintos países de la UE (operaciones intracomunitarias), para aplicar el IVA 0% en ventas a empresas de otros estados miembros y para verificar que el cliente o proveedor europeo está registrado como operador de IVA."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo se valida un número VAT?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cada país de la UE tiene su propio formato para el número VAT. La validación de formato comprueba que el número sigue la estructura oficial del país indicado por el prefijo. Para una verificación oficial en tiempo real, la Comisión Europea ofrece el sistema VIES."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <title>Validador de Número VAT/IVA Europeo — Comprueba el Formato | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/es/administracion/validador-vat" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/administracion/validador-vat" />
+    <link rel="alternate" hreflang="en" href="https://calculenow.com/en/administration/vat-validator" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/administracion/validador-vat" />
+
+    <meta name="description" content="Valida el número VAT (IVA) de cualquier empresa europea al instante. Comprueba el formato por país. Gratis y sin registro." />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/es/administracion/validador-vat" />
+    <meta property="og:title" content="Validador de Número VAT/IVA Europeo | Calculenow" />
+    <meta property="og:description" content="Valida el número VAT de cualquier empresa europea. Comprueba el formato por país. Gratis." />
+    <meta property="og:image" content="https://calculenow.com/images/og-es.jpg" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Validador de Número VAT/IVA Europeo" />
+    <meta name="twitter:description" content="Valida el número VAT de cualquier empresa europea al instante. Gratis." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-es.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
+    <header></header>
+
+    <main>
+      <div class="card vat-card">
+        <h1>Validador de Número VAT/IVA Europeo</h1>
+        <p>Introduce el número VAT de una empresa europea para comprobar si el formato es correcto.</p>
+
+        <div class="form-group">
+          <label for="vat-input">Número VAT</label>
+          <input id="vat-input" class="field validator-field" type="text"
+            placeholder="Ej: ESA12345678"
+            maxlength="20" autocomplete="off" spellcheck="false" />
+          <p class="validator-label-hint">Empieza por el código de país de dos letras seguido del número. Ej: ES, DE, FR, GB...</p>
+        </div>
+
+        <button class="btn btn-validator" id="btn-validar" type="button">Validar VAT</button>
+
+        <div class="result validator-result" id="vat-result"></div>
+
+        <div id="vat-i18n" style="display:none"
+          data-ms-error-empty="Introduce un número VAT."
+          data-ms-error-too-short="El número VAT es demasiado corto. Empieza por el código de país (2 letras)."
+          data-ms-error-country="El prefijo '{code}' no corresponde a ningún país de la UE admitido."
+          data-label-valid="Número VAT válido"
+          data-label-invalid="Número VAT no válido"
+          data-label-vat="Número VAT"
+          data-label-country="País"
+          data-label-number="Número de empresa"
+          data-label-expected-format="Formato esperado"
+          data-label-reason="Motivo"
+          data-label-wrong-format="El formato no coincide con el estándar del país"
+          data-label-unknown-country="País desconocido"
+          data-hint-error="Comprueba que el número VAT está escrito correctamente. El formato varía según el país. Para verificación oficial usa el sistema VIES de la Comisión Europea."
+          data-btn-copy="Copiar VAT"
+
+          data-country-AT="Austria"
+          data-country-BE="Bélgica"
+          data-country-BG="Bulgaria"
+          data-country-CY="Chipre"
+          data-country-CZ="República Checa"
+          data-country-DE="Alemania"
+          data-country-DK="Dinamarca"
+          data-country-EE="Estonia"
+          data-country-ES="España"
+          data-country-FI="Finlandia"
+          data-country-FR="Francia"
+          data-country-GB="Reino Unido"
+          data-country-GR="Grecia"
+          data-country-HR="Croacia"
+          data-country-HU="Hungría"
+          data-country-IE="Irlanda"
+          data-country-IT="Italia"
+          data-country-LT="Lituania"
+          data-country-LU="Luxemburgo"
+          data-country-LV="Letonia"
+          data-country-MT="Malta"
+          data-country-NL="Países Bajos"
+          data-country-PL="Polonia"
+          data-country-PT="Portugal"
+          data-country-RO="Rumanía"
+          data-country-SE="Suecia"
+          data-country-SI="Eslovenia"
+          data-country-SK="Eslovaquia">
+        </div>
+
+        <div class="related-tools">
+          <p><strong>Otras herramientas administrativas:</strong></p>
+          <ul>
+            <li>
+              <a href="/es/administracion/validador-iban">
+                ➔ <strong>Validador IBAN:</strong> Comprueba si un número IBAN es correcto.
+              </a>
+            </li>
+            <li>
+              <a href="/es/administracion/validador-bic">
+                ➔ <strong>Validador BIC/SWIFT:</strong> Comprueba el código de identificación de un banco.
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="legal-content">
+        <h2>¿Qué es el número VAT?</h2>
+        <p>El número VAT (<em>Value Added Tax</em>) es el identificador fiscal que tienen las empresas registradas como operadores de IVA en la Unión Europea. En España equivale al NIF con el prefijo <strong>ES</strong> delante. Es obligatorio en facturas entre empresas de distintos estados miembros (operaciones intracomunitarias).</p>
+
+        <h2>Formato del VAT por país</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>País</th><th>Prefijo</th><th>Formato</th><th>Ejemplo</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>España</td><td>ES</td><td>ES + letra/número + 7 dígitos + letra/número</td><td>ESA12345678</td></tr>
+              <tr><td>Alemania</td><td>DE</td><td>DE + 9 dígitos</td><td>DE123456789</td></tr>
+              <tr><td>Francia</td><td>FR</td><td>FR + 2 alfanuméricos + 9 dígitos</td><td>FRXX123456789</td></tr>
+              <tr><td>Italia</td><td>IT</td><td>IT + 11 dígitos</td><td>IT12345678901</td></tr>
+              <tr><td>Reino Unido</td><td>GB</td><td>GB + 9 o 12 dígitos</td><td>GB123456789</td></tr>
+              <tr><td>Portugal</td><td>PT</td><td>PT + 9 dígitos</td><td>PT123456789</td></tr>
+              <tr><td>Países Bajos</td><td>NL</td><td>NL + 9 dígitos + B + 2 dígitos</td><td>NL123456789B01</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>¿Esta validación es oficial?</h2>
+        <p>Esta herramienta valida el <strong>formato</strong> del número VAT según las reglas oficiales de cada país. No verifica en tiempo real si el número está activo o dado de alta en el sistema fiscal. Para una verificación oficial, usa el sistema <strong>VIES</strong> de la Comisión Europea.</p>
+      </section>
+
+      <div class="faq-section">
+        <h3>Preguntas frecuentes sobre el número VAT</h3>
+
+        <details>
+          <summary>¿Qué es el número VAT?</summary>
+          <div class="faq-content">
+            <p>El identificador fiscal para el IVA de empresas registradas en la UE. En España es el NIF con el prefijo ES. Se usa en facturas intracomunitarias.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Cuál es el VAT number de una empresa española?</summary>
+          <div class="faq-content">
+            <p>El prefijo ES seguido del NIF. Por ejemplo, si el NIF es A12345678, el VAT number es ESA12345678.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Para qué sirve el número VAT?</summary>
+          <div class="faq-content">
+            <p>Para facturar entre empresas de distintos países de la UE con IVA 0% intracomunitario y para verificar que el cliente o proveedor europeo está registrado como operador de IVA.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Cómo verifico un VAT de forma oficial?</summary>
+          <div class="faq-content">
+            <p>Usa el sistema VIES (VAT Information Exchange System) de la Comisión Europea, que verifica en tiempo real si un número VAT está activo en el registro de cada estado miembro.</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>Utilizamos cookies para mejorar tu experiencia. <a href="/es/cookies">Más información</a></p>
+        <div class="cookie-buttons">
+          <button id="btn-accept-all">Aceptar todas</button>
+          <button id="btn-reject-all">Rechazar</button>
+          <button id="btn-open-settings">Configurar</button>
+        </div>
+      </div>
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Configuración de cookies</strong></p>
+        <label><input type="checkbox" id="check-analytics" /> Analíticas</label>
+        <label><input type="checkbox" id="check-marketing" /> Marketing</label>
+        <div class="cookie-buttons">
+          <button id="btn-back">← Volver</button>
+          <button id="btn-save-settings">Guardar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/ads.js" async defer></script>
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/buscador.js" defer></script>
+    <script src="/js/core.js" defer></script>
+    <script src="/js/administracion/vat.js" defer></script>
+  </body>
+</html>

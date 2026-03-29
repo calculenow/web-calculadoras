@@ -79,7 +79,6 @@
 
     <meta name="description" content="Valida el NIF de cualquier empresa española (antiguo CIF) al instante. Comprueba el formato, tipo de sociedad y dígito de control. Gratis y sin registro." />
 
-    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://calculenow.com/es/administracion/validador-nif-empresa" />
     <meta property="og:title" content="Validador de NIF de Empresa (CIF) — Comprueba si es Correcto | Calculenow" />
@@ -88,7 +87,6 @@
     <meta property="og:locale" content="es_ES" />
     <meta property="og:site_name" content="Calculenow" />
 
-    <!-- Twitter/X -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Validador de NIF de Empresa (CIF)" />
     <meta name="twitter:description" content="Valida el NIF de empresa español al instante. Gratis." />
@@ -110,21 +108,21 @@
     <header></header>
 
     <main>
-      <div class="card nif-card">
+      <div class="card validator-card">
         <h1>Validador de NIF de Empresa</h1>
         <p>Introduce el NIF (antiguo CIF) de una empresa española para comprobar si es válido y conocer el tipo de sociedad.</p>
 
         <div class="form-group">
           <label for="nif-input">NIF de empresa</label>
-          <input id="nif-input" class="field nif-field" type="text"
+          <input id="nif-input" class="field validator-field" type="text"
             placeholder="Ej: B12345674"
             maxlength="9" autocomplete="off" spellcheck="false" />
-          <p class="nif-hint">Formato: 1 letra + 7 dígitos + 1 carácter de control (letra o número).</p>
+          <p class="validator-label-hint">Formato: 1 letra + 7 dígitos + 1 carácter de control (letra o número).</p>
         </div>
 
-        <button class="btn btn-nif" id="btn-validar" type="button">Validar NIF</button>
+        <button class="btn btn-validator" id="btn-validar" type="button">Validar NIF</button>
 
-        <div class="result nif-result" id="nif-result"></div>
+        <div class="result validator-result" id="validator-result"></div>
 
         <div class="related-tools">
           <p><strong>Otras herramientas administrativas:</strong></p>
@@ -176,7 +174,7 @@
         </div>
 
         <h2>¿Cuándo el dígito de control es letra y cuándo número?</h2>
-        <p>Depende de la letra inicial del NIF. Para las letidades <strong>P, Q, R, S, W</strong> el carácter de control es siempre una letra. Para <strong>A, B, E, H</strong> es siempre un número. Para el resto puede ser cualquiera de los dos, y se usa el que resulte del algoritmo.</p>
+        <p>Depende de la letra inicial del NIF. Para las entidades <strong>P, Q, R, S, W</strong> el carácter de control es siempre una letra. Para <strong>A, B, E, H</strong> es siempre un número. Para el resto puede ser cualquiera de los dos, y se usa el que resulte del algoritmo.</p>
       </section>
 
       <div class="faq-section">

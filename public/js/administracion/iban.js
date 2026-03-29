@@ -2,64 +2,41 @@
  * iban.js
  * Validador de IBAN usando el algoritmo MOD-97 (ISO 13616).
  * Soporta IBANs de cualquier país.
+ * Todos los textos visibles se leen desde data-* de div#iban-i18n (i18n via HTML).
+ * Los nombres de país se leen desde data-country-{code} del mismo div.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  const i18n = document.getElementById('iban-i18n');
+  if (!i18n) return;
+  const d = i18n.dataset;
+
   const btn       = document.getElementById('btn-validar');
   const input     = document.getElementById('iban-input');
-  const resultDiv = document.getElementById('iban-result');
+  const resultDiv = document.getElementById('validator-result');
 
   // ── DATOS DE PAÍSES ────────────────────────────────────────────────────────
-  const paises = {
-    AD: { nombre: 'Andorra',          len: 24 },
-    AT: { nombre: 'Austria',          len: 20 },
-    BE: { nombre: 'Bélgica',          len: 16 },
-    BG: { nombre: 'Bulgaria',         len: 22 },
-    CH: { nombre: 'Suiza',            len: 21 },
-    CY: { nombre: 'Chipre',           len: 28 },
-    CZ: { nombre: 'República Checa',  len: 24 },
-    DE: { nombre: 'Alemania',         len: 22 },
-    DK: { nombre: 'Dinamarca',        len: 18 },
-    EE: { nombre: 'Estonia',          len: 20 },
-    ES: { nombre: 'España',           len: 24 },
-    FI: { nombre: 'Finlandia',        len: 18 },
-    FR: { nombre: 'Francia',          len: 27 },
-    GB: { nombre: 'Reino Unido',      len: 22 },
-    GR: { nombre: 'Grecia',           len: 27 },
-    HR: { nombre: 'Croacia',          len: 21 },
-    HU: { nombre: 'Hungría',          len: 28 },
-    IE: { nombre: 'Irlanda',          len: 22 },
-    IS: { nombre: 'Islandia',         len: 26 },
-    IT: { nombre: 'Italia',           len: 27 },
-    LI: { nombre: 'Liechtenstein',    len: 21 },
-    LT: { nombre: 'Lituania',         len: 20 },
-    LU: { nombre: 'Luxemburgo',       len: 20 },
-    LV: { nombre: 'Letonia',          len: 21 },
-    MC: { nombre: 'Mónaco',           len: 27 },
-    MT: { nombre: 'Malta',            len: 31 },
-    NL: { nombre: 'Países Bajos',     len: 18 },
-    NO: { nombre: 'Noruega',          len: 15 },
-    PL: { nombre: 'Polonia',          len: 28 },
-    PT: { nombre: 'Portugal',         len: 25 },
-    RO: { nombre: 'Rumanía',          len: 24 },
-    SE: { nombre: 'Suecia',           len: 24 },
-    SI: { nombre: 'Eslovenia',        len: 19 },
-    SK: { nombre: 'Eslovaquia',       len: 24 },
-    SM: { nombre: 'San Marino',       len: 27 },
-    TR: { nombre: 'Turquía',          len: 26 },
+  // Longitudes fijas por código de país (ISO 13616)
+  const ibanLengths = {
+    AD:24, AT:20, BE:16, BG:22, CH:21, CY:28, CZ:24, DE:22, DK:18,
+    EE:20, ES:24, FI:18, FR:27, GB:22, GR:27, HR:21, HU:28, IE:22,
+    IS:26, IT:27, LI:21, LT:20, LU:20, LV:21, MC:27, MT:31, NL:18,
+    NO:15, PL:28, PT:25, RO:24, SE:24, SI:19, SK:24, SM:27, TR:26,
   };
+
+  // Nombre del país — leído del HTML via data-country-{code}
+  function getNombrePais(code) {
+    return d[`country${code}`] || `${d.labelUnknownCountry} (${code})`;
+  }
 
   // ── ALGORITMO MOD-97 ───────────────────────────────────────────────────────
   function validarMod97(iban) {
-    // Mover los 4 primeros caracteres al final
     const reordenado = iban.slice(4) + iban.slice(0, 4);
-    // Convertir letras a números (A=10, B=11, ..., Z=35)
     const numerico = reordenado.split('').map(c => {
       const code = c.charCodeAt(0);
       return code >= 65 && code <= 90 ? code - 55 : c;
     }).join('');
-    // Calcular MOD-97 en bloques para evitar overflow
     let resto = 0;
     for (let i = 0; i < numerico.length; i += 9) {
       resto = parseInt(resto + numerico.slice(i, i + 9)) % 97;
@@ -74,62 +51,60 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── VALIDAR ────────────────────────────────────────────────────────────────
   const validar = () => {
-    const raw  = input.value.replace(/\s/g, '').toUpperCase();
+    const raw = input.value.replace(/\s/g, '').toUpperCase();
 
     if (!raw) {
-      resultDiv.innerHTML = '<p class="error-msg">⚠️ Introduce un número IBAN.</p>';
+      resultDiv.innerHTML = `<p class="error-msg">⚠️ ${d.msErrorEmpty}</p>`;
       return;
     }
 
     if (!/^[A-Z]{2}[0-9]{2}[A-Z0-9]+$/.test(raw)) {
-      resultDiv.innerHTML = '<p class="error-msg">⚠️ Formato incorrecto. El IBAN debe empezar por dos letras de país seguidas de dos dígitos.</p>';
+      resultDiv.innerHTML = `<p class="error-msg">⚠️ ${d.msErrorFormat}</p>`;
       return;
     }
 
-    const codigoPais = raw.slice(0, 2);
+    const codigoPais     = raw.slice(0, 2);
     const digitosControl = raw.slice(2, 4);
-    const bban = raw.slice(4);
-    const pais = paises[codigoPais];
+    const bban           = raw.slice(4);
+    const longitudEsperada = ibanLengths[codigoPais];
+    const nombrePais     = getNombrePais(codigoPais);
 
-    // Verificar longitud si conocemos el país
-    if (pais && raw.length !== pais.len) {
-      resultDiv.innerHTML = `<p class="error-msg">⚠️ Un IBAN de ${pais.nombre} debe tener ${pais.len} caracteres. Este tiene ${raw.length}.</p>`;
+    if (longitudEsperada && raw.length !== longitudEsperada) {
+      resultDiv.innerHTML = `<p class="error-msg">⚠️ ${d.msErrorLength.replace('{pais}', nombrePais).replace('{esperada}', longitudEsperada).replace('{actual}', raw.length)}</p>`;
       return;
     }
 
-    const esValido = validarMod97(raw);
+    const esValido       = validarMod97(raw);
     const ibanFormateado = formatearIban(raw);
-    const nombrePais = pais ? pais.nombre : `País desconocido (${codigoPais})`;
 
     if (esValido) {
       resultDiv.innerHTML = `
-        <div class="resumen-calculo iban-valido">
-          <p class="resumen-titulo">✅ IBAN válido</p>
+        <div class="resumen-calculo result-valid">
+          <p class="resumen-titulo">✅ ${d.labelValid}</p>
           <ul>
-            <li><span>IBAN formateado</span><span class="iban-formateado">${ibanFormateado}</span></li>
-            <li><span>País</span><span>${nombrePais}</span></li>
-            <li><span>Dígitos de control</span><span>${digitosControl}</span></li>
-            <li><span>BBAN (cuenta nacional)</span><span>${bban}</span></li>
-            <li><span>Longitud</span><span>${raw.length} caracteres</span></li>
+            <li><span>${d.labelFormatted}</span><span class="validator-code">${ibanFormateado}</span></li>
+            <li><span>${d.labelCountry}</span><span>${nombrePais}</span></li>
+            <li><span>${d.labelCheckDigits}</span><span>${digitosControl}</span></li>
+            <li><span>${d.labelBban}</span><span>${bban}</span></li>
+            <li><span>${d.labelLength}</span><span>${raw.length} ${d.labelChars}</span></li>
           </ul>
-          <button class="btn-copy" data-copy-text="${ibanFormateado}">📋 Copiar IBAN</button>
+          <button class="btn-copy" data-copy-text="${ibanFormateado}">📋 ${d.btnCopy}</button>
         </div>
       `;
     } else {
       resultDiv.innerHTML = `
-        <div class="resumen-calculo iban-invalido">
-          <p class="resumen-titulo">❌ IBAN no válido</p>
+        <div class="resumen-calculo result-invalid">
+          <p class="resumen-titulo">❌ ${d.labelInvalid}</p>
           <ul>
-            <li><span>IBAN introducido</span><span class="iban-formateado">${ibanFormateado}</span></li>
-            <li><span>País detectado</span><span>${nombrePais}</span></li>
-            <li><span>Motivo</span><span>Los dígitos de control no son correctos</span></li>
+            <li><span>${d.labelFormatted}</span><span class="validator-code">${ibanFormateado}</span></li>
+            <li><span>${d.labelCountry}</span><span>${nombrePais}</span></li>
+            <li><span>${d.labelReason}</span><span>${d.labelWrongCheckDigits}</span></li>
           </ul>
-          <p class="iban-error-hint">Comprueba que has copiado el IBAN correctamente. Un solo dígito incorrecto invalida el código de control.</p>
+          <p class="validator-hint">${d.hintError}</p>
         </div>
       `;
     }
 
-    // Botón copiar solo si es válido
     resultDiv.querySelector('.btn-copy')?.addEventListener('click', function () {
       navigator.clipboard.writeText(this.dataset.copyText).then(() => {
         const original = this.innerText;
@@ -141,19 +116,12 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   btn?.addEventListener('click', validar);
+  input?.addEventListener('keydown', e => { if (e.key === 'Enter') validar(); });
 
-  input?.addEventListener('keydown', e => {
-    if (e.key === 'Enter') validar();
-  });
-
-  // Autoformatear con espacios mientras escribe
   input?.addEventListener('input', () => {
-    const cursor = input.selectionStart;
-    const raw    = input.value.replace(/\s/g, '').toUpperCase();
+    const raw       = input.value.replace(/\s/g, '').toUpperCase();
     const formatted = raw.match(/.{1,4}/g)?.join(' ') || raw;
-    if (input.value !== formatted) {
-      input.value = formatted;
-    }
+    if (input.value !== formatted) input.value = formatted;
   });
 
 });

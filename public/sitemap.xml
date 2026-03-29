@@ -107,10 +107,20 @@
   <url>
     <loc>https://calculenow.com/es/administracion/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/administracion/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/administration/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/administracion/"/>
     <lastmod>2026-03-28</lastmod>
     <priority>0.8</priority>
   </url>
+
+  <url>
+  <loc>https://calculenow.com/en/administration/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/administration/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/administracion/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/administracion/"/>
+  <lastmod>2026-03-29</lastmod>
+  <priority>0.8</priority>
+</url>
 
   <url>
     <loc>https://calculenow.com/es/curiosidades/</loc>
@@ -119,6 +129,40 @@
     <lastmod>2026-03-28</lastmod>
     <priority>0.8</priority>
   </url>
+
+  <url>
+  <loc>https://calculenow.com/es/administracion/validador-bic</loc>
+  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/administracion/validador-bic"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/administration/bic-validator"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/administracion/validador-bic"/>
+  <lastmod>2026-03-29</lastmod>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://calculenow.com/en/administration/bic-validator</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/administration/bic-validator"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/administracion/validador-bic"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/administracion/validador-bic"/>
+  <lastmod>2026-03-29</lastmod>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://calculenow.com/es/administracion/validador-vat</loc>
+  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/administracion/validador-vat"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/administration/vat-validator"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/administracion/validador-vat"/>
+  <lastmod>2026-03-29</lastmod>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://calculenow.com/en/administration/vat-validator</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/administration/vat-validator"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/administracion/validador-vat"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/administracion/validador-vat"/>
+  <lastmod>2026-03-29</lastmod>
+  <priority>0.8</priority>
+</url>
 
   <!-- ═══════════════════════════════════════════════════════════════════════
        FINANZAS / FINANCE
@@ -522,12 +566,21 @@
   </url>
 
   <url>
-    <loc>https://calculenow.com/es/administracion/validador-iban</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/administracion/validador-iban"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/administracion/validador-iban"/>
-    <lastmod>2026-03-27</lastmod>
-    <priority>0.8</priority>
-  </url>
+  <loc>https://calculenow.com/es/administracion/validador-iban</loc>
+  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/administracion/validador-iban"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/administration/iban-validator"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/administracion/validador-iban"/>
+  <lastmod>2026-03-27</lastmod>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://calculenow.com/en/administration/iban-validator</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/administration/iban-validator"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/administracion/validador-iban"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/administracion/validador-iban"/>
+  <lastmod>2026-03-29</lastmod>
+  <priority>0.8</priority>
+</url>
 
   <url>
     <loc>https://calculenow.com/es/administracion/validador-nif-empresa</loc>

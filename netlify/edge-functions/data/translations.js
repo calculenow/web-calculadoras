@@ -82,6 +82,8 @@ export const i18n = {
         { id: "irpf-foral", url: "/es/administracion/calculadora-irpf-foral", name: "🏛️ IRPF Foral",          description: "Calcula tu IRPF si resides en Navarra o en el País Vasco. Tramos forales actualizados.",                       date: "2026-03-22" },
         { id: "iban",       url: "/es/administracion/validador-iban",         name: "🏛️ Validador IBAN",       description: "Comprueba si un número IBAN es correcto y obtén el desglose del país y número de cuenta.",                    date: "2026-03-27" },
         { id: "nif",        url: "/es/administracion/validador-nif-empresa",  name: "🏢 Validador NIF empresa", description: "Comprueba si el NIF (antiguo CIF) de una empresa española es correcto y conoce el tipo de sociedad.",         date: "2026-03-27" },
+        { id: "bic", url: "/es/administracion/validador-bic",                 name: "🏦 Validador BIC/SWIFT", description: "Comprueba el código BIC/SWIFT de cualquier banco e identifica el país y la sucursal.",                          date: "2026-03-29" },
+        { id: "vat", url: "/es/administracion/validador-vat",                 name: "🧾 Validador VAT/IVA",   description: "Valida el número VAT de cualquier empresa europea y comprueba el formato por país.",                            date: "2026-03-29" },
       ],
       curiosity: [
         { id: "heartbeats", url: "/es/curiosidades/latidos-en-tu-vida",       name: "❤️ Latidos en tu vida",    description: "Descubre cuántas veces ha latido tu corazón desde que naciste. ¡El número te sorprenderá!",                  date: "2026-03-28" },
@@ -128,7 +130,8 @@ export const i18n = {
       health:  { label: "Health",    icon: "❤️", indexUrl: "/en/health/" },
       math:    { label: "Math",      icon: "📐", indexUrl: "/en/math/" },
       utils:   { label: "Utilities", icon: "🔧", indexUrl: "/en/utils/" },
-      // Admin y Curiosity solo aparecen en EN cuando tengan herramientas propias.
+      administration: { label: "Administration", icon: "🏛️", indexUrl: "/en/administration/" },
+      // Curiosity solo aparece en EN cuando tenga herramientas propias.
     },
 
     links: {
@@ -166,6 +169,11 @@ export const i18n = {
         { id: "age",   url: "/en/utils/age-calculator",       name: "🎂 Age calculator",  description: "Calculate your exact age in years, months and days, and find out how many days you have been alive.",  date: "2026-03-28" },
         { id: "fuel",  url: "/en/utils/fuel-cost-calculator", name: "⛽ Fuel cost",        description: "Calculate how much your road trip will cost in fuel, including tolls and split between passengers.",   date: "2026-03-28" },
         { id: "gold",  url: "/en/utils/gold-calculator",      name: "🥇 Gold value",       description: "Calculate how much your gold is worth based on karats and weight at the current market price.",       date: "2026-03-28" },
+      ],
+      administration: [
+        { id: "iban", url: "/en/administration/iban-validator", name: "🏛️ IBAN Validator",     description: "Check whether an IBAN number is correct and get a breakdown of the country and account number.", date: "2026-03-29" },
+        { id: "bic",  url: "/en/administration/bic-validator",  name: "🏦 BIC/SWIFT Validator", description: "Check a BIC/SWIFT bank code and identify the country and branch.",                                date: "2026-03-29" },
+        { id: "vat",  url: "/en/administration/vat-validator",  name: "🧾 VAT Validator",       description: "Validate the VAT number of any European company and check the format by country.",                date: "2026-03-29" },
       ],
     },
 

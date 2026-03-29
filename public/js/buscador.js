@@ -33,6 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
             { nombre: "IRPF Foral Navarra y País Vasco",  url: "/es/administracion/calculadora-irpf-foral",   tags: ["navarra", "pais vasco", "foral", "irpf", "renta", "euskadi", "hacienda foral"] },
             { nombre: "Validador IBAN",                   url: "/es/administracion/validador-iban",           tags: ["iban", "cuenta bancaria", "transferencia", "validar iban", "banco"] },
             { nombre: "Validador NIF empresa",            url: "/es/administracion/validador-nif-empresa",    tags: ["nif", "cif", "empresa", "sociedad", "validar cif", "validar nif", "autonomo"] },
+            { nombre: "Validador BIC/SWIFT", url: "/es/administracion/validador-bic", tags: ["bic", "swift", "banco", "código banco", "transferencia", "internacional"] },
+            { nombre: "Validador VAT/IVA",   url: "/es/administracion/validador-vat", tags: ["vat", "iva", "número fiscal", "empresa europea", "intracomunitario", "cif europeo"] },
             // Curiosidades
             { nombre: "Latidos en tu vida",               url: "/es/curiosidades/latidos-en-tu-vida",         tags: ["latidos", "corazon", "pulsaciones", "cuantos latidos", "curiosidad"] },
             { nombre: "Respiraciones en tu vida",         url: "/es/curiosidades/respiraciones-en-tu-vida",   tags: ["respiraciones", "pulmones", "cuantas veces has respirado", "curiosidad"] },
@@ -67,6 +69,10 @@ document.addEventListener('DOMContentLoaded', () => {
             { nombre: "Age Calculator",    url: "/en/utils/age-calculator",       tags: ["age", "years", "birthday", "days lived", "how old am i"] },
             { nombre: "Fuel Cost",         url: "/en/utils/fuel-cost-calculator", tags: ["fuel", "petrol", "diesel", "road trip", "car", "consumption", "litres"] },
             { nombre: "Gold Value",        url: "/en/utils/gold-calculator",      tags: ["gold", "grams", "karats", "18k", "24k", "gold price", "jewellery", "sell gold"] },
+            // Administration
+            { nombre: "IBAN Validator", url: "/en/administration/iban-validator", tags: ["iban", "bank account", "validate", "check", "bban", "swift"] },
+            { nombre: "BIC/SWIFT Validator", url: "/en/administration/bic-validator", tags: ["bic", "swift", "bank code", "international transfer", "bank identifier"] },
+            { nombre: "VAT Validator",       url: "/en/administration/vat-validator", tags: ["vat", "tax number", "european company", "intra-community", "vies", "company registration"] },
         ]
     };
 

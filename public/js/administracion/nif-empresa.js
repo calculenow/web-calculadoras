@@ -65,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── VALIDAR ────────────────────────────────────────────────────────────────
   const validar = () => {
-    // Limpiar espacios y convertir a mayúsculas directamente del valor
     const raw = input.value.replace(/[\s\-]/g, '').toUpperCase();
 
     if (!raw) {
@@ -73,7 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Formato: letra válida + 7 dígitos + letra o dígito
     if (raw.length !== 9) {
       resultDiv.innerHTML = `<p class="error-msg">⚠️ El NIF debe tener exactamente 9 caracteres. Este tiene ${raw.length}.</p>`;
       return;
@@ -112,10 +110,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (esValido) {
       resultDiv.innerHTML = `
-        <div class="resumen-calculo iban-valido">
+        <div class="resumen-calculo result-valid">
           <p class="resumen-titulo">✅ NIF válido</p>
           <ul>
-            <li><span>NIF</span><span class="nif-formateado">${raw}</span></li>
+            <li><span>NIF</span><span class="validator-code">${raw}</span></li>
             <li><span>Tipo de sociedad</span><span>${tipoSociedad}</span></li>
             <li><span>Dígitos centrales</span><span>${digitos}</span></li>
             <li><span>Carácter de control</span><span>${controlIntroducido} ✓</span></li>
@@ -125,15 +123,15 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
     } else {
       resultDiv.innerHTML = `
-        <div class="resumen-calculo iban-invalido">
+        <div class="resumen-calculo result-invalid">
           <p class="resumen-titulo">❌ NIF no válido</p>
           <ul>
-            <li><span>NIF introducido</span><span class="nif-formateado">${raw}</span></li>
+            <li><span>NIF introducido</span><span class="validator-code">${raw}</span></li>
             <li><span>Tipo de sociedad</span><span>${tipoSociedad}</span></li>
             <li><span>Control introducido</span><span>${controlIntroducido}</span></li>
             <li><span>Control esperado</span><span>${controlEsperado}</span></li>
           </ul>
-          <p class="iban-error-hint">El carácter de control no coincide. Comprueba que el NIF está escrito correctamente.</p>
+          <p class="validator-hint">El carácter de control no coincide. Comprueba que el NIF está escrito correctamente.</p>
         </div>
       `;
     }

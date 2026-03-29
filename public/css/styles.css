@@ -670,7 +670,7 @@ footer .footer-links {
   margin-bottom: 1rem;
 }
 
-button.btn {
+button.btn, button.btn-validator {
   display: block;
   width: 100%;
   padding: 0.8rem;
@@ -684,10 +684,10 @@ button.btn {
   cursor: pointer;
   transition: background 0.2s ease, transform 0.1s ease;
 }
-button.btn:hover {
+button.btn:hover, button.btn-validator:hover {
   background: var(--primary-dark);
 }
-button.btn:active {
+button.btn:active, button.btn-validator:active {
   transform: scale(0.98);
 }
 
@@ -1006,6 +1006,20 @@ table tr:last-child td {
     flex-direction: column;
   }
 }
+.result-valid {
+  border-left-color: var(--success) !important;
+}
+.result-valid .resumen-titulo {
+  color: var(--success);
+}
+
+.result-invalid {
+  border-left-color: var(--danger) !important;
+}
+.result-invalid .resumen-titulo {
+  color: var(--danger);
+}
+
 .curiosidad-card {
   text-align: center;
 }
@@ -1073,6 +1087,30 @@ table tr:last-child td {
 .btn-curiosidad {
   width: 100%;
   margin-bottom: 0;
+}
+
+.validator-card .validator-field {
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.validator-card .validator-label-hint {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  margin-top: 6px;
+}
+
+.validator-code {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+}
+
+.validator-hint {
+  font-size: 0.82rem;
+  opacity: 0.7;
+  margin-top: 0.75rem;
+  font-style: italic;
 }
 
 .imc-bar {
@@ -1674,44 +1712,6 @@ table tr:last-child td {
     text-align: right;
   }
 }
-.iban-card .iban-field {
-  font-family: "Courier New", Courier, monospace;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-.iban-card .iban-hint {
-  font-size: 0.8rem;
-  opacity: 0.6;
-  margin-top: 6px;
-}
-
-.iban-formateado {
-  font-family: "Courier New", Courier, monospace;
-  font-size: 0.95rem;
-  letter-spacing: 0.05em;
-}
-
-.iban-valido {
-  border-left-color: var(--success) !important;
-}
-.iban-valido .resumen-titulo {
-  color: var(--success);
-}
-
-.iban-invalido {
-  border-left-color: var(--danger) !important;
-}
-.iban-invalido .resumen-titulo {
-  color: var(--danger);
-}
-
-.iban-error-hint {
-  font-size: 0.82rem;
-  opacity: 0.7;
-  margin-top: 0.75rem;
-  font-style: italic;
-}
-
 /* ==========================================================================
    DESKTOP: Barra de búsqueda expandible
    ========================================================================== */
@@ -1997,7 +1997,7 @@ table tr:last-child td {
 .card-error .error-actions {
   margin-top: 1rem;
 }
-.card-error .btn {
+.card-error .btn, .card-error .btn-validator {
   display: inline-block;
   background-color: var(--primary);
   color: white;
@@ -2009,11 +2009,11 @@ table tr:last-child td {
   border: none;
   cursor: pointer;
 }
-.card-error .btn:hover {
+.card-error .btn:hover, .card-error .btn-validator:hover {
   background-color: var(--primary-dark);
   transform: translateY(-2px);
 }
-.card-error .btn:active {
+.card-error .btn:active, .card-error .btn-validator:active {
   transform: translateY(0);
 }
 

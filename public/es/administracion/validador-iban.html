@@ -75,11 +75,11 @@
     <title>Validador de IBAN — Comprueba si tu IBAN es Correcto | Calculenow</title>
     <link rel="canonical" href="https://calculenow.com/es/administracion/validador-iban" />
     <link rel="alternate" hreflang="es" href="https://calculenow.com/es/administracion/validador-iban" />
+    <link rel="alternate" hreflang="en" href="https://calculenow.com/en/administration/iban-validator"/>
     <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/administracion/validador-iban" />
 
     <meta name="description" content="Valida cualquier IBAN al instante. Comprueba si el formato es correcto y obtén el desglose del país y número de cuenta. Gratis y sin registro." />
 
-    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://calculenow.com/es/administracion/validador-iban" />
     <meta property="og:title" content="Validador de IBAN — Comprueba si tu IBAN es Correcto | Calculenow" />
@@ -88,7 +88,6 @@
     <meta property="og:locale" content="es_ES" />
     <meta property="og:site_name" content="Calculenow" />
 
-    <!-- Twitter/X -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Validador de IBAN — Comprueba si tu IBAN es Correcto" />
     <meta name="twitter:description" content="Valida cualquier IBAN al instante. Gratis." />
@@ -110,21 +109,21 @@
     <header></header>
 
     <main>
-      <div class="card iban-card">
+      <div class="card validator-card">
         <h1>Validador de IBAN</h1>
         <p>Introduce un número IBAN para comprobar si es válido y obtener su desglose.</p>
 
         <div class="form-group">
           <label for="iban-input">Número IBAN</label>
-          <input id="iban-input" class="field iban-field" type="text"
+          <input id="iban-input" class="field validator-field" type="text"
             placeholder="Ej: ES91 2100 0418 4502 0005 1332"
             maxlength="42" autocomplete="off" spellcheck="false" />
-          <p class="iban-hint">Los espacios se ignoran automáticamente. Puedes pegarlo con o sin espacios.</p>
+          <p class="validator-label-hint">Los espacios se ignoran automáticamente. Puedes pegarlo con o sin espacios.</p>
         </div>
 
-        <button class="btn btn-iban" id="btn-validar" type="button">Validar IBAN</button>
+        <button class="btn btn-validator" id="btn-validar" type="button">Validar IBAN</button>
 
-        <div class="result iban-result" id="iban-result"></div>
+        <div class="result validator-result" id="validator-result"></div>
 
         <div class="related-tools">
           <p><strong>Otras herramientas administrativas:</strong></p>
@@ -219,6 +218,62 @@
             <p>No. El número de cuenta es la parte nacional. El IBAN añade el código de país y los dígitos de control para permitir transferencias internacionales estandarizadas.</p>
           </div>
         </details>
+      </div>
+
+      <div id="iban-i18n" style="display:none"
+        data-ms-error-empty="Introduce un número IBAN."
+        data-ms-error-format="Formato incorrecto. El IBAN debe empezar por dos letras de país seguidas de dos dígitos."
+        data-ms-error-length="Un IBAN de {pais} debe tener {esperada} caracteres. Este tiene {actual}."
+        data-label-valid="IBAN válido"
+        data-label-invalid="IBAN no válido"
+        data-label-formatted="IBAN formateado"
+        data-label-country="País"
+        data-label-check-digits="Dígitos de control"
+        data-label-bban="BBAN (cuenta nacional)"
+        data-label-length="Longitud"
+        data-label-chars="caracteres"
+        data-label-reason="Motivo"
+        data-label-wrong-check-digits="Los dígitos de control no son correctos"
+        data-label-unknown-country="País desconocido"
+        data-hint-error="Comprueba que has copiado el IBAN correctamente. Un solo dígito incorrecto invalida el código de control."
+        data-btn-copy="Copiar IBAN"
+
+        data-country-AD="Andorra"
+        data-country-AT="Austria"
+        data-country-BE="Bélgica"
+        data-country-BG="Bulgaria"
+        data-country-CH="Suiza"
+        data-country-CY="Chipre"
+        data-country-CZ="República Checa"
+        data-country-DE="Alemania"
+        data-country-DK="Dinamarca"
+        data-country-EE="Estonia"
+        data-country-ES="España"
+        data-country-FI="Finlandia"
+        data-country-FR="Francia"
+        data-country-GB="Reino Unido"
+        data-country-GR="Grecia"
+        data-country-HR="Croacia"
+        data-country-HU="Hungría"
+        data-country-IE="Irlanda"
+        data-country-IS="Islandia"
+        data-country-IT="Italia"
+        data-country-LI="Liechtenstein"
+        data-country-LT="Lituania"
+        data-country-LU="Luxemburgo"
+        data-country-LV="Letonia"
+        data-country-MC="Mónaco"
+        data-country-MT="Malta"
+        data-country-NL="Países Bajos"
+        data-country-NO="Noruega"
+        data-country-PL="Polonia"
+        data-country-PT="Portugal"
+        data-country-RO="Rumanía"
+        data-country-SE="Suecia"
+        data-country-SI="Eslovenia"
+        data-country-SK="Eslovaquia"
+        data-country-SM="San Marino"
+        data-country-TR="Turquía">
       </div>
     </main>
 

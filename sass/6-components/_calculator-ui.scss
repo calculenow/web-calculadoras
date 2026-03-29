@@ -249,3 +249,16 @@
 @media (max-width: 480px) {
   .calc-tabs { flex-direction: column; }
 }
+
+// --- Estados de resultado para validadores (IBAN, BIC, VAT, NIF...) ---
+.result-valid {
+  border-left-color: var(--success) !important;
+
+  .resumen-titulo { color: var(--success); }
+}
+
+.result-invalid {
+  border-left-color: var(--danger) !important;
+
+  .resumen-titulo { color: var(--danger); }
+}

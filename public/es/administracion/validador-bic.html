@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Validador de BIC/SWIFT",
+      "url": "https://calculenow.com/es/administracion/validador-bic",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "description": "Valida cualquier código BIC/SWIFT al instante. Comprueba el formato, identifica el banco, el país y la sucursal. Gratis y sin registro."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es el código BIC/SWIFT?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El BIC (Bank Identifier Code), también conocido como SWIFT, es un código estándar internacional (ISO 9362) que identifica de forma única a un banco en todo el mundo. Se usa en transferencias internacionales junto al IBAN para identificar el banco destinatario."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuántos caracteres tiene un BIC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un BIC tiene 8 u 11 caracteres. Los primeros 4 identifican el banco, los siguientes 2 el país, los siguientes 2 la localidad y los últimos 3 (opcionales) la sucursal específica."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿BIC y SWIFT son lo mismo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. BIC es el nombre oficial del estándar ISO 9362, mientras que SWIFT es la organización que gestiona el sistema de mensajería financiera internacional. En la práctica ambos términos se usan indistintamente para referirse al mismo código."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Dónde encuentro el BIC de mi banco?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Puedes encontrarlo en tu contrato bancario, en la app de tu banco, en un extracto o preguntando directamente a tu entidad. También suele aparecer junto al IBAN en los documentos de la cuenta."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <title>Validador de BIC/SWIFT — Comprueba el Código de tu Banco | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/es/administracion/validador-bic" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/administracion/validador-bic" />
+    <link rel="alternate" hreflang="en" href="https://calculenow.com/en/administration/bic-validator" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/administracion/validador-bic" />
+
+    <meta name="description" content="Valida cualquier código BIC/SWIFT al instante. Identifica el banco, el país y la sucursal. Gratis y sin registro." />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/es/administracion/validador-bic" />
+    <meta property="og:title" content="Validador de BIC/SWIFT — Comprueba el Código de tu Banco | Calculenow" />
+    <meta property="og:description" content="Valida cualquier código BIC/SWIFT al instante. Identifica banco, país y sucursal. Gratis." />
+    <meta property="og:image" content="https://calculenow.com/images/og-es.jpg" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Calculenow" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Validador de BIC/SWIFT — Código de Banco" />
+    <meta name="twitter:description" content="Valida cualquier código BIC/SWIFT al instante. Gratis." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-es.jpg" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+
+    <header></header>
+
+    <main>
+      <div class="card bic-card">
+        <h1>Validador de BIC/SWIFT</h1>
+        <p>Introduce un código BIC o SWIFT para comprobar si es válido e identificar el banco y el país.</p>
+
+        <div class="form-group">
+          <label for="bic-input">Código BIC/SWIFT</label>
+          <input id="bic-input" class="field validator-field" type="text"
+            placeholder="Ej: CAIXESBBXXX"
+            maxlength="11" autocomplete="off" spellcheck="false" />
+          <p class="validator-label-hint">8 u 11 caracteres. Los espacios se eliminan automáticamente.</p>
+        </div>
+
+        <button class="btn btn-validator" id="btn-validar" type="button">Validar BIC</button>
+
+        <div class="result validator-result" id="bic-result"></div>
+
+        <div id="bic-i18n" style="display:none"
+          data-ms-error-empty="Introduce un código BIC/SWIFT."
+          data-ms-error-length="Un BIC debe tener 8 u 11 caracteres."
+          data-ms-error-format="Formato incorrecto. Comprueba que el código es válido."
+          data-label-valid="BIC/SWIFT válido"
+          data-label-invalid="BIC/SWIFT no válido"
+          data-label-bic="Código BIC/SWIFT"
+          data-label-bank-code="Código de banco"
+          data-label-country="País"
+          data-label-location="Código de localidad"
+          data-label-branch="Sucursal"
+          data-label-primary="Oficina principal"
+          data-label-length="Formato"
+          data-label-8="8 caracteres (sin sucursal)"
+          data-label-11="11 caracteres (con sucursal)"
+          data-label-unknown-country="País desconocido"
+          data-btn-copy="Copiar BIC"
+
+          data-country-AD="Andorra"
+          data-country-AE="Emiratos Árabes Unidos"
+          data-country-AT="Austria"
+          data-country-AU="Australia"
+          data-country-BE="Bélgica"
+          data-country-BG="Bulgaria"
+          data-country-BR="Brasil"
+          data-country-CA="Canadá"
+          data-country-CH="Suiza"
+          data-country-CN="China"
+          data-country-CY="Chipre"
+          data-country-CZ="República Checa"
+          data-country-DE="Alemania"
+          data-country-DK="Dinamarca"
+          data-country-EE="Estonia"
+          data-country-ES="España"
+          data-country-FI="Finlandia"
+          data-country-FR="Francia"
+          data-country-GB="Reino Unido"
+          data-country-GR="Grecia"
+          data-country-HR="Croacia"
+          data-country-HU="Hungría"
+          data-country-IE="Irlanda"
+          data-country-IN="India"
+          data-country-IS="Islandia"
+          data-country-IT="Italia"
+          data-country-JP="Japón"
+          data-country-LI="Liechtenstein"
+          data-country-LT="Lituania"
+          data-country-LU="Luxemburgo"
+          data-country-LV="Letonia"
+          data-country-MC="Mónaco"
+          data-country-MT="Malta"
+          data-country-MX="México"
+          data-country-NL="Países Bajos"
+          data-country-NO="Noruega"
+          data-country-NZ="Nueva Zelanda"
+          data-country-PL="Polonia"
+          data-country-PT="Portugal"
+          data-country-RO="Rumanía"
+          data-country-RU="Rusia"
+          data-country-SE="Suecia"
+          data-country-SI="Eslovenia"
+          data-country-SK="Eslovaquia"
+          data-country-SM="San Marino"
+          data-country-TR="Turquía"
+          data-country-US="Estados Unidos"
+          data-country-ZA="Sudáfrica">
+        </div>
+
+        <div class="related-tools">
+          <p><strong>Otras herramientas administrativas:</strong></p>
+          <ul>
+            <li>
+              <a href="/es/administracion/validador-iban">
+                ➔ <strong>Validador IBAN:</strong> Comprueba si un número IBAN es correcto.
+              </a>
+            </li>
+            <li>
+              <a href="/es/administracion/validador-vat">
+                ➔ <strong>Validador VAT/IVA:</strong> Valida el número de IVA de cualquier empresa europea.
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="legal-content">
+        <h2>¿Qué es el código BIC/SWIFT?</h2>
+        <p>El BIC (<em>Bank Identifier Code</em>), también conocido como SWIFT, es el estándar internacional ISO 9362 para identificar instituciones financieras en todo el mundo. Es obligatorio en transferencias internacionales para identificar el banco destinatario.</p>
+
+        <h2>Estructura del BIC</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>Parte</th><th>Longitud</th><th>Ejemplo</th><th>Descripción</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Código de banco</td><td>4 letras</td><td>CAIXA</td><td>Identifica la institución financiera</td></tr>
+              <tr><td>Código de país</td><td>2 letras</td><td>ES</td><td>Código ISO del país</td></tr>
+              <tr><td>Código de localidad</td><td>2 alfanuméricos</td><td>BB</td><td>Ciudad o zona</td></tr>
+              <tr><td>Código de sucursal</td><td>3 alfanuméricos (opcional)</td><td>XXX</td><td>XXX = oficina principal</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>¿BIC y SWIFT son lo mismo?</h2>
+        <p>Sí. BIC es el nombre oficial del estándar ISO 9362. SWIFT es la organización belga (<em>Society for Worldwide Interbank Financial Telecommunication</em>) que gestiona el sistema de mensajería financiera internacional y que popularizó el término. En la práctica ambos se usan indistintamente.</p>
+
+        <h2>¿Cuándo necesitas el BIC?</h2>
+        <ul>
+          <li>En transferencias internacionales fuera de la zona SEPA.</li>
+          <li>En algunas transferencias dentro de la zona SEPA a países no europeos.</li>
+          <li>Cuando el destinatario es un banco de fuera de la UE.</li>
+          <li>En pagos a proveedores internacionales o nóminas en el extranjero.</li>
+        </ul>
+      </section>
+
+      <div class="faq-section">
+        <h3>Preguntas frecuentes sobre BIC/SWIFT</h3>
+
+        <details>
+          <summary>¿Qué es el código BIC/SWIFT?</summary>
+          <div class="faq-content">
+            <p>Un código estándar internacional (ISO 9362) que identifica de forma única a un banco en todo el mundo. Se usa en transferencias internacionales junto al IBAN.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Cuántos caracteres tiene un BIC?</summary>
+          <div class="faq-content">
+            <p>8 u 11 caracteres. Los primeros 4 identifican el banco, los siguientes 2 el país, los siguientes 2 la localidad y los últimos 3 (opcionales) la sucursal. XXX indica la oficina principal.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿BIC y SWIFT son lo mismo?</summary>
+          <div class="faq-content">
+            <p>Sí. BIC es el nombre del estándar ISO y SWIFT es la organización que lo gestiona. Se usan indistintamente en el lenguaje bancario.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Dónde encuentro el BIC de mi banco?</summary>
+          <div class="faq-content">
+            <p>En tu contrato bancario, en la app de tu banco, en un extracto o preguntando directamente a tu entidad. También suele aparecer junto al IBAN.</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>Utilizamos cookies para mejorar tu experiencia. <a href="/es/cookies">Más información</a></p>
+        <div class="cookie-buttons">
+          <button id="btn-accept-all">Aceptar todas</button>
+          <button id="btn-reject-all">Rechazar</button>
+          <button id="btn-open-settings">Configurar</button>
+        </div>
+      </div>
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Configuración de cookies</strong></p>
+        <label><input type="checkbox" id="check-analytics" /> Analíticas</label>
+        <label><input type="checkbox" id="check-marketing" /> Marketing</label>
+        <div class="cookie-buttons">
+          <button id="btn-back">← Volver</button>
+          <button id="btn-save-settings">Guardar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/ads.js" async defer></script>
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/buscador.js" defer></script>
+    <script src="/js/core.js" defer></script>
+    <script src="/js/administracion/bic.js" defer></script>
+  </body>
+</html>

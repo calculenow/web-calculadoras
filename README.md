@@ -66,14 +66,14 @@ calculenow/
 
 ### Categorías y nombres de carpeta
 
-| Categoría       | Carpeta ES          | Carpeta EN      |
-|-----------------|---------------------|-----------------|
-| Finanzas        | `es/finanzas/`      | `en/finance/`   |
-| Salud           | `es/salud/`         | `en/health/`    |
-| Matemáticas     | `es/matematicas/`   | `en/math/`      |
-| Utilidades      | `es/utilidades/`    | `en/utils/`     |
-| Administración  | `es/admin/`         | *(solo ES)*     |
-| Curiosidades    | `es/curiosidades/`  | *(solo ES)*     |
+| Categoría       | Carpeta ES          | Carpeta EN         |
+|-----------------|---------------------|--------------------|
+| Finanzas        | `es/finanzas/`      | `en/finance/`      |
+| Salud           | `es/salud/`         | `en/health/`       |
+| Matemáticas     | `es/matematicas/`   | `en/math/`         |
+| Utilidades      | `es/utilidades/`    | `en/utils/`        |
+| Administración  | `es/administracion/`| `en/administration`|
+| Curiosidades    | `es/curiosidades/`  | `en/curiosity/`    |
 
 > **Nota:** Las categorías Admin y Curiosidades son exclusivas de ES por ahora.
 > Cuando una categoría EN tenga herramientas propias, se crea su carpeta en ese momento.
@@ -89,7 +89,7 @@ Son **7 pasos**. Todos son necesarios para que la calculadora aparezca bien en e
 Copia una página existente como plantilla y modifica:
 
 - `<title>`, `<meta name="description">`, `<link rel="canonical">`
-- `hreflang` ES y EN apuntando a las URLs correctas
+- `hreflang` ES y EN apuntando a las URLs correctas en cada página html
 - `og:title`, `og:description`, `og:url`
 - Schema `WebApplication` con el nombre y descripción correctos
 - Schema `FAQPage` si tienes preguntas frecuentes

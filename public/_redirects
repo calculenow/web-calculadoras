@@ -90,6 +90,8 @@
 /es/administracion/calculadora-irpf-foral     /es/administracion/calculadora-irpf-foral.html     200
 /es/administracion/validador-iban             /es/administracion/validador-iban.html             200
 /es/administracion/validador-nif-empresa      /es/administracion/validador-nif-empresa.html      200
+/es/administracion/validador-bic              /es/administracion/validador-bic.html              200
+/es/administracion/validador-vat              /es/administracion/validador-vat.html              200
 
 # Curiosidades
 /es/curiosidades/latidos-en-tu-vida           /es/curiosidades/latidos-en-tu-vida.html           200
@@ -133,6 +135,8 @@
 /en/math/                                     /en/math/index.html                                200
 /en/utils                                     /en/utils/index.html                               200
 /en/utils/                                    /en/utils/index.html                               200
+/en/administration                            /en/administration/index.html                      200
+/en/administration/                           /en/administration/index.html                      200
 
 # Finance
 /en/finance/vat-calculator                    /en/finance/vat-calculator.html                    200
@@ -162,6 +166,11 @@
 /en/utils/age-calculator                      /en/utils/age-calculator.html                      200
 /en/utils/fuel-cost-calculator                /en/utils/fuel-cost-calculator.html                200
 /en/utils/gold-calculator                     /en/utils/gold-calculator.html                     200
+
+# Administration
+/en/administration/iban-validator             /en/administration/iban-validator.html             200
+/en/administration/bic-validator              /en/administration/bic-validator.html              200
+/en/administration/vat-validator              /en/administration/vat-validator.html              200
 
 # Legales EN
 /en/legal-notice                              /en/legal-notice.html                              200
