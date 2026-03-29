@@ -4,22 +4,74 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>(function(){const t=localStorage.getItem("theme");if(t==="dark")document.documentElement.classList.add("dark");})();</script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "¿Cuántos Pasos Has Dado en tu Vida?",
+      "url": "https://calculenow.com/es/curiosidades/pasos-en-tu-vida",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "es",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+      "description": "Descubre cuántos pasos has dado desde que empezaste a caminar y a cuántos kilómetros equivalen. Solo introduce tu edad."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuántos pasos da una persona al día de media?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La media mundial ronda los 7.500 pasos diarios, aunque varía mucho según el estilo de vida. La OMS recomienda al menos 8.000-10.000 pasos para mantener una buena salud."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuántos kilómetros equivalen a 10.000 pasos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aproximadamente 7 kilómetros, asumiendo una longitud media de paso de 70 cm. Puede variar según la altura y el tipo de marcha."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿A qué edad empieza a caminar un niño?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La mayoría de los niños dan sus primeros pasos entre los 9 y los 12 meses. En el cálculo usamos la edad total como aproximación."
+          }
+        }
+      ]
+    }
+    </script>
+
     <title>¿Cuántos Pasos Has Dado en tu Vida? | Calculenow</title>
     <link rel="canonical" href="https://calculenow.com/es/curiosidades/pasos-en-tu-vida" />
     <link rel="alternate" hreflang="es" href="https://calculenow.com/es/curiosidades/pasos-en-tu-vida" />
     <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/curiosidades/pasos-en-tu-vida" />
-    <meta name="description" content="Descubre cuántos pasos has dado desde que empezaste a caminar. Solo introduce tu edad. ¡Y cuántos kilómetros equivale!" />
+
+    <meta name="description" content="Descubre cuántos pasos has dado desde que empezaste a caminar y a cuántos kilómetros equivalen. Solo introduce tu edad. ¡El resultado te sorprenderá!" />
+
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://calculenow.com/es/curiosidades/pasos-en-tu-vida" />
     <meta property="og:title" content="¿Cuántos Pasos Has Dado en tu Vida? — Calculenow" />
-    <meta property="og:description" content="Descubre cuántos pasos has dado desde que empezaste a caminar. Solo introduce tu edad. ¡Y cuántos kilómetros equivale!" />
+    <meta property="og:description" content="Descubre cuántos pasos has dado y a cuántos kilómetros equivalen. Solo introduce tu edad." />
     <meta property="og:image" content="https://calculenow.com/images/og-es.jpg" />
     <meta property="og:locale" content="es_ES" />
     <meta property="og:site_name" content="Calculenow" />
+
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="¿Cuántos Pasos Has Dado en tu Vida?" />
-    <meta name="twitter:description" content="Descubre cuántos pasos has dado desde que empezaste a caminar. Solo introduce tu edad. ¡Y cuántos kilómetros equivale!" />
+    <meta name="twitter:description" content="Descubre cuántos pasos has dado y a cuántos kilómetros equivalen. Solo introduce tu edad." />
     <meta name="twitter:image" content="https://calculenow.com/images/og-es.jpg" />
+
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
     <link rel="stylesheet" href="/css/styles.css" />
@@ -33,18 +85,93 @@
         <div class="curiosidad-emoji">👣</div>
         <h1>¿Cuántos Pasos Has Dado en tu Vida?</h1>
         <p>Introduce tu edad y descubre cuántos pasos has dado y a cuántos kilómetros equivalen.</p>
+
         <div class="form-group">
           <label for="edad">Tu edad (años)</label>
           <input id="edad" class="field" type="number" placeholder="Ej: 30" min="1" max="120" />
         </div>
+
         <button class="btn btn-curiosidad" id="btn-calcular" type="button">Calcular 👣</button>
+
         <div class="result curiosidad-result" id="resultado"></div>
+
         <div class="related-tools">
           <p><strong>Más curiosidades:</strong></p>
-          <ul><li><a href="/es/curiosidades/latidos-en-tu-vida">❤️ Latidos en tu vida</a></li>
-            <li><a href="/es/curiosidades/pasos-en-tu-vida">👣 Pasos en tu vida</a></li>
-            <li><a href="/es/curiosidades/veces-que-has-dormido">😴 Veces que has dormido</a></li></ul>
+          <ul>
+            <li><a href="/es/curiosidades/latidos-en-tu-vida">❤️ Latidos en tu vida</a></li>
+            <li><a href="/es/curiosidades/respiraciones-en-tu-vida">🌬️ Respiraciones en tu vida</a></li>
+            <li><a href="/es/curiosidades/veces-que-has-dormido">😴 Veces que has dormido</a></li>
+          </ul>
         </div>
+      </div>
+
+      <section class="legal-content">
+        <h2>¿Cuántos pasos damos realmente?</h2>
+        <p>La media mundial ronda los <strong>7.500 pasos diarios</strong>, aunque hay grandes diferencias entre países. Los japoneses encabezan el ranking con más de 9.000 pasos/día, mientras que en algunos países de Europa occidental la media no llega a 6.000. Con una longitud de paso media de unos 70 cm, cada 1.400 pasos equivalen aproximadamente a 1 kilómetro.</p>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>Edad</th><th>Pasos acumulados (aprox.)</th><th>Equivalente en km</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>10 años</td><td>~27 millones</td><td>~19.000 km</td></tr>
+              <tr><td>20 años</td><td>~55 millones</td><td>~38.000 km</td></tr>
+              <tr><td>30 años</td><td>~82 millones</td><td>~57.000 km</td></tr>
+              <tr><td>50 años</td><td>~137 millones</td><td>~96.000 km</td></tr>
+              <tr><td>80 años</td><td>~219 millones</td><td>~153.000 km</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Curiosidades sobre los pasos humanos</h2>
+        <ul>
+          <li>La circunferencia de la Tierra es de unos 40.075 km. Una persona de 30 años ya ha caminado el equivalente a dar más de una vuelta al mundo.</li>
+          <li>Los bebés dan sus primeros pasos entre los 9 y 12 meses. A los 3 años ya caminan con bastante soltura.</li>
+          <li>Un cartero o enfermero puede dar fácilmente 15.000-20.000 pasos al día en su jornada laboral.</li>
+          <li>El récord de los pasos más largos de la historia lo tiene una persona que cruzó Australia a pie en 2013.</li>
+        </ul>
+      </section>
+
+      <div class="faq-section">
+        <h3>Preguntas frecuentes</h3>
+
+        <details>
+          <summary>¿Cuántos pasos da una persona al día de media?</summary>
+          <div class="faq-content">
+            <p>La media mundial ronda los 7.500 pasos diarios. La OMS recomienda entre 8.000 y 10.000 para mantener una buena salud cardiovascular.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Cuántos kilómetros equivalen a 10.000 pasos?</summary>
+          <div class="faq-content">
+            <p>Aproximadamente 7 kilómetros, asumiendo una longitud media de paso de 70 cm. Varía según la altura y el tipo de marcha.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Es exacto el cálculo?</summary>
+          <div class="faq-content">
+            <p>Es una estimación basada en la media mundial de pasos diarios. Tu número real depende de tu estilo de vida, trabajo y actividad física.</p>
+          </div>
+        </details>
+      </div>
+      <div id="pasos-i18n" style="display:none"
+        data-locale="es-ES"
+        data-decimal-sep=","
+        data-label-billion="mil millones"
+        data-label-million="millones"
+        data-ms-error="Introduce tu edad."
+        data-label-subtitle="pasos desde que naciste 👣"
+        data-label-age="Tu edad"
+        data-label-years="años"
+        data-label-per-day="Pasos por día (media)"
+        data-label-total="Total acumulado"
+        data-label-distance="Distancia equivalente"
+        data-label-km="km"
+        data-share-url="https://calculenow.com/es/curiosidades/pasos-en-tu-vida"
+        data-share-text="¡He dado {n} pasos en mis {edad} años de vida ({km} km)! 👣 ¿Y tú?">
       </div>
     </main>
     <footer></footer>
@@ -71,6 +198,6 @@
     <script src="/js/layout.js" defer></script>
     <script src="/js/buscador.js" defer></script>
     <script src="/js/core.js" defer></script>
-    <script src="/js/curiosidades/pasos.js" defer></script>
+    <script type="module" src="/js/curiosidades/pasos.js"></script>
   </body>
 </html>

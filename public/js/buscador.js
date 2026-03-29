@@ -36,12 +36,12 @@ document.addEventListener('DOMContentLoaded', () => {
             { nombre: "Validador BIC/SWIFT", url: "/es/administracion/validador-bic", tags: ["bic", "swift", "banco", "código banco", "transferencia", "internacional"] },
             { nombre: "Validador VAT/IVA",   url: "/es/administracion/validador-vat", tags: ["vat", "iva", "número fiscal", "empresa europea", "intracomunitario", "cif europeo"] },
             // Curiosidades
-            { nombre: "Latidos en tu vida",               url: "/es/curiosidades/latidos-en-tu-vida",         tags: ["latidos", "corazon", "pulsaciones", "cuantos latidos", "curiosidad"] },
-            { nombre: "Respiraciones en tu vida",         url: "/es/curiosidades/respiraciones-en-tu-vida",   tags: ["respiraciones", "pulmones", "cuantas veces has respirado", "curiosidad"] },
-            { nombre: "Pasos en tu vida",                 url: "/es/curiosidades/pasos-en-tu-vida",           tags: ["pasos", "caminar", "cuantos pasos", "kilometros", "curiosidad"] },
-            { nombre: "Veces que has dormido",            url: "/es/curiosidades/veces-que-has-dormido",      tags: ["dormir", "noches", "horas dormidas", "cuanto has dormido", "curiosidad"] },
-            { nombre: "Edad de tu perro en años humanos", url: "/es/curiosidades/edad-perro",                 tags: ["perro", "años humanos", "edad perro", "multiplicar por 7", "mascota"] },
-            { nombre: "Tu edad en otros planetas",        url: "/es/curiosidades/edad-en-otros-planetas",     tags: ["planetas", "mercurio", "marte", "neptuno", "edad planetas", "sistema solar", "curiosidad"] },
+            { nombre: "Latidos en tu vida",       url: "/es/curiosidades/latidos-en-tu-vida",       tags: ["latidos", "corazón", "pulsaciones", "vida"] },
+            { nombre: "Respiraciones en tu vida", url: "/es/curiosidades/respiraciones-en-tu-vida", tags: ["respiraciones", "pulmones", "respirar", "vida"] },
+            { nombre: "Pasos en tu vida",         url: "/es/curiosidades/pasos-en-tu-vida",         tags: ["pasos", "caminar", "kilómetros", "vida"] },
+            { nombre: "Veces que has dormido",    url: "/es/curiosidades/veces-que-has-dormido",    tags: ["dormir", "sueño", "noches", "vida"] },
+            { nombre: "Edad de tu perro",         url: "/es/curiosidades/edad-perro",               tags: ["perro", "edad perro", "años humanos", "mascota"] },
+            { nombre: "Edad en otros planetas",   url: "/es/curiosidades/edad-en-otros-planetas",   tags: ["planetas", "edad", "mercurio", "marte", "neptuno"] },
         ],
         en: [
             // Finance
@@ -73,6 +73,12 @@ document.addEventListener('DOMContentLoaded', () => {
             { nombre: "IBAN Validator", url: "/en/administration/iban-validator", tags: ["iban", "bank account", "validate", "check", "bban", "swift"] },
             { nombre: "BIC/SWIFT Validator", url: "/en/administration/bic-validator", tags: ["bic", "swift", "bank code", "international transfer", "bank identifier"] },
             { nombre: "VAT Validator",       url: "/en/administration/vat-validator", tags: ["vat", "tax number", "european company", "intra-community", "vies", "company registration"] },
+            { nombre: "Heartbeats in your life",  url: "/en/curiosity/heartbeats-in-your-life", tags: ["heartbeats", "heart", "pulse", "life"] },
+            { nombre: "Breaths in your life",     url: "/en/curiosity/breaths-in-your-life",    tags: ["breaths", "breathing", "lungs", "life"] },
+            { nombre: "Steps in your life",       url: "/en/curiosity/steps-in-your-life",      tags: ["steps", "walking", "kilometres", "life"] },
+            { nombre: "Times you've slept",       url: "/en/curiosity/times-youve-slept",       tags: ["sleep", "nights", "sleeping", "life"] },
+            { nombre: "Dog age",                  url: "/en/curiosity/dog-age",                 tags: ["dog", "dog age", "human years", "pet"] },
+            { nombre: "Age on other planets",     url: "/en/curiosity/age-on-other-planets",    tags: ["planets", "age", "mercury", "mars", "neptune"] },
         ]
     };
 

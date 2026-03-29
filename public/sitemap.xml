@@ -123,43 +123,18 @@
 </url>
 
   <url>
-    <loc>https://calculenow.com/es/curiosidades/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/curiosidades/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/curiosidades/"/>
-    <lastmod>2026-03-28</lastmod>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-  <loc>https://calculenow.com/es/administracion/validador-bic</loc>
-  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/administracion/validador-bic"/>
-  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/administration/bic-validator"/>
-  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/administracion/validador-bic"/>
+  <loc>https://calculenow.com/es/curiosidades/</loc>
+  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/curiosidades/"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/curiosity/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/curiosidades/"/>
   <lastmod>2026-03-29</lastmod>
   <priority>0.8</priority>
 </url>
 <url>
-  <loc>https://calculenow.com/en/administration/bic-validator</loc>
-  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/administration/bic-validator"/>
-  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/administracion/validador-bic"/>
-  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/administracion/validador-bic"/>
-  <lastmod>2026-03-29</lastmod>
-  <priority>0.8</priority>
-</url>
-
-<url>
-  <loc>https://calculenow.com/es/administracion/validador-vat</loc>
-  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/administracion/validador-vat"/>
-  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/administration/vat-validator"/>
-  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/administracion/validador-vat"/>
-  <lastmod>2026-03-29</lastmod>
-  <priority>0.8</priority>
-</url>
-<url>
-  <loc>https://calculenow.com/en/administration/vat-validator</loc>
-  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/administration/vat-validator"/>
-  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/administracion/validador-vat"/>
-  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/administracion/validador-vat"/>
+  <loc>https://calculenow.com/en/curiosity/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/curiosity/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/curiosidades/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/curiosidades/"/>
   <lastmod>2026-03-29</lastmod>
   <priority>0.8</priority>
 </url>
@@ -590,57 +565,145 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+  <loc>https://calculenow.com/es/administracion/validador-bic</loc>
+  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/administracion/validador-bic"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/administration/bic-validator"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/administracion/validador-bic"/>
+  <lastmod>2026-03-29</lastmod>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://calculenow.com/en/administration/bic-validator</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/administration/bic-validator"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/administracion/validador-bic"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/administracion/validador-bic"/>
+  <lastmod>2026-03-29</lastmod>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://calculenow.com/es/administracion/validador-vat</loc>
+  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/administracion/validador-vat"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/administration/vat-validator"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/administracion/validador-vat"/>
+  <lastmod>2026-03-29</lastmod>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://calculenow.com/en/administration/vat-validator</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/administration/vat-validator"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/administracion/validador-vat"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/administracion/validador-vat"/>
+  <lastmod>2026-03-29</lastmod>
+  <priority>0.8</priority>
+</url>
+
   <!-- ═══════════════════════════════════════════════════════════════════════
        CURIOSIDADES
   ════════════════════════════════════════════════════════════════════════ -->
 
   <url>
-    <loc>https://calculenow.com/es/curiosidades/latidos-en-tu-vida</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/curiosidades/latidos-en-tu-vida"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/curiosidades/latidos-en-tu-vida"/>
-    <lastmod>2026-03-28</lastmod>
-    <priority>0.8</priority>
-  </url>
+  <loc>https://calculenow.com/es/curiosidades/latidos-en-tu-vida</loc>
+  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/curiosidades/latidos-en-tu-vida"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/curiosity/heartbeats-in-your-life"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/curiosidades/latidos-en-tu-vida"/>
+  <lastmod>2026-03-29</lastmod>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://calculenow.com/en/curiosity/heartbeats-in-your-life</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/curiosity/heartbeats-in-your-life"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/curiosidades/latidos-en-tu-vida"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/curiosidades/latidos-en-tu-vida"/>
+  <lastmod>2026-03-29</lastmod>
+  <priority>0.7</priority>
+</url>
 
-  <url>
-    <loc>https://calculenow.com/es/curiosidades/respiraciones-en-tu-vida</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/curiosidades/respiraciones-en-tu-vida"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/curiosidades/respiraciones-en-tu-vida"/>
-    <lastmod>2026-03-28</lastmod>
-    <priority>0.8</priority>
-  </url>
+<url>
+  <loc>https://calculenow.com/es/curiosidades/respiraciones-en-tu-vida</loc>
+  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/curiosidades/respiraciones-en-tu-vida"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/curiosity/breaths-in-your-life"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/curiosidades/respiraciones-en-tu-vida"/>
+  <lastmod>2026-03-29</lastmod>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://calculenow.com/en/curiosity/breaths-in-your-life</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/curiosity/breaths-in-your-life"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/curiosidades/respiraciones-en-tu-vida"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/curiosidades/respiraciones-en-tu-vida"/>
+  <lastmod>2026-03-29</lastmod>
+  <priority>0.7</priority>
+</url>
 
-  <url>
-    <loc>https://calculenow.com/es/curiosidades/pasos-en-tu-vida</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/curiosidades/pasos-en-tu-vida"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/curiosidades/pasos-en-tu-vida"/>
-    <lastmod>2026-03-28</lastmod>
-    <priority>0.8</priority>
-  </url>
+<url>
+  <loc>https://calculenow.com/es/curiosidades/pasos-en-tu-vida</loc>
+  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/curiosidades/pasos-en-tu-vida"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/curiosity/steps-in-your-life"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/curiosidades/pasos-en-tu-vida"/>
+  <lastmod>2026-03-29</lastmod>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://calculenow.com/en/curiosity/steps-in-your-life</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/curiosity/steps-in-your-life"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/curiosidades/pasos-en-tu-vida"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/curiosidades/pasos-en-tu-vida"/>
+  <lastmod>2026-03-29</lastmod>
+  <priority>0.7</priority>
+</url>
 
-  <url>
-    <loc>https://calculenow.com/es/curiosidades/veces-que-has-dormido</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/curiosidades/veces-que-has-dormido"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/curiosidades/veces-que-has-dormido"/>
-    <lastmod>2026-03-28</lastmod>
-    <priority>0.8</priority>
-  </url>
+<url>
+  <loc>https://calculenow.com/es/curiosidades/veces-que-has-dormido</loc>
+  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/curiosidades/veces-que-has-dormido"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/curiosity/times-youve-slept"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/curiosidades/veces-que-has-dormido"/>
+  <lastmod>2026-03-29</lastmod>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://calculenow.com/en/curiosity/times-youve-slept</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/curiosity/times-youve-slept"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/curiosidades/veces-que-has-dormido"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/curiosidades/veces-que-has-dormido"/>
+  <lastmod>2026-03-29</lastmod>
+  <priority>0.7</priority>
+</url>
 
-  <url>
-    <loc>https://calculenow.com/es/curiosidades/edad-perro</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/curiosidades/edad-perro"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/curiosidades/edad-perro"/>
-    <lastmod>2026-03-28</lastmod>
-    <priority>0.8</priority>
-  </url>
+<url>
+  <loc>https://calculenow.com/es/curiosidades/edad-perro</loc>
+  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/curiosidades/edad-perro"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/curiosity/dog-age"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/curiosidades/edad-perro"/>
+  <lastmod>2026-03-29</lastmod>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://calculenow.com/en/curiosity/dog-age</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/curiosity/dog-age"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/curiosidades/edad-perro"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/curiosidades/edad-perro"/>
+  <lastmod>2026-03-29</lastmod>
+  <priority>0.7</priority>
+</url>
 
-  <url>
-    <loc>https://calculenow.com/es/curiosidades/edad-en-otros-planetas</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/curiosidades/edad-en-otros-planetas"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/curiosidades/edad-en-otros-planetas"/>
-    <lastmod>2026-03-28</lastmod>
-    <priority>0.8</priority>
-  </url>
+<url>
+  <loc>https://calculenow.com/es/curiosidades/edad-en-otros-planetas</loc>
+  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/curiosidades/edad-en-otros-planetas"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/curiosity/age-on-other-planets"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/curiosidades/edad-en-otros-planetas"/>
+  <lastmod>2026-03-29</lastmod>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://calculenow.com/en/curiosity/age-on-other-planets</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://calculenow.com/en/curiosity/age-on-other-planets"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://calculenow.com/es/curiosidades/edad-en-otros-planetas"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/curiosidades/edad-en-otros-planetas"/>
+  <lastmod>2026-03-29</lastmod>
+  <priority>0.7</priority>
+</url>
 
   <!-- ═══════════════════════════════════════════════════════════════════════
        PÁGINAS LEGALES Y CONTACTO

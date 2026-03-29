@@ -131,7 +131,7 @@ export const i18n = {
       math:    { label: "Math",      icon: "📐", indexUrl: "/en/math/" },
       utils:   { label: "Utilities", icon: "🔧", indexUrl: "/en/utils/" },
       administration: { label: "Administration", icon: "🏛️", indexUrl: "/en/administration/" },
-      // Curiosity solo aparece en EN cuando tenga herramientas propias.
+      curiosity:      { label: "Curiosities",    icon: "🔮", indexUrl: "/en/curiosity/" },
     },
 
     links: {
@@ -174,6 +174,14 @@ export const i18n = {
         { id: "iban", url: "/en/administration/iban-validator", name: "🏛️ IBAN Validator",     description: "Check whether an IBAN number is correct and get a breakdown of the country and account number.", date: "2026-03-29" },
         { id: "bic",  url: "/en/administration/bic-validator",  name: "🏦 BIC/SWIFT Validator", description: "Check a BIC/SWIFT bank code and identify the country and branch.",                                date: "2026-03-29" },
         { id: "vat",  url: "/en/administration/vat-validator",  name: "🧾 VAT Validator",       description: "Validate the VAT number of any European company and check the format by country.",                date: "2026-03-29" },
+      ],
+      curiosity: [
+        { id: "heartbeats", url: "/en/curiosity/heartbeats-in-your-life", name: "❤️ Heartbeats",      description: "Find out how many times your heart has beaten since you were born.",              date: "2026-03-29" },
+        { id: "breaths",    url: "/en/curiosity/breaths-in-your-life",    name: "🌬️ Breaths",          description: "Find out how many times your lungs have breathed since you were born.",           date: "2026-03-29" },
+        { id: "steps",      url: "/en/curiosity/steps-in-your-life",      name: "👣 Steps",             description: "Find out how many steps you have taken and how many kilometres they add up to.",  date: "2026-03-29" },
+        { id: "sleep",      url: "/en/curiosity/times-youve-slept",       name: "😴 Times slept",       description: "Find out how many nights you have slept and how many years you spent sleeping.",  date: "2026-03-29" },
+        { id: "dog",        url: "/en/curiosity/dog-age",                 name: "🐶 Dog age",            description: "Convert your dog's age to human years using the scientific formula.",            date: "2026-03-29" },
+        { id: "planets",    url: "/en/curiosity/age-on-other-planets",    name: "🪐 Age on planets",     description: "Find out how old you would be on Mercury, Mars or Neptune.",                     date: "2026-03-29" },
       ],
     },
 

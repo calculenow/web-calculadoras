@@ -4,22 +4,74 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>(function(){const t=localStorage.getItem("theme");if(t==="dark")document.documentElement.classList.add("dark");})();</script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "¿Cuántos Años Tiene tu Perro en Años Humanos?",
+      "url": "https://calculenow.com/es/curiosidades/edad-perro",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "es",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+      "description": "Convierte la edad de tu perro a años humanos con la fórmula científica. Mucho más preciso que multiplicar por 7."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Por qué no es correcto multiplicar la edad del perro por 7?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Porque los perros maduran muy rápido en sus primeros años (un perro de 1 año ya es sexualmente maduro, equivalente a unos 31 años humanos) y luego envejecen más despacio. La regla del ×7 no tiene en cuenta esta progresión no lineal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuál es la fórmula científica para calcular la edad del perro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un estudio de la Universidad de California de 2019 propuso la fórmula logarítmica: años humanos = 16 × ln(edad del perro) + 31. Se basa en cambios epigenéticos en el ADN que son comparables entre perros y humanos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Los perros grandes envejecen más rápido que los pequeños?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. En general, las razas grandes tienen una esperanza de vida más corta que las pequeñas. Un Gran Danés puede considerarse anciano a los 7-8 años, mientras que un Chihuahua puede llegar a los 15-18 con buena salud."
+          }
+        }
+      ]
+    }
+    </script>
+
     <title>¿Cuántos Años Tiene tu Perro en Años Humanos? | Calculenow</title>
     <link rel="canonical" href="https://calculenow.com/es/curiosidades/edad-perro" />
     <link rel="alternate" hreflang="es" href="https://calculenow.com/es/curiosidades/edad-perro" />
     <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/curiosidades/edad-perro" />
+
     <meta name="description" content="Convierte la edad de tu perro a años humanos con la fórmula científica. Mucho más preciso que multiplicar por 7. Solo introduce la edad de tu perro." />
+
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://calculenow.com/es/curiosidades/edad-perro" />
     <meta property="og:title" content="¿Cuántos Años Tiene tu Perro en Años Humanos? — Calculenow" />
-    <meta property="og:description" content="Convierte la edad de tu perro a años humanos con la fórmula científica." />
+    <meta property="og:description" content="Convierte la edad de tu perro a años humanos con la fórmula científica. Mucho más preciso que multiplicar por 7." />
     <meta property="og:image" content="https://calculenow.com/images/og-es.jpg" />
     <meta property="og:locale" content="es_ES" />
     <meta property="og:site_name" content="Calculenow" />
+
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="¿Cuántos Años Tiene tu Perro en Años Humanos?" />
     <meta name="twitter:description" content="Convierte la edad de tu perro a años humanos con la fórmula científica." />
     <meta name="twitter:image" content="https://calculenow.com/images/og-es.jpg" />
+
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
     <link rel="stylesheet" href="/css/styles.css" />
@@ -33,12 +85,16 @@
         <div class="curiosidad-emoji">🐶</div>
         <h1>¿Cuántos Años Tiene tu Perro en Años Humanos?</h1>
         <p>Olvida la regla del "multiplicar por 7". La ciencia tiene una fórmula mucho más precisa. Introduce la edad de tu perro y descúbrelo.</p>
+
         <div class="form-group">
           <label for="edad-perro">Edad de tu perro (años)</label>
           <input id="edad-perro" class="field" type="number" placeholder="Ej: 5" min="0.5" max="25" step="0.5" />
         </div>
+
         <button class="btn btn-curiosidad" id="btn-calcular" type="button">Calcular 🐶</button>
+
         <div class="result curiosidad-result" id="resultado"></div>
+
         <div class="related-tools">
           <p><strong>Más curiosidades:</strong></p>
           <ul>
@@ -48,13 +104,18 @@
           </ul>
         </div>
       </div>
+
       <section class="legal-content">
         <h2>¿Por qué no es correcto multiplicar por 7?</h2>
-        <p>La regla de "un año de perro = 7 años humanos" es una simplificación incorrecta. Los perros maduran muy rápido en sus primeros años (un perro de 1 año ya es sexualmente maduro) y luego envejecen más lentamente. Un estudio de la Universidad de California publicado en 2020 propuso una fórmula logarítmica basada en cambios en el ADN.</p>
+        <p>La regla de "un año de perro = 7 años humanos" es una simplificación incorrecta. Los perros maduran muy rápido en sus primeros años — un perro de 1 año ya es sexualmente maduro, lo que en humanos equivale a unos 31 años — y luego envejecen más lentamente. Un estudio de la Universidad de California publicado en 2019 propuso una fórmula logarítmica basada en cambios epigenéticos en el ADN.</p>
+
         <div class="formule">Años humanos = 16 × ln(edad del perro) + 31</div>
+
         <div class="table-container">
           <table>
-            <thead><tr><th>Edad del perro</th><th>Regla ×7</th><th>Fórmula científica</th></tr></thead>
+            <thead>
+              <tr><th>Edad del perro</th><th>Regla ×7</th><th>Fórmula científica</th></tr>
+            </thead>
             <tbody>
               <tr><td>1 año</td><td>7</td><td>31</td></tr>
               <tr><td>2 años</td><td>14</td><td>42</td></tr>
@@ -64,7 +125,57 @@
             </tbody>
           </table>
         </div>
+
+        <h2>Curiosidades sobre la edad de los perros</h2>
+        <ul>
+          <li>Las razas grandes envejecen más rápido que las pequeñas. Un Gran Danés puede ser "anciano" a los 7 años, mientras un Chihuahua puede llegar saludable a los 18.</li>
+          <li>El perro más viejo registrado oficialmente fue Bobi, un mastín portugués que falleció en 2023 con 31 años — aunque el récord fue puesto en entredicho.</li>
+          <li>El primer año de vida de un perro equivale a unos 31 años humanos según la fórmula científica. El segundo año añade otros 11 más.</li>
+          <li>A partir de los 7 años, la mayoría de los veterinarios consideran a un perro como "senior" independientemente de su tamaño.</li>
+        </ul>
       </section>
+
+      <div class="faq-section">
+        <h3>Preguntas frecuentes</h3>
+
+        <details>
+          <summary>¿Por qué no es correcto multiplicar por 7?</summary>
+          <div class="faq-content">
+            <p>Porque los perros maduran muy rápido al principio y luego más despacio. Un perro de 1 año ya equivale a unos 31 años humanos, no a 7. La fórmula logarítmica refleja mejor esta progresión.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Cuál es la fórmula científica?</summary>
+          <div class="faq-content">
+            <p>Años humanos = 16 × ln(edad del perro) + 31. Propuesta por un estudio de la Universidad de California en 2019 basado en cambios epigenéticos en el ADN.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Los perros grandes envejecen más rápido?</summary>
+          <div class="faq-content">
+            <p>Sí, en general las razas grandes tienen una esperanza de vida más corta. Un Gran Danés puede ser anciano a los 7-8 años, mientras un Chihuahua puede llegar a los 15-18 con buena salud.</p>
+          </div>
+        </details>
+      </div>
+      <div id="perro-i18n" style="display:none"
+        data-locale="es-ES"
+        data-ms-error="Introduce la edad de tu perro."
+        data-label-subtitle="en años humanos 🐶"
+        data-label-years="años"
+        data-label-dog-age="Edad del perro"
+        data-label-stage="Etapa vital"
+        data-label-scientific="Años humanos (fórmula científica)"
+        data-label-rule7="Regla popular (×7)"
+        data-stage-puppy="🐾 Cachorro"
+        data-stage-young="🐕 Joven"
+        data-stage-adult="🦮 Adulto"
+        data-stage-mature="🐕‍🦺 Maduro"
+        data-stage-senior="👴 Senior"
+        data-share-url="https://calculenow.com/es/curiosidades/edad-perro"
+        data-share-text="¡Mi perro tiene {edad} años pero en años humanos tiene {humana}! 🐶 ¿Y el tuyo?">
+      </div>
     </main>
     <footer></footer>
     <div class="cookie-banner" id="cookie-banner">
@@ -86,11 +197,10 @@
         </div>
       </div>
     </div>
-    
     <script src="/js/ads.js" async defer></script>
     <script src="/js/layout.js" defer></script>
     <script src="/js/buscador.js" defer></script>
     <script src="/js/core.js" defer></script>
-    <script src="/js/curiosidades/edad-perro.js" defer></script>
+    <script type="module" src="/js/curiosidades/edad-perro.js"></script>
   </body>
 </html>

@@ -137,6 +137,8 @@
 /en/utils/                                    /en/utils/index.html                               200
 /en/administration                            /en/administration/index.html                      200
 /en/administration/                           /en/administration/index.html                      200
+/en/curiosity                                 /en/curiosity/index.html                           200
+/en/curiosity/                                /en/curiosity/index.html                           200
 
 # Finance
 /en/finance/vat-calculator                    /en/finance/vat-calculator.html                    200
@@ -171,6 +173,14 @@
 /en/administration/iban-validator             /en/administration/iban-validator.html             200
 /en/administration/bic-validator              /en/administration/bic-validator.html              200
 /en/administration/vat-validator              /en/administration/vat-validator.html              200
+
+# Curiosity
+/en/curiosity/heartbeats-in-your-life         /en/curiosity/heartbeats-in-your-life.html         200
+/en/curiosity/breaths-in-your-life            /en/curiosity/breaths-in-your-life.html            200
+/en/curiosity/steps-in-your-life              /en/curiosity/steps-in-your-life.html              200
+/en/curiosity/times-youve-slept               /en/curiosity/times-youve-slept.html               200
+/en/curiosity/dog-age                         /en/curiosity/dog-age.html                         200
+/en/curiosity/age-on-other-planets            /en/curiosity/age-on-other-planets.html            200
 
 # Legales EN
 /en/legal-notice                              /en/legal-notice.html                              200

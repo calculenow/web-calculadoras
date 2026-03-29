@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>(function(){const t=localStorage.getItem("theme");if(t==="dark")document.documentElement.classList.add("dark");})();</script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Dog Age in Human Years Calculator",
+      "url": "https://calculenow.com/en/curiosity/dog-age",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "en",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "description": "Convert your dog's age to human years using the scientific formula. Far more accurate than multiplying by 7."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why is multiplying a dog's age by 7 wrong?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Because dogs mature very quickly in their first years (a 1-year-old dog is already sexually mature, equivalent to about 31 human years) and then age more slowly. The x7 rule does not account for this non-linear progression." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the scientific formula for dog age?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A 2019 study from the University of California proposed the logarithmic formula: human years = 16 × ln(dog age) + 31. It is based on epigenetic changes in DNA that are comparable between dogs and humans." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do large dogs age faster than small ones?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. In general, large breeds have a shorter lifespan than small ones. A Great Dane can be considered elderly at 7-8 years, while a Chihuahua can reach 15-18 in good health." }
+        }
+      ]
+    }
+    </script>
+
+    <title>Dog Age in Human Years Calculator | Calculenow</title>
+    <link rel="canonical" href="https://calculenow.com/en/curiosity/dog-age" />
+    <link rel="alternate" hreflang="en" href="https://calculenow.com/en/curiosity/dog-age" />
+    <link rel="alternate" hreflang="es" href="https://calculenow.com/es/curiosidades/edad-perro" />
+    <link rel="alternate" hreflang="x-default" href="https://calculenow.com/es/curiosidades/edad-perro" />
+    <meta name="description" content="Convert your dog's age to human years using the scientific formula. Much more accurate than multiplying by 7. Just enter your dog's age." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calculenow.com/en/curiosity/dog-age" />
+    <meta property="og:title" content="Dog Age in Human Years Calculator — Calculenow" />
+    <meta property="og:description" content="Convert your dog's age to human years using the scientific formula. Much more accurate than multiplying by 7." />
+    <meta property="og:image" content="https://calculenow.com/images/og-en.jpg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Calculenow" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Dog Age in Human Years Calculator" />
+    <meta name="twitter:description" content="Convert your dog's age to human years using the scientific formula." />
+    <meta name="twitter:image" content="https://calculenow.com/images/og-en.jpg" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC6PKX2V" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header></header>
+    <main>
+      <div class="card curiosidad-card">
+        <div class="curiosidad-emoji">🐶</div>
+        <h1>Dog Age in Human Years</h1>
+        <p>Forget the "multiply by 7" rule. Science has a much more accurate formula. Enter your dog's age and find out.</p>
+        <div class="form-group">
+          <label for="edad-perro">Your dog's age (years)</label>
+          <input id="edad-perro" class="field" type="number" placeholder="E.g. 5" min="0.5" max="25" step="0.5" />
+        </div>
+        <button class="btn btn-curiosidad" id="btn-calcular" type="button">Calculate 🐶</button>
+        <div class="result curiosidad-result" id="resultado"></div>
+        <div id="perro-i18n" style="display:none"
+          data-locale="en-GB"
+          data-ms-error="Please enter your dog's age."
+          data-label-subtitle="in human years 🐶"
+          data-label-years="years"
+          data-label-dog-age="Dog's age"
+          data-label-stage="Life stage"
+          data-label-scientific="Human years (scientific formula)"
+          data-label-rule7="Popular rule (×7)"
+          data-stage-puppy="🐾 Puppy"
+          data-stage-young="🐕 Young"
+          data-stage-adult="🦮 Adult"
+          data-stage-mature="🐕‍🦺 Mature"
+          data-stage-senior="👴 Senior"
+          data-share-url="https://calculenow.com/en/curiosity/dog-age"
+          data-share-text="My dog is {edad} years old but in human years they are {humana}! 🐶 What about yours?">
+        </div>
+        <div class="related-tools">
+          <p><strong>More curiosities:</strong></p>
+          <ul>
+            <li><a href="/en/curiosity/age-on-other-planets">🪐 Your age on other planets</a></li>
+            <li><a href="/en/curiosity/heartbeats-in-your-life">❤️ How many times has your heart beaten?</a></li>
+            <li><a href="/en/curiosity/steps-in-your-life">👣 How many steps have you taken?</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="legal-content">
+        <h2>Why is multiplying by 7 wrong?</h2>
+        <p>The "one dog year = 7 human years" rule is an inaccurate simplification. Dogs mature very quickly in their first years — a 1-year-old dog is already sexually mature, equivalent to around 31 human years — and then age more slowly. A 2019 study from the University of California proposed a logarithmic formula based on epigenetic changes in DNA.</p>
+        <div class="formule">Human years = 16 × ln(dog age) + 31</div>
+        <div class="table-container">
+          <table>
+            <thead><tr><th>Dog's age</th><th>Rule ×7</th><th>Scientific formula</th></tr></thead>
+            <tbody>
+              <tr><td>1 year</td><td>7</td><td>31</td></tr>
+              <tr><td>2 years</td><td>14</td><td>42</td></tr>
+              <tr><td>5 years</td><td>35</td><td>57</td></tr>
+              <tr><td>10 years</td><td>70</td><td>68</td></tr>
+              <tr><td>15 years</td><td>105</td><td>74</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h2>Dog age curiosities</h2>
+        <ul>
+          <li>Large breeds age faster than small ones. A Great Dane can be "elderly" at 7, while a Chihuahua can reach 18 in good health.</li>
+          <li>The oldest officially recorded dog was Bobi, a Portuguese mastiff that passed away in 2023 aged 31 — although the record was later disputed.</li>
+          <li>The first year of a dog's life equals about 31 human years according to the scientific formula. The second adds another 11.</li>
+        </ul>
+      </section>
+
+      <div class="faq-section">
+        <h3>Frequently asked questions</h3>
+        <details><summary>Why is multiplying by 7 wrong?</summary><div class="faq-content"><p>Because dogs mature quickly at first and then more slowly. A 1-year-old dog already equals around 31 human years, not 7.</p></div></details>
+        <details><summary>What is the scientific formula?</summary><div class="faq-content"><p>Human years = 16 × ln(dog age) + 31. Proposed by a UC San Diego study in 2019 based on epigenetic DNA changes.</p></div></details>
+        <details><summary>Do large dogs age faster?</summary><div class="faq-content"><p>Yes, large breeds generally have shorter lifespans. A Great Dane can be elderly at 7-8, while a Chihuahua can reach 15-18 in good health.</p></div></details>
+      </div>
+    </main>
+    <footer></footer>
+    <div class="cookie-banner" id="cookie-banner">
+      <div id="cookie-main-view">
+        <p>We use cookies to improve your experience. <a href="/en/cookies">View cookie policy</a></p>
+        <div class="cookie-buttons">
+          <button class="accept-cookies" id="btn-accept-all">Accept all</button>
+          <button class="reject-cookies" id="btn-reject-all">Reject all</button>
+          <button class="settings-cookies" id="btn-open-settings">Settings</button>
+        </div>
+      </div>
+      <div id="cookie-settings-view" style="display:none">
+        <p><strong>Customize your preferences:</strong></p>
+        <div class="cookie-option"><input type="checkbox" id="check-necessary" checked disabled /><label>Necessary (Required)</label></div>
+        <div class="cookie-option"><input type="checkbox" id="check-analytics" /><label>Analytics</label></div>
+        <div class="cookie-option"><input type="checkbox" id="check-marketing" /><label>Marketing</label></div>
+        <div class="cookie-buttons" style="margin-top:15px">
+          <button class="accept-cookies" id="btn-save-settings">Save settings</button>
+          <button class="settings-cookies" id="btn-back">Back</button>
+        </div>
+      </div>
+    </div>
+    <script src="/js/ads.js" async defer></script>
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/buscador.js" defer></script>
+    <script src="/js/core.js" defer></script>
+    <script type="module" src="/js/curiosidades/edad-perro.js"></script>
+  </body>
+</html>

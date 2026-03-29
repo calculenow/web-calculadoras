@@ -1034,9 +1034,7 @@ table tr:last-child td {
 .curiosidad-card p {
   margin-bottom: 1.5rem;
 }
-.curiosidad-card .form-row {
-  text-align: left;
-}
+.curiosidad-card .form-row,
 .curiosidad-card .form-group {
   text-align: left;
 }
@@ -1061,34 +1059,84 @@ table tr:last-child td {
   margin-bottom: 1.25rem;
 }
 
-.curiosidad-acciones {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 0.5rem;
-}
-.curiosidad-acciones .btn-share {
-  background: var(--accent);
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.8rem;
-  font-family: inherit;
-  font-weight: 600;
-  transition: filter 0.2s ease;
-}
-.curiosidad-acciones .btn-share:hover {
-  filter: brightness(1.1);
-}
-
 .btn-curiosidad {
   width: 100%;
   margin-bottom: 0;
 }
 
+.share-actions {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.share-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.5;
+  margin: 0;
+}
+
+.share-btns {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  text-decoration: none;
+  color: white;
+}
+.share-btn svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.share-btn:hover {
+  transform: scale(1.12);
+  filter: brightness(1.1);
+}
+.share-btn:active {
+  transform: scale(0.95);
+}
+.share-btn--whatsapp {
+  background: #25d366;
+}
+.share-btn--twitter {
+  background: #000000;
+}
+.share-btn--bluesky {
+  background: #0085ff;
+}
+.share-btn--telegram {
+  background: #2aabee;
+}
+.share-btn--facebook {
+  background: #1877f2;
+}
+.share-btn--native {
+  background: var(--accent);
+}
+
+@media (max-width: 480px) {
+  .curiosidad-resumen .curiosidad-numero {
+    font-size: 1.6rem;
+  }
+}
 .validator-card .validator-field {
   font-family: "Courier New", Courier, monospace;
   letter-spacing: 0.05em;

@@ -1,6 +1,7 @@
 // 6-components/_curiosidades.scss
 // Estilos compartidos para todas las calculadoras de la categoría Curiosidades.
 
+// --- Card ---
 .curiosidad-card {
   text-align: center;
 
@@ -10,25 +11,14 @@
     display: block;
   }
 
-  h1 {
-    margin-bottom: 0.5rem;
-  }
+  h1 { margin-bottom: 0.5rem; }
+  p  { margin-bottom: 1.5rem; }
 
-  p {
-    margin-bottom: 1.5rem;
-  }
-
-  // Centrar el formulario
-  .form-row {
-    text-align: left;
-  }
-
-  .form-group {
-    text-align: left;
-  }
+  .form-row,
+  .form-group { text-align: left; }
 }
 
-// Número grande del resultado
+// --- Resultado ---
 .curiosidad-resumen {
   text-align: center;
 
@@ -52,34 +42,74 @@
   }
 }
 
-// Botones de acción (copiar + compartir)
-.curiosidad-acciones {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 0.5rem;
-
-  .btn-share {
-    background: var(--accent);
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.8rem;
-    font-family: inherit;
-    font-weight: 600;
-    transition: filter 0.2s ease;
-
-    &:hover {
-      filter: brightness(1.1);
-    }
-  }
-}
-
-// Botón principal de curiosidades
+// --- Botón principal ---
 .btn-curiosidad {
   width: 100%;
   margin-bottom: 0;
+}
+
+// --- Botones de compartir ---
+.share-actions {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.share-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.5;
+  margin: 0;
+}
+
+.share-btns {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  text-decoration: none;
+  color: white;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    transform: scale(1.12);
+    filter: brightness(1.1);
+  }
+
+  &:active { transform: scale(0.95); }
+
+  &--whatsapp { background: #25d366; }
+  &--twitter  { background: #000000; }
+  &--bluesky  { background: #0085ff; }
+  &--telegram { background: #2aabee; }
+  &--facebook { background: #1877f2; }
+  &--native   { background: var(--accent); }
+}
+
+// --- Responsive ---
+@media (max-width: 480px) {
+  .curiosidad-resumen .curiosidad-numero {
+    font-size: 1.6rem;
+  }
 }
